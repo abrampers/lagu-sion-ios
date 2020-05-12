@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2118EC91246921020051328F /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2118EC90246921010051328F /* Publisher+Extension.swift */; };
+		218B43BF2467F12A00E18B15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43BE2467F12A00E18B15 /* AppDelegate.swift */; };
+		218B43C12467F12A00E18B15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43C02467F12A00E18B15 /* SceneDelegate.swift */; };
+		218B43C42467F12A00E18B15 /* LaguSion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 218B43C22467F12A00E18B15 /* LaguSion.xcdatamodeld */; };
+		218B43C62467F12A00E18B15 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43C52467F12A00E18B15 /* RootView.swift */; };
+		218B43C82467F12D00E18B15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218B43C72467F12D00E18B15 /* Assets.xcassets */; };
+		218B43CB2467F12D00E18B15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218B43CA2467F12D00E18B15 /* Preview Assets.xcassets */; };
+		218B43CE2467F12D00E18B15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218B43CC2467F12D00E18B15 /* LaunchScreen.storyboard */; };
+		218B43DA2467FD7200E18B15 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43D92467FD7200E18B15 /* MainView.swift */; };
+		218B43DD24683AFC00E18B15 /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 218B43DC24683AFC00E18B15 /* CombineGRPC */; };
+		218B43E124683E7100E18B15 /* TestCombineGRPCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43E024683E7100E18B15 /* TestCombineGRPCView.swift */; };
+		218B43EA2468431F00E18B15 /* echo_service.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43E72468431F00E18B15 /* echo_service.pb.swift */; };
+		218B43EB2468431F00E18B15 /* echo_service.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43E82468431F00E18B15 /* echo_service.grpc.swift */; };
+		21C8D04824699F920041D063 /* GRPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8D04724699F920041D063 /* GRPCServiceManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2118EC90246921010051328F /* Publisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
+		218B43BB2467F12A00E18B15 /* Lagu Sion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lagu Sion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		218B43BE2467F12A00E18B15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		218B43C02467F12A00E18B15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		218B43C32467F12A00E18B15 /* LaguSion.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LaguSion.xcdatamodel; sourceTree = "<group>"; };
+		218B43C52467F12A00E18B15 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		218B43C72467F12D00E18B15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		218B43CA2467F12D00E18B15 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		218B43CD2467F12D00E18B15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		218B43CF2467F12D00E18B15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		218B43D92467FD7200E18B15 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		218B43E024683E7100E18B15 /* TestCombineGRPCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCombineGRPCView.swift; sourceTree = "<group>"; };
+		218B43E72468431F00E18B15 /* echo_service.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.pb.swift; sourceTree = "<group>"; };
+		218B43E82468431F00E18B15 /* echo_service.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.grpc.swift; sourceTree = "<group>"; };
+		21C8D04724699F920041D063 /* GRPCServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRPCServiceManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		218B43B82467F12A00E18B15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				218B43DD24683AFC00E18B15 /* CombineGRPC in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2118EC8F246920D80051328F /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2118EC90246921010051328F /* Publisher+Extension.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		218B43B22467F12A00E18B15 = {
+			isa = PBXGroup;
+			children = (
+				218B43BD2467F12A00E18B15 /* LaguSion */,
+				218B43BC2467F12A00E18B15 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		218B43BC2467F12A00E18B15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				218B43BB2467F12A00E18B15 /* Lagu Sion.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		218B43BD2467F12A00E18B15 /* LaguSion */ = {
+			isa = PBXGroup;
+			children = (
+				2118EC8F246920D80051328F /* Tools */,
+				218B43E224683EE800E18B15 /* Services */,
+				218B43D52467FB8500E18B15 /* UI */,
+				218B43BE2467F12A00E18B15 /* AppDelegate.swift */,
+				218B43C02467F12A00E18B15 /* SceneDelegate.swift */,
+				218B43C72467F12D00E18B15 /* Assets.xcassets */,
+				218B43CC2467F12D00E18B15 /* LaunchScreen.storyboard */,
+				218B43CF2467F12D00E18B15 /* Info.plist */,
+				218B43C22467F12A00E18B15 /* LaguSion.xcdatamodeld */,
+				218B43C92467F12D00E18B15 /* Preview Content */,
+			);
+			path = LaguSion;
+			sourceTree = "<group>";
+		};
+		218B43C92467F12D00E18B15 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				218B43CA2467F12D00E18B15 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		218B43D52467FB8500E18B15 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				218B43DF24683E5100E18B15 /* TestCombineGRPCView */,
+				218B43D82467FD3900E18B15 /* MainView */,
+				218B43C52467F12A00E18B15 /* RootView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		218B43D82467FD3900E18B15 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				218B43D92467FD7200E18B15 /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		218B43DF24683E5100E18B15 /* TestCombineGRPCView */ = {
+			isa = PBXGroup;
+			children = (
+				218B43E024683E7100E18B15 /* TestCombineGRPCView.swift */,
+			);
+			path = TestCombineGRPCView;
+			sourceTree = "<group>";
+		};
+		218B43E224683EE800E18B15 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				218B43E324683EF100E18B15 /* gRPC */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		218B43E324683EF100E18B15 /* gRPC */ = {
+			isa = PBXGroup;
+			children = (
+				218B43E62468431F00E18B15 /* Generated */,
+				21C8D04724699F920041D063 /* GRPCServiceManager.swift */,
+			);
+			path = gRPC;
+			sourceTree = "<group>";
+		};
+		218B43E62468431F00E18B15 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				218B43E72468431F00E18B15 /* echo_service.pb.swift */,
+				218B43E82468431F00E18B15 /* echo_service.grpc.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		218B43BA2467F12A00E18B15 /* LaguSion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 218B43D22467F12D00E18B15 /* Build configuration list for PBXNativeTarget "LaguSion" */;
+			buildPhases = (
+				218B43B72467F12A00E18B15 /* Sources */,
+				218B43B82467F12A00E18B15 /* Frameworks */,
+				218B43B92467F12A00E18B15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LaguSion;
+			packageProductDependencies = (
+				218B43DC24683AFC00E18B15 /* CombineGRPC */,
+			);
+			productName = LaguSion;
+			productReference = 218B43BB2467F12A00E18B15 /* Lagu Sion.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		218B43B32467F12A00E18B15 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Abram Situmorang";
+				TargetAttributes = {
+					218B43BA2467F12A00E18B15 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 218B43B62467F12A00E18B15 /* Build configuration list for PBXProject "LaguSion" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 218B43B22467F12A00E18B15;
+			packageReferences = (
+				218B43DB24683AFC00E18B15 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */,
+			);
+			productRefGroup = 218B43BC2467F12A00E18B15 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				218B43BA2467F12A00E18B15 /* LaguSion */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		218B43B92467F12A00E18B15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				218B43CE2467F12D00E18B15 /* LaunchScreen.storyboard in Resources */,
+				218B43CB2467F12D00E18B15 /* Preview Assets.xcassets in Resources */,
+				218B43C82467F12D00E18B15 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		218B43B72467F12A00E18B15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				218B43C42467F12A00E18B15 /* LaguSion.xcdatamodeld in Sources */,
+				21C8D04824699F920041D063 /* GRPCServiceManager.swift in Sources */,
+				218B43BF2467F12A00E18B15 /* AppDelegate.swift in Sources */,
+				218B43E124683E7100E18B15 /* TestCombineGRPCView.swift in Sources */,
+				218B43EB2468431F00E18B15 /* echo_service.grpc.swift in Sources */,
+				2118EC91246921020051328F /* Publisher+Extension.swift in Sources */,
+				218B43C62467F12A00E18B15 /* RootView.swift in Sources */,
+				218B43DA2467FD7200E18B15 /* MainView.swift in Sources */,
+				218B43C12467F12A00E18B15 /* SceneDelegate.swift in Sources */,
+				218B43EA2468431F00E18B15 /* echo_service.pb.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		218B43CC2467F12D00E18B15 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				218B43CD2467F12D00E18B15 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		218B43D02467F12D00E18B15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		218B43D12467F12D00E18B15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		218B43D32467F12D00E18B15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"LaguSion/Preview Content\"";
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
+				INFOPLIST_FILE = LaguSion/Info.plist;
+				INFOPLIST_PREPROCESS = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = abrampers.LaguSion;
+				PRODUCT_NAME = "Lagu Sion";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		218B43D42467F12D00E18B15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"LaguSion/Preview Content\"";
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
+				INFOPLIST_FILE = LaguSion/Info.plist;
+				INFOPLIST_PREPROCESS = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = abrampers.LaguSion;
+				PRODUCT_NAME = "Lagu Sion";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		218B43B62467F12A00E18B15 /* Build configuration list for PBXProject "LaguSion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				218B43D02467F12D00E18B15 /* Debug */,
+				218B43D12467F12D00E18B15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		218B43D22467F12D00E18B15 /* Build configuration list for PBXNativeTarget "LaguSion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				218B43D32467F12D00E18B15 /* Debug */,
+				218B43D42467F12D00E18B15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		218B43DB24683AFC00E18B15 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vyshane/grpc-swift-combine.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		218B43DC24683AFC00E18B15 /* CombineGRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 218B43DB24683AFC00E18B15 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */;
+			productName = CombineGRPC;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		218B43C22467F12A00E18B15 /* LaguSion.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				218B43C32467F12A00E18B15 /* LaguSion.xcdatamodel */,
+			);
+			currentVersion = 218B43C32467F12A00E18B15 /* LaguSion.xcdatamodel */;
+			path = LaguSion.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 218B43B32467F12A00E18B15 /* Project object */;
+}
