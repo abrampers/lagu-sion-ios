@@ -1,0 +1,4 @@
+module CNIOBoringSSL {
+umbrella "/Users/abrampers/Documents/Projects/lagu-sion-ios/LaguSion/DerivedData/LaguSion/SourcePackages/checkouts/swift-nio-ssl/Sources/CNIOBoringSSL/include"
+export *
+}

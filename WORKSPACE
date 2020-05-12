@@ -9,7 +9,7 @@ git_repository(
 git_repository(
     name = "build_bazel_rules_swift",
     remote = "https://github.com/bazelbuild/rules_swift.git",
-    tag = "0.13.0",
+    commit = "35ef1d6ebd7adb8d20c096bb4355cf41c9a0b5cf",
 )
 
 git_repository(
