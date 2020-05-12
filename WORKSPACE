@@ -54,54 +54,54 @@ new_git_repository(
     name = "com_github_vyshane_grpc_swift_combine",
     remote = "https://github.com/vyshane/grpc-swift-combine.git",
     tag = "0.10.0",
-    build_file = "@//:LaguSion/ThirdParty/CombineGRPC/BUILD.combine-grpc",
+    build_file = "@//:third_party/CombineGRPC/BUILD.combine-grpc",
 )
 
 new_git_repository(
     name = "com_github_grpc_grpc_swift_local",
     remote = "https://github.com/grpc/grpc-swift.git",
     tag = "1.0.0-alpha.11",
-    build_file = "@//:LaguSion/ThirdParty/grpc-swift/BUILD.grpc-swift",
+    build_file = "@//:third_party/grpc-swift/BUILD.grpc-swift",
 )
 
 new_git_repository(
     name = "com_github_apple_swift_nio",
     remote = "https://github.com/apple/swift-nio.git",
     tag = "2.14.0",
-    build_file = "@//:LaguSion/ThirdParty/swift-nio/BUILD.swift-nio",
+    build_file = "@//:third_party/swift-nio/BUILD.swift-nio",
 )
 
 new_git_repository(
     name = "com_github_apple_swift_nio_http2",
     remote = "https://github.com/apple/swift-nio-http2.git",
     tag = "1.8.0",
-    build_file = "@//:LaguSion/ThirdParty/swift-nio-http2/BUILD.swift-nio-http2",
+    build_file = "@//:third_party/swift-nio-http2/BUILD.swift-nio-http2",
 )
 
 new_git_repository(
     name = "com_github_apple_swift_nio_ssl",
     remote = "https://github.com/apple/swift-nio-ssl.git",
     tag = "2.6.2",
-    build_file = "@//:LaguSion/ThirdParty/swift-nio-ssl/BUILD.swift-nio-ssl",
+    build_file = "@//:third_party/swift-nio-ssl/BUILD.swift-nio-ssl",
 )
 
 new_git_repository(
     name = "com_github_apple_swift_nio_transport_services",
     remote = "https://github.com/apple/swift-nio-transport-services.git",
     tag = "1.3.0",
-    build_file = "@//:LaguSion/ThirdParty/swift-nio-transport-service/BUILD.swift-nio-transport-service",
+    build_file = "@//:third_party/swift-nio-transport-service/BUILD.swift-nio-transport-service",
 )
 
 new_git_repository(
     name = "com_github_apple_swift_protobuf_local",
     remote = "https://github.com/apple/swift-protobuf.git",
     tag = "1.8.0",
-    build_file = "@//:LaguSion/ThirdParty/SwiftProtobuf/BUILD.swift-protobuf",
+    build_file = "@//:third_party/SwiftProtobuf/BUILD.swift-protobuf",
 )
 
 new_git_repository(
     name = "com_github_apple_swift_log",
     remote = "https://github.com/apple/swift-log.git",
     tag = "1.0.0",
-    build_file = "@//:LaguSion/ThirdParty/swift-log/BUILD.swift-log",
+    build_file = "@//:third_party/swift-log/BUILD.swift-log",
 )
