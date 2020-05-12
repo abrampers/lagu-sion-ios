@@ -1,0 +1,78 @@
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+objc_library(
+    name = "CNIOLinux",
+    module_name = "CNIOLinux",
+    srcs = glob(["Sources/CNIOLinux/*.c"]),
+    hdrs = glob(["Sources/CNIOLinux/include/*.h"]),
+    includes = ["Sources/CNIOLinux/include/"],
+)
+
+objc_library(
+    name = "CNIODarwin",
+    module_name = "CNIODarwin",
+    srcs = glob(["Sources/CNIODarwin/*.c"]),
+    hdrs = glob(["Sources/CNIODarwin/include/*.h"]),
+    includes = ["Sources/CNIODarwin/include/"],
+)
+
+objc_library(
+    name = "CNIOAtomics",
+    module_name = "CNIOAtomics",
+    srcs = glob(["Sources/CNIOAtomics/src/*.c"]),
+    hdrs = glob(["Sources/CNIOAtomics/*/*.h"]),
+)
+
+cc_library(
+    name = "CNIOSHA1",
+    srcs = glob(["Sources/CNIOSHA1/*.c"]),
+    hdrs = glob(["Sources/CNIOSHA1/include/*.h"]),
+)
+
+swift_library(
+    name = "NIOConcurrencyHelpers",
+    srcs = glob(["Sources/NIOConcurrencyHelpers/*.swift"]),
+    deps = [":CNIOAtomics"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "NIO",
+    srcs = glob(["Sources/NIO/*.swift"]),
+    deps = [
+        ":CNIOLinux",
+        ":CNIODarwin",
+        ":NIOConcurrencyHelpers",
+        ":CNIOAtomics",
+        ":CNIOSHA1",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "NIOFoundationCompat",
+    srcs = glob(["Sources/NIOFoundationCompat/*.swift"]),
+    deps = [":NIO"],
+    visibility = ["//visibility:public"],
+)
+
+objc_library(
+    name = "CNIOHTTPParser",
+    module_name = "CNIOHTTPParser",
+    srcs = glob(["Sources/CNIOHTTPParser/*.c"]),
+    hdrs = glob(["Sources/CNIOHTTPParser/include/*.h"]),
+)
+
+swift_library(
+    name = "NIOHTTP1",
+    srcs = glob(["Sources/NIOHTTP1/*.swift"]),
+    deps = [":NIO", ":NIOConcurrencyHelpers", ":CNIOHTTPParser"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "NIOTLS",
+    srcs = glob(["Sources/NIOTLS/*.swift"]),
+    deps = [":NIO"],
+    visibility = ["//visibility:public"],
+)

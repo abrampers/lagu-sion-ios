@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2118EC91246921020051328F /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2118EC90246921010051328F /* Publisher+Extension.swift */; };
+		216E8DAF246A9F3000B7FE8E /* echo_service.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216E8DAB246A9F3000B7FE8E /* echo_service.pb.swift */; };
+		216E8DB1246A9F3000B7FE8E /* echo_service.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216E8DAD246A9F3000B7FE8E /* echo_service.grpc.swift */; };
+		216E8DB2246A9F3000B7FE8E /* echo_service.proto in Sources */ = {isa = PBXBuildFile; fileRef = 216E8DAE246A9F3000B7FE8E /* echo_service.proto */; };
 		218B43BF2467F12A00E18B15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43BE2467F12A00E18B15 /* AppDelegate.swift */; };
 		218B43C12467F12A00E18B15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43C02467F12A00E18B15 /* SceneDelegate.swift */; };
 		218B43C42467F12A00E18B15 /* LaguSion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 218B43C22467F12A00E18B15 /* LaguSion.xcdatamodeld */; };
@@ -18,13 +21,14 @@
 		218B43DA2467FD7200E18B15 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43D92467FD7200E18B15 /* MainView.swift */; };
 		218B43DD24683AFC00E18B15 /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 218B43DC24683AFC00E18B15 /* CombineGRPC */; };
 		218B43E124683E7100E18B15 /* TestCombineGRPCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43E024683E7100E18B15 /* TestCombineGRPCView.swift */; };
-		218B43EA2468431F00E18B15 /* echo_service.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43E72468431F00E18B15 /* echo_service.pb.swift */; };
-		218B43EB2468431F00E18B15 /* echo_service.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43E82468431F00E18B15 /* echo_service.grpc.swift */; };
 		21C8D04824699F920041D063 /* GRPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8D04724699F920041D063 /* GRPCServiceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2118EC90246921010051328F /* Publisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
+		216E8DAB246A9F3000B7FE8E /* echo_service.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.pb.swift; sourceTree = "<group>"; };
+		216E8DAD246A9F3000B7FE8E /* echo_service.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.grpc.swift; sourceTree = "<group>"; };
+		216E8DAE246A9F3000B7FE8E /* echo_service.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = echo_service.proto; sourceTree = "<group>"; };
 		218B43BB2467F12A00E18B15 /* Lagu Sion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lagu Sion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		218B43BE2467F12A00E18B15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		218B43C02467F12A00E18B15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,8 +40,6 @@
 		218B43CF2467F12D00E18B15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		218B43D92467FD7200E18B15 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		218B43E024683E7100E18B15 /* TestCombineGRPCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCombineGRPCView.swift; sourceTree = "<group>"; };
-		218B43E72468431F00E18B15 /* echo_service.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.pb.swift; sourceTree = "<group>"; };
-		218B43E82468431F00E18B15 /* echo_service.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.grpc.swift; sourceTree = "<group>"; };
 		21C8D04724699F920041D063 /* GRPCServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRPCServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +61,16 @@
 				2118EC90246921010051328F /* Publisher+Extension.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		216E8DAA246A9F3000B7FE8E /* EchoService */ = {
+			isa = PBXGroup;
+			children = (
+				216E8DAB246A9F3000B7FE8E /* echo_service.pb.swift */,
+				216E8DAD246A9F3000B7FE8E /* echo_service.grpc.swift */,
+				216E8DAE246A9F3000B7FE8E /* echo_service.proto */,
+			);
+			path = EchoService;
 			sourceTree = "<group>";
 		};
 		218B43B22467F12A00E18B15 = {
@@ -139,19 +151,10 @@
 		218B43E324683EF100E18B15 /* gRPC */ = {
 			isa = PBXGroup;
 			children = (
-				218B43E62468431F00E18B15 /* Generated */,
+				216E8DAA246A9F3000B7FE8E /* EchoService */,
 				21C8D04724699F920041D063 /* GRPCServiceManager.swift */,
 			);
 			path = gRPC;
-			sourceTree = "<group>";
-		};
-		218B43E62468431F00E18B15 /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				218B43E72468431F00E18B15 /* echo_service.pb.swift */,
-				218B43E82468431F00E18B15 /* echo_service.grpc.swift */,
-			);
-			path = Generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,14 +236,15 @@
 			files = (
 				218B43C42467F12A00E18B15 /* LaguSion.xcdatamodeld in Sources */,
 				21C8D04824699F920041D063 /* GRPCServiceManager.swift in Sources */,
+				216E8DB2246A9F3000B7FE8E /* echo_service.proto in Sources */,
 				218B43BF2467F12A00E18B15 /* AppDelegate.swift in Sources */,
 				218B43E124683E7100E18B15 /* TestCombineGRPCView.swift in Sources */,
-				218B43EB2468431F00E18B15 /* echo_service.grpc.swift in Sources */,
+				216E8DAF246A9F3000B7FE8E /* echo_service.pb.swift in Sources */,
 				2118EC91246921020051328F /* Publisher+Extension.swift in Sources */,
 				218B43C62467F12A00E18B15 /* RootView.swift in Sources */,
+				216E8DB1246A9F3000B7FE8E /* echo_service.grpc.swift in Sources */,
 				218B43DA2467FD7200E18B15 /* MainView.swift in Sources */,
 				218B43C12467F12A00E18B15 /* SceneDelegate.swift in Sources */,
-				218B43EA2468431F00E18B15 /* echo_service.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

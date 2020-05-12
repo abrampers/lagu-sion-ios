@@ -1,0 +1,47 @@
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+objc_library(
+    name = "CNIOBoringSSL",
+    module_name = "CNIOBoringSSL",
+    srcs = glob(
+        [
+            "Sources/CNIOBoringSSL/**/*.c",
+            "Sources/CNIOBoringSSL/**/*.cc",
+            "Sources/CNIOBoringSSL/**/*.S",
+            "Sources/CNIOBoringSSL/**/*.h",
+        ],
+        exclude = ["Sources/CNIOBoringSSL/include/*.h"]
+    ),
+    hdrs = glob([
+        "Sources/CNIOBoringSSL/include/*.h",
+        # "Sources/CNIOBoringSSL/**/*.inc",
+    ]),
+    includes = [
+        "Sources/CNIOBoringSSL/include/",
+    ],
+    # module_map = "@//:LaguSion/ThirdParty/swift-nio-ssl/CNIOBoringSSL.modulemap",
+)
+
+objc_library(
+    name = "CNIOBoringSSLShims",
+    module_name = "CNIOBoringSSLShims",
+    srcs = glob(["Sources/CNIOBoringSSLShims/*.c"]),
+    hdrs = glob(["Sources/CNIOBoringSSLShims/include/*.h"]),
+    includes = ["Sources/CNIOBoringSSLShims/include/"],
+    deps = [":CNIOBoringSSL"],
+)
+
+swift_library(
+    name = "NIOSSL",
+    srcs = glob(["Sources/NIOSSL/*.swift"]),
+    deps = [
+        "@com_github_apple_swift_nio//:NIO", 
+        "@com_github_apple_swift_nio//:NIOConcurrencyHelpers", 
+        ":CNIOBoringSSLShims", 
+        "@com_github_apple_swift_nio//:NIOTLS"
+    ],
+    private_deps = [
+        ":CNIOBoringSSL", 
+    ],
+    visibility = ["//visibility:public"],
+)

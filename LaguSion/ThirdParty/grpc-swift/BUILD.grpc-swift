@@ -1,0 +1,30 @@
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+objc_library(
+    name = "CGRPCZlib",
+    module_name = "CGRPCZlib",
+    srcs = glob(["Sources/CGRPCZlib/*.c"]),
+    hdrs = glob(["Sources/CGRPCZlib/include/*.h"]),
+    includes = ["Sources/CGRPCZlib/include/*.h"],
+    deps = ["@zlib"],
+)
+
+swift_library(
+    name = "GRPC",
+    srcs = glob([
+        "Sources/GRPC/*.swift",
+        "Sources/GRPC/*/*.swift",
+    ]),
+    deps = [
+        "@com_github_apple_swift_nio//:NIO",
+        "@com_github_apple_swift_nio//:NIOFoundationCompat",
+        "@com_github_apple_swift_nio_transport_services//:NIOTransportServices",
+        "@com_github_apple_swift_nio//:NIOHTTP1",
+        "@com_github_apple_swift_nio_http2//:NIOHTTP2",
+        "@com_github_apple_swift_nio_ssl//:NIOSSL",
+        ":CGRPCZlib",
+        "@com_github_apple_swift_protobuf_local//:SwiftProtobuf",
+        "@com_github_apple_swift_log//:Logging",
+    ],
+    visibility = ["//visibility:public"],
+)
