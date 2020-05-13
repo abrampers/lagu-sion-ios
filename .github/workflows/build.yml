@@ -37,3 +37,5 @@ jobs:
     # Runs a single command using the runners shell
     - name: Run bazel build
       run: bazel build //:LaguSion
+    - name: Check bazel build folder
+      run: ls /private/var/tmp
