@@ -2,15 +2,12 @@
 
 name: Build
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
     runs-on: macos-10.15
@@ -21,21 +18,16 @@ jobs:
         brew tap bazelbuild/tap
         brew install bazelbuild/tap/bazel
         bazel --version
-    
-#     - name: Cache bazel build artifacts
-#       uses: actions/cache@v1
-#       env:
-#         cache-name: cache-node-modules
-#       with:
-#         path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-#         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-#         restore-keys: |
-#           ${{ runner.os }}-build-${{ env.cache-name }}-
-#           ${{ runner.os }}-build-
-#           ${{ runner.os }}-
-
-    # Runs a single command using the runners shell
+    - name: Cache bazel build artifacts
+      uses: actions/cache@v1
+      env:
+        cache-name: cache-bazel
+      with:
+        path: /private/var/tmp/_bazel_runner
+        key: ${{ runner.os }}-build-${{ env.cache-name }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
     - name: Run bazel build
       run: bazel build //:LaguSion
-    - name: Check bazel build folder
-      run: ls /private/var/tmp
