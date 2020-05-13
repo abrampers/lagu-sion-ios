@@ -1,4 +1,5 @@
 # Bazel
 *~
 bazel-*
+!LaguSion/LaguSion/Bazel-Info.plist
 .bazelrc
