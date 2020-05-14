@@ -34,9 +34,6 @@ DerivedData/
 timeline.xctimeline
 playground.xcworkspace
 
-## Provisioning profile
-mobileprovision/
-
 # Swift Package Manager
 #
 # Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
@@ -73,8 +70,17 @@ Carthage/Build/
 Dependencies/
 .accio/
 
-# Use fastlane for local only
-fastlane/
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo.
+# Instead, use fastlane to re-generate the screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/#source-control
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
 
 # Code Injection
 #
