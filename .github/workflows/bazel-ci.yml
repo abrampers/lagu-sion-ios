@@ -28,4 +28,4 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
     - name: Run bazel build
-      run: bazel build //:LaguSion
+      run: bazel build //LaguSion
