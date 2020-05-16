@@ -23,6 +23,7 @@
 		218B43E124683E7100E18B15 /* TestCombineGRPCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43E024683E7100E18B15 /* TestCombineGRPCView.swift */; };
 		21C8D04824699F920041D063 /* GRPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8D04724699F920041D063 /* GRPCServiceManager.swift */; };
 		21CAAD0A24703EFA00915369 /* LaguSionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAAD0924703EFA00915369 /* LaguSionTests.swift */; };
+		21CAAD13247065EE00915369 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 21CAAD12247065EE00915369 /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21CAAD13247065EE00915369 /* ComposableArchitecture in Frameworks */,
 				218B43DD24683AFC00E18B15 /* CombineGRPC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +209,7 @@
 			name = LaguSion;
 			packageProductDependencies = (
 				218B43DC24683AFC00E18B15 /* CombineGRPC */,
+				21CAAD12247065EE00915369 /* ComposableArchitecture */,
 			);
 			productName = LaguSion;
 			productReference = 218B43BB2467F12A00E18B15 /* Lagu Sion.app */;
@@ -260,6 +263,7 @@
 			mainGroup = 218B43B22467F12A00E18B15;
 			packageReferences = (
 				218B43DB24683AFC00E18B15 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */,
+				21CAAD11247065EE00915369 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 218B43BC2467F12A00E18B15 /* Products */;
 			projectDirPath = "";
@@ -583,6 +587,14 @@
 				minimumVersion = 0.10.0;
 			};
 		};
+		21CAAD11247065EE00915369 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -590,6 +602,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 218B43DB24683AFC00E18B15 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */;
 			productName = CombineGRPC;
+		};
+		21CAAD12247065EE00915369 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21CAAD11247065EE00915369 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 

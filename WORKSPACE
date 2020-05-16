@@ -50,6 +50,23 @@ load(
 protobuf_deps()
 
 # Third party dependencies
+
+## ComposableArchitecture
+new_git_repository(
+    name = "com_github_pointfreeco_swift_composable_architecture",
+    remote = "https://github.com/pointfreeco/swift-composable-architecture.git",
+    tag = "0.1.4",
+    build_file = "@//:third_party/swift-composable-architecture/BUILD.swift-composable-architecture",
+)
+
+new_git_repository(
+    name = "com_github_pointfreeco_swift_case_paths",
+    remote = "https://github.com/pointfreeco/swift-case-paths.git",
+    tag = "0.1.1",
+    build_file = "@//:third_party/swift-case-paths/BUILD.swift-case-paths",
+)
+
+## CombineGRPC
 new_git_repository(
     name = "com_github_vyshane_grpc_swift_combine",
     remote = "https://github.com/vyshane/grpc-swift-combine.git",
