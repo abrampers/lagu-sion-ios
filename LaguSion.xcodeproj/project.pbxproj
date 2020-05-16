@@ -22,7 +22,18 @@
 		218B43DD24683AFC00E18B15 /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 218B43DC24683AFC00E18B15 /* CombineGRPC */; };
 		218B43E124683E7100E18B15 /* TestCombineGRPCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43E024683E7100E18B15 /* TestCombineGRPCView.swift */; };
 		21C8D04824699F920041D063 /* GRPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8D04724699F920041D063 /* GRPCServiceManager.swift */; };
+		21CAAD0A24703EFA00915369 /* LaguSionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAAD0924703EFA00915369 /* LaguSionTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		21CAAD0C24703EFA00915369 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 218B43B32467F12A00E18B15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 218B43BA2467F12A00E18B15;
+			remoteInfo = LaguSion;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2118EC90246921010051328F /* Publisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
@@ -41,6 +52,9 @@
 		218B43D92467FD7200E18B15 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		218B43E024683E7100E18B15 /* TestCombineGRPCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCombineGRPCView.swift; sourceTree = "<group>"; };
 		21C8D04724699F920041D063 /* GRPCServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRPCServiceManager.swift; sourceTree = "<group>"; };
+		21CAAD0724703EFA00915369 /* LaguSionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaguSionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21CAAD0924703EFA00915369 /* LaguSionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionTests.swift; sourceTree = "<group>"; };
+		21CAAD0B24703EFA00915369 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +63,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				218B43DD24683AFC00E18B15 /* CombineGRPC in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21CAAD0424703EFA00915369 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				218B43BD2467F12A00E18B15 /* LaguSion */,
+				21CAAD0824703EFA00915369 /* LaguSionTests */,
 				218B43BC2467F12A00E18B15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				218B43BB2467F12A00E18B15 /* Lagu Sion.app */,
+				21CAAD0724703EFA00915369 /* LaguSionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,6 +180,15 @@
 			path = gRPC;
 			sourceTree = "<group>";
 		};
+		21CAAD0824703EFA00915369 /* LaguSionTests */ = {
+			isa = PBXGroup;
+			children = (
+				21CAAD0924703EFA00915369 /* LaguSionTests.swift */,
+				21CAAD0B24703EFA00915369 /* Info.plist */,
+			);
+			path = LaguSionTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -180,6 +212,24 @@
 			productReference = 218B43BB2467F12A00E18B15 /* Lagu Sion.app */;
 			productType = "com.apple.product-type.application";
 		};
+		21CAAD0624703EFA00915369 /* LaguSionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21CAAD1024703EFA00915369 /* Build configuration list for PBXNativeTarget "LaguSionTests" */;
+			buildPhases = (
+				21CAAD0324703EFA00915369 /* Sources */,
+				21CAAD0424703EFA00915369 /* Frameworks */,
+				21CAAD0524703EFA00915369 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21CAAD0D24703EFA00915369 /* PBXTargetDependency */,
+			);
+			name = LaguSionTests;
+			productName = LaguSionTests;
+			productReference = 21CAAD0724703EFA00915369 /* LaguSionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -192,6 +242,10 @@
 				TargetAttributes = {
 					218B43BA2467F12A00E18B15 = {
 						CreatedOnToolsVersion = 11.4.1;
+					};
+					21CAAD0624703EFA00915369 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 218B43BA2467F12A00E18B15;
 					};
 				};
 			};
@@ -212,6 +266,7 @@
 			projectRoot = "";
 			targets = (
 				218B43BA2467F12A00E18B15 /* LaguSion */,
+				21CAAD0624703EFA00915369 /* LaguSionTests */,
 			);
 		};
 /* End PBXProject section */
@@ -224,6 +279,13 @@
 				218B43CE2467F12D00E18B15 /* LaunchScreen.storyboard in Resources */,
 				218B43CB2467F12D00E18B15 /* Preview Assets.xcassets in Resources */,
 				218B43C82467F12D00E18B15 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21CAAD0524703EFA00915369 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +310,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21CAAD0324703EFA00915369 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21CAAD0A24703EFA00915369 /* LaguSionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21CAAD0D24703EFA00915369 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 218B43BA2467F12A00E18B15 /* LaguSion */;
+			targetProxy = 21CAAD0C24703EFA00915369 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		218B43CC2467F12D00E18B15 /* LaunchScreen.storyboard */ = {
@@ -393,7 +471,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = abrampers.LaguSion;
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion;
 				PRODUCT_NAME = "Lagu Sion";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -417,10 +495,50 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = abrampers.LaguSion;
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion;
 				PRODUCT_NAME = "Lagu Sion";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		21CAAD0E24703EFA00915369 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				INFOPLIST_FILE = LaguSionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lagu Sion.app/Lagu Sion";
+			};
+			name = Debug;
+		};
+		21CAAD0F24703EFA00915369 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				INFOPLIST_FILE = LaguSionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lagu Sion.app/Lagu Sion";
 			};
 			name = Release;
 		};
@@ -441,6 +559,15 @@
 			buildConfigurations = (
 				218B43D32467F12D00E18B15 /* Debug */,
 				218B43D42467F12D00E18B15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21CAAD1024703EFA00915369 /* Build configuration list for PBXNativeTarget "LaguSionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21CAAD0E24703EFA00915369 /* Debug */,
+				21CAAD0F24703EFA00915369 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
