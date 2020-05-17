@@ -25,19 +25,14 @@ jobs:
           ${{ runner.os }}-bazel-build-${{ env.cache-name }}
           ${{ runner.os }}-bazel-build-
           ${{ runner.os }}-bazel-
-    - name: Check provisioning profile
-      uses: actions/checkout@v2
+    - name: Run bundle install
+      run: |
+        bundle install --deployment
+    - name: Run fastlane match
+      run: |
+        bundle exec fastlane match --readonly --output_path=./provision/
       with:
-        repository: abrampers/lagu-sion-ios-certificates
-        ref: master
-        path: LaguSion/
         token: ${{ secrets.PAT }}
-#     - name: Run bundle install
-#       run: |
-#         bundle install --deployment
-#     - name: Run fastlane match
-#       run: |
-#         bundle exec fastlane match --readonly --output_path=./provision/
     - name: Run bazel build
       run: |
         bazel build //LaguSion
