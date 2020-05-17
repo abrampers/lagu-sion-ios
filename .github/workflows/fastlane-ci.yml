@@ -1,0 +1,29 @@
+name: Fastlane-CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    runs-on: macos-10.15
+    steps:
+    - uses: actions/checkout@v2
+    - name: Cache fastlane build artifacts
+      uses: actions/cache@v1
+      env:
+        cache-name: cache-fastlane-lagu-sion-ios
+      with:
+        path: ./d/
+        key: ${{ runner.os }}-fastlane-build-${{ env.cache-name }}
+        restore-keys: |
+          ${{ runner.os }}-fastlane-build-${{ env.cache-name }}
+          ${{ runner.os }}-fastlane-build-
+          ${{ runner.os }}-fastlane-
+    - name: Run fastlane build
+      run: bundle exec fastlane build
