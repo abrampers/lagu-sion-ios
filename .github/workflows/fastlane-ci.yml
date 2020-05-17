@@ -25,5 +25,8 @@ jobs:
           ${{ runner.os }}-fastlane-build-${{ env.cache-name }}
           ${{ runner.os }}-fastlane-build-
           ${{ runner.os }}-fastlane-
+    - name: Run bundle install
+      run: |
+        bundle install --deployment
     - name: Run fastlane build
       run: bundle exec fastlane build

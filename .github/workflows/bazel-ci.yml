@@ -25,6 +25,9 @@ jobs:
           ${{ runner.os }}-bazel-build-${{ env.cache-name }}
           ${{ runner.os }}-bazel-build-
           ${{ runner.os }}-bazel-
+    - name: Run bundle install
+      run: |
+        bundle install --deployment
     - name: Run fastlane match
       run: |
         bundle exec fastlane match --readonly --output_path=./provision/
