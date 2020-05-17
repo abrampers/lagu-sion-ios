@@ -27,20 +27,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
 //        let contentView = RootView().environment(\.managedObjectContext, context)
         
-        let contentView = MainView(store: Store(
-                initialState: MainState(
+        let contentView = RootView(store: Store(
+                initialState: AppState(
                     songs: [
                         Song(id: UUID(), isFavorite: false, number: 1, title: "No 1"),
                         Song(id: UUID(), isFavorite: false, number: 2, title: "No 2"),
                         Song(id: UUID(), isFavorite: false, number: 3, title: "No 3"),
                         Song(id: UUID(), isFavorite: false, number: 4, title: "No 4"),
-                        Song(id: UUID(), isFavorite: false, number: 5, title: "No 5")
+                        Song(id: UUID(), isFavorite: false, number: 5, title: "No 5"),
+                        Song(id: UUID(), isFavorite: false, number: 6, title: "No 6"),
+                        Song(id: UUID(), isFavorite: false, number: 7, title: "No 7"),
+                        Song(id: UUID(), isFavorite: false, number: 8, title: "No 8"),
+                        Song(id: UUID(), isFavorite: false, number: 9, title: "No 9")
                     ]
                 ),
-                reducer: mainReducer,
-                environment: MainEnvironment()
+                reducer: appReducer,
+                environment: AppEnvironment()
             )
         )
+
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

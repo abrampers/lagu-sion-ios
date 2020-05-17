@@ -109,7 +109,11 @@ struct MainView_Previews: PreviewProvider {
                         Song(id: UUID(), isFavorite: false, number: 2, title: "No 2"),
                         Song(id: UUID(), isFavorite: false, number: 3, title: "No 3"),
                         Song(id: UUID(), isFavorite: false, number: 4, title: "No 4"),
-                        Song(id: UUID(), isFavorite: false, number: 5, title: "No 5")
+                        Song(id: UUID(), isFavorite: false, number: 5, title: "No 5"),
+                        Song(id: UUID(), isFavorite: false, number: 6, title: "No 6"),
+                        Song(id: UUID(), isFavorite: false, number: 7, title: "No 7"),
+                        Song(id: UUID(), isFavorite: false, number: 8, title: "No 8"),
+                        Song(id: UUID(), isFavorite: false, number: 9, title: "No 9")
                     ]
                 ),
                 reducer: mainReducer,
