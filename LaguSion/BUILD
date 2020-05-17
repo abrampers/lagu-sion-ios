@@ -1,4 +1,5 @@
 load("@build_bazel_rules_apple//apple:ios.bzl", "ios_application")
+load("@build_bazel_rules_apple//apple:versioning.bzl", "apple_bundle_version")
 load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 
 filegroup(
@@ -8,7 +9,7 @@ filegroup(
 
 swift_library(
     name = "LaguSionSources",
-    module_name = "Lagu_Sion",
+    module_name = "LaguSion",
     srcs = glob([
         "SceneDelegate.swift",
         "AppDelegate.swift",
@@ -22,6 +23,7 @@ swift_library(
         "@com_github_vyshane_grpc_swift_combine//:CombineGRPC",
         "@com_github_pointfreeco_swift_composable_architecture//:ComposableArchitecture",
     ],
+    visibility = ["//visibility:public"],
 )
 
 ios_application(
@@ -34,9 +36,9 @@ ios_application(
     minimum_os_version = "13.0",
     launch_storyboard = "Base.lproj/LaunchScreen.storyboard",
     infoplists = ["Info-Bazel.plist"],
-    visibility = ["//visibility:public"],
     deps = [
         ":LaguSionSources",
     ],
     provisioning_profile = "provision/Development_id.abram.ios.LaguSion.mobileprovision",
+    visibility = ["//visibility:public"],
 )
