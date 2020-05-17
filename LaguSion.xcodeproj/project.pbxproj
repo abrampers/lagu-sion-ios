@@ -41,7 +41,7 @@
 		216E8DAB246A9F3000B7FE8E /* echo_service.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.pb.swift; sourceTree = "<group>"; };
 		216E8DAD246A9F3000B7FE8E /* echo_service.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.grpc.swift; sourceTree = "<group>"; };
 		216E8DAE246A9F3000B7FE8E /* echo_service.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = echo_service.proto; sourceTree = "<group>"; };
-		218B43BB2467F12A00E18B15 /* Lagu Sion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lagu Sion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		218B43BB2467F12A00E18B15 /* LaguSion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaguSion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218B43BE2467F12A00E18B15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		218B43C02467F12A00E18B15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		218B43C32467F12A00E18B15 /* LaguSion.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LaguSion.xcdatamodel; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		218B43BC2467F12A00E18B15 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				218B43BB2467F12A00E18B15 /* Lagu Sion.app */,
+				218B43BB2467F12A00E18B15 /* LaguSion.app */,
 				21CAAD0724703EFA00915369 /* LaguSionTests.xctest */,
 			);
 			name = Products;
@@ -212,7 +212,7 @@
 				21CAAD12247065EE00915369 /* ComposableArchitecture */,
 			);
 			productName = LaguSion;
-			productReference = 218B43BB2467F12A00E18B15 /* Lagu Sion.app */;
+			productReference = 218B43BB2467F12A00E18B15 /* LaguSion.app */;
 			productType = "com.apple.product-type.application";
 		};
 		21CAAD0624703EFA00915369 /* LaguSionTests */ = {
@@ -477,7 +477,7 @@
 				);
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion;
-				PRODUCT_NAME = "Lagu Sion";
+				PRODUCT_NAME = LaguSion;
 				PROVISIONING_PROFILE_SPECIFIER = "match Development id.abram.ios.LaguSion";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -503,7 +503,7 @@
 				);
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion;
-				PRODUCT_NAME = "Lagu Sion";
+				PRODUCT_NAME = LaguSion;
 				PROVISIONING_PROFILE_SPECIFIER = "match Development id.abram.ios.LaguSion";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -6,6 +6,7 @@
 //  Copyright © 2020 Abram Situmorang. All rights reserved.
 //
 
+import ComposableArchitecture
 import UIKit
 import SwiftUI
 
@@ -20,11 +21,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Get the managed object context from the shared persistent container.
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-        let contentView = RootView().environment(\.managedObjectContext, context)
+//        let contentView = RootView().environment(\.managedObjectContext, context)
+        
+        let contentView = MainView(store: Store(
+                initialState: MainState(
+                    songs: [
+                        Song(id: UUID(), isFavorite: false, number: 1, title: "No 1"),
+                        Song(id: UUID(), isFavorite: false, number: 2, title: "No 2"),
+                        Song(id: UUID(), isFavorite: false, number: 3, title: "No 3"),
+                        Song(id: UUID(), isFavorite: false, number: 4, title: "No 4"),
+                        Song(id: UUID(), isFavorite: false, number: 5, title: "No 5")
+                    ]
+                ),
+                reducer: mainReducer,
+                environment: MainEnvironment()
+            )
+        )
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

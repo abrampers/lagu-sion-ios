@@ -6,14 +6,17 @@
 //  Copyright © 2020 Abram Situmorang. All rights reserved.
 //
 
+import ComposableArchitecture
 import SwiftUI
+
+
 
 struct RootView: View {
     @State private var selection = 0
  
     var body: some View {
         TabView(selection: $selection){
-            MainView()
+            EmptyView()
                 .tabItem {
                     VStack {
                         Image(systemName: "globe")
