@@ -83,6 +83,10 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 fastlane/devices.txt
 
+# Outputs
+
+d/
+
 # Code Injection
 #
 # After new code Injection tools there's a generated folder /iOSInjectionProject
