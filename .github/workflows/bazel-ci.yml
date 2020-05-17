@@ -35,6 +35,8 @@ jobs:
     - name: Run fastlane match
       run: |
         bundle exec fastlane match --readonly --output_path=./provision/
+      env:
+        MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
     - name: Run bazel build
       run: |
         bazel build //LaguSion
