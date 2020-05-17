@@ -14,6 +14,15 @@ jobs:
     runs-on: macos-10.15
     steps:
     - uses: actions/checkout@v2
+    - name: Cache bundle install
+      uses: actions/cache@v1
+      env:
+        cache-name: cache-fastlane-bundle-install
+      with:
+        path: ./vendor/
+        key: ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
+        restore-keys: |
+          ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
     - name: Run bundle install
       run: |
         bundle install --deployment
@@ -36,3 +45,7 @@ jobs:
       run: bundle exec fastlane build
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+    - name: pwd and ls
+      run: |
+        pwd
+        ls
