@@ -23,4 +23,5 @@ ios_application(
     infoplists = ["Bazel-Info.plist"],
     visibility = ["//visibility:public"],
     deps = [":LaguSionSources"],
+    provisioning_profile = "provision/Development_id.abram.ios.LaguSion.mobileprovision",
 )
