@@ -33,14 +33,12 @@ jobs:
     - name: Cache fastlane build artifacts
       uses: actions/cache@v1
       env:
-        cache-name: cache-fastlane-lagu-sion-ios
+        cache-name: cache-fastlane-build
       with:
         path: ./d/
         key: ${{ runner.os }}-fastlane-build-${{ env.cache-name }}
         restore-keys: |
-          ${{ runner.os }}-fastlane-build-${{ env.cache-name }}
-          ${{ runner.os }}-fastlane-build-
-          ${{ runner.os }}-fastlane-
+          ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
     - name: Run fastlane build
       run: bundle exec fastlane build
       env:

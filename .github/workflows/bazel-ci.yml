@@ -14,17 +14,6 @@ jobs:
     runs-on: macos-10.15
     steps:
     - uses: actions/checkout@v2
-    - name: Cache bazel build artifacts
-      uses: actions/cache@v1
-      env:
-        cache-name: cache-bazel-lagu-sion-ios
-      with:
-        path: /private/var/tmp/_bazel_runner
-        key: ${{ runner.os }}-bazel-build-${{ env.cache-name }}
-        restore-keys: |
-          ${{ runner.os }}-bazel-build-${{ env.cache-name }}
-          ${{ runner.os }}-bazel-build-
-          ${{ runner.os }}-bazel-
     - name: Run bundle install
       run: |
         bundle install --deployment
@@ -37,6 +26,15 @@ jobs:
         bundle exec fastlane match --readonly --output_path=./LaguSion/provision/
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+    - name: Cache bazel build artifacts
+      uses: actions/cache@v1
+      env:
+        cache-name: cache-bazel-build
+      with:
+        path: /private/var/tmp/_bazel_runner
+        key: ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
+        restore-keys: |
+          ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
     - name: Run bazel build
       run: |
         bazel build //LaguSion
