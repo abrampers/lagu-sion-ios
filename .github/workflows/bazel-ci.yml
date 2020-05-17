@@ -28,6 +28,10 @@ jobs:
     - name: Run bundle install
       run: |
         bundle install --deployment
+    - name: Install SSH Client 🔑
+      uses: webfactory/ssh-agent@v0.2.0 # This step installs the ssh client into the workflow run. There's many options available for this on the action marketplace.
+      with:
+        ssh-private-key: ${{ secrets.DEPLOY_KEY }}
     - name: Run fastlane match
       run: |
         bundle exec fastlane match --readonly --output_path=./provision/
