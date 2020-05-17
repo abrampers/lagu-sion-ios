@@ -46,7 +46,7 @@ jobs:
           ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
     - name: Run bazel build
       run: |
-        bazel build //LaguSion
+        bazel build //LaguSion --ios_multi_cpus=armv7,arm64
     - uses: actions/upload-artifact@v2
       with:
         name: LaguSion-${{ steps.vars.outputs.branch }}-${{ steps.vars.outputs.sha_short }}
