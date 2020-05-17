@@ -20,7 +20,7 @@ ios_application(
         "ipad",
     ],
     minimum_os_version = "13.0",
-    infoplists = ["Bazel-Info.plist"],
+    infoplists = ["Info-Bazel.plist"],
     visibility = ["//visibility:public"],
     deps = [":LaguSionSources"],
     provisioning_profile = "provision/Development_id.abram.ios.LaguSion.mobileprovision",
