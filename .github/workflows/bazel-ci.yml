@@ -38,3 +38,7 @@ jobs:
     - name: Run bazel build
       run: |
         bazel build //LaguSion
+    - uses: actions/upload-artifact@v2
+      with:
+        name: LaguSion-${{ steps.vars.outputs.branch }}-${{ steps.vars.outputs.sha_short }}
+        path: bazel-bin/LaguSion/LaguSion.ipa
