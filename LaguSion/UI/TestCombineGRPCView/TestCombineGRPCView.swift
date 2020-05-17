@@ -43,22 +43,22 @@ class TestViewModel: ObservableObject {
             .eraseToAnyPublisher()
     }
     
-//    func readPropertyList() {
-//        var propertyListFormat =  PropertyListSerialization.PropertyListFormat.xml //Format of the Property List.
-//        var plistData: [String: AnyObject] = [:] //Our data
-//        let plistPath: String? = Bundle.main.path(forResource: "Info", ofType: "plist")! //the path of the data
-//        let plistXML = FileManager.default.contents(atPath: plistPath!)!
-//        do {//convert the data to a dictionary and handle errors.
-//            plistData = try PropertyListSerialization.propertyList(from: plistXML, options: .mutableContainersAndLeaves, format: &propertyListFormat) as! [String:AnyObject]
-//            print(plistData)
-//
-//        } catch {
-//            print("Error reading plist: \(error), format: \(propertyListFormat)")
-//        }
-//    }
+    func readPropertyList() {
+        var propertyListFormat =  PropertyListSerialization.PropertyListFormat.xml //Format of the Property List.
+        var plistData: [String: AnyObject] = [:] //Our data
+        let plistPath: String? = Bundle.main.path(forResource: "Info", ofType: "plist")! //the path of the data
+        let plistXML = FileManager.default.contents(atPath: plistPath!)!
+        do {//convert the data to a dictionary and handle errors.
+            plistData = try PropertyListSerialization.propertyList(from: plistXML, options: .mutableContainersAndLeaves, format: &propertyListFormat) as! [String:AnyObject]
+            print(plistData)
+
+        } catch {
+            print("Error reading plist: \(error), format: \(propertyListFormat)")
+        }
+    }
     
     init() {
-//        readPropertyList()
+        readPropertyList()
         echoResponse
             .assignNoRetain(to: \.response, on: self)
             .store(in: &cancellableSet)
