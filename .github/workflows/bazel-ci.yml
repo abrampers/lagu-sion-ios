@@ -1,4 +1,4 @@
-name: Bazel-CI
+name: bazel-build
 
 on:
   push:
