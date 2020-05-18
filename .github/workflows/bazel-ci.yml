@@ -48,13 +48,13 @@ jobs:
           ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
     - name: Run bazel build
       run: |
-        bazel build //LaguSion --ios_multi_cpus=arm64
-    - name: Get branch name and commit sha
-      id: vars
-      run: |
-        echo ::set-output name=git_branch::${GITHUB_REF#refs/*/}
-        echo ::set-output name=git_hash=$(git rev-parse --short "$GITHUB_SHA")
-    - uses: actions/upload-artifact@v2
-      with:
-        name: LaguSion-${{ steps.vars.outputs.git_branch }}-${{ steps.vars.outputs.git_hash }}
-        path: bazel-bin/LaguSion/LaguSion.ipa
+        bazel build //LaguSion #--ios_multi_cpus=arm64
+    # - name: Get branch name and commit sha
+    #   id: vars
+    #   run: |
+    #     echo ::set-output name=git_branch::${GITHUB_REF#refs/*/}
+    #     echo ::set-output name=git_hash=$(git rev-parse --short "$GITHUB_SHA")
+    # - uses: actions/upload-artifact@v2
+    #   with:
+    #     name: LaguSion-${{ steps.vars.outputs.git_branch }}-${{ steps.vars.outputs.git_hash }}
+    #     path: bazel-bin/LaguSion/LaguSion.ipa
