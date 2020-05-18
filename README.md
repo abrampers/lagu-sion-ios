@@ -1,3 +1,3 @@
 # lagu-sion-ios
 
-![](https://github.com/abrampers/lagu-sion-ios/workflows/Bazel-CI/badge.svg)
+![bazel-build](https://github.com/abrampers/lagu-sion-ios/workflows/bazel-build/badge.svg?branch=master)
