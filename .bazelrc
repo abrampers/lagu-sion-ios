@@ -1,5 +1,6 @@
 build --verbose_failures
-build:device --ios_multi_cpus=armv7,arm64
+
+build:device --ios_multi_cpus=arm64
 build:device --apple_platform_type=ios
 
 test --verbose_failures
