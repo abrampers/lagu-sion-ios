@@ -48,10 +48,10 @@ jobs:
           ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
     - name: Run iOS Application Tests
       run: |
-        bazel test //LaguSionTests --verbose_failures
+        bazel query "kind('ios_unit_test', '//...')" | xargs bazel test
     - name: Build iOS Application
       run: |
-        bazel build //LaguSion --verbose_failures --ios_multi_cpus=arm64
+        bazel build //LaguSion --config=device
     - name: Get branch name and commit sha
       id: vars
       run: |

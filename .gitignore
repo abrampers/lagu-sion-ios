@@ -102,4 +102,3 @@ iOSInjectionProject/
 *~
 bazel-*
 !LaguSion/LaguSion/Bazel-Info.plist
-.bazelrc
