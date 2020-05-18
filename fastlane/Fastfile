@@ -7,7 +7,8 @@ platform :ios do
     build_app(
       scheme: "LaguSion",
       export_method: "ad-hoc",
-      derived_data_path: "./d/"
+      derived_data_path: "./d/",
+      clean: true
     )
   end
 
