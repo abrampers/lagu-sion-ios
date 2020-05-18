@@ -30,7 +30,7 @@ jobs:
         bazel test //LaguSionTests --verbose_failures
 
   build:
-    needs: build
+    needs: test
     runs-on: macos-10.15
     steps:
     - uses: actions/checkout@v2
