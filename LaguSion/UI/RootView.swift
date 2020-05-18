@@ -56,6 +56,7 @@ struct RootView: View {
                             Text("Main")
                         }
                     }
+            .tag(0)
                 TestCombineGRPCView()
                     .tabItem {
                         VStack {
@@ -63,6 +64,7 @@ struct RootView: View {
                             Text("CombineGRPC")
                         }
                     }
+            .tag(1)
                 Text("First View")
                     .font(.title)
                     .tabItem {
@@ -71,7 +73,7 @@ struct RootView: View {
                             Text("First")
                         }
                     }
-            
+            .tag(3)
                 Text("Second View")
                     .font(.title)
                     .tabItem {
@@ -80,6 +82,7 @@ struct RootView: View {
                             Text("Second")
                         }
                     }
+            .tag(3)
         }
     }
 }
