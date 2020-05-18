@@ -1,4 +1,4 @@
-name: Fastlane-CI
+name: fastlane-build
 
 on:
   push:
