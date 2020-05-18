@@ -7,68 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2118EC91246921020051328F /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2118EC90246921010051328F /* Publisher+Extension.swift */; };
-		216E8DAF246A9F3000B7FE8E /* echo_service.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216E8DAB246A9F3000B7FE8E /* echo_service.pb.swift */; };
-		216E8DB1246A9F3000B7FE8E /* echo_service.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216E8DAD246A9F3000B7FE8E /* echo_service.grpc.swift */; };
-		216E8DB2246A9F3000B7FE8E /* echo_service.proto in Sources */ = {isa = PBXBuildFile; fileRef = 216E8DAE246A9F3000B7FE8E /* echo_service.proto */; };
-		218B43BF2467F12A00E18B15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43BE2467F12A00E18B15 /* AppDelegate.swift */; };
-		218B43C12467F12A00E18B15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43C02467F12A00E18B15 /* SceneDelegate.swift */; };
-		218B43C42467F12A00E18B15 /* LaguSion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 218B43C22467F12A00E18B15 /* LaguSion.xcdatamodeld */; };
-		218B43C62467F12A00E18B15 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43C52467F12A00E18B15 /* RootView.swift */; };
-		218B43C82467F12D00E18B15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218B43C72467F12D00E18B15 /* Assets.xcassets */; };
-		218B43CB2467F12D00E18B15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218B43CA2467F12D00E18B15 /* Preview Assets.xcassets */; };
-		218B43CE2467F12D00E18B15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218B43CC2467F12D00E18B15 /* LaunchScreen.storyboard */; };
-		218B43DA2467FD7200E18B15 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43D92467FD7200E18B15 /* MainView.swift */; };
-		218B43DD24683AFC00E18B15 /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 218B43DC24683AFC00E18B15 /* CombineGRPC */; };
-		218B43E124683E7100E18B15 /* TestCombineGRPCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B43E024683E7100E18B15 /* TestCombineGRPCView.swift */; };
-		21C8D04824699F920041D063 /* GRPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8D04724699F920041D063 /* GRPCServiceManager.swift */; };
-		21CAAD0A24703EFA00915369 /* LaguSionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAAD0924703EFA00915369 /* LaguSionTests.swift */; };
-		21CAAD13247065EE00915369 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 21CAAD12247065EE00915369 /* ComposableArchitecture */; };
+		216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3802472358C00B7C55B /* AppDelegate.swift */; };
+		216AF3832472358C00B7C55B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3822472358C00B7C55B /* SceneDelegate.swift */; };
+		216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3842472358C00B7C55B /* LaguSion.xcdatamodeld */; };
+		216AF38A2472358E00B7C55B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 216AF3892472358E00B7C55B /* Assets.xcassets */; };
+		216AF38D2472358E00B7C55B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 216AF38C2472358E00B7C55B /* Preview Assets.xcassets */; };
+		216AF3902472358E00B7C55B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 216AF38E2472358E00B7C55B /* LaunchScreen.storyboard */; };
+		216AF39B2472358E00B7C55B /* LaguSionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF39A2472358E00B7C55B /* LaguSionTests.swift */; };
+		21B130EE247235DF005941E9 /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E0247235DF005941E9 /* Publisher+Extension.swift */; };
+		21B130EF247235DF005941E9 /* GRPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E3247235DF005941E9 /* GRPCServiceManager.swift */; };
+		21B130F0247235E0005941E9 /* echo_service.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E5247235DF005941E9 /* echo_service.pb.swift */; };
+		21B130F1247235E0005941E9 /* echo_service.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E6247235DF005941E9 /* echo_service.grpc.swift */; };
+		21B130F2247235E0005941E9 /* echo_service.proto in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E7247235DF005941E9 /* echo_service.proto */; };
+		21B130F3247235E0005941E9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E9247235DF005941E9 /* RootView.swift */; };
+		21B130F4247235E0005941E9 /* TestCombineGRPCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */; };
+		21B130F5247235E0005941E9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130ED247235DF005941E9 /* MainView.swift */; };
+		21B130F824723654005941E9 /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 21B130F724723654005941E9 /* CombineGRPC */; };
+		21B130FB2472365F005941E9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 21B130FA2472365F005941E9 /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		21CAAD0C24703EFA00915369 /* PBXContainerItemProxy */ = {
+		216AF3972472358E00B7C55B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 218B43B32467F12A00E18B15 /* Project object */;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 218B43BA2467F12A00E18B15;
+			remoteGlobalIDString = 216AF37C2472358C00B7C55B;
 			remoteInfo = LaguSion;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2118EC90246921010051328F /* Publisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
-		216E8DAB246A9F3000B7FE8E /* echo_service.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.pb.swift; sourceTree = "<group>"; };
-		216E8DAD246A9F3000B7FE8E /* echo_service.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.grpc.swift; sourceTree = "<group>"; };
-		216E8DAE246A9F3000B7FE8E /* echo_service.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = echo_service.proto; sourceTree = "<group>"; };
-		218B43BB2467F12A00E18B15 /* LaguSion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaguSion.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		218B43BE2467F12A00E18B15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		218B43C02467F12A00E18B15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		218B43C32467F12A00E18B15 /* LaguSion.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LaguSion.xcdatamodel; sourceTree = "<group>"; };
-		218B43C52467F12A00E18B15 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		218B43C72467F12D00E18B15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		218B43CA2467F12D00E18B15 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		218B43CD2467F12D00E18B15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		218B43CF2467F12D00E18B15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		218B43D92467FD7200E18B15 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		218B43E024683E7100E18B15 /* TestCombineGRPCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCombineGRPCView.swift; sourceTree = "<group>"; };
-		21C8D04724699F920041D063 /* GRPCServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRPCServiceManager.swift; sourceTree = "<group>"; };
-		21CAAD0724703EFA00915369 /* LaguSionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaguSionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		21CAAD0924703EFA00915369 /* LaguSionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionTests.swift; sourceTree = "<group>"; };
-		21CAAD0B24703EFA00915369 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		216AF37D2472358C00B7C55B /* LaguSion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaguSion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		216AF3802472358C00B7C55B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		216AF3822472358C00B7C55B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		216AF3852472358C00B7C55B /* LaguSion.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LaguSion.xcdatamodel; sourceTree = "<group>"; };
+		216AF3892472358E00B7C55B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		216AF38C2472358E00B7C55B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		216AF38F2472358E00B7C55B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		216AF3912472358E00B7C55B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		216AF3962472358E00B7C55B /* LaguSionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaguSionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		216AF39A2472358E00B7C55B /* LaguSionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionTests.swift; sourceTree = "<group>"; };
+		216AF39C2472358E00B7C55B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21B130E0247235DF005941E9 /* Publisher+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
+		21B130E3247235DF005941E9 /* GRPCServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRPCServiceManager.swift; sourceTree = "<group>"; };
+		21B130E5247235DF005941E9 /* echo_service.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.pb.swift; sourceTree = "<group>"; };
+		21B130E6247235DF005941E9 /* echo_service.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.grpc.swift; sourceTree = "<group>"; };
+		21B130E7247235DF005941E9 /* echo_service.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = echo_service.proto; sourceTree = "<group>"; };
+		21B130E9247235DF005941E9 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCombineGRPCView.swift; sourceTree = "<group>"; };
+		21B130ED247235DF005941E9 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		218B43B82467F12A00E18B15 /* Frameworks */ = {
+		216AF37A2472358C00B7C55B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21CAAD13247065EE00915369 /* ComposableArchitecture in Frameworks */,
-				218B43DD24683AFC00E18B15 /* CombineGRPC in Frameworks */,
+				21B130FB2472365F005941E9 /* ComposableArchitecture in Frameworks */,
+				21B130F824723654005941E9 /* CombineGRPC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		21CAAD0424703EFA00915369 /* Frameworks */ = {
+		216AF3932472358E00B7C55B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -78,129 +78,129 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2118EC8F246920D80051328F /* Tools */ = {
+		216AF3742472358C00B7C55B = {
 			isa = PBXGroup;
 			children = (
-				2118EC90246921010051328F /* Publisher+Extension.swift */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		216E8DAA246A9F3000B7FE8E /* EchoService */ = {
-			isa = PBXGroup;
-			children = (
-				216E8DAB246A9F3000B7FE8E /* echo_service.pb.swift */,
-				216E8DAD246A9F3000B7FE8E /* echo_service.grpc.swift */,
-				216E8DAE246A9F3000B7FE8E /* echo_service.proto */,
-			);
-			path = EchoService;
-			sourceTree = "<group>";
-		};
-		218B43B22467F12A00E18B15 = {
-			isa = PBXGroup;
-			children = (
-				218B43BD2467F12A00E18B15 /* LaguSion */,
-				21CAAD0824703EFA00915369 /* LaguSionTests */,
-				218B43BC2467F12A00E18B15 /* Products */,
+				216AF37F2472358C00B7C55B /* LaguSion */,
+				216AF3992472358E00B7C55B /* LaguSionTests */,
+				216AF37E2472358C00B7C55B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		218B43BC2467F12A00E18B15 /* Products */ = {
+		216AF37E2472358C00B7C55B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				218B43BB2467F12A00E18B15 /* LaguSion.app */,
-				21CAAD0724703EFA00915369 /* LaguSionTests.xctest */,
+				216AF37D2472358C00B7C55B /* LaguSion.app */,
+				216AF3962472358E00B7C55B /* LaguSionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		218B43BD2467F12A00E18B15 /* LaguSion */ = {
+		216AF37F2472358C00B7C55B /* LaguSion */ = {
 			isa = PBXGroup;
 			children = (
-				2118EC8F246920D80051328F /* Tools */,
-				218B43E224683EE800E18B15 /* Services */,
-				218B43D52467FB8500E18B15 /* UI */,
-				218B43BE2467F12A00E18B15 /* AppDelegate.swift */,
-				218B43C02467F12A00E18B15 /* SceneDelegate.swift */,
-				218B43C72467F12D00E18B15 /* Assets.xcassets */,
-				218B43CC2467F12D00E18B15 /* LaunchScreen.storyboard */,
-				218B43CF2467F12D00E18B15 /* Info.plist */,
-				218B43C22467F12A00E18B15 /* LaguSion.xcdatamodeld */,
-				218B43C92467F12D00E18B15 /* Preview Content */,
+				21B130E1247235DF005941E9 /* Services */,
+				21B130DF247235DF005941E9 /* Tools */,
+				21B130E8247235DF005941E9 /* UI */,
+				216AF3802472358C00B7C55B /* AppDelegate.swift */,
+				216AF3822472358C00B7C55B /* SceneDelegate.swift */,
+				216AF3892472358E00B7C55B /* Assets.xcassets */,
+				216AF38E2472358E00B7C55B /* LaunchScreen.storyboard */,
+				216AF3912472358E00B7C55B /* Info.plist */,
+				216AF3842472358C00B7C55B /* LaguSion.xcdatamodeld */,
+				216AF38B2472358E00B7C55B /* Preview Content */,
 			);
 			path = LaguSion;
 			sourceTree = "<group>";
 		};
-		218B43C92467F12D00E18B15 /* Preview Content */ = {
+		216AF38B2472358E00B7C55B /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				218B43CA2467F12D00E18B15 /* Preview Assets.xcassets */,
+				216AF38C2472358E00B7C55B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		218B43D52467FB8500E18B15 /* UI */ = {
+		216AF3992472358E00B7C55B /* LaguSionTests */ = {
 			isa = PBXGroup;
 			children = (
-				218B43DF24683E5100E18B15 /* TestCombineGRPCView */,
-				218B43D82467FD3900E18B15 /* MainView */,
-				218B43C52467F12A00E18B15 /* RootView.swift */,
+				216AF39A2472358E00B7C55B /* LaguSionTests.swift */,
+				216AF39C2472358E00B7C55B /* Info.plist */,
 			);
-			path = UI;
+			path = LaguSionTests;
 			sourceTree = "<group>";
 		};
-		218B43D82467FD3900E18B15 /* MainView */ = {
+		21B130DF247235DF005941E9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				218B43D92467FD7200E18B15 /* MainView.swift */,
+				21B130E0247235DF005941E9 /* Publisher+Extension.swift */,
 			);
-			path = MainView;
+			path = Tools;
 			sourceTree = "<group>";
 		};
-		218B43DF24683E5100E18B15 /* TestCombineGRPCView */ = {
+		21B130E1247235DF005941E9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				218B43E024683E7100E18B15 /* TestCombineGRPCView.swift */,
-			);
-			path = TestCombineGRPCView;
-			sourceTree = "<group>";
-		};
-		218B43E224683EE800E18B15 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				218B43E324683EF100E18B15 /* gRPC */,
+				21B130E2247235DF005941E9 /* gRPC */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		218B43E324683EF100E18B15 /* gRPC */ = {
+		21B130E2247235DF005941E9 /* gRPC */ = {
 			isa = PBXGroup;
 			children = (
-				216E8DAA246A9F3000B7FE8E /* EchoService */,
-				21C8D04724699F920041D063 /* GRPCServiceManager.swift */,
+				21B130E3247235DF005941E9 /* GRPCServiceManager.swift */,
+				21B130E4247235DF005941E9 /* EchoService */,
 			);
 			path = gRPC;
 			sourceTree = "<group>";
 		};
-		21CAAD0824703EFA00915369 /* LaguSionTests */ = {
+		21B130E4247235DF005941E9 /* EchoService */ = {
 			isa = PBXGroup;
 			children = (
-				21CAAD0924703EFA00915369 /* LaguSionTests.swift */,
-				21CAAD0B24703EFA00915369 /* Info.plist */,
+				21B130E5247235DF005941E9 /* echo_service.pb.swift */,
+				21B130E6247235DF005941E9 /* echo_service.grpc.swift */,
+				21B130E7247235DF005941E9 /* echo_service.proto */,
 			);
-			path = LaguSionTests;
+			path = EchoService;
+			sourceTree = "<group>";
+		};
+		21B130E8247235DF005941E9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				21B130E9247235DF005941E9 /* RootView.swift */,
+				21B130EA247235DF005941E9 /* TestCombineGRPCView */,
+				21B130EC247235DF005941E9 /* MainView */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		21B130EA247235DF005941E9 /* TestCombineGRPCView */ = {
+			isa = PBXGroup;
+			children = (
+				21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */,
+			);
+			path = TestCombineGRPCView;
+			sourceTree = "<group>";
+		};
+		21B130EC247235DF005941E9 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				21B130ED247235DF005941E9 /* MainView.swift */,
+			);
+			path = MainView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		218B43BA2467F12A00E18B15 /* LaguSion */ = {
+		216AF37C2472358C00B7C55B /* LaguSion */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 218B43D22467F12D00E18B15 /* Build configuration list for PBXNativeTarget "LaguSion" */;
+			buildConfigurationList = 216AF39F2472358E00B7C55B /* Build configuration list for PBXNativeTarget "LaguSion" */;
 			buildPhases = (
-				218B43B72467F12A00E18B15 /* Sources */,
-				218B43B82467F12A00E18B15 /* Frameworks */,
-				218B43B92467F12A00E18B15 /* Resources */,
+				216AF3792472358C00B7C55B /* Sources */,
+				216AF37A2472358C00B7C55B /* Frameworks */,
+				216AF37B2472358C00B7C55B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -208,51 +208,51 @@
 			);
 			name = LaguSion;
 			packageProductDependencies = (
-				218B43DC24683AFC00E18B15 /* CombineGRPC */,
-				21CAAD12247065EE00915369 /* ComposableArchitecture */,
+				21B130F724723654005941E9 /* CombineGRPC */,
+				21B130FA2472365F005941E9 /* ComposableArchitecture */,
 			);
 			productName = LaguSion;
-			productReference = 218B43BB2467F12A00E18B15 /* LaguSion.app */;
+			productReference = 216AF37D2472358C00B7C55B /* LaguSion.app */;
 			productType = "com.apple.product-type.application";
 		};
-		21CAAD0624703EFA00915369 /* LaguSionTests */ = {
+		216AF3952472358E00B7C55B /* LaguSionTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21CAAD1024703EFA00915369 /* Build configuration list for PBXNativeTarget "LaguSionTests" */;
+			buildConfigurationList = 216AF3A22472358E00B7C55B /* Build configuration list for PBXNativeTarget "LaguSionTests" */;
 			buildPhases = (
-				21CAAD0324703EFA00915369 /* Sources */,
-				21CAAD0424703EFA00915369 /* Frameworks */,
-				21CAAD0524703EFA00915369 /* Resources */,
+				216AF3922472358E00B7C55B /* Sources */,
+				216AF3932472358E00B7C55B /* Frameworks */,
+				216AF3942472358E00B7C55B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				21CAAD0D24703EFA00915369 /* PBXTargetDependency */,
+				216AF3982472358E00B7C55B /* PBXTargetDependency */,
 			);
 			name = LaguSionTests;
 			productName = LaguSionTests;
-			productReference = 21CAAD0724703EFA00915369 /* LaguSionTests.xctest */;
+			productReference = 216AF3962472358E00B7C55B /* LaguSionTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		218B43B32467F12A00E18B15 /* Project object */ = {
+		216AF3752472358C00B7C55B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Abram Situmorang";
 				TargetAttributes = {
-					218B43BA2467F12A00E18B15 = {
+					216AF37C2472358C00B7C55B = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
-					21CAAD0624703EFA00915369 = {
+					216AF3952472358E00B7C55B = {
 						CreatedOnToolsVersion = 11.4.1;
-						TestTargetID = 218B43BA2467F12A00E18B15;
+						TestTargetID = 216AF37C2472358C00B7C55B;
 					};
 				};
 			};
-			buildConfigurationList = 218B43B62467F12A00E18B15 /* Build configuration list for PBXProject "LaguSion" */;
+			buildConfigurationList = 216AF3782472358C00B7C55B /* Build configuration list for PBXProject "LaguSion" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -260,33 +260,33 @@
 				en,
 				Base,
 			);
-			mainGroup = 218B43B22467F12A00E18B15;
+			mainGroup = 216AF3742472358C00B7C55B;
 			packageReferences = (
-				218B43DB24683AFC00E18B15 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */,
-				21CAAD11247065EE00915369 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				21B130F624723654005941E9 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */,
+				21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
-			productRefGroup = 218B43BC2467F12A00E18B15 /* Products */;
+			productRefGroup = 216AF37E2472358C00B7C55B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				218B43BA2467F12A00E18B15 /* LaguSion */,
-				21CAAD0624703EFA00915369 /* LaguSionTests */,
+				216AF37C2472358C00B7C55B /* LaguSion */,
+				216AF3952472358E00B7C55B /* LaguSionTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		218B43B92467F12A00E18B15 /* Resources */ = {
+		216AF37B2472358C00B7C55B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				218B43CE2467F12D00E18B15 /* LaunchScreen.storyboard in Resources */,
-				218B43CB2467F12D00E18B15 /* Preview Assets.xcassets in Resources */,
-				218B43C82467F12D00E18B15 /* Assets.xcassets in Resources */,
+				216AF3902472358E00B7C55B /* LaunchScreen.storyboard in Resources */,
+				216AF38D2472358E00B7C55B /* Preview Assets.xcassets in Resources */,
+				216AF38A2472358E00B7C55B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		21CAAD0524703EFA00915369 /* Resources */ = {
+		216AF3942472358E00B7C55B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -296,47 +296,47 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		218B43B72467F12A00E18B15 /* Sources */ = {
+		216AF3792472358C00B7C55B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				218B43C42467F12A00E18B15 /* LaguSion.xcdatamodeld in Sources */,
-				21C8D04824699F920041D063 /* GRPCServiceManager.swift in Sources */,
-				216E8DB2246A9F3000B7FE8E /* echo_service.proto in Sources */,
-				218B43BF2467F12A00E18B15 /* AppDelegate.swift in Sources */,
-				218B43E124683E7100E18B15 /* TestCombineGRPCView.swift in Sources */,
-				216E8DAF246A9F3000B7FE8E /* echo_service.pb.swift in Sources */,
-				2118EC91246921020051328F /* Publisher+Extension.swift in Sources */,
-				218B43C62467F12A00E18B15 /* RootView.swift in Sources */,
-				216E8DB1246A9F3000B7FE8E /* echo_service.grpc.swift in Sources */,
-				218B43DA2467FD7200E18B15 /* MainView.swift in Sources */,
-				218B43C12467F12A00E18B15 /* SceneDelegate.swift in Sources */,
+				21B130F0247235E0005941E9 /* echo_service.pb.swift in Sources */,
+				21B130F5247235E0005941E9 /* MainView.swift in Sources */,
+				21B130F2247235E0005941E9 /* echo_service.proto in Sources */,
+				216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */,
+				216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */,
+				21B130F3247235E0005941E9 /* RootView.swift in Sources */,
+				21B130F1247235E0005941E9 /* echo_service.grpc.swift in Sources */,
+				216AF3832472358C00B7C55B /* SceneDelegate.swift in Sources */,
+				21B130EE247235DF005941E9 /* Publisher+Extension.swift in Sources */,
+				21B130F4247235E0005941E9 /* TestCombineGRPCView.swift in Sources */,
+				21B130EF247235DF005941E9 /* GRPCServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		21CAAD0324703EFA00915369 /* Sources */ = {
+		216AF3922472358E00B7C55B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21CAAD0A24703EFA00915369 /* LaguSionTests.swift in Sources */,
+				216AF39B2472358E00B7C55B /* LaguSionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		21CAAD0D24703EFA00915369 /* PBXTargetDependency */ = {
+		216AF3982472358E00B7C55B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 218B43BA2467F12A00E18B15 /* LaguSion */;
-			targetProxy = 21CAAD0C24703EFA00915369 /* PBXContainerItemProxy */;
+			target = 216AF37C2472358C00B7C55B /* LaguSion */;
+			targetProxy = 216AF3972472358E00B7C55B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		218B43CC2467F12D00E18B15 /* LaunchScreen.storyboard */ = {
+		216AF38E2472358E00B7C55B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				218B43CD2467F12D00E18B15 /* Base */,
+				216AF38F2472358E00B7C55B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -344,7 +344,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		218B43D02467F12D00E18B15 /* Debug */ = {
+		216AF39D2472358E00B7C55B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -404,7 +404,7 @@
 			};
 			name = Debug;
 		};
-		218B43D12467F12D00E18B15 /* Release */ = {
+		216AF39E2472358E00B7C55B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -458,65 +458,57 @@
 			};
 			name = Release;
 		};
-		218B43D32467F12D00E18B15 /* Debug */ = {
+		216AF3A02472358E00B7C55B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LaguSion/Preview Content\"";
 				DEVELOPMENT_TEAM = H8S6N7BJTQ;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
 				INFOPLIST_FILE = LaguSion/Info.plist;
-				INFOPLIST_PREPROCESS = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion;
-				PRODUCT_NAME = LaguSion;
-				PROVISIONING_PROFILE_SPECIFIER = "match Development id.abram.ios.LaguSion";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		218B43D42467F12D00E18B15 /* Release */ = {
+		216AF3A12472358E00B7C55B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LaguSion/Preview Content\"";
 				DEVELOPMENT_TEAM = H8S6N7BJTQ;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
 				INFOPLIST_FILE = LaguSion/Info.plist;
-				INFOPLIST_PREPROCESS = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion;
-				PRODUCT_NAME = LaguSion;
-				PROVISIONING_PROFILE_SPECIFIER = "match Development id.abram.ios.LaguSion";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		21CAAD0E24703EFA00915369 /* Debug */ = {
+		216AF3A32472358E00B7C55B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H8S6N7BJTQ;
 				INFOPLIST_FILE = LaguSionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -526,17 +518,19 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lagu Sion.app/Lagu Sion";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LaguSion.app/LaguSion";
 			};
 			name = Debug;
 		};
-		21CAAD0F24703EFA00915369 /* Release */ = {
+		216AF3A42472358E00B7C55B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H8S6N7BJTQ;
 				INFOPLIST_FILE = LaguSionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,36 +540,36 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lagu Sion.app/Lagu Sion";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LaguSion.app/LaguSion";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		218B43B62467F12A00E18B15 /* Build configuration list for PBXProject "LaguSion" */ = {
+		216AF3782472358C00B7C55B /* Build configuration list for PBXProject "LaguSion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				218B43D02467F12D00E18B15 /* Debug */,
-				218B43D12467F12D00E18B15 /* Release */,
+				216AF39D2472358E00B7C55B /* Debug */,
+				216AF39E2472358E00B7C55B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		218B43D22467F12D00E18B15 /* Build configuration list for PBXNativeTarget "LaguSion" */ = {
+		216AF39F2472358E00B7C55B /* Build configuration list for PBXNativeTarget "LaguSion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				218B43D32467F12D00E18B15 /* Debug */,
-				218B43D42467F12D00E18B15 /* Release */,
+				216AF3A02472358E00B7C55B /* Debug */,
+				216AF3A12472358E00B7C55B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21CAAD1024703EFA00915369 /* Build configuration list for PBXNativeTarget "LaguSionTests" */ = {
+		216AF3A22472358E00B7C55B /* Build configuration list for PBXNativeTarget "LaguSionTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				21CAAD0E24703EFA00915369 /* Debug */,
-				21CAAD0F24703EFA00915369 /* Release */,
+				216AF3A32472358E00B7C55B /* Debug */,
+				216AF3A42472358E00B7C55B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -583,17 +577,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		218B43DB24683AFC00E18B15 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */ = {
+		21B130F624723654005941E9 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/vyshane/grpc-swift-combine.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.10.0;
+				minimumVersion = 0.11.0;
 			};
 		};
-		21CAAD11247065EE00915369 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.1.4;
@@ -602,30 +596,30 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		218B43DC24683AFC00E18B15 /* CombineGRPC */ = {
+		21B130F724723654005941E9 /* CombineGRPC */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 218B43DB24683AFC00E18B15 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */;
+			package = 21B130F624723654005941E9 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */;
 			productName = CombineGRPC;
 		};
-		21CAAD12247065EE00915369 /* ComposableArchitecture */ = {
+		21B130FA2472365F005941E9 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 21CAAD11247065EE00915369 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			package = 21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		218B43C22467F12A00E18B15 /* LaguSion.xcdatamodeld */ = {
+		216AF3842472358C00B7C55B /* LaguSion.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				218B43C32467F12A00E18B15 /* LaguSion.xcdatamodel */,
+				216AF3852472358C00B7C55B /* LaguSion.xcdatamodel */,
 			);
-			currentVersion = 218B43C32467F12A00E18B15 /* LaguSion.xcdatamodel */;
+			currentVersion = 216AF3852472358C00B7C55B /* LaguSion.xcdatamodel */;
 			path = LaguSion.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 218B43B32467F12A00E18B15 /* Project object */;
+	rootObject = 216AF3752472358C00B7C55B /* Project object */;
 }

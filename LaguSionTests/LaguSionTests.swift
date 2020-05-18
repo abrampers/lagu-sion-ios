@@ -2,11 +2,12 @@
 //  LaguSionTests.swift
 //  LaguSionTests
 //
-//  Created by Abram Situmorang on 16/05/20.
+//  Created by Abram Situmorang on 18/05/20.
 //  Copyright © 2020 Abram Situmorang. All rights reserved.
 //
 
 import XCTest
+@testable import LaguSion
 
 class LaguSionTests: XCTestCase {
 
@@ -25,7 +26,7 @@ class LaguSionTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        measure {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
