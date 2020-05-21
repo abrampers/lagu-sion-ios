@@ -15,9 +15,8 @@ swift_library(
         "**/*.swift",
     ]),
     data = [
-        "LaguSion.xcdatamodeld/LaguSion.xcdatamodel",
         ":Assets.xcassets",
-    ],
+    ] + glob(["LaguSion.xcdatamodeld/**"]),
     deps = [
         "@com_github_vyshane_grpc_swift_combine//:CombineGRPC",
         "@com_github_pointfreeco_swift_composable_architecture//:ComposableArchitecture",
