@@ -60,8 +60,7 @@ struct RootView: View {
         TabView {
             MainView(store: self.store.scope(
                 state: \.mainView,
-                action: AppAction.main
-                )
+                action: AppAction.main)
             )
                 .tabItem {
                     VStack {
@@ -71,8 +70,7 @@ struct RootView: View {
             }
             FavoritesView(store: self.store.scope(
                 state: \.favoritesView,
-                action: AppAction.favorites
-                )
+                action: AppAction.favorites)
             )
                 .font(.title)
                 .tabItem {

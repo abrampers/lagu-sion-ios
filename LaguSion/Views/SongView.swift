@@ -66,8 +66,7 @@ struct SongView_Previews: PreviewProvider {
         SongView(store: Store(
             initialState: Song(id: UUID(), isFavorite: false, number: 1, title: "No 1"),
             reducer: songReducer,
-            environment: SongEnvironment()
-            )
+            environment: SongEnvironment())
         )
     }
 }
