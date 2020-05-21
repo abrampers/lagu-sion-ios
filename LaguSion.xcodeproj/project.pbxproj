@@ -24,6 +24,8 @@
 		21B130F5247235E0005941E9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130ED247235DF005941E9 /* MainView.swift */; };
 		21B130F824723654005941E9 /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 21B130F724723654005941E9 /* CombineGRPC */; };
 		21B130FB2472365F005941E9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 21B130FA2472365F005941E9 /* ComposableArchitecture */; };
+		21C88D22247681D5001E376A /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D21247681D5001E376A /* SongView.swift */; };
+		21C88D2424768A08001E376A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D2324768A08001E376A /* FavoritesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		21B130E9247235DF005941E9 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCombineGRPCView.swift; sourceTree = "<group>"; };
 		21B130ED247235DF005941E9 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		21C88D21247681D5001E376A /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
+		21C88D2324768A08001E376A /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +105,7 @@
 			children = (
 				21B130E1247235DF005941E9 /* Services */,
 				21B130DF247235DF005941E9 /* Tools */,
-				21B130E8247235DF005941E9 /* UI */,
+				21B130E8247235DF005941E9 /* Views */,
 				216AF3802472358C00B7C55B /* AppDelegate.swift */,
 				216AF3822472358C00B7C55B /* SceneDelegate.swift */,
 				216AF3892472358E00B7C55B /* Assets.xcassets */,
@@ -165,30 +169,16 @@
 			path = EchoService;
 			sourceTree = "<group>";
 		};
-		21B130E8247235DF005941E9 /* UI */ = {
+		21B130E8247235DF005941E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				21B130E9247235DF005941E9 /* RootView.swift */,
-				21B130EA247235DF005941E9 /* TestCombineGRPCView */,
-				21B130EC247235DF005941E9 /* MainView */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		21B130EA247235DF005941E9 /* TestCombineGRPCView */ = {
-			isa = PBXGroup;
-			children = (
-				21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */,
-			);
-			path = TestCombineGRPCView;
-			sourceTree = "<group>";
-		};
-		21B130EC247235DF005941E9 /* MainView */ = {
-			isa = PBXGroup;
-			children = (
 				21B130ED247235DF005941E9 /* MainView.swift */,
+				21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */,
+				21C88D21247681D5001E376A /* SongView.swift */,
+				21C88D2324768A08001E376A /* FavoritesView.swift */,
 			);
-			path = MainView;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,7 +292,9 @@
 			files = (
 				21B130F0247235E0005941E9 /* echo_service.pb.swift in Sources */,
 				21B130F5247235E0005941E9 /* MainView.swift in Sources */,
+				21C88D2424768A08001E376A /* FavoritesView.swift in Sources */,
 				21B130F2247235E0005941E9 /* echo_service.proto in Sources */,
+				21C88D22247681D5001E376A /* SongView.swift in Sources */,
 				216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */,
 				216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */,
 				21B130F3247235E0005941E9 /* RootView.swift in Sources */,

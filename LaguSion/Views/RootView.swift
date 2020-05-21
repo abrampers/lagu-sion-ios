@@ -15,10 +15,10 @@ struct AppState: Equatable {
 
 enum AppAction {
     case main(MainAction)
+    case favorites(FavoritesAction)
 }
 
 struct AppEnvironment {
-    
 }
 
 extension AppState {
@@ -30,31 +30,28 @@ extension AppState {
             self.songs = newValue.songs
         }
     }
+    
+    var favoritesView: FavoritesState {
+        get {
+            FavoritesState()
+        }
+        set {
+        }
+    }
 }
 
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
     mainReducer.pullback(
         state: \AppState.mainView,
         action: /AppAction.main,
-        environment: { _ in MainEnvironment() })
+        environment: { _ in MainEnvironment() }
+    ),
+    favoritesReducer.pullback(
+        state: \AppState.favoritesView,
+        action: /AppAction.favorites,
+        environment: { _ in FavoritesEnvironment() }
+    )
 )
-
-struct FavoritesState {
-}
-
-enum FavoritesAction {
-}
-
-struct FavoritesEnvironment {
-    
-}
-
-struct FavoritesView: View {
-    let store: Store<FavoritesState, FavoritesAction>
-    var body: some View {
-        Text("FavoritesView")
-    }
-}
 
 struct RootView: View {
     let store: Store<AppState, AppAction>
@@ -62,8 +59,8 @@ struct RootView: View {
     var body: some View {
         TabView {
             MainView(store: self.store.scope(
-                state: { $0.mainView },
-                action: { .main($0) }
+                state: \.mainView,
+                action: AppAction.main
                 )
             )
                 .tabItem {
@@ -72,19 +69,23 @@ struct RootView: View {
                         Text("Main")
                     }
             }
-            TestCombineGRPCView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "globe")
-                        Text("CombineGRPC")
-                    }
-            }
-            Text("Second View")
+            FavoritesView(store: self.store.scope(
+                state: \.favoritesView,
+                action: AppAction.favorites
+                )
+            )
                 .font(.title)
                 .tabItem {
                     VStack {
                         Image("second")
                         Text("Second")
+                    }
+            }
+            TestCombineGRPCView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "globe")
+                        Text("CombineGRPC")
                     }
             }
             Text("First View")
