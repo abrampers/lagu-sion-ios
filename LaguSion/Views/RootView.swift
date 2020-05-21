@@ -39,57 +39,70 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         environment: { _ in MainEnvironment() })
 )
 
+struct FavoritesState {
+}
+
+enum FavoritesAction {
+}
+
+struct FavoritesEnvironment {
+    
+}
+
+struct FavoritesView: View {
+    let store: Store<FavoritesState, FavoritesAction>
+    var body: some View {
+        Text("FavoritesView")
+    }
+}
+
 struct RootView: View {
     let store: Store<AppState, AppAction>
-    @State var selection: Int = 0
- 
+    
     var body: some View {
-        TabView(selection: $selection) {
+        TabView {
             MainView(store: self.store.scope(
-                    state: { MainState(songs: $0.songs) },
-                    action: { .main($0) }
+                state: { $0.mainView },
+                action: { .main($0) }
                 )
             )
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "globe")
-                            Text("Main")
-                        }
+                .tabItem {
+                    VStack {
+                        Image(systemName: "globe")
+                        Text("Main")
                     }
-            .tag(0)
-                TestCombineGRPCView()
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "globe")
-                            Text("CombineGRPC")
-                        }
+            }
+            TestCombineGRPCView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "globe")
+                        Text("CombineGRPC")
                     }
-            .tag(1)
-                Text("First View")
-                    .font(.title)
-                    .tabItem {
-                        VStack {
-                            Image("first")
-                            Text("First")
-                        }
+            }
+            Text("Second View")
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image("second")
+                        Text("Second")
                     }
-            .tag(3)
-                Text("Second View")
-                    .font(.title)
-                    .tabItem {
-                        VStack {
-                            Image("second")
-                            Text("Second")
-                        }
+            }
+            Text("First View")
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image("first")
+                        Text("First")
                     }
-            .tag(3)
+            }
         }
     }
 }
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView(store: Store(
+        RootView(
+            store: Store(
                 initialState: AppState(
                     songs: [
                         Song(id: UUID(), isFavorite: false, number: 1, title: "No 1"),

@@ -90,7 +90,7 @@ struct SongView: View {
     var body: some View {
         WithViewStore(self.store) { viewStore in
             NavigationView {
-                EmptyView()
+                Text("SongView")
                 .navigationBarTitle("\(viewStore.number) \(viewStore.title)")
                 .navigationBarItems(trailing: Button(action: { viewStore.send(.heartTapped) }) {
                     Image(systemName: viewStore.isFavorite ? "heart.fill" : "heart")
@@ -102,22 +102,28 @@ struct SongView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(store: Store(
-                initialState: MainState(
-                    songs: [
-                        Song(id: UUID(), isFavorite: false, number: 1, title: "No 1"),
-                        Song(id: UUID(), isFavorite: false, number: 2, title: "No 2"),
-                        Song(id: UUID(), isFavorite: false, number: 3, title: "No 3"),
-                        Song(id: UUID(), isFavorite: false, number: 4, title: "No 4"),
-                        Song(id: UUID(), isFavorite: false, number: 5, title: "No 5"),
-                        Song(id: UUID(), isFavorite: false, number: 6, title: "No 6"),
-                        Song(id: UUID(), isFavorite: false, number: 7, title: "No 7"),
-                        Song(id: UUID(), isFavorite: false, number: 8, title: "No 8"),
-                        Song(id: UUID(), isFavorite: false, number: 9, title: "No 9")
-                    ]
-                ),
-                reducer: mainReducer,
-                environment: MainEnvironment()
+//        MainView(store: Store(
+//                initialState: MainState(
+//                    songs: [
+//                        Song(id: UUID(), isFavorite: false, number: 1, title: "No 1"),
+//                        Song(id: UUID(), isFavorite: false, number: 2, title: "No 2"),
+//                        Song(id: UUID(), isFavorite: false, number: 3, title: "No 3"),
+//                        Song(id: UUID(), isFavorite: false, number: 4, title: "No 4"),
+//                        Song(id: UUID(), isFavorite: false, number: 5, title: "No 5"),
+//                        Song(id: UUID(), isFavorite: false, number: 6, title: "No 6"),
+//                        Song(id: UUID(), isFavorite: false, number: 7, title: "No 7"),
+//                        Song(id: UUID(), isFavorite: false, number: 8, title: "No 8"),
+//                        Song(id: UUID(), isFavorite: false, number: 9, title: "No 9")
+//                    ]
+//                ),
+//                reducer: mainReducer,
+//                environment: MainEnvironment()
+//            )
+        //        )
+        SongView(store: Store(
+            initialState: Song(id: UUID(), isFavorite: false, number: 1, title: "No 1"),
+            reducer: songReducer,
+            environment: SongEnvironment()
             )
         )
     }
