@@ -102,3 +102,4 @@ iOSInjectionProject/
 *~
 bazel-*
 !LaguSion/LaguSion/Bazel-Info.plist
+*.tulsiproj
