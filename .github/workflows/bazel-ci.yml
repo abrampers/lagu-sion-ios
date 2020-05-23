@@ -48,7 +48,7 @@ jobs:
           ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
     - name: Build iOS Application
       run: |
-        bazel build //LaguSion
+        bazel build //LaguSion --config=device_adhoc
     - name: Run iOS Application Tests
       run: |
         bazel query "kind('ios_unit_test', '//...')" | xargs bazel test
