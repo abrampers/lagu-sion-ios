@@ -79,23 +79,16 @@ struct RootView: View {
                 .font(.title)
                 .tabItem {
                     VStack {
-                        Image("second")
-                        Text("Second")
+                        Image(systemName: "star.fill")
+                        Text("Favorites")
                     }
             }
-            TestCombineGRPCView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "globe")
-                        Text("CombineGRPC")
-                    }
-            }
-            Text("First View")
+            Text("Settings")
                 .font(.title)
                 .tabItem {
                     VStack {
-                        Image("first")
-                        Text("First")
+                        Image(systemName: "gear")
+                        Text("Settings")
                     }
             }
         }
