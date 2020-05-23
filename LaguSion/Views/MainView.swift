@@ -11,6 +11,7 @@ import SwiftUI
 
 struct MainState: Equatable {
     var songs: [Song] = []
+    var favoriteSongs: [Song] = []
 }
 
 enum MainAction {
@@ -20,12 +21,24 @@ enum MainAction {
 struct MainEnvironment {
 }
 
-let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = songReducer.forEach(
-  state: \MainState.songs,
-  action: /MainAction.song(index:action:),
-  environment: { _ in SongEnvironment() }
+let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combine(
+    songReducer.forEach(
+        state: \MainState.songs,
+        action: /MainAction.song(index:action:),
+        environment: { _ in SongEnvironment() }
+    ).debug(),
+    Reducer { (state, action, environment) in
+        switch action {
+        case .song(index: let idx, action: .heartTapped):
+            if state.songs[idx].isFavorite {
+                state.favoriteSongs.append(state.songs[idx])
+            } else {
+                state.favoriteSongs.remove(at: idx)
+            }
+            return .none
+        }
+    }
 )
-    .debug()
 
 struct MainView: View {
     let store: Store<MainState, MainAction>
@@ -37,7 +50,7 @@ struct MainView: View {
                     ForEachStore(
                         self.store.scope(state: \.songs, action: MainAction.song(index:action:))
                     ) { songViewStore in
-                        NavigationLink(destination: SongView(store: songViewStore)) {
+                        NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
                             SongTabView(store: songViewStore)
                         }
                     }
