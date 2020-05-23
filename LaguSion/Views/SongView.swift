@@ -17,7 +17,7 @@ struct Song: Equatable, Identifiable {
 }
 
 enum SongAction {
-    case addToFavorites
+    case heartTapped
 }
 
 struct SongEnvironment {
@@ -26,7 +26,7 @@ struct SongEnvironment {
 
 let songReducer = Reducer<Song, SongAction, SongEnvironment> { state, action, environment in
     switch action {
-    case .addToFavorites:
+    case .heartTapped:
         state.isFavorite.toggle()
         return .none
     }
@@ -34,15 +34,19 @@ let songReducer = Reducer<Song, SongAction, SongEnvironment> { state, action, en
 
 struct SongView: View {
     let store: Store<Song, SongAction>
+    let enableFavoriteButton: Bool
     
     var body: some View {
         NavigationView {
             WithViewStore(self.store) { viewStore in
                 Text("SongView")
                     .navigationBarTitle("\(viewStore.number) \(viewStore.title)")
-                    .navigationBarItems(trailing: Button(action: { viewStore.send(.addToFavorites) }) {
-                        Image(systemName: viewStore.isFavorite ? "heart.fill" : "heart")
-                    })
+                    .navigationBarItems(
+                        trailing: Button(action: { viewStore.send(.heartTapped) }) {
+                            Image(systemName: viewStore.isFavorite ? "heart.fill" : "heart")
+                        }
+                        .disabled(!self.enableFavoriteButton)
+                )
             }
         }
     }
@@ -63,10 +67,12 @@ struct SongTabView: View {
 
 struct SongView_Previews: PreviewProvider {
     static var previews: some View {
-        SongView(store: Store(
-            initialState: Song(id: UUID(), isFavorite: false, number: 1, title: "No 1"),
-            reducer: songReducer,
-            environment: SongEnvironment())
+        SongView(
+            store: Store(
+                initialState: Song(id: UUID(), isFavorite: false, number: 1, title: "No 1"),
+                reducer: songReducer,
+                environment: SongEnvironment()),
+            enableFavoriteButton: true
         )
     }
 }
