@@ -16,6 +16,7 @@ struct MainState: Equatable {
 
 enum MainAction {
     case song(index: Int, action: SongAction)
+    case unFavoriteDelayCompleted(index: Int)
 }
 
 struct MainEnvironment {
@@ -30,6 +31,10 @@ let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combine(
     Reducer { (state, action, environment) in
         switch action {
         case .song(index: let idx, action: .heartTapped):
+            struct UnFavoriteCancelDelayId: Hashable {}
+            return Effect(value: MainAction.unFavoriteDelayCompleted(index: idx))
+                .debounce(id: UnFavoriteCancelDelayId(), for: 2, scheduler: DispatchQueue.main)
+        case .unFavoriteDelayCompleted(let idx):
             if state.songs[idx].isFavorite {
                 state.favoriteSongs.append(state.songs[idx])
             } else {
