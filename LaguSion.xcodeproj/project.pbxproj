@@ -35,7 +35,9 @@
 		21305CAD247A895C00F2D76A /* Favorites.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C97247A895C00F2D76A /* Favorites.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21305CB4247A898C00F2D76A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D2324768A08001E376A /* FavoritesView.swift */; };
 		21305CB5247A8AEF00F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
-		21305CB6247A8AEF00F2D76A /* Song.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21305CBA247A8B3D00F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
+		21305CBF247A8B8F00F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
+		21305CC0247A8B8F00F2D76A /* Song.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3802472358C00B7C55B /* AppDelegate.swift */; };
 		216AF3832472358C00B7C55B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3822472358C00B7C55B /* SceneDelegate.swift */; };
 		216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3842472358C00B7C55B /* LaguSion.xcdatamodeld */; };
@@ -125,6 +127,20 @@
 			remoteGlobalIDString = 21305BFC247A803200F2D76A;
 			remoteInfo = Song;
 		};
+		21305CBC247A8B3D00F2D76A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21305BFC247A803200F2D76A;
+			remoteInfo = Song;
+		};
+		21305CC1247A8B8F00F2D76A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21305BFC247A803200F2D76A;
+			remoteInfo = Song;
+		};
 		216AF3972472358E00B7C55B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
@@ -143,17 +159,7 @@
 			files = (
 				21305C8A247A885600F2D76A /* Main.framework in Embed Frameworks */,
 				21305CAD247A895C00F2D76A /* Favorites.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		21305CB9247A8AEF00F2D76A /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				21305CB6247A8AEF00F2D76A /* Song.framework in Embed Frameworks */,
+				21305CC0247A8B8F00F2D76A /* Song.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +256,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21305CBA247A8B3D00F2D76A /* Song.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +290,7 @@
 			files = (
 				21305C89247A885600F2D76A /* Main.framework in Frameworks */,
 				21305CAC247A895C00F2D76A /* Favorites.framework in Frameworks */,
+				21305CBF247A8B8F00F2D76A /* Song.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +626,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				21305CBD247A8B3D00F2D76A /* PBXTargetDependency */,
 			);
 			name = Main;
 			productName = Main;
@@ -651,7 +660,6 @@
 				21305C93247A895C00F2D76A /* Sources */,
 				21305C94247A895C00F2D76A /* Frameworks */,
 				21305C95247A895C00F2D76A /* Resources */,
-				21305CB9247A8AEF00F2D76A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -696,6 +704,7 @@
 			dependencies = (
 				21305C88247A885600F2D76A /* PBXTargetDependency */,
 				21305CAB247A895C00F2D76A /* PBXTargetDependency */,
+				21305CC2247A8B8F00F2D76A /* PBXTargetDependency */,
 			);
 			name = LaguSion;
 			packageProductDependencies = (
@@ -1023,6 +1032,16 @@
 			isa = PBXTargetDependency;
 			target = 21305BFC247A803200F2D76A /* Song */;
 			targetProxy = 21305CB7247A8AEF00F2D76A /* PBXContainerItemProxy */;
+		};
+		21305CBD247A8B3D00F2D76A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21305BFC247A803200F2D76A /* Song */;
+			targetProxy = 21305CBC247A8B3D00F2D76A /* PBXContainerItemProxy */;
+		};
+		21305CC2247A8B8F00F2D76A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21305BFC247A803200F2D76A /* Song */;
+			targetProxy = 21305CC1247A8B8F00F2D76A /* PBXContainerItemProxy */;
 		};
 		216AF3982472358E00B7C55B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
