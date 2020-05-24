@@ -19,6 +19,7 @@ struct Song: Equatable, Identifiable {
     var number: Int
     var title: String
     var verses: [Verse]
+    var isLaguSion: Bool
 }
 
 struct Verse: Identifiable {
@@ -52,34 +53,33 @@ struct SongView: View {
     let enableFavoriteButton: Bool
     
     var body: some View {
-        NavigationView {
-            WithViewStore(self.store) { viewStore in
-                LyricsView(lyrics: viewStore.verses)
-                    .navigationBarTitle("\(viewStore.number) \(viewStore.title)")
-                    .navigationBarItems(
-                        trailing: Button(action: { viewStore.send(.heartTapped) }) {
-                            Image(systemName: viewStore.isFavorite ? "heart.fill" : "heart")
+        WithViewStore(self.store) { viewStore in
+            ScrollView(.vertical, showsIndicators: true) {
+                VStack(alignment: .center, spacing: 10) {
+                    HStack {
+                        Spacer()
+                        Text(viewStore.title)
+                            .font(.system(size: 32, weight: .bold, design: .`default`))
+                            .multilineTextAlignment(.center)
+                        Spacer()
+                    }
+                    Spacer()
+                    ForEach(viewStore.verses) { verse in
+                        ForEach(verse.contents) { (line) in
+                            Text(line)
                         }
-                        .disabled(!self.enableFavoriteButton)
-                )
-            }
-        }
-    }
-}
-
-struct LyricsView: View {
-    let lyrics: [Verse]
-    
-    var body: some View {
-        VStack {
-            Spacer()
-            ForEach(lyrics) { verse in
-                ForEach(verse.contents) { (line) in
-                    Text(line)
+                        Spacer()
+                    }
+                    Spacer()
                 }
-                Spacer()
             }
-            Spacer()
+            .navigationBarTitle("\(viewStore.isLaguSion ? "LS" : "LSEL") no. \(viewStore.number)")
+            .navigationBarItems(
+                trailing: Button(action: { viewStore.send(.heartTapped) }) {
+                    Image(systemName: viewStore.isFavorite ? "heart.fill" : "heart")
+                }
+                .disabled(!self.enableFavoriteButton)
+            )
         }
     }
 }
@@ -131,7 +131,7 @@ struct SongView_Previews: PreviewProvider {
                             "Pada Tuhan kita puji",
                             "Sekarang dan selamanya",
                         ])
-                    ]
+                    ], isLaguSion: true
                 ),
                 reducer: songReducer,
                 environment: SongEnvironment()),
