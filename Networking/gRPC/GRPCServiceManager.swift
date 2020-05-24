@@ -11,13 +11,13 @@ import CombineGRPC
 import GRPC
 import NIO
 
-internal class GRPCServiceManager {
-    internal static var shared = GRPCServiceManager()
-    internal var executor: GRPCExecutor
+public class GRPCServiceManager {
+    public static var shared = GRPCServiceManager()
+    public var executor: GRPCExecutor
     
     internal var echoClient: EchoServiceClient
     
-    internal init() {
+    public init() {
         let eventLoopGroup = PlatformSupport.makeEventLoopGroup(loopCount: 1)
         let channel = ClientConnection
           .insecure(group: eventLoopGroup)
