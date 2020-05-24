@@ -33,7 +33,9 @@ struct Verse: Identifiable {
 }
 
 enum SongAction {
-    case heartTapped
+    case heartTapped(Song)
+    case removeFromFavorites(Song)
+    case addToFavorites(Song)
 }
 
 struct SongEnvironment {
@@ -42,8 +44,14 @@ struct SongEnvironment {
 
 let songReducer = Reducer<Song, SongAction, SongEnvironment> { state, action, environment in
     switch action {
-    case .heartTapped:
+    case .heartTapped(let song):
         state.isFavorite.toggle()
+        if state.isFavorite {
+            return Effect(value: SongAction.addToFavorites(song))
+        } else {
+            return Effect(value: SongAction.removeFromFavorites(song))
+        }
+    case .addToFavorites(_), .removeFromFavorites(_):
         return .none
     }
 }
@@ -56,6 +64,7 @@ struct SongView: View {
         WithViewStore(self.store) { viewStore in
             ScrollView(.vertical, showsIndicators: true) {
                 VStack(alignment: .center, spacing: 10) {
+                    Spacer()
                     HStack {
                         Spacer()
                         Text(viewStore.title)
@@ -75,7 +84,7 @@ struct SongView: View {
             }
             .navigationBarTitle("\(viewStore.isLaguSion ? "LS" : "LSEL") no. \(viewStore.number)")
             .navigationBarItems(
-                trailing: Button(action: { viewStore.send(.heartTapped) }) {
+                trailing: Button(action: { viewStore.send(.heartTapped(viewStore.state)) }) {
                     Image(systemName: viewStore.isFavorite ? "heart.fill" : "heart")
                 }
                 .disabled(!self.enableFavoriteButton)
