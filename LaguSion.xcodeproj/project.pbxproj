@@ -26,7 +26,7 @@
 		21B130FB2472365F005941E9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 21B130FA2472365F005941E9 /* ComposableArchitecture */; };
 		21C88D22247681D5001E376A /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D21247681D5001E376A /* SongView.swift */; };
 		21C88D2424768A08001E376A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D2324768A08001E376A /* FavoritesView.swift */; };
-		21D82AC6247A55B900F6B69F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D82AC5247A55B900F6B69F /* String+Extension.swift */; };
+		21D82AC8247A72FF00F6B69F /* Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D82AC7247A72FF00F6B69F /* Unwrap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +61,7 @@
 		21B130ED247235DF005941E9 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		21C88D21247681D5001E376A /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
 		21C88D2324768A08001E376A /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		21D82AC5247A55B900F6B69F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		21D82AC7247A72FF00F6B69F /* Unwrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unwrap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				21B130E0247235DF005941E9 /* Publisher+Extension.swift */,
-				21D82AC5247A55B900F6B69F /* String+Extension.swift */,
+				21D82AC7247A72FF00F6B69F /* Unwrap.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -293,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D82AC8247A72FF00F6B69F /* Unwrap.swift in Sources */,
 				21B130F0247235E0005941E9 /* echo_service.pb.swift in Sources */,
 				21B130F5247235E0005941E9 /* MainView.swift in Sources */,
 				21C88D2424768A08001E376A /* FavoritesView.swift in Sources */,
@@ -301,7 +302,6 @@
 				216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */,
 				216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */,
 				21B130F3247235E0005941E9 /* RootView.swift in Sources */,
-				21D82AC6247A55B900F6B69F /* String+Extension.swift in Sources */,
 				21B130F1247235E0005941E9 /* echo_service.grpc.swift in Sources */,
 				216AF3832472358C00B7C55B /* SceneDelegate.swift in Sources */,
 				21B130EE247235DF005941E9 /* Publisher+Extension.swift in Sources */,

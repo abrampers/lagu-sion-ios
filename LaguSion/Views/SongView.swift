@@ -19,17 +19,12 @@ struct Song: Equatable, Identifiable {
     var number: Int
     var title: String
     var verses: [Verse]
+    var reff: Verse?
     var isLaguSion: Bool
 }
 
-struct Verse: Identifiable {
-    var id: UUID
+struct Verse {
     var contents: [String]
-    
-    init(contents: [String]) {
-        self.id = UUID()
-        self.contents = contents
-    }
 }
 
 enum SongAction {
@@ -56,6 +51,42 @@ let songReducer = Reducer<Song, SongAction, SongEnvironment> { state, action, en
     }
 }
 
+private struct TitleView: View {
+    let title: String
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            Text(title)
+                .font(.system(size: 32, weight: .bold, design: .`default`))
+                .multilineTextAlignment(.center)
+            Spacer()
+        }
+    }
+}
+
+private struct VersesView: View {
+    let verses: [Verse]
+    let reff: Verse?
+    
+    var body: some View {
+        ForEach(0..<verses.count) { i in
+            Text("\(i + 1)")
+                .font(.system(.headline))
+            ForEach(0..<self.verses[i].contents.count) { (j) in
+                Text(self.verses[i].contents[j])
+            }
+            Spacer()
+            Unwrap(self.reff) { (reff) in
+                ForEach(0..<reff.contents.count) { (k) in
+                    Text(reff.contents[k])
+                }
+            }
+            Spacer()
+        }
+    }
+}
+
 struct SongView: View {
     let store: Store<Song, SongAction>
     let enableFavoriteButton: Bool
@@ -65,20 +96,9 @@ struct SongView: View {
             ScrollView(.vertical, showsIndicators: true) {
                 VStack(alignment: .center, spacing: 10) {
                     Spacer()
-                    HStack {
-                        Spacer()
-                        Text(viewStore.title)
-                            .font(.system(size: 32, weight: .bold, design: .`default`))
-                            .multilineTextAlignment(.center)
-                        Spacer()
-                    }
+                    TitleView(title: viewStore.title)
                     Spacer()
-                    ForEach(viewStore.verses) { verse in
-                        ForEach(verse.contents) { (line) in
-                            Text(line)
-                        }
-                        Spacer()
-                    }
+                    VersesView(verses: viewStore.verses, reff: viewStore.reff)
                     Spacer()
                 }
             }
