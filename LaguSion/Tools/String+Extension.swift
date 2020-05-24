@@ -6,4 +6,8 @@
 //  Copyright © 2020 Abram Situmorang. All rights reserved.
 //
 
-import Foundation
+extension String: Identifiable {
+    public var id: String {
+        return self
+    }
+}

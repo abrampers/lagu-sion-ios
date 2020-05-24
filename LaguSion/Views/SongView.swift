@@ -10,10 +10,25 @@ import ComposableArchitecture
 import SwiftUI
 
 struct Song: Equatable, Identifiable {
+    static func == (lhs: Song, rhs: Song) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     var id: UUID
     var isFavorite: Bool
     var number: Int
     var title: String
+    var verses: [Verse]
+}
+
+struct Verse: Identifiable {
+    var id: UUID
+    var contents: [String]
+    
+    init(contents: [String]) {
+        self.id = UUID()
+        self.contents = contents
+    }
 }
 
 enum SongAction {
@@ -39,7 +54,7 @@ struct SongView: View {
     var body: some View {
         NavigationView {
             WithViewStore(self.store) { viewStore in
-                Text("SongView")
+                LyricsView(lyrics: viewStore.verses)
                     .navigationBarTitle("\(viewStore.number) \(viewStore.title)")
                     .navigationBarItems(
                         trailing: Button(action: { viewStore.send(.heartTapped) }) {
@@ -48,6 +63,23 @@ struct SongView: View {
                         .disabled(!self.enableFavoriteButton)
                 )
             }
+        }
+    }
+}
+
+struct LyricsView: View {
+    let lyrics: [Verse]
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            ForEach(lyrics) { verse in
+                ForEach(verse.contents) { (line) in
+                    Text(line)
+                }
+                Spacer()
+            }
+            Spacer()
         }
     }
 }
@@ -69,7 +101,38 @@ struct SongView_Previews: PreviewProvider {
     static var previews: some View {
         SongView(
             store: Store(
-                initialState: Song(id: UUID(), isFavorite: false, number: 1, title: "No 1"),
+                initialState: Song(
+                    id: UUID(),
+                    isFavorite: false,
+                    number: 1,
+                    title: "Di Hadapan Hadirat-Mu",
+                    verses: [
+                        Verse(contents: [
+                            "Di hadapan hadirat-Mu",
+                            "Kami umat-Mu menyembah",
+                            "Mengakui Engkau Tuhan",
+                            "Allah kekal, Maha kuasa"
+                        ]),
+                        Verse(contents: [
+                            "Dari debu dan tanahlah",
+                            "kita dijadikan Tuhan",
+                            "Dan bila tersesat kita",
+                            "Tuhan tak akan tinggalkan",
+                        ]),
+                        Verse(contents: [
+                            "Kuasa serta kasih Allah",
+                            "Memenuhi seg’nap dunia",
+                            "Tetap teguhlah firman-Nya",
+                            "Hingga penuh hadirat-Nya",
+                        ]),
+                        Verse(contents: [
+                            "Di pintu Surga yang suci",
+                            "menyanyi beribu lidah",
+                            "Pada Tuhan kita puji",
+                            "Sekarang dan selamanya",
+                        ])
+                    ]
+                ),
                 reducer: songReducer,
                 environment: SongEnvironment()),
             enableFavoriteButton: true
