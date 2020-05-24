@@ -1,0 +1,30 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_framework")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+
+swift_library(
+    name = "SongSources",
+    module_name = "Song",
+    srcs = glob([
+        "**/*.swift",
+    ]),
+    deps = [
+        "@com_github_pointfreeco_swift_composable_architecture//:ComposableArchitecture",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+ios_framework(
+    name = "Song",
+    bundle_id = "id.abram.ios.lagu-sion.Song",
+    families = [
+        "iphone",
+        "ipad",
+    ],
+    minimum_os_version = "13.0",
+    infoplists = ["Info-Bazel.plist"],
+    deps = [
+        ":SongSources",
+    ],
+    visibility = ["//visibility:public"],
+)

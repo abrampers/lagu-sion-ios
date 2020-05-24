@@ -18,8 +18,8 @@ swift_library(
         ":Assets.xcassets",
     ] + glob(["LaguSion.xcdatamodeld/**"]),
     deps = [
-        "@com_github_vyshane_grpc_swift_combine//:CombineGRPC",
-        "@com_github_pointfreeco_swift_composable_architecture//:ComposableArchitecture",
+        "//Main:MainSources",
+        "//Favorites:FavoritesSources",
     ],
     visibility = ["//visibility:public"],
 )
@@ -55,6 +55,10 @@ ios_application(
     minimum_os_version = "13.0",
     launch_storyboard = "Base.lproj/LaunchScreen.storyboard",
     infoplists = ["Info-Bazel.plist"],
+    frameworks = [
+        "//Main",
+        "//Favorites",
+    ],
     deps = [
         ":LaguSionSources",
     ],
@@ -63,7 +67,5 @@ ios_application(
         ":opt_build": "provision/AdHoc_id.abram.ios.LaguSion.mobileprovision",
         ":fastbuild_build": "provision/Development_id.abram.ios.LaguSion.mobileprovision",
     }, no_match_error = "Please specify compilation mode."),
-    # provisioning_profile = "provision/AdHoc_id.abram.ios.LaguSion.mobileprovision",
-    # provisioning_profile = "provision/Development_id.abram.ios.LaguSion.mobileprovision",
     visibility = ["//visibility:public"],
 )

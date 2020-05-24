@@ -1,0 +1,33 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_framework")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+
+swift_library(
+    name = "MainSources",
+    module_name = "Main",
+    srcs = glob([
+        "**/*.swift",
+    ]),
+    deps = [
+        "//Song:SongSources",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+ios_framework(
+    name = "Main",
+    bundle_id = "id.abram.ios.lagu-sion.Main",
+    families = [
+        "iphone",
+        "ipad",
+    ],
+    minimum_os_version = "13.0",
+    infoplists = ["Info-Bazel.plist"],
+    frameworks = [
+        "//Song",
+    ],
+    deps = [
+        ":MainSources",
+    ],
+    visibility = ["//visibility:public"],
+)

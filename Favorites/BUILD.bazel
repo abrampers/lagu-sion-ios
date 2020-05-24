@@ -1,0 +1,32 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_framework")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+swift_library(
+    name = "FavoritesSources",
+    module_name = "Favorites",
+    srcs = glob([
+        "**/*.swift",
+    ]),
+    deps = [
+        "//Song:SongSources",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+ios_framework(
+    name = "Favorites",
+    bundle_id = "id.abram.ios.lagu-sion.Favorites",
+    families = [
+        "iphone",
+        "ipad",
+    ],
+    minimum_os_version = "13.0",
+    infoplists = ["Info-Bazel.plist"],
+    frameworks = [
+        "//Song",
+    ],
+    deps = [
+        ":FavoritesSources",
+    ],
+    visibility = ["//visibility:public"],
+)
