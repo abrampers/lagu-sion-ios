@@ -9,35 +9,49 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct Song: Equatable, Identifiable {
-    static func == (lhs: Song, rhs: Song) -> Bool {
+public struct Song: Equatable, Identifiable {
+    public static func == (lhs: Song, rhs: Song) -> Bool {
         return lhs.id == rhs.id
     }
     
-    var id: UUID
-    var isFavorite: Bool
+    public var id: UUID
+    public var isFavorite: Bool
     var number: Int
     var title: String
     var verses: [Verse]
     var reff: Verse?
     var isLaguSion: Bool
+    
+    public init(id: UUID, isFavorite: Bool, number: Int, title: String, verses: [Verse], reff: Verse? = nil, isLaguSion: Bool) {
+        self.id = id
+        self.isFavorite = isFavorite
+        self.number = number
+        self.title = title
+        self.verses = verses
+        self.reff = reff
+        self.isLaguSion = isLaguSion
+    }
 }
 
-struct Verse {
+public struct Verse {
     var contents: [String]
+    
+    public init(contents: [String]) {
+        self.contents = contents
+    }
 }
 
-enum SongAction {
+public enum SongAction {
     case heartTapped(Song)
     case removeFromFavorites(Song)
     case addToFavorites(Song)
 }
 
-struct SongEnvironment {
-    
+public struct SongEnvironment {
+    public init() {}
 }
 
-let songReducer = Reducer<Song, SongAction, SongEnvironment> { state, action, environment in
+public let songReducer = Reducer<Song, SongAction, SongEnvironment> { state, action, environment in
     switch action {
     case .heartTapped(let song):
         state.isFavorite.toggle()
@@ -87,11 +101,16 @@ private struct VersesView: View {
     }
 }
 
-struct SongView: View {
-    let store: Store<Song, SongAction>
-    let enableFavoriteButton: Bool
+public struct SongView: View {
+    private let store: Store<Song, SongAction>
+    private let enableFavoriteButton: Bool
     
-    var body: some View {
+    public init(store: Store<Song, SongAction>, enableFavoriteButton: Bool) {
+        self.store = store
+        self.enableFavoriteButton = enableFavoriteButton
+    }
+    
+    public var body: some View {
         WithViewStore(self.store) { viewStore in
             ScrollView(.vertical, showsIndicators: true) {
                 VStack(alignment: .center, spacing: 10) {
@@ -113,10 +132,14 @@ struct SongView: View {
     }
 }
 
-struct SongTabView: View {
-    let store: Store<Song, SongAction>
+public struct SongTabView: View {
+    private let store: Store<Song, SongAction>
     
-    var body: some View {
+    public init(store: Store<Song, SongAction>) {
+        self.store = store
+    }
+    
+    public var body: some View {
         WithViewStore(self.store) { viewStore in
             HStack {
                 Text("\(viewStore.number)")
@@ -126,7 +149,7 @@ struct SongTabView: View {
     }
 }
 
-struct SongView_Previews: PreviewProvider {
+internal struct SongView_Previews: PreviewProvider {
     static var previews: some View {
         SongView(
             store: Store(

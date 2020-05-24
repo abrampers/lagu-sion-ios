@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21305C06247A803200F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
+		21305C0D247A803200F2D76A /* SongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305C0C247A803200F2D76A /* SongTests.swift */; };
+		21305C0F247A803200F2D76A /* Song.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305BFF247A803200F2D76A /* Song.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21305C12247A803200F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
+		21305C13247A803200F2D76A /* Song.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21305C1B247A806900F2D76A /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D21247681D5001E376A /* SongView.swift */; };
+		21305C1C247A809600F2D76A /* Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D82AC7247A72FF00F6B69F /* Unwrap.swift */; };
+		21305C21247A812800F2D76A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 21305C20247A812800F2D76A /* ComposableArchitecture */; };
 		216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3802472358C00B7C55B /* AppDelegate.swift */; };
 		216AF3832472358C00B7C55B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3822472358C00B7C55B /* SceneDelegate.swift */; };
 		216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3842472358C00B7C55B /* LaguSion.xcdatamodeld */; };
@@ -23,13 +31,31 @@
 		21B130F4247235E0005941E9 /* TestCombineGRPCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */; };
 		21B130F5247235E0005941E9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130ED247235DF005941E9 /* MainView.swift */; };
 		21B130F824723654005941E9 /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 21B130F724723654005941E9 /* CombineGRPC */; };
-		21B130FB2472365F005941E9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 21B130FA2472365F005941E9 /* ComposableArchitecture */; };
-		21C88D22247681D5001E376A /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D21247681D5001E376A /* SongView.swift */; };
 		21C88D2424768A08001E376A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D2324768A08001E376A /* FavoritesView.swift */; };
-		21D82AC8247A72FF00F6B69F /* Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D82AC7247A72FF00F6B69F /* Unwrap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		21305C07247A803200F2D76A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21305BFC247A803200F2D76A;
+			remoteInfo = Song;
+		};
+		21305C09247A803200F2D76A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 216AF37C2472358C00B7C55B;
+			remoteInfo = LaguSion;
+		};
+		21305C10247A803200F2D76A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21305BFC247A803200F2D76A;
+			remoteInfo = Song;
+		};
 		216AF3972472358E00B7C55B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
@@ -39,7 +65,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		21305C14247A803200F2D76A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				21305C13247A803200F2D76A /* Song.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		21305BFD247A803200F2D76A /* Song.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Song.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21305BFF247A803200F2D76A /* Song.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
+		21305C00247A803200F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21305C05247A803200F2D76A /* SongTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SongTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21305C0C247A803200F2D76A /* SongTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTests.swift; sourceTree = "<group>"; };
+		21305C0E247A803200F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		216AF37D2472358C00B7C55B /* LaguSion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaguSion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		216AF3802472358C00B7C55B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		216AF3822472358C00B7C55B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,12 +111,28 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		21305BFA247A803200F2D76A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21305C21247A812800F2D76A /* ComposableArchitecture in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21305C02247A803200F2D76A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21305C06247A803200F2D76A /* Song.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		216AF37A2472358C00B7C55B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21B130FB2472365F005941E9 /* ComposableArchitecture in Frameworks */,
 				21B130F824723654005941E9 /* CombineGRPC in Frameworks */,
+				21305C12247A803200F2D76A /* Song.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,12 +146,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21305BFE247A803200F2D76A /* Song */ = {
+			isa = PBXGroup;
+			children = (
+				21305BFF247A803200F2D76A /* Song.h */,
+				21D82AC7247A72FF00F6B69F /* Unwrap.swift */,
+				21C88D21247681D5001E376A /* SongView.swift */,
+				21305C00247A803200F2D76A /* Info.plist */,
+			);
+			path = Song;
+			sourceTree = "<group>";
+		};
+		21305C0B247A803200F2D76A /* SongTests */ = {
+			isa = PBXGroup;
+			children = (
+				21305C0C247A803200F2D76A /* SongTests.swift */,
+				21305C0E247A803200F2D76A /* Info.plist */,
+			);
+			path = SongTests;
+			sourceTree = "<group>";
+		};
+		21305C1D247A80F000F2D76A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		216AF3742472358C00B7C55B = {
 			isa = PBXGroup;
 			children = (
 				216AF37F2472358C00B7C55B /* LaguSion */,
 				216AF3992472358E00B7C55B /* LaguSionTests */,
+				21305BFE247A803200F2D76A /* Song */,
+				21305C0B247A803200F2D76A /* SongTests */,
 				216AF37E2472358C00B7C55B /* Products */,
+				21305C1D247A80F000F2D76A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +190,8 @@
 			children = (
 				216AF37D2472358C00B7C55B /* LaguSion.app */,
 				216AF3962472358E00B7C55B /* LaguSionTests.xctest */,
+				21305BFD247A803200F2D76A /* Song.framework */,
+				21305C05247A803200F2D76A /* SongTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,7 +234,6 @@
 			isa = PBXGroup;
 			children = (
 				21B130E0247235DF005941E9 /* Publisher+Extension.swift */,
-				21D82AC7247A72FF00F6B69F /* Unwrap.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -178,7 +271,6 @@
 				21B130E9247235DF005941E9 /* RootView.swift */,
 				21B130ED247235DF005941E9 /* MainView.swift */,
 				21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */,
-				21C88D21247681D5001E376A /* SongView.swift */,
 				21C88D2324768A08001E376A /* FavoritesView.swift */,
 			);
 			path = Views;
@@ -186,7 +278,58 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		21305BF8247A803200F2D76A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21305C0F247A803200F2D76A /* Song.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		21305BFC247A803200F2D76A /* Song */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21305C19247A803200F2D76A /* Build configuration list for PBXNativeTarget "Song" */;
+			buildPhases = (
+				21305BF8247A803200F2D76A /* Headers */,
+				21305BF9247A803200F2D76A /* Sources */,
+				21305BFA247A803200F2D76A /* Frameworks */,
+				21305BFB247A803200F2D76A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Song;
+			packageProductDependencies = (
+				21305C20247A812800F2D76A /* ComposableArchitecture */,
+			);
+			productName = Song;
+			productReference = 21305BFD247A803200F2D76A /* Song.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		21305C04247A803200F2D76A /* SongTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21305C1A247A803200F2D76A /* Build configuration list for PBXNativeTarget "SongTests" */;
+			buildPhases = (
+				21305C01247A803200F2D76A /* Sources */,
+				21305C02247A803200F2D76A /* Frameworks */,
+				21305C03247A803200F2D76A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21305C08247A803200F2D76A /* PBXTargetDependency */,
+				21305C0A247A803200F2D76A /* PBXTargetDependency */,
+			);
+			name = SongTests;
+			productName = SongTests;
+			productReference = 21305C05247A803200F2D76A /* SongTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		216AF37C2472358C00B7C55B /* LaguSion */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 216AF39F2472358E00B7C55B /* Build configuration list for PBXNativeTarget "LaguSion" */;
@@ -194,15 +337,16 @@
 				216AF3792472358C00B7C55B /* Sources */,
 				216AF37A2472358C00B7C55B /* Frameworks */,
 				216AF37B2472358C00B7C55B /* Resources */,
+				21305C14247A803200F2D76A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				21305C11247A803200F2D76A /* PBXTargetDependency */,
 			);
 			name = LaguSion;
 			packageProductDependencies = (
 				21B130F724723654005941E9 /* CombineGRPC */,
-				21B130FA2472365F005941E9 /* ComposableArchitecture */,
 			);
 			productName = LaguSion;
 			productReference = 216AF37D2472358C00B7C55B /* LaguSion.app */;
@@ -232,10 +376,17 @@
 		216AF3752472358C00B7C55B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Abram Situmorang";
 				TargetAttributes = {
+					21305BFC247A803200F2D76A = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					21305C04247A803200F2D76A = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 216AF37C2472358C00B7C55B;
+					};
 					216AF37C2472358C00B7C55B = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
@@ -264,11 +415,27 @@
 			targets = (
 				216AF37C2472358C00B7C55B /* LaguSion */,
 				216AF3952472358E00B7C55B /* LaguSionTests */,
+				21305BFC247A803200F2D76A /* Song */,
+				21305C04247A803200F2D76A /* SongTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		21305BFB247A803200F2D76A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21305C03247A803200F2D76A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		216AF37B2472358C00B7C55B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,16 +456,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		21305BF9247A803200F2D76A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21305C1C247A809600F2D76A /* Unwrap.swift in Sources */,
+				21305C1B247A806900F2D76A /* SongView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21305C01247A803200F2D76A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21305C0D247A803200F2D76A /* SongTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		216AF3792472358C00B7C55B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21D82AC8247A72FF00F6B69F /* Unwrap.swift in Sources */,
 				21B130F0247235E0005941E9 /* echo_service.pb.swift in Sources */,
 				21B130F5247235E0005941E9 /* MainView.swift in Sources */,
 				21C88D2424768A08001E376A /* FavoritesView.swift in Sources */,
 				21B130F2247235E0005941E9 /* echo_service.proto in Sources */,
-				21C88D22247681D5001E376A /* SongView.swift in Sources */,
 				216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */,
 				216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */,
 				21B130F3247235E0005941E9 /* RootView.swift in Sources */,
@@ -321,6 +503,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		21305C08247A803200F2D76A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21305BFC247A803200F2D76A /* Song */;
+			targetProxy = 21305C07247A803200F2D76A /* PBXContainerItemProxy */;
+		};
+		21305C0A247A803200F2D76A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 216AF37C2472358C00B7C55B /* LaguSion */;
+			targetProxy = 21305C09247A803200F2D76A /* PBXContainerItemProxy */;
+		};
+		21305C11247A803200F2D76A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21305BFC247A803200F2D76A /* Song */;
+			targetProxy = 21305C10247A803200F2D76A /* PBXContainerItemProxy */;
+		};
 		216AF3982472358E00B7C55B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 216AF37C2472358C00B7C55B /* LaguSion */;
@@ -340,6 +537,113 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		21305C15247A803200F2D76A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Song/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.Song;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		21305C16247A803200F2D76A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Song/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.Song;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		21305C17247A803200F2D76A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				INFOPLIST_FILE = SongTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.SongTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LaguSion.app/LaguSion";
+			};
+			name = Debug;
+		};
+		21305C18247A803200F2D76A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				INFOPLIST_FILE = SongTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.SongTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LaguSion.app/LaguSion";
+			};
+			name = Release;
+		};
 		216AF39D2472358E00B7C55B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -457,6 +761,7 @@
 		216AF3A02472358E00B7C55B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -480,6 +785,7 @@
 		216AF3A12472358E00B7C55B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -555,6 +861,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		21305C19247A803200F2D76A /* Build configuration list for PBXNativeTarget "Song" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21305C15247A803200F2D76A /* Debug */,
+				21305C16247A803200F2D76A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21305C1A247A803200F2D76A /* Build configuration list for PBXNativeTarget "SongTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21305C17247A803200F2D76A /* Debug */,
+				21305C18247A803200F2D76A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		216AF3782472358C00B7C55B /* Build configuration list for PBXProject "LaguSion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -604,15 +928,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		21305C20247A812800F2D76A /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		21B130F724723654005941E9 /* CombineGRPC */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 21B130F624723654005941E9 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */;
 			productName = CombineGRPC;
-		};
-		21B130FA2472365F005941E9 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 
