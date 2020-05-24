@@ -7,6 +7,7 @@
 //
 
 import ComposableArchitecture
+import Favorites
 import Main
 import Song
 

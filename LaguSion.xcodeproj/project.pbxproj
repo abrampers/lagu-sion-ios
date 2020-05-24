@@ -10,16 +10,12 @@
 		21305C06247A803200F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
 		21305C0D247A803200F2D76A /* SongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305C0C247A803200F2D76A /* SongTests.swift */; };
 		21305C0F247A803200F2D76A /* Song.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305BFF247A803200F2D76A /* Song.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21305C12247A803200F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
-		21305C13247A803200F2D76A /* Song.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21305C1B247A806900F2D76A /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D21247681D5001E376A /* SongView.swift */; };
 		21305C1C247A809600F2D76A /* Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D82AC7247A72FF00F6B69F /* Unwrap.swift */; };
 		21305C21247A812800F2D76A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 21305C20247A812800F2D76A /* ComposableArchitecture */; };
 		21305C30247A863F00F2D76A /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; };
 		21305C37247A863F00F2D76A /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305C36247A863F00F2D76A /* NetworkingTests.swift */; };
 		21305C39247A863F00F2D76A /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305C29247A863F00F2D76A /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21305C3C247A863F00F2D76A /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; };
-		21305C3D247A863F00F2D76A /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21305C45247A864C00F2D76A /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 21305C44247A864C00F2D76A /* CombineGRPC */; };
 		21305C46247A866900F2D76A /* TestCombineGRPCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */; };
 		21305C47247A868400F2D76A /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E0247235DF005941E9 /* Publisher+Extension.swift */; };
@@ -32,6 +28,14 @@
 		21305C89247A885600F2D76A /* Main.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; };
 		21305C8A247A885600F2D76A /* Main.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21305C91247A885C00F2D76A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130ED247235DF005941E9 /* MainView.swift */; };
+		21305CA0247A895C00F2D76A /* Favorites.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C97247A895C00F2D76A /* Favorites.framework */; };
+		21305CA7247A895C00F2D76A /* FavoritesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305CA6247A895C00F2D76A /* FavoritesTests.swift */; };
+		21305CA9247A895C00F2D76A /* Favorites.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305C99247A895C00F2D76A /* Favorites.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21305CAC247A895C00F2D76A /* Favorites.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C97247A895C00F2D76A /* Favorites.framework */; };
+		21305CAD247A895C00F2D76A /* Favorites.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C97247A895C00F2D76A /* Favorites.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21305CB4247A898C00F2D76A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D2324768A08001E376A /* FavoritesView.swift */; };
+		21305CB5247A8AEF00F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
+		21305CB6247A8AEF00F2D76A /* Song.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3802472358C00B7C55B /* AppDelegate.swift */; };
 		216AF3832472358C00B7C55B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3822472358C00B7C55B /* SceneDelegate.swift */; };
 		216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3842472358C00B7C55B /* LaguSion.xcdatamodeld */; };
@@ -41,7 +45,6 @@
 		216AF39B2472358E00B7C55B /* LaguSionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF39A2472358E00B7C55B /* LaguSionTests.swift */; };
 		21B130F2247235E0005941E9 /* echo_service.proto in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E7247235DF005941E9 /* echo_service.proto */; };
 		21B130F3247235E0005941E9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E9247235DF005941E9 /* RootView.swift */; };
-		21C88D2424768A08001E376A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D2324768A08001E376A /* FavoritesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,13 +62,6 @@
 			remoteGlobalIDString = 216AF37C2472358C00B7C55B;
 			remoteInfo = LaguSion;
 		};
-		21305C10247A803200F2D76A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 21305BFC247A803200F2D76A;
-			remoteInfo = Song;
-		};
 		21305C31247A863F00F2D76A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
@@ -79,13 +75,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 216AF37C2472358C00B7C55B;
 			remoteInfo = LaguSion;
-		};
-		21305C3A247A863F00F2D76A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 21305C26247A863F00F2D76A;
-			remoteInfo = Networking;
 		};
 		21305C7E247A885600F2D76A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -108,6 +97,34 @@
 			remoteGlobalIDString = 21305C73247A885500F2D76A;
 			remoteInfo = Main;
 		};
+		21305CA1247A895C00F2D76A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21305C96247A895C00F2D76A;
+			remoteInfo = Favorites;
+		};
+		21305CA3247A895C00F2D76A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 216AF37C2472358C00B7C55B;
+			remoteInfo = LaguSion;
+		};
+		21305CAA247A895C00F2D76A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21305C96247A895C00F2D76A;
+			remoteInfo = Favorites;
+		};
+		21305CB7247A8AEF00F2D76A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21305BFC247A803200F2D76A;
+			remoteInfo = Song;
+		};
 		216AF3972472358E00B7C55B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
@@ -124,9 +141,19 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				21305C3D247A863F00F2D76A /* Networking.framework in Embed Frameworks */,
 				21305C8A247A885600F2D76A /* Main.framework in Embed Frameworks */,
-				21305C13247A803200F2D76A /* Song.framework in Embed Frameworks */,
+				21305CAD247A895C00F2D76A /* Favorites.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21305CB9247A8AEF00F2D76A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				21305CB6247A8AEF00F2D76A /* Song.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +183,12 @@
 		21305C7C247A885600F2D76A /* MainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21305C83247A885600F2D76A /* MainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTests.swift; sourceTree = "<group>"; };
 		21305C85247A885600F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21305C97247A895C00F2D76A /* Favorites.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Favorites.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21305C99247A895C00F2D76A /* Favorites.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Favorites.h; sourceTree = "<group>"; };
+		21305C9A247A895C00F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21305C9F247A895C00F2D76A /* FavoritesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavoritesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21305CA6247A895C00F2D76A /* FavoritesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTests.swift; sourceTree = "<group>"; };
+		21305CA8247A895C00F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		216AF37D2472358C00B7C55B /* LaguSion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaguSion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		216AF3802472358C00B7C55B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		216AF3822472358C00B7C55B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -228,13 +261,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21305C94247A895C00F2D76A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21305CB5247A8AEF00F2D76A /* Song.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21305C9C247A895C00F2D76A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21305CA0247A895C00F2D76A /* Favorites.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		216AF37A2472358C00B7C55B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21305C12247A803200F2D76A /* Song.framework in Frameworks */,
 				21305C89247A885600F2D76A /* Main.framework in Frameworks */,
-				21305C3C247A863F00F2D76A /* Networking.framework in Frameworks */,
+				21305CAC247A895C00F2D76A /* Favorites.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +381,25 @@
 			path = MainTests;
 			sourceTree = "<group>";
 		};
+		21305C98247A895C00F2D76A /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				21C88D2324768A08001E376A /* FavoritesView.swift */,
+				21305C99247A895C00F2D76A /* Favorites.h */,
+				21305C9A247A895C00F2D76A /* Info.plist */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		21305CA5247A895C00F2D76A /* FavoritesTests */ = {
+			isa = PBXGroup;
+			children = (
+				21305CA6247A895C00F2D76A /* FavoritesTests.swift */,
+				21305CA8247A895C00F2D76A /* Info.plist */,
+			);
+			path = FavoritesTests;
+			sourceTree = "<group>";
+		};
 		216AF3742472358C00B7C55B = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +413,8 @@
 				21305C5E247A87CB00F2D76A /* LaguSionMainTests */,
 				21305C75247A885500F2D76A /* Main */,
 				21305C82247A885600F2D76A /* MainTests */,
+				21305C98247A895C00F2D76A /* Favorites */,
+				21305CA5247A895C00F2D76A /* FavoritesTests */,
 				216AF37E2472358C00B7C55B /* Products */,
 				21305C1D247A80F000F2D76A /* Frameworks */,
 			);
@@ -362,6 +431,8 @@
 				21305C2F247A863F00F2D76A /* NetworkingTests.xctest */,
 				21305C74247A885500F2D76A /* Main.framework */,
 				21305C7C247A885600F2D76A /* MainTests.xctest */,
+				21305C97247A895C00F2D76A /* Favorites.framework */,
+				21305C9F247A895C00F2D76A /* FavoritesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -370,7 +441,6 @@
 			isa = PBXGroup;
 			children = (
 				21B130E9247235DF005941E9 /* RootView.swift */,
-				21B130E8247235DF005941E9 /* Views */,
 				216AF3802472358C00B7C55B /* AppDelegate.swift */,
 				216AF3822472358C00B7C55B /* SceneDelegate.swift */,
 				216AF3892472358E00B7C55B /* Assets.xcassets */,
@@ -418,14 +488,6 @@
 			path = EchoService;
 			sourceTree = "<group>";
 		};
-		21B130E8247235DF005941E9 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				21C88D2324768A08001E376A /* FavoritesView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -450,6 +512,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				21305C86247A885600F2D76A /* Main.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21305C92247A895C00F2D76A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21305CA9247A895C00F2D76A /* Favorites.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +643,45 @@
 			productReference = 21305C7C247A885600F2D76A /* MainTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		21305C96247A895C00F2D76A /* Favorites */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21305CAE247A895C00F2D76A /* Build configuration list for PBXNativeTarget "Favorites" */;
+			buildPhases = (
+				21305C92247A895C00F2D76A /* Headers */,
+				21305C93247A895C00F2D76A /* Sources */,
+				21305C94247A895C00F2D76A /* Frameworks */,
+				21305C95247A895C00F2D76A /* Resources */,
+				21305CB9247A8AEF00F2D76A /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21305CB8247A8AEF00F2D76A /* PBXTargetDependency */,
+			);
+			name = Favorites;
+			productName = Favorites;
+			productReference = 21305C97247A895C00F2D76A /* Favorites.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		21305C9E247A895C00F2D76A /* FavoritesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21305CB1247A895C00F2D76A /* Build configuration list for PBXNativeTarget "FavoritesTests" */;
+			buildPhases = (
+				21305C9B247A895C00F2D76A /* Sources */,
+				21305C9C247A895C00F2D76A /* Frameworks */,
+				21305C9D247A895C00F2D76A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21305CA2247A895C00F2D76A /* PBXTargetDependency */,
+				21305CA4247A895C00F2D76A /* PBXTargetDependency */,
+			);
+			name = FavoritesTests;
+			productName = FavoritesTests;
+			productReference = 21305C9F247A895C00F2D76A /* FavoritesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		216AF37C2472358C00B7C55B /* LaguSion */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 216AF39F2472358E00B7C55B /* Build configuration list for PBXNativeTarget "LaguSion" */;
@@ -585,9 +694,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				21305C11247A803200F2D76A /* PBXTargetDependency */,
-				21305C3B247A863F00F2D76A /* PBXTargetDependency */,
 				21305C88247A885600F2D76A /* PBXTargetDependency */,
+				21305CAB247A895C00F2D76A /* PBXTargetDependency */,
 			);
 			name = LaguSion;
 			packageProductDependencies = (
@@ -645,6 +753,13 @@
 						CreatedOnToolsVersion = 11.5;
 						TestTargetID = 216AF37C2472358C00B7C55B;
 					};
+					21305C96247A895C00F2D76A = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					21305C9E247A895C00F2D76A = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 216AF37C2472358C00B7C55B;
+					};
 					216AF37C2472358C00B7C55B = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
@@ -679,6 +794,8 @@
 				21305C2E247A863F00F2D76A /* NetworkingTests */,
 				21305C73247A885500F2D76A /* Main */,
 				21305C7B247A885600F2D76A /* MainTests */,
+				21305C96247A895C00F2D76A /* Favorites */,
+				21305C9E247A895C00F2D76A /* FavoritesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -720,6 +837,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		21305C7A247A885600F2D76A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21305C95247A895C00F2D76A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21305C9D247A895C00F2D76A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -799,11 +930,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21305C93247A895C00F2D76A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21305CB4247A898C00F2D76A /* FavoritesView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21305C9B247A895C00F2D76A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21305CA7247A895C00F2D76A /* FavoritesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		216AF3792472358C00B7C55B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21C88D2424768A08001E376A /* FavoritesView.swift in Sources */,
 				21B130F2247235E0005941E9 /* echo_service.proto in Sources */,
 				216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */,
 				216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */,
@@ -833,11 +979,6 @@
 			target = 216AF37C2472358C00B7C55B /* LaguSion */;
 			targetProxy = 21305C09247A803200F2D76A /* PBXContainerItemProxy */;
 		};
-		21305C11247A803200F2D76A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 21305BFC247A803200F2D76A /* Song */;
-			targetProxy = 21305C10247A803200F2D76A /* PBXContainerItemProxy */;
-		};
 		21305C32247A863F00F2D76A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 21305C26247A863F00F2D76A /* Networking */;
@@ -847,11 +988,6 @@
 			isa = PBXTargetDependency;
 			target = 216AF37C2472358C00B7C55B /* LaguSion */;
 			targetProxy = 21305C33247A863F00F2D76A /* PBXContainerItemProxy */;
-		};
-		21305C3B247A863F00F2D76A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 21305C26247A863F00F2D76A /* Networking */;
-			targetProxy = 21305C3A247A863F00F2D76A /* PBXContainerItemProxy */;
 		};
 		21305C7F247A885600F2D76A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -867,6 +1003,26 @@
 			isa = PBXTargetDependency;
 			target = 21305C73247A885500F2D76A /* Main */;
 			targetProxy = 21305C87247A885600F2D76A /* PBXContainerItemProxy */;
+		};
+		21305CA2247A895C00F2D76A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21305C96247A895C00F2D76A /* Favorites */;
+			targetProxy = 21305CA1247A895C00F2D76A /* PBXContainerItemProxy */;
+		};
+		21305CA4247A895C00F2D76A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 216AF37C2472358C00B7C55B /* LaguSion */;
+			targetProxy = 21305CA3247A895C00F2D76A /* PBXContainerItemProxy */;
+		};
+		21305CAB247A895C00F2D76A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21305C96247A895C00F2D76A /* Favorites */;
+			targetProxy = 21305CAA247A895C00F2D76A /* PBXContainerItemProxy */;
+		};
+		21305CB8247A8AEF00F2D76A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21305BFC247A803200F2D76A /* Song */;
+			targetProxy = 21305CB7247A8AEF00F2D76A /* PBXContainerItemProxy */;
 		};
 		216AF3982472358E00B7C55B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1194,6 +1350,106 @@
 			};
 			name = Release;
 		};
+		21305CAF247A895C00F2D76A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Favorites/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.Favorites";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		21305CB0247A895C00F2D76A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Favorites/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.Favorites";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		21305CB2247A895C00F2D76A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				INFOPLIST_FILE = FavoritesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.FavoritesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LaguSion.app/LaguSion";
+			};
+			name = Debug;
+		};
+		21305CB3247A895C00F2D76A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				INFOPLIST_FILE = FavoritesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.FavoritesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LaguSion.app/LaguSion";
+			};
+			name = Release;
+		};
 		216AF39D2472358E00B7C55B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1461,6 +1717,24 @@
 			buildConfigurations = (
 				21305C8F247A885600F2D76A /* Debug */,
 				21305C90247A885600F2D76A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21305CAE247A895C00F2D76A /* Build configuration list for PBXNativeTarget "Favorites" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21305CAF247A895C00F2D76A /* Debug */,
+				21305CB0247A895C00F2D76A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21305CB1247A895C00F2D76A /* Build configuration list for PBXNativeTarget "FavoritesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21305CB2247A895C00F2D76A /* Debug */,
+				21305CB3247A895C00F2D76A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
