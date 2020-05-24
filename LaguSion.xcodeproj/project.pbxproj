@@ -26,6 +26,12 @@
 		21305C48247A86EE00F2D76A /* GRPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E3247235DF005941E9 /* GRPCServiceManager.swift */; };
 		21305C49247A86F300F2D76A /* echo_service.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E5247235DF005941E9 /* echo_service.pb.swift */; };
 		21305C4A247A86FA00F2D76A /* echo_service.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E6247235DF005941E9 /* echo_service.grpc.swift */; };
+		21305C7D247A885600F2D76A /* Main.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; };
+		21305C84247A885600F2D76A /* MainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305C83247A885600F2D76A /* MainTests.swift */; };
+		21305C86247A885600F2D76A /* Main.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305C76247A885500F2D76A /* Main.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21305C89247A885600F2D76A /* Main.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; };
+		21305C8A247A885600F2D76A /* Main.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21305C91247A885C00F2D76A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130ED247235DF005941E9 /* MainView.swift */; };
 		216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3802472358C00B7C55B /* AppDelegate.swift */; };
 		216AF3832472358C00B7C55B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3822472358C00B7C55B /* SceneDelegate.swift */; };
 		216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3842472358C00B7C55B /* LaguSion.xcdatamodeld */; };
@@ -35,7 +41,6 @@
 		216AF39B2472358E00B7C55B /* LaguSionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF39A2472358E00B7C55B /* LaguSionTests.swift */; };
 		21B130F2247235E0005941E9 /* echo_service.proto in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E7247235DF005941E9 /* echo_service.proto */; };
 		21B130F3247235E0005941E9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E9247235DF005941E9 /* RootView.swift */; };
-		21B130F5247235E0005941E9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130ED247235DF005941E9 /* MainView.swift */; };
 		21C88D2424768A08001E376A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D2324768A08001E376A /* FavoritesView.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +87,27 @@
 			remoteGlobalIDString = 21305C26247A863F00F2D76A;
 			remoteInfo = Networking;
 		};
+		21305C7E247A885600F2D76A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21305C73247A885500F2D76A;
+			remoteInfo = Main;
+		};
+		21305C80247A885600F2D76A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 216AF37C2472358C00B7C55B;
+			remoteInfo = LaguSion;
+		};
+		21305C87247A885600F2D76A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21305C73247A885500F2D76A;
+			remoteInfo = Main;
+		};
 		216AF3972472358E00B7C55B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
@@ -99,6 +125,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				21305C3D247A863F00F2D76A /* Networking.framework in Embed Frameworks */,
+				21305C8A247A885600F2D76A /* Main.framework in Embed Frameworks */,
 				21305C13247A803200F2D76A /* Song.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -119,6 +146,16 @@
 		21305C2F247A863F00F2D76A /* NetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21305C36247A863F00F2D76A /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		21305C38247A863F00F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21305C52247A87CB00F2D76A /* LaguSionMain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaguSionMain.h; sourceTree = "<group>"; };
+		21305C53247A87CB00F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21305C5F247A87CB00F2D76A /* LaguSionMainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionMainTests.swift; sourceTree = "<group>"; };
+		21305C61247A87CB00F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21305C74247A885500F2D76A /* Main.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Main.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21305C76247A885500F2D76A /* Main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Main.h; sourceTree = "<group>"; };
+		21305C77247A885500F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21305C7C247A885600F2D76A /* MainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21305C83247A885600F2D76A /* MainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTests.swift; sourceTree = "<group>"; };
+		21305C85247A885600F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		216AF37D2472358C00B7C55B /* LaguSion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaguSion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		216AF3802472358C00B7C55B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		216AF3822472358C00B7C55B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,11 +213,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21305C71247A885500F2D76A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21305C79247A885600F2D76A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21305C7D247A885600F2D76A /* Main.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		216AF37A2472358C00B7C55B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				21305C12247A803200F2D76A /* Song.framework in Frameworks */,
+				21305C89247A885600F2D76A /* Main.framework in Frameworks */,
 				21305C3C247A863F00F2D76A /* Networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +296,43 @@
 			path = NetworkingTests;
 			sourceTree = "<group>";
 		};
+		21305C51247A87CB00F2D76A /* LaguSionMain */ = {
+			isa = PBXGroup;
+			children = (
+				21305C52247A87CB00F2D76A /* LaguSionMain.h */,
+				21305C53247A87CB00F2D76A /* Info.plist */,
+			);
+			path = LaguSionMain;
+			sourceTree = "<group>";
+		};
+		21305C5E247A87CB00F2D76A /* LaguSionMainTests */ = {
+			isa = PBXGroup;
+			children = (
+				21305C5F247A87CB00F2D76A /* LaguSionMainTests.swift */,
+				21305C61247A87CB00F2D76A /* Info.plist */,
+			);
+			path = LaguSionMainTests;
+			sourceTree = "<group>";
+		};
+		21305C75247A885500F2D76A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				21B130ED247235DF005941E9 /* MainView.swift */,
+				21305C76247A885500F2D76A /* Main.h */,
+				21305C77247A885500F2D76A /* Info.plist */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		21305C82247A885600F2D76A /* MainTests */ = {
+			isa = PBXGroup;
+			children = (
+				21305C83247A885600F2D76A /* MainTests.swift */,
+				21305C85247A885600F2D76A /* Info.plist */,
+			);
+			path = MainTests;
+			sourceTree = "<group>";
+		};
 		216AF3742472358C00B7C55B = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +342,10 @@
 				21305C0B247A803200F2D76A /* SongTests */,
 				21305C28247A863F00F2D76A /* Networking */,
 				21305C35247A863F00F2D76A /* NetworkingTests */,
+				21305C51247A87CB00F2D76A /* LaguSionMain */,
+				21305C5E247A87CB00F2D76A /* LaguSionMainTests */,
+				21305C75247A885500F2D76A /* Main */,
+				21305C82247A885600F2D76A /* MainTests */,
 				216AF37E2472358C00B7C55B /* Products */,
 				21305C1D247A80F000F2D76A /* Frameworks */,
 			);
@@ -266,6 +360,8 @@
 				21305C05247A803200F2D76A /* SongTests.xctest */,
 				21305C27247A863F00F2D76A /* Networking.framework */,
 				21305C2F247A863F00F2D76A /* NetworkingTests.xctest */,
+				21305C74247A885500F2D76A /* Main.framework */,
+				21305C7C247A885600F2D76A /* MainTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -273,7 +369,7 @@
 		216AF37F2472358C00B7C55B /* LaguSion */ = {
 			isa = PBXGroup;
 			children = (
-				21B130DF247235DF005941E9 /* Tools */,
+				21B130E9247235DF005941E9 /* RootView.swift */,
 				21B130E8247235DF005941E9 /* Views */,
 				216AF3802472358C00B7C55B /* AppDelegate.swift */,
 				216AF3822472358C00B7C55B /* SceneDelegate.swift */,
@@ -303,13 +399,6 @@
 			path = LaguSionTests;
 			sourceTree = "<group>";
 		};
-		21B130DF247235DF005941E9 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
 		21B130E2247235DF005941E9 /* gRPC */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,8 +421,6 @@
 		21B130E8247235DF005941E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				21B130E9247235DF005941E9 /* RootView.swift */,
-				21B130ED247235DF005941E9 /* MainView.swift */,
 				21C88D2324768A08001E376A /* FavoritesView.swift */,
 			);
 			path = Views;
@@ -355,6 +442,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				21305C39247A863F00F2D76A /* Networking.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21305C6F247A885500F2D76A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21305C86247A885600F2D76A /* Main.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +536,43 @@
 			productReference = 21305C2F247A863F00F2D76A /* NetworkingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		21305C73247A885500F2D76A /* Main */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21305C8B247A885600F2D76A /* Build configuration list for PBXNativeTarget "Main" */;
+			buildPhases = (
+				21305C6F247A885500F2D76A /* Headers */,
+				21305C70247A885500F2D76A /* Sources */,
+				21305C71247A885500F2D76A /* Frameworks */,
+				21305C72247A885500F2D76A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Main;
+			productName = Main;
+			productReference = 21305C74247A885500F2D76A /* Main.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		21305C7B247A885600F2D76A /* MainTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21305C8E247A885600F2D76A /* Build configuration list for PBXNativeTarget "MainTests" */;
+			buildPhases = (
+				21305C78247A885600F2D76A /* Sources */,
+				21305C79247A885600F2D76A /* Frameworks */,
+				21305C7A247A885600F2D76A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21305C7F247A885600F2D76A /* PBXTargetDependency */,
+				21305C81247A885600F2D76A /* PBXTargetDependency */,
+			);
+			name = MainTests;
+			productName = MainTests;
+			productReference = 21305C7C247A885600F2D76A /* MainTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		216AF37C2472358C00B7C55B /* LaguSion */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 216AF39F2472358E00B7C55B /* Build configuration list for PBXNativeTarget "LaguSion" */;
@@ -455,6 +587,7 @@
 			dependencies = (
 				21305C11247A803200F2D76A /* PBXTargetDependency */,
 				21305C3B247A863F00F2D76A /* PBXTargetDependency */,
+				21305C88247A885600F2D76A /* PBXTargetDependency */,
 			);
 			name = LaguSion;
 			packageProductDependencies = (
@@ -505,6 +638,13 @@
 						CreatedOnToolsVersion = 11.5;
 						TestTargetID = 216AF37C2472358C00B7C55B;
 					};
+					21305C73247A885500F2D76A = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					21305C7B247A885600F2D76A = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 216AF37C2472358C00B7C55B;
+					};
 					216AF37C2472358C00B7C55B = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
@@ -537,6 +677,8 @@
 				21305C04247A803200F2D76A /* SongTests */,
 				21305C26247A863F00F2D76A /* Networking */,
 				21305C2E247A863F00F2D76A /* NetworkingTests */,
+				21305C73247A885500F2D76A /* Main */,
+				21305C7B247A885600F2D76A /* MainTests */,
 			);
 		};
 /* End PBXProject section */
@@ -564,6 +706,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		21305C2D247A863F00F2D76A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21305C72247A885500F2D76A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21305C7A247A885600F2D76A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -627,11 +783,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21305C70247A885500F2D76A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21305C91247A885C00F2D76A /* MainView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21305C78247A885600F2D76A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21305C84247A885600F2D76A /* MainTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		216AF3792472358C00B7C55B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21B130F5247235E0005941E9 /* MainView.swift in Sources */,
 				21C88D2424768A08001E376A /* FavoritesView.swift in Sources */,
 				21B130F2247235E0005941E9 /* echo_service.proto in Sources */,
 				216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */,
@@ -682,6 +853,21 @@
 			target = 21305C26247A863F00F2D76A /* Networking */;
 			targetProxy = 21305C3A247A863F00F2D76A /* PBXContainerItemProxy */;
 		};
+		21305C7F247A885600F2D76A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21305C73247A885500F2D76A /* Main */;
+			targetProxy = 21305C7E247A885600F2D76A /* PBXContainerItemProxy */;
+		};
+		21305C81247A885600F2D76A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 216AF37C2472358C00B7C55B /* LaguSion */;
+			targetProxy = 21305C80247A885600F2D76A /* PBXContainerItemProxy */;
+		};
+		21305C88247A885600F2D76A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21305C73247A885500F2D76A /* Main */;
+			targetProxy = 21305C87247A885600F2D76A /* PBXContainerItemProxy */;
+		};
 		216AF3982472358E00B7C55B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 216AF37C2472358C00B7C55B /* LaguSion */;
@@ -720,7 +906,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.Song;
+				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.Song";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -750,7 +936,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.Song;
+				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.Song";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
@@ -821,13 +1007,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Networking/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.Networking;
+				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.Networking";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -850,13 +1036,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Networking/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.Networking;
+				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.Networking";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -901,6 +1087,106 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.NetworkingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LaguSion.app/LaguSion";
+			};
+			name = Release;
+		};
+		21305C8C247A885600F2D76A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Main/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.Main";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		21305C8D247A885600F2D76A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Main/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.Main";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		21305C8F247A885600F2D76A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				INFOPLIST_FILE = MainTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.MainTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LaguSion.app/LaguSion";
+			};
+			name = Debug;
+		};
+		21305C90247A885600F2D76A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				INFOPLIST_FILE = MainTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.MainTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1157,6 +1443,24 @@
 			buildConfigurations = (
 				21305C42247A863F00F2D76A /* Debug */,
 				21305C43247A863F00F2D76A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21305C8B247A885600F2D76A /* Build configuration list for PBXNativeTarget "Main" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21305C8C247A885600F2D76A /* Debug */,
+				21305C8D247A885600F2D76A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21305C8E247A885600F2D76A /* Build configuration list for PBXNativeTarget "MainTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21305C8F247A885600F2D76A /* Debug */,
+				21305C90247A885600F2D76A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

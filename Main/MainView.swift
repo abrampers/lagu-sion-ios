@@ -11,19 +11,25 @@ import Song
 
 import SwiftUI
 
-struct MainState: Equatable {
-    var songs: [Song] = []
-    var favoriteSongs: [Song] = []
+public struct MainState: Equatable {
+    public var songs: [Song] = []
+    public var favoriteSongs: [Song] = []
+    
+    public init(songs: [Song], favoriteSongs: [Song]) {
+        self.songs = songs
+        self.favoriteSongs = favoriteSongs
+    }
 }
 
-enum MainAction {
+public enum MainAction {
     case song(index: Int, action: SongAction)
 }
 
-struct MainEnvironment {
+public struct MainEnvironment {
+    public init() {}
 }
 
-let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combine(
+public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combine(
     songReducer.forEach(
         state: \MainState.songs,
         action: /MainAction.song(index:action:),
@@ -45,10 +51,14 @@ let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combine(
     }.debug()
 )
 
-struct MainView: View {
-    let store: Store<MainState, MainAction>
+public struct MainView: View {
+    private let store: Store<MainState, MainAction>
     
-    var body: some View {
+    public init(store: Store<MainState, MainAction>) {
+        self.store = store
+    }
+    
+    public var body: some View {
         NavigationView {
             WithViewStore(self.store) { viewStore in
                 List {
@@ -80,7 +90,7 @@ struct MainView_Previews: PreviewProvider {
                     Song(id: UUID(), isFavorite: false, number: 7, title: "No 7", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
                     Song(id: UUID(), isFavorite: false, number: 8, title: "No 8", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
                     Song(id: UUID(), isFavorite: false, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], isLaguSion: true)
-                ]
+                ], favoriteSongs: []
             ),
             reducer: mainReducer,
             environment: MainEnvironment())
