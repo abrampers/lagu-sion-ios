@@ -32,6 +32,9 @@ jobs:
       uses: webfactory/ssh-agent@v0.2.0
       with:
         ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+    - name: Setup CI Environment
+      run:
+        bundle exec fastlane setup_ci
     - name: Match Provisioning Profile
       run: |
         bundle exec fastlane match --readonly --output_path=./LaguSion/provision/
@@ -48,7 +51,7 @@ jobs:
           ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
     - name: Build iOS Application
       run: |
-        bazel build //LaguSion
+        bazel build //LaguSion --config=device
     - name: Run iOS Application Tests
       run: |
         bazel query "kind('ios_unit_test', '//...')" | xargs bazel test
