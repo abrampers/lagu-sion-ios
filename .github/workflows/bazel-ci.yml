@@ -39,7 +39,7 @@ jobs:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
     - name: Match Provisioning Profile
       run: |
-        bundle exec fastlane match adhoc --readonly --output_path=./LaguSion/provision/
+        bundle exec fastlane match adhoc --readonly --output_path=./LaguSion/provision/ --keychain_name=fastlane_tmp_keychain
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
     - name: Cache Build
