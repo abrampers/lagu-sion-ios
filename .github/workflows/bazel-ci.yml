@@ -35,6 +35,8 @@ jobs:
     - name: Setup CI Environment
       run:
         bundle exec fastlane setup_github_action
+      env:
+        MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
     - name: Match Provisioning Profile
       run: |
         bundle exec fastlane match --readonly --output_path=./LaguSion/provision/
