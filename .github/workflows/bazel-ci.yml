@@ -37,11 +37,6 @@ jobs:
         bundle exec fastlane run setup_ci
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-    - name: Match Provisioning Profile
-      run: |
-        bundle exec fastlane match adhoc --readonly --output_path=./LaguSion/provision/ --keychain_name=fastlane_tmp_keychain
-      env:
-        MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
     - name: Cache Build
       uses: actions/cache@v1
       env:
@@ -51,18 +46,27 @@ jobs:
         key: ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
         restore-keys: |
           ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
-    - name: Build iOS Application
+    - name: Match Development Provisioning Profile
       run: |
-        bazel build //LaguSion --config=device_adhoc
+        bundle exec fastlane match development --readonly --output_path=./LaguSion/provision/ --keychain_name=fastlane_tmp_keychain
+      env:
+        MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
     - name: Run iOS Application Tests
       run: |
         bazel query "kind('ios_unit_test', '//...')" | xargs bazel test
+    - name: Match Ad Hoc Provisioning Profile
+      run: |
+        bundle exec fastlane match adhoc --readonly --output_path=./LaguSion/provision/ --keychain_name=fastlane_tmp_keychain
+      env:
+        MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+    - name: Build iOS Application
+      run: |
+        bazel build //LaguSion --config=device_adhoc
     - name: Get branch name and commit sha
       id: vars
       run: |
         echo ::set-output name=git_branch::${GITHUB_REF#refs/*/}
-        echo ::set-output name=git_hash=$(git rev-parse --short "$GITHUB_SHA")
     - uses: actions/upload-artifact@v2
       with:
-        name: LaguSion-${{ steps.vars.outputs.git_branch }}-${{ steps.vars.outputs.git_hash }}
+        name: LaguSion-${{ steps.vars.outputs.git_branch }}-${{ github.sha }}
         path: bazel-bin/LaguSion/LaguSion.ipa
