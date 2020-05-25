@@ -34,7 +34,7 @@ jobs:
         ssh-private-key: ${{ secrets.DEPLOY_KEY }}
     - name: Setup CI Environment
       run:
-        bundle exec fastlane setup_ci
+        bundle exec fastlane setup_github_action
     - name: Match Provisioning Profile
       run: |
         bundle exec fastlane match --readonly --output_path=./LaguSion/provision/
@@ -51,7 +51,7 @@ jobs:
           ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
     - name: Build iOS Application
       run: |
-        bazel build //LaguSion --config=device
+        bazel build //LaguSion --config=device_adhoc
     - name: Run iOS Application Tests
       run: |
         bazel query "kind('ios_unit_test', '//...')" | xargs bazel test
