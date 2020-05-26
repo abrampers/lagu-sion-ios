@@ -11,18 +11,26 @@ import Song
 
 import SwiftUI
 
+public enum SongBook: LocalizedStringKey, CaseIterable, Hashable {
+    case laguSion = "Lagu Sion"
+    case laguSionEdisiLengkap = "Lagu Sion Edisi Lengkap"
+}
+
 public struct MainState: Equatable {
     public var songs: [Song] = []
     public var favoriteSongs: [Song] = []
+    public var selectedBook: SongBook = .laguSion
     
-    public init(songs: [Song], favoriteSongs: [Song]) {
+    public init(songs: [Song], favoriteSongs: [Song], selectedBook: SongBook) {
         self.songs = songs
         self.favoriteSongs = favoriteSongs
+        self.selectedBook = selectedBook
     }
 }
 
 public enum MainAction {
     case song(index: Int, action: SongAction)
+    case songBookPicked(SongBook)
 }
 
 public struct MainEnvironment {
@@ -42,9 +50,15 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
                 state.favoriteSongs.append(addedSong)
             }
             return .none
+            
+        case .songBookPicked(let songBook):
+            state.selectedBook = songBook
+            return .none
+            
         case .song(index: _, action: .removeFromFavorites(let removedSong)):
             state.favoriteSongs.removeAll { $0 == removedSong }
             return .none
+            
         case .song(index: _, action: _):
             return .none
         }
@@ -59,18 +73,33 @@ public struct MainView: View {
     }
     
     public var body: some View {
-        NavigationView {
-            WithViewStore(self.store) { viewStore in
-                List {
-                    ForEachStore(
-                        self.store.scope(state: \.songs, action: MainAction.song(index:action:))
-                    ) { songViewStore in
-                        NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
-                            SongTabView(store: songViewStore)
+        WithViewStore(self.store) { viewStore in
+            NavigationView {
+                VStack(alignment: .leading) {
+                    WithViewStore(self.store.scope(state: { $0.selectedBook }, action: MainAction.songBookPicked)) {
+                        selectedBookViewStore in
+                        Picker(
+                            "Selected Book", selection: selectedBookViewStore.binding(send: { $0 })
+                        ) {
+                            ForEach(SongBook.allCases, id: \.self) { songBook in
+                                Text(songBook.rawValue).tag(songBook)
+                            }
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                    }
+                    .padding([.leading, .trailing])
+                    
+                    List {
+                        ForEachStore(
+                            self.store.scope(state: \.songs, action: MainAction.song(index:action:))
+                        ) { songViewStore in
+                            NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
+                                SongTabView(store: songViewStore)
+                            }
                         }
                     }
+                    .navigationBarTitle("Lagu Sion")
                 }
-                .navigationBarTitle("Lagu Sion")
             }
         }
     }
@@ -90,7 +119,7 @@ struct MainView_Previews: PreviewProvider {
                     Song(id: UUID(), isFavorite: false, number: 7, title: "No 7", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
                     Song(id: UUID(), isFavorite: false, number: 8, title: "No 8", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
                     Song(id: UUID(), isFavorite: false, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], isLaguSion: true)
-                ], favoriteSongs: []
+                ], favoriteSongs: [], selectedBook: .laguSion
             ),
             reducer: mainReducer,
             environment: MainEnvironment())

@@ -16,6 +16,7 @@ import SwiftUI
 struct AppState: Equatable {
     var songs: [Song] = []
     var favoriteSongs: [Song] = []
+    var selectedBook: SongBook = .laguSion
 }
 
 enum AppAction {
@@ -29,11 +30,12 @@ struct AppEnvironment {
 extension AppState {
     var mainView: MainState {
         get {
-            MainState(songs: self.songs, favoriteSongs: self.favoriteSongs)
+            MainState(songs: self.songs, favoriteSongs: self.favoriteSongs, selectedBook: self.selectedBook)
         }
         set {
             self.songs = newValue.songs
             self.favoriteSongs = newValue.favoriteSongs
+            self.selectedBook = newValue.selectedBook
         }
     }
     
