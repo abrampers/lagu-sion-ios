@@ -1,0 +1,18 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_unit_test")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+swift_library(
+    name = "MainTestsSources",
+    srcs = glob(["**/*.swift"]),
+    deps = [
+        "//Main:MainSources",
+    ],
+    visibility = ["//visibility:private"],
+)
+
+ios_unit_test(
+    name = "MainTests",
+    deps = [":MainTestsSources"],
+    test_host = "//LaguSion:LaguSion",
+    minimum_os_version = "13.0",
+)
