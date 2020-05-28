@@ -3,8 +3,17 @@ load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 swift_library(
     name = "ComposableArchitecture",
     srcs = glob([
-        "Sources/**/*.swift",
+        "Sources/ComposableArchitecture/**/*.swift",
     ]),
     deps = ["@com_github_pointfreeco_swift_case_paths//:CasePaths"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "ComposableCoreLocation",
+    srcs = glob([
+        "Sources/ComposableCoreLocation/**/*.swift",
+    ]),
+    deps = [":ComposableArchitecture"],
     visibility = ["//visibility:public"],
 )
