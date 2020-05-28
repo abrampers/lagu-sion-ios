@@ -79,24 +79,14 @@ private struct TitleView: View {
     }
 }
 
-private struct VersesView: View {
-    let verses: [Verse]
-    let reff: Verse?
+private struct VerseView: View {
+    let verse: Verse
     
     var body: some View {
-        ForEach(0..<verses.count) { i in
-            Text("\(i + 1)")
-                .font(.system(.headline))
-            ForEach(0..<self.verses[i].contents.count) { (j) in
-                Text(self.verses[i].contents[j])
+        VStack(alignment: .center, spacing: 10) {
+            ForEach(0..<self.verse.contents.count) { (j) in
+                Text(self.verse.contents[j])
             }
-            Spacer()
-            Unwrap(self.reff) { (reff) in
-                ForEach(0..<reff.contents.count) { (k) in
-                    Text(reff.contents[k])
-                }
-            }
-            Spacer()
         }
     }
 }
@@ -117,7 +107,16 @@ public struct SongView: View {
                     Spacer()
                     TitleView(title: viewStore.title)
                     Spacer()
-                    VersesView(verses: viewStore.verses, reff: viewStore.reff)
+                    ForEach(0..<viewStore.verses.count) { i in
+                        Text("\(i + 1)")
+                            .font(.system(.headline))
+                        VerseView(verse: viewStore.verses[i])
+                        Unwrap(viewStore.reff) { reff in
+                            Spacer()
+                            VerseView(verse: reff)
+                        }
+                        Spacer()
+                    }
                     Spacer()
                 }
             }
