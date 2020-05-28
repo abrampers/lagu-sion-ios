@@ -144,6 +144,8 @@ public struct SongTabView: View {
             HStack {
                 Text("\(viewStore.number)")
                 Text(viewStore.title)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
             }
         }
     }
