@@ -63,8 +63,8 @@ protobuf_deps()
 new_git_repository(
     name = "com_github_pointfreeco_swift_composable_architecture",
     remote = "https://github.com/pointfreeco/swift-composable-architecture.git",
-    commit = "492126c8f34aff3103635cd392e8fc693ef5f4e3", # tag = "0.1.4",
-    shallow_since = "1589482824 +0000",
+    commit = "1005bbd39347f5cc6e993d25a1c0ffe52b8f42d4", # tag = "0.3.0",
+    shallow_since = "1590600130 -0700",
     build_file = "@//:third_party/swift-composable-architecture/BUILD.swift-composable-architecture",
 )
 
