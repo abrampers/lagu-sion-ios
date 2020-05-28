@@ -1,5 +1,25 @@
 load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 
+swift_library(
+    name = "NIO",
+    srcs = glob(["Sources/NIO/*.swift"]),
+    deps = [
+        ":CNIOLinux",
+        ":CNIODarwin",
+        ":NIOConcurrencyHelpers",
+        ":CNIOAtomics",
+        ":CNIOSHA1",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "NIOFoundationCompat",
+    srcs = glob(["Sources/NIOFoundationCompat/*.swift"]),
+    deps = [":NIO"],
+    visibility = ["//visibility:public"],
+)
+
 objc_library(
     name = "CNIOLinux",
     module_name = "CNIOLinux",
@@ -36,26 +56,6 @@ swift_library(
     visibility = ["//visibility:public"],
 )
 
-swift_library(
-    name = "NIO",
-    srcs = glob(["Sources/NIO/*.swift"]),
-    deps = [
-        ":CNIOLinux",
-        ":CNIODarwin",
-        ":NIOConcurrencyHelpers",
-        ":CNIOAtomics",
-        ":CNIOSHA1",
-    ],
-    visibility = ["//visibility:public"],
-)
-
-swift_library(
-    name = "NIOFoundationCompat",
-    srcs = glob(["Sources/NIOFoundationCompat/*.swift"]),
-    deps = [":NIO"],
-    visibility = ["//visibility:public"],
-)
-
 objc_library(
     name = "CNIOHTTPParser",
     module_name = "CNIOHTTPParser",
@@ -67,6 +67,69 @@ swift_library(
     name = "NIOHTTP1",
     srcs = glob(["Sources/NIOHTTP1/*.swift"]),
     deps = [":NIO", ":NIOConcurrencyHelpers", ":CNIOHTTPParser"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "NIOEchoServer",
+    srcs = glob(["Sources/NIOEchoServer/*.swift"]),
+    deps = [":NIO", ":NIOConcurrencyHelper"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "NIOEchoClient",
+    srcs = glob(["Sources/NIOEchoClient/*.swift"]),
+    deps = [":NIO", ":NIOConcurrencyHelper"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "NIOHTTP1Server",
+    srcs = glob(["Sources/NIOHTTP1Server/*.swift"]),
+    deps = [":NIO", ":NIOHTTP1", ":NIOConcurrencyHelper"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "NIOHTTP1Client",
+    srcs = glob(["Sources/NIOHTTP1Client/*.swift"]),
+    deps = [":NIO", ":NIOHTTP1", ":NIOConcurrencyHelper"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "NIOChatServer",
+    srcs = glob(["Sources/NIOChatServer/*.swift"]),
+    deps = [":NIO", ":NIOConcurrencyHelper"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "NIOChatClient",
+    srcs = glob(["Sources/NIOChatClient/*.swift"]),
+    deps = [":NIO", ":NIOConcurrencyHelper"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "NIOWebSocket",
+    srcs = glob(["Sources/NIOWebSocket/*.swift"]),
+    deps = [":NIO", ":NIOHTTP1", ":NIOConcurrencyHelper"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "NIOWebSocketServer",
+    srcs = glob(["Sources/NIOWebSocketServer/*.swift"]),
+    deps = [":NIO", ":NIOWebSocket", ":NIOConcurrencyHelper"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "NIOWebSocketClient",
+    srcs = glob(["Sources/NIOWebSocketClient/*.swift"]),
+    deps = [":NIO", ":NIOWebSocket", ":NIOConcurrencyHelper"],
     visibility = ["//visibility:public"],
 )
 
