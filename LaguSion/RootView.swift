@@ -82,7 +82,6 @@ struct RootView: View {
                 state: \.favoritesView,
                 action: AppAction.favorites)
             )
-                .font(.title)
                 .tabItem {
                     VStack {
                         Image(systemName: "star.fill")
