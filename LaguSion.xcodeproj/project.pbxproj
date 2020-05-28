@@ -179,10 +179,6 @@
 		21305C2F247A863F00F2D76A /* NetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21305C36247A863F00F2D76A /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		21305C38247A863F00F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21305C52247A87CB00F2D76A /* LaguSionMain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaguSionMain.h; sourceTree = "<group>"; };
-		21305C53247A87CB00F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21305C5F247A87CB00F2D76A /* LaguSionMainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionMainTests.swift; sourceTree = "<group>"; };
-		21305C61247A87CB00F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21305C74247A885500F2D76A /* Main.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Main.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21305C76247A885500F2D76A /* Main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Main.h; sourceTree = "<group>"; };
 		21305C77247A885500F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -352,24 +348,6 @@
 			path = NetworkingTests;
 			sourceTree = "<group>";
 		};
-		21305C51247A87CB00F2D76A /* LaguSionMain */ = {
-			isa = PBXGroup;
-			children = (
-				21305C52247A87CB00F2D76A /* LaguSionMain.h */,
-				21305C53247A87CB00F2D76A /* Info.plist */,
-			);
-			path = LaguSionMain;
-			sourceTree = "<group>";
-		};
-		21305C5E247A87CB00F2D76A /* LaguSionMainTests */ = {
-			isa = PBXGroup;
-			children = (
-				21305C5F247A87CB00F2D76A /* LaguSionMainTests.swift */,
-				21305C61247A87CB00F2D76A /* Info.plist */,
-			);
-			path = LaguSionMainTests;
-			sourceTree = "<group>";
-		};
 		21305C75247A885500F2D76A /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,8 +395,6 @@
 				21305C0B247A803200F2D76A /* SongTests */,
 				21305C28247A863F00F2D76A /* Networking */,
 				21305C35247A863F00F2D76A /* NetworkingTests */,
-				21305C51247A87CB00F2D76A /* LaguSionMain */,
-				21305C5E247A87CB00F2D76A /* LaguSionMainTests */,
 				21305C75247A885500F2D76A /* Main */,
 				21305C82247A885600F2D76A /* MainTests */,
 				21305C98247A895C00F2D76A /* Favorites */,
