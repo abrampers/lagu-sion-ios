@@ -38,6 +38,8 @@
 		21305CBA247A8B3D00F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
 		21305CBF247A8B8F00F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
 		21305CC0247A8B8F00F2D76A /* Song.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		215C185624A9D7EB0041435A /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215C185524A9D7EB0041435A /* SearchField.swift */; };
+		215C185824A9E8200041435A /* DismissingKeyboardOnSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215C185724A9E8200041435A /* DismissingKeyboardOnSwipe.swift */; };
 		216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3802472358C00B7C55B /* AppDelegate.swift */; };
 		216AF3832472358C00B7C55B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3822472358C00B7C55B /* SceneDelegate.swift */; };
 		216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3842472358C00B7C55B /* LaguSion.xcdatamodeld */; };
@@ -191,6 +193,8 @@
 		21305C9F247A895C00F2D76A /* FavoritesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavoritesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21305CA6247A895C00F2D76A /* FavoritesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTests.swift; sourceTree = "<group>"; };
 		21305CA8247A895C00F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		215C185524A9D7EB0041435A /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
+		215C185724A9E8200041435A /* DismissingKeyboardOnSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboardOnSwipe.swift; sourceTree = "<group>"; };
 		216AF37D2472358C00B7C55B /* LaguSion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaguSion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		216AF3802472358C00B7C55B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		216AF3822472358C00B7C55B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -354,6 +358,8 @@
 				21B130ED247235DF005941E9 /* MainView.swift */,
 				21305C76247A885500F2D76A /* Main.h */,
 				21305C77247A885500F2D76A /* Info.plist */,
+				215C185524A9D7EB0041435A /* SearchField.swift */,
+				215C185724A9E8200041435A /* DismissingKeyboardOnSwipe.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -903,7 +909,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215C185624A9D7EB0041435A /* SearchField.swift in Sources */,
 				21305C91247A885C00F2D76A /* MainView.swift in Sources */,
+				215C185824A9E8200041435A /* DismissingKeyboardOnSwipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
