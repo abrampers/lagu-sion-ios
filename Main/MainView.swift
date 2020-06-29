@@ -20,21 +20,28 @@ public struct MainState: Equatable {
     public var songs: [Song] = []
     public var favoriteSongs: [Song] = []
     public var selectedBook: SongBook = .laguSion
+    public var searchQuery: String = ""
     
-    public init(songs: [Song], favoriteSongs: [Song], selectedBook: SongBook) {
+    public init(songs: [Song], favoriteSongs: [Song], selectedBook: SongBook, searchQuery: String) {
         self.songs = songs
         self.favoriteSongs = favoriteSongs
         self.selectedBook = selectedBook
+        self.searchQuery = searchQuery
     }
 }
 
 public enum MainAction {
     case song(index: Int, action: SongAction)
     case songBookPicked(SongBook)
+    case searchQueryChanged(String)
 }
 
 public struct MainEnvironment {
-    public init() {}
+    var mainQueue: AnySchedulerOf<DispatchQueue>
+    
+    public init(mainQueue: AnySchedulerOf<DispatchQueue>) {
+        self.mainQueue = mainQueue
+    }
 }
 
 public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combine(
@@ -61,6 +68,10 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             
         case .song(index: _, action: _):
             return .none
+            
+        case .searchQueryChanged(let query):
+            state.searchQuery = query
+            return .none
         }
     }.debug()
 )
@@ -75,7 +86,7 @@ public struct MainView: View {
     public var body: some View {
         WithViewStore(self.store) { viewStore in
             NavigationView {
-                VStack(alignment: .leading) {
+                List {
                     WithViewStore(self.store.scope(state: { $0.selectedBook }, action: MainAction.songBookPicked)) {
                         selectedBookViewStore in
                         Picker(
@@ -87,19 +98,19 @@ public struct MainView: View {
                         }
                         .pickerStyle(SegmentedPickerStyle())
                     }
-                    .padding([.leading, .trailing])
-                    
-                    List {
-                        ForEachStore(
-                            self.store.scope(state: \.songs, action: MainAction.song(index:action:))
-                        ) { songViewStore in
-                            NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
-                                SongTabView(store: songViewStore)
-                            }
+                    SearchField(searchText: viewStore.binding(
+                        get: { $0.searchQuery }, send: MainAction.searchQueryChanged
+                    ))
+                    ForEachStore(
+                        self.store.scope(state: \.songs, action: MainAction.song(index:action:))
+                    ) { songViewStore in
+                        NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
+                            SongTabView(store: songViewStore)
                         }
                     }
-                    .navigationBarTitle("Lagu Sion")
                 }
+                .modifier(DismissingKeyboardOnSwipe())
+                .navigationBarTitle("Lagu Sion")
             }
         }
     }
@@ -119,10 +130,10 @@ struct MainView_Previews: PreviewProvider {
                     Song(id: UUID(), isFavorite: false, number: 7, title: "No 7", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
                     Song(id: UUID(), isFavorite: false, number: 8, title: "No 8", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
                     Song(id: UUID(), isFavorite: false, number: 9, title: "No 9 HAHAHAHAHAHAHAHAHHAAHHAHHAHAHAHAHAHAHAHAHAH", verses: [Verse(contents: ["HAHA"])], isLaguSion: true)
-                ], favoriteSongs: [], selectedBook: .laguSion
+                ], favoriteSongs: [], selectedBook: .laguSion, searchQuery: ""
             ),
             reducer: mainReducer,
-            environment: MainEnvironment())
+            environment: MainEnvironment(mainQueue: DispatchQueue.main.eraseToAnyScheduler()))
         )
     }
 }
