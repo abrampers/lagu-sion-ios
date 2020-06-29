@@ -17,6 +17,7 @@ struct AppState: Equatable {
     var songs: [Song] = []
     var favoriteSongs: [Song] = []
     var selectedBook: SongBook = .laguSion
+    var searchQuery: String = ""
 }
 
 enum AppAction {
@@ -25,17 +26,19 @@ enum AppAction {
 }
 
 struct AppEnvironment {
+    var mainQueue: AnySchedulerOf<DispatchQueue>
 }
 
 extension AppState {
     var mainView: MainState {
         get {
-            MainState(songs: self.songs, favoriteSongs: self.favoriteSongs, selectedBook: self.selectedBook)
+            MainState(songs: self.songs, favoriteSongs: self.favoriteSongs, selectedBook: self.selectedBook, searchQuery: self.searchQuery)
         }
         set {
             self.songs = newValue.songs
             self.favoriteSongs = newValue.favoriteSongs
             self.selectedBook = newValue.selectedBook
+            self.searchQuery = newValue.searchQuery
         }
     }
     
@@ -54,7 +57,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
     mainReducer.pullback(
         state: \AppState.mainView,
         action: /AppAction.main,
-        environment: { _ in MainEnvironment() }
+        environment: { env in MainEnvironment(mainQueue: env.mainQueue) }
     ),
     favoritesReducer.pullback(
         state: \AppState.favoritesView,
@@ -118,7 +121,7 @@ struct RootView_Previews: PreviewProvider {
                     ]
                 ),
                 reducer: appReducer,
-                environment: AppEnvironment()
+                environment: AppEnvironment(mainQueue: DispatchQueue.main.eraseToAnyScheduler())
             )
         )
     }
