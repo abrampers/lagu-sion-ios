@@ -76,6 +76,31 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
     }.debug()
 )
 
+internal struct HeaderView: View {
+    internal let store: Store<MainState, MainAction>
+    
+    internal var body: some View {
+        WithViewStore(self.store) { viewStore in
+            VStack {
+                WithViewStore(self.store.scope(state: { $0.selectedBook }, action: MainAction.songBookPicked)) {
+                    selectedBookViewStore in
+                    Picker(
+                        "Selected Book", selection: selectedBookViewStore.binding(send: { $0 })
+                    ) {
+                        ForEach(SongBook.allCases, id: \.self) { songBook in
+                            Text(songBook.rawValue).tag(songBook)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                }
+                SearchField(searchText: viewStore.binding(
+                    get: { $0.searchQuery }, send: MainAction.searchQueryChanged
+                ))
+            }
+        }
+    }
+}
+
 public struct MainView: View {
     private let store: Store<MainState, MainAction>
     
@@ -87,28 +112,17 @@ public struct MainView: View {
         WithViewStore(self.store) { viewStore in
             NavigationView {
                 List {
-                    WithViewStore(self.store.scope(state: { $0.selectedBook }, action: MainAction.songBookPicked)) {
-                        selectedBookViewStore in
-                        Picker(
-                            "Selected Book", selection: selectedBookViewStore.binding(send: { $0 })
-                        ) {
-                            ForEach(SongBook.allCases, id: \.self) { songBook in
-                                Text(songBook.rawValue).tag(songBook)
+                    Section(header: HeaderView(store: self.store)) {
+                        ForEachStore(
+                            self.store.scope(state: \.songs, action: MainAction.song(index:action:))
+                        ) { songViewStore in
+                            NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
+                                SongTabView(store: songViewStore)
                             }
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
-                    }
-                    SearchField(searchText: viewStore.binding(
-                        get: { $0.searchQuery }, send: MainAction.searchQueryChanged
-                    ))
-                    ForEachStore(
-                        self.store.scope(state: \.songs, action: MainAction.song(index:action:))
-                    ) { songViewStore in
-                        NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
-                            SongTabView(store: songViewStore)
                         }
                     }
                 }
+            .listStyle(GroupedListStyle())
                 .modifier(DismissingKeyboardOnSwipe())
                 .navigationBarTitle("Lagu Sion")
             }

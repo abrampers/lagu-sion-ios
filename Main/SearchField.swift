@@ -20,6 +20,7 @@ struct SearchField: View {
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
                 .textContentType(.name)
+                .foregroundColor(Color(.label))
             if !searchText.isEmpty {
                 Button(action: {
                     self.searchText = ""
@@ -32,7 +33,7 @@ struct SearchField: View {
             }
         }
         .padding(8)
-        .background(Color.init(red: 238/255, green: 238/255, blue: 238/255))
+        .background(Color(.systemGray5))
         .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
         .padding(2)
     }

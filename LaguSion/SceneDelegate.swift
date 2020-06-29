@@ -9,7 +9,6 @@
 import ComposableArchitecture
 import Song
 
-//import UIKit
 import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -18,8 +17,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        UITableView.appearance().separatorStyle = .none
-        
         let contentView = RootView(store: Store(
                 initialState: AppState(
                     songs: [
@@ -101,6 +98,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         Song(id: UUID(), isFavorite: false, number: 6, title: "No 6", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
                         Song(id: UUID(), isFavorite: false, number: 7, title: "No 7", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
                         Song(id: UUID(), isFavorite: false, number: 8, title: "No 8", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
+                        Song(id: UUID(), isFavorite: false, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
+                        Song(id: UUID(), isFavorite: false, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
+                        Song(id: UUID(), isFavorite: false, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
+                        Song(id: UUID(), isFavorite: false, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
+                        Song(id: UUID(), isFavorite: false, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
+                        Song(id: UUID(), isFavorite: false, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
+                        Song(id: UUID(), isFavorite: false, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
+                        Song(id: UUID(), isFavorite: false, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
+                        Song(id: UUID(), isFavorite: false, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
+                        Song(id: UUID(), isFavorite: false, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
                         Song(id: UUID(), isFavorite: false, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], isLaguSion: true)
                     ]
                 ),
@@ -108,6 +115,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 environment: AppEnvironment(mainQueue: DispatchQueue.main.eraseToAnyScheduler())
             )
         )
+            .onAppear(perform: setupAppearance)
 
 
         // Use a UIHostingController as window root view controller.
@@ -117,6 +125,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
+    }
+    
+    private func setupAppearance() {
+        // TODO: Move that to SwiftUI once implemented
+        UITableView.appearance().backgroundColor = .systemGray6
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
