@@ -45,7 +45,7 @@ jobs:
       run: |
         bundle exec fastlane build
       env:
-        MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         APPCENTER_API_KEY: ${{ secrets.APPCENTER_API_KEY }}
         APPCENTER_OWNER_NAME: "abram"
         APPCENTER_APP_NAME: "Lagu-Sion"
