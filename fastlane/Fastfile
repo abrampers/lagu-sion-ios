@@ -58,7 +58,7 @@ platform :ios do
     )
 
     slack_team("Workflow #{ENV['GITHUB_WORKFLOW']} successful.
-    #{build_appcener_release_url(version["id"]}")
+    #{build_appcenter_release_url(version["id"])}")
   end
 
   def build_appcenter_release_url(id)
