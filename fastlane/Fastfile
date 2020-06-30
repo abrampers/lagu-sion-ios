@@ -26,13 +26,17 @@ platform :ios do
 
     disable_automatic_code_signing(path: ENV['APP_XCODEPROJ'])
 
-    match(type: "adhoc", readonly: true)
+    match(
+      type: "adhoc", 
+      readonly: true,
+    )
 
     build_app(
       scheme: "LaguSion",
       export_method: "ad-hoc",
       derived_data_path: "./DerivedData/"
     )
+    ENV['IPA_OUTPUT_PATH'] = lane_context[SharedValues::IPA_OUTPUT_PATH]
     appcenter
   end
 
