@@ -9,6 +9,29 @@
 import ComposableArchitecture
 import SwiftUI
 
+public enum SongBook: CaseIterable, Hashable {
+    public var songPrefix: String {
+        switch self {
+        case .laguSion:
+            return "LS"
+        case .laguSionEdisiLengkap:
+            return "LSEL"
+        }
+    }
+    
+    public var localizedSongPrefix: LocalizedStringKey {
+        switch self {
+        case .laguSion:
+            return "LS"
+        case .laguSionEdisiLengkap:
+            return "LSEL"
+        }
+    }
+    
+    case laguSion
+    case laguSionEdisiLengkap
+}
+
 public struct Song: Equatable, Identifiable {
     public static func == (lhs: Song, rhs: Song) -> Bool {
         return lhs.id == rhs.id
@@ -20,16 +43,16 @@ public struct Song: Equatable, Identifiable {
     var title: String
     var verses: [Verse]
     var reff: Verse?
-    var isLaguSion: Bool
+    var songBook: SongBook
     
-    public init(id: UUID, isFavorite: Bool, number: Int, title: String, verses: [Verse], reff: Verse? = nil, isLaguSion: Bool) {
+    public init(id: UUID, isFavorite: Bool, number: Int, title: String, verses: [Verse], reff: Verse? = nil, songBook: SongBook) {
         self.id = id
         self.isFavorite = isFavorite
         self.number = number
         self.title = title
         self.verses = verses
         self.reff = reff
-        self.isLaguSion = isLaguSion
+        self.songBook = songBook
     }
 }
 
@@ -120,7 +143,7 @@ public struct SongView: View {
                     Spacer()
                 }
             }
-            .navigationBarTitle("\(viewStore.isLaguSion ? "LS" : "LSEL") no. \(viewStore.number)")
+            .navigationBarTitle("\(viewStore.songBook.songPrefix) no. \(viewStore.number)")
             .navigationBarItems(
                 trailing: Button(action: { viewStore.send(.heartTapped(viewStore.state)) }) {
                     Image(systemName: viewStore.isFavorite ? "heart.fill" : "heart")
@@ -131,7 +154,7 @@ public struct SongView: View {
     }
 }
 
-public struct SongTabView: View {
+public struct SongRowView: View {
     private let store: Store<Song, SongAction>
     
     public init(store: Store<Song, SongAction>) {
@@ -142,6 +165,11 @@ public struct SongTabView: View {
         WithViewStore(self.store) { viewStore in
             HStack {
                 Text("\(viewStore.number)")
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .foregroundColor(Color(.darkText))
+                    .background(Color(.systemGray6))
+                    .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
                 Text(viewStore.title)
                     .lineLimit(1)
                     .truncationMode(.tail)
@@ -184,7 +212,7 @@ internal struct SongView_Previews: PreviewProvider {
                             "Pada Tuhan kita puji",
                             "Sekarang dan selamanya",
                         ])
-                    ], isLaguSion: true
+                    ], songBook: .laguSion
                 ),
                 reducer: songReducer,
                 environment: SongEnvironment()),

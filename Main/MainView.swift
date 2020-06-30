@@ -11,18 +11,33 @@ import Song
 
 import SwiftUI
 
-public enum SongBook: LocalizedStringKey, CaseIterable, Hashable {
-    case laguSion = "Lagu Sion"
-    case laguSionEdisiLengkap = "Lagu Sion Edisi Lengkap"
+public enum BookSelection: Hashable {
+    public var bookIdentifier: LocalizedStringKey {
+        switch self {
+        case .all:
+            return "All"
+        case .songBook(let book):
+            return book.localizedSongPrefix
+        }
+    }
+    
+    case all
+    case songBook(SongBook)
+}
+
+extension BookSelection: CaseIterable {
+    public static var allCases: [BookSelection] {
+        [.all, .songBook(.laguSion), .songBook(.laguSionEdisiLengkap)]
+    }
 }
 
 public struct MainState: Equatable {
     public var songs: [Song] = []
     public var favoriteSongs: [Song] = []
-    public var selectedBook: SongBook = .laguSion
+    public var selectedBook: BookSelection = .all
     public var searchQuery: String = ""
     
-    public init(songs: [Song], favoriteSongs: [Song], selectedBook: SongBook, searchQuery: String) {
+    public init(songs: [Song], favoriteSongs: [Song], selectedBook: BookSelection, searchQuery: String) {
         self.songs = songs
         self.favoriteSongs = favoriteSongs
         self.selectedBook = selectedBook
@@ -32,7 +47,7 @@ public struct MainState: Equatable {
 
 public enum MainAction {
     case song(index: Int, action: SongAction)
-    case songBookPicked(SongBook)
+    case songBookPicked(BookSelection)
     case searchQueryChanged(String)
 }
 
@@ -87,8 +102,8 @@ internal struct HeaderView: View {
                     Picker(
                         "Selected Book", selection: selectedBookViewStore.binding(send: { $0 })
                     ) {
-                        ForEach(SongBook.allCases, id: \.self) { songBook in
-                            Text(songBook.rawValue).tag(songBook)
+                        ForEach(BookSelection.allCases, id: \.self) { bookSelection in
+                            Text(bookSelection.bookIdentifier).tag(bookSelection)
                         }
                     }
                     .pickerStyle(SegmentedPickerStyle())
@@ -117,7 +132,7 @@ public struct MainView: View {
                             self.store.scope(state: \.songs, action: MainAction.song(index:action:))
                         ) { songViewStore in
                             NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
-                                SongTabView(store: songViewStore)
+                                SongRowView(store: songViewStore)
                             }
                         }
                     }
@@ -135,16 +150,16 @@ struct MainView_Previews: PreviewProvider {
         MainView(store: Store(
             initialState: MainState(
                 songs: [
-                    Song(id: UUID(), isFavorite: false, number: 1, title: "No 1", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
-                    Song(id: UUID(), isFavorite: false, number: 2, title: "No 2", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
-                    Song(id: UUID(), isFavorite: false, number: 3, title: "No 3", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
-                    Song(id: UUID(), isFavorite: false, number: 4, title: "No 4", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
-                    Song(id: UUID(), isFavorite: false, number: 5, title: "No 5", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
-                    Song(id: UUID(), isFavorite: false, number: 6, title: "No 6", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
-                    Song(id: UUID(), isFavorite: false, number: 7, title: "No 7", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
-                    Song(id: UUID(), isFavorite: false, number: 8, title: "No 8", verses: [Verse(contents: ["HAHA"])], isLaguSion: true),
-                    Song(id: UUID(), isFavorite: false, number: 9, title: "No 9 HAHAHAHAHAHAHAHAHHAAHHAHHAHAHAHAHAHAHAHAHAH", verses: [Verse(contents: ["HAHA"])], isLaguSion: true)
-                ], favoriteSongs: [], selectedBook: .laguSion, searchQuery: ""
+                    Song(id: UUID(), isFavorite: false, number: 1, title: "No 1", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                    Song(id: UUID(), isFavorite: false, number: 2, title: "No 2", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                    Song(id: UUID(), isFavorite: false, number: 3, title: "No 3", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                    Song(id: UUID(), isFavorite: false, number: 4, title: "No 4", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                    Song(id: UUID(), isFavorite: false, number: 5, title: "No 5", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                    Song(id: UUID(), isFavorite: false, number: 6, title: "No 6", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                    Song(id: UUID(), isFavorite: false, number: 7, title: "No 7", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                    Song(id: UUID(), isFavorite: false, number: 8, title: "No 8", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                    Song(id: UUID(), isFavorite: false, number: 9, title: "No 9 HAHAHAHAHAHAHAHAHHAAHHAHHAHAHAHAHAHAHAHAHAH", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion)
+                ], favoriteSongs: [], selectedBook: .all, searchQuery: ""
             ),
             reducer: mainReducer,
             environment: MainEnvironment(mainQueue: DispatchQueue.main.eraseToAnyScheduler()))
