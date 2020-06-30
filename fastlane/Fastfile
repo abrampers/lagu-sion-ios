@@ -6,6 +6,7 @@ platform :ios do
     ENV['APP_XCODEPROJ'] = "./LaguSion.xcodeproj"
     ENV['APP_TARGET'] = "LaguSion"
     ENV['BAZEL_BUILD_OUTPUT'] = "bazel-bin/LaguSion/LaguSion.ipa"
+    ENV['MATCH_KEYCHAIN_NAME'] = "fastlane-tmp-keychain"
 
     if ENV['CI']
       setup_ci
