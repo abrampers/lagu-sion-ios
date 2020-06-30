@@ -16,7 +16,7 @@ swift_library(
 
 ios_framework(
     name = "Song",
-    bundle_id = "id.abram.ios.lagu-sion.Song",
+    bundle_id = "id.abram.ios.LaguSion.Song",
     families = [
         "iphone",
         "ipad",

@@ -1095,7 +1095,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.Song";
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion.Song;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
@@ -1201,7 +1201,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.Networking";
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion.Networking;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1301,7 +1301,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.Main";
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion.Main;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1401,7 +1401,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "id.abram.ios.lagu-sion.Favorites";
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion.Favorites;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

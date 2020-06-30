@@ -15,7 +15,7 @@ swift_library(
 
 ios_framework(
     name = "Favorites",
-    bundle_id = "id.abram.ios.lagu-sion.Favorites",
+    bundle_id = "id.abram.ios.LaguSion.Favorites",
     families = [
         "iphone",
         "ipad",
