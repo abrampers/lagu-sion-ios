@@ -112,3 +112,5 @@ jobs:
         APPCENTER_API_TOKEN: ${{ secrets.APPCENTER_API_TOKEN }}
         APPCENTER_OWNER_NAME: "abram"
         APPCENTER_APP_NAME: "Lagu-Sion"
+        SLACK_URL: ${{ secrets.SLACK_URL }}
+        SLACK_CHANNEL: "#ios-build"
