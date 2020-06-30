@@ -74,7 +74,7 @@ platform :ios do
       app_os: "iOS",
       file: (ENV['IPA_OUTPUT_PATH'] || ENV['BAZEL_BUILD_OUTPUT']),
     )
-    slack_team("Build successful. #{lane_context[SharedValues::APPCENTER_DOWNLOAD_LINK]}")
+    slack_team("Workflow #{ENV['GITHUB_WORKFLOW']} successful. #{lane_context[SharedValues::APPCENTER_DOWNLOAD_LINK]}")
   end
 
   def slack_team(message)

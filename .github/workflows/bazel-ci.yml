@@ -105,11 +105,6 @@ jobs:
     - name: Build iOS Application
       run: |
         bazel build //LaguSion --config=device_adhoc
-    - name: Get Branch and Commit
-      id: vars
+    - name: Upload artifacts to AppCenter
       run: |
-        echo ::set-output name=git_branch::${GITHUB_REF#refs/*/}
-    - uses: actions/upload-artifact@v2
-      with:
-        name: LaguSion-${{ steps.vars.outputs.git_branch }}-${{ github.sha }}
-        path: bazel-bin/LaguSion/LaguSion.ipa
+        bundle exec fastlane appcenter
