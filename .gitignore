@@ -78,7 +78,7 @@ Dependencies/
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
 
 # Local lanes
-fastlane/Fastfile
+# fastlane/Fastfile
 
 fastlane/report.xml
 fastlane/Preview.html
