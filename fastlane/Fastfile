@@ -2,7 +2,6 @@ default_platform(:ios)
 
 platform :ios do
   before_all do |lane|
-    ENV['SLACK_URL'] = "https://hooks.slack.com/services/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"
     ENV['SLACK_CHANNEL'] = "#ios-build"
     ENV['APP_XCODEPROJ'] = "./LaguSion.xcodeproj"
     ENV['APP_TARGET'] = "LaguSion"
