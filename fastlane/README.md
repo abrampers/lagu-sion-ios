@@ -21,11 +21,11 @@ or alternatively using `brew cask install fastlane`
 fastlane ios build
 ```
 Build iOS App
-### ios beta
+### ios appcenter
 ```
-fastlane ios beta
+fastlane ios appcenter
 ```
-Push a new beta build to TestFlight
+Upload to AppCenter
 
 ----
 

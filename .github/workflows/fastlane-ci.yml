@@ -1,0 +1,50 @@
+name: fastlane
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  test:
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    runs-on: macos-10.15
+    steps:
+    - uses: actions/checkout@v2
+    - name: Select Xcode 11.5
+      run: sudo xcode-select -s /Applications/Xcode_11.5.app
+    - name: Cache Gems
+      uses: actions/cache@v1
+      env:
+        cache-name: cache-fastlane-bundle-install
+      with:
+        path: ./vendor/
+        key: ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
+        restore-keys: |
+          ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
+    - name: Install Gems
+      run: |
+        bundle install --deployment
+    - name: Install SSH Client 🔑
+      uses: webfactory/ssh-agent@v0.2.0
+      with:
+        ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+    # - name: Cache Build
+    #   uses: actions/cache@v1
+    #   env:
+    #     cache-name: cache-fastlane-build
+    #   with:
+    #     path: ./DerivedData
+    #     key: ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
+    - name: Match Ad Hoc Provisioning Profile
+      run: |
+        bundle exec fastlane build
+      env:
+        MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        APPCENTER_API_KEY: ${{ secrets.APPCENTER_API_KEY }}
+        APPCENTER_OWNER_NAME: "abram"
