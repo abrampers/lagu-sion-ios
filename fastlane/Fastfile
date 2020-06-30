@@ -31,6 +31,30 @@ platform :ios do
       readonly: true,
     )
 
+    update_project_provisioning(
+      xcodeproj: ENV['APP_XCODEPROJ'],
+      profile: ENV['sigh_id.abram.ios.LaguSion_adhoc_profile-path'],
+      target_filter: "Song",
+    )
+
+    update_project_provisioning(
+      xcodeproj: ENV['APP_XCODEPROJ'],
+      profile: ENV['sigh_id.abram.ios.LaguSion_adhoc_profile-path'],
+      target_filter: "Networking",
+    )
+
+    update_project_provisioning(
+      xcodeproj: ENV['APP_XCODEPROJ'],
+      profile: ENV['sigh_id.abram.ios.LaguSion_adhoc_profile-path'],
+      target_filter: "Main",
+    )
+
+    update_project_provisioning(
+      xcodeproj: ENV['APP_XCODEPROJ'],
+      profile: ENV['sigh_id.abram.ios.LaguSion_adhoc_profile-path'],
+      target_filter: "Favorites",
+    )
+
     build_app(
       scheme: "LaguSion",
       export_method: "ad-hoc",

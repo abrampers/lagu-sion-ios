@@ -43,7 +43,7 @@ GEM
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
     fastimage (2.1.7)
-    fastlane (2.149.1)
+    fastlane (2.148.0)
       CFPropertyList (>= 2.3, < 4.0.0)
       addressable (>= 2.3, < 3.0.0)
       aws-sdk-s3 (~> 1.0)
@@ -117,7 +117,7 @@ GEM
       domain_name (~> 0.5)
     httpclient (2.8.3)
     jmespath (1.4.0)
-    json (2.3.0)
+    json (2.3.1)
     jwt (2.1.0)
     memoist (0.16.2)
     mini_magick (4.10.1)
@@ -175,7 +175,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  fastlane
+  fastlane (= 2.148.0)
   fastlane-plugin-appcenter
   fastlane-plugin-versioning
 
