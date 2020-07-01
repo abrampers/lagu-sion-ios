@@ -38,8 +38,7 @@ platform :ios do
   desc "Run Unit Tests"
   lane :unittest do
     run_tests(
-      workspace: "./LaguSion.xcworkspace",
-      #project: ENV['APP_XCODEPROJ'],
+      project: ENV['APP_XCODEPROJ'],
       scheme: "LaguSion",
       configuration: "Debug",
       devices: ['iPhone X'],
