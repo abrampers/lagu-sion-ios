@@ -1,4 +1,5 @@
 # lagu-sion-ios
 
-[![bazel-build](https://github.com/abrampers/lagu-sion-ios/workflows/bazel-build/badge.svg?branch=master)](https://github.com/abrampers/lagu-sion-ios/actions)
-[![Build status](https://build.appcenter.ms/v0.1/apps/0ecbea30-1015-4782-8de6-3bcf651451cb/branches/master/badge)](https://appcenter.ms)
+[![bazel-build](https://github.com/abrampers/lagu-sion-ios/workflows/bazel-build/badge.svg?branch=master)](https://github.com/abrampers/lagu-sion-ios/actions?query=workflow%3Abazel-build)
+[![fastlane](https://github.com/abrampers/lagu-sion-ios/workflows/fastlane/badge.svg)](https://github.com/abrampers/lagu-sion-ios/actions?query=workflow%3Afastlane)
+[![install-appcenter](https://img.shields.io/badge/install-https%3A%2F%2Finstall.appcenter.ms%2Fusers%2Fabram%2Fapps%2FLagu--Sion%2F-blue)](https://install.appcenter.ms/users/abram/apps/Lagu-Sion/)
