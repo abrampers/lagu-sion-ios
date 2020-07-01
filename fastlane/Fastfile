@@ -17,10 +17,50 @@ platform :ios do
     ENV['APP_TARGET'], configuration: "Debug")
   end
 
+  def changelogs
+    return changelog_from_git_commits(commits_count: 5, pretty: "\r\n• %s")
+  end
+
+  def build_appcenter_release_url(id)
+    return "https://install.appcenter.ms/user/#{ENV['APPCENTER_OWNER_NAME']}/apps/#{ENV['APPCENTER_APP_NAME']}/releases/#{id}"
+  end
+
+  def slack_team(message)
+    slack(
+      message: message,
+      slack_url: ENV['SLACK_URL'],
+      channel: ENV['SLACK_CHANNEL'],
+      fail_on_error: false,
+      default_payloads: []
+    )
+  end
+
+  desc "Run Unit Tests"
+  lane :unittest do
+    run_tests(
+      workspace: "./LaguSion.xcworkspace",
+      #project: ENV['APP_XCODEPROJ'],
+      scheme: "LaguSion",
+      configuration: "Debug",
+      devices: ['iPhone X'],
+      derived_data_path: "DerivedDataUnitTest",
+      clean: false,
+      slack_url: ENV['SLACK_URL'],
+      slack_channel: ENV['SLACK_CHANNEL'],
+      slack_message: "Unit Test Result for #{ENV['GITHUB_REF']} in workflow #{ENV['GITHUB_WORKFLOW']}",
+      slack_only_on_failure: true,
+      output_types: "html",
+      code_coverage: true,
+      reinstall_app: true
+    )
+  end
+
   desc "Build iOS App"
   lane :build do
+    unittest
+
     increment_build_number_in_plist(
-      build_number: current_version + "-" + (ENV['GITHUB_WORKFLOW'] || "Local") + "-" + (ENV['GITHUB_RUN_NUMBER'] || "0"),
+      build_number: current_version + "-" + ENV['GITHUB_REF'] + "-" + (ENV['GITHUB_WORKFLOW'] || "Local") + "-" + (ENV['GITHUB_RUN_NUMBER'] || "0"),
       xcodeproj: ENV['APP_XCODEPROJ']
     )
 
@@ -60,23 +100,5 @@ platform :ios do
 
     slack_team("Workflow #{ENV['GITHUB_WORKFLOW']} successful.
     #{build_appcenter_release_url(version["id"])}")
-  end
-
-  def changelogs
-    return changelog_from_git_commits(commits_count: 5, pretty: "\r\n• %s")
-  end
-
-  def build_appcenter_release_url(id)
-    return "https://install.appcenter.ms/user/#{ENV['APPCENTER_OWNER_NAME']}/apps/#{ENV['APPCENTER_APP_NAME']}/releases/#{id}"
-  end
-
-  def slack_team(message)
-    slack(
-      message: message,
-      slack_url: ENV['SLACK_URL'],
-      channel: ENV['SLACK_CHANNEL'],
-      fail_on_error: false,
-      default_payloads: []
-    )
   end
 end
