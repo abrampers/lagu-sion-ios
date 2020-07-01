@@ -49,6 +49,7 @@ platform :ios do
       app_name: ENV['APPCENTER_APP_NAME'],
       app_os: "iOS",
       file: (ENV['IPA_OUTPUT_PATH'] || ENV['BAZEL_BUILD_OUTPUT']),
+      release_notes: changelogs
     )
 
     version = appcenter_fetch_version_number(
@@ -61,8 +62,12 @@ platform :ios do
     #{build_appcenter_release_url(version["id"])}")
   end
 
+  def changelogs
+    return changelog_from_git_commits(commits_count: 5, pretty: "\r\n• %s")
+  end
+
   def build_appcenter_release_url(id)
-    return "https://appcenter.ms/orgs/#{ENV["APPCENTER_OWNER_NAME"]}/apps/#{ENV["APPCENTER_APP_NAME"]}/distribute/releases/#{id}"
+    return "https://install.appcenter.ms/user/#{ENV['APPCENTER_OWNER_NAME']}/apps/#{ENV['APPCENTER_APP_NAME']}/releases/#{id}"
   end
 
   def slack_team(message)
