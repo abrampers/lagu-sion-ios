@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		212864E224ADE3C800E79296 /* lagu_sion.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864E124ADE3C800E79296 /* lagu_sion.grpc.swift */; };
+		212864E424ADE3FC00E79296 /* lagu_sion.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864E324ADE3FC00E79296 /* lagu_sion.pb.swift */; };
 		21305C06247A803200F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
 		21305C0D247A803200F2D76A /* SongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305C0C247A803200F2D76A /* SongTests.swift */; };
 		21305C0F247A803200F2D76A /* Song.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305BFF247A803200F2D76A /* Song.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,7 +49,6 @@
 		216AF38D2472358E00B7C55B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 216AF38C2472358E00B7C55B /* Preview Assets.xcassets */; };
 		216AF3902472358E00B7C55B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 216AF38E2472358E00B7C55B /* LaunchScreen.storyboard */; };
 		216AF39B2472358E00B7C55B /* LaguSionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF39A2472358E00B7C55B /* LaguSionTests.swift */; };
-		21B130F2247235E0005941E9 /* echo_service.proto in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E7247235DF005941E9 /* echo_service.proto */; };
 		21B130F3247235E0005941E9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E9247235DF005941E9 /* RootView.swift */; };
 /* End PBXBuildFile section */
 
@@ -169,6 +170,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		212864E124ADE3C800E79296 /* lagu_sion.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.grpc.swift; sourceTree = "<group>"; };
+		212864E324ADE3FC00E79296 /* lagu_sion.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.pb.swift; sourceTree = "<group>"; };
 		21305BFD247A803200F2D76A /* Song.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Song.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21305BFF247A803200F2D76A /* Song.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
 		21305C00247A803200F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -210,7 +213,6 @@
 		21B130E3247235DF005941E9 /* GRPCServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRPCServiceManager.swift; sourceTree = "<group>"; };
 		21B130E5247235DF005941E9 /* echo_service.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.pb.swift; sourceTree = "<group>"; };
 		21B130E6247235DF005941E9 /* echo_service.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.grpc.swift; sourceTree = "<group>"; };
-		21B130E7247235DF005941E9 /* echo_service.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = echo_service.proto; sourceTree = "<group>"; };
 		21B130E9247235DF005941E9 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCombineGRPCView.swift; sourceTree = "<group>"; };
 		21B130ED247235DF005941E9 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 		21B130E2247235DF005941E9 /* gRPC */ = {
 			isa = PBXGroup;
 			children = (
+				21B6585824ADE283006104D5 /* LaguSionService */,
 				21B130E3247235DF005941E9 /* GRPCServiceManager.swift */,
 				21B130E4247235DF005941E9 /* EchoService */,
 			);
@@ -473,9 +476,17 @@
 			children = (
 				21B130E5247235DF005941E9 /* echo_service.pb.swift */,
 				21B130E6247235DF005941E9 /* echo_service.grpc.swift */,
-				21B130E7247235DF005941E9 /* echo_service.proto */,
 			);
 			path = EchoService;
+			sourceTree = "<group>";
+		};
+		21B6585824ADE283006104D5 /* LaguSionService */ = {
+			isa = PBXGroup;
+			children = (
+				212864E324ADE3FC00E79296 /* lagu_sion.pb.swift */,
+				212864E124ADE3C800E79296 /* lagu_sion.grpc.swift */,
+			);
+			path = LaguSionService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -893,6 +904,8 @@
 				21305C46247A866900F2D76A /* TestCombineGRPCView.swift in Sources */,
 				21305C4A247A86FA00F2D76A /* echo_service.grpc.swift in Sources */,
 				21305C48247A86EE00F2D76A /* GRPCServiceManager.swift in Sources */,
+				212864E424ADE3FC00E79296 /* lagu_sion.pb.swift in Sources */,
+				212864E224ADE3C800E79296 /* lagu_sion.grpc.swift in Sources */,
 				21305C49247A86F300F2D76A /* echo_service.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -943,7 +956,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21B130F2247235E0005941E9 /* echo_service.proto in Sources */,
 				216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */,
 				216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */,
 				21B130F3247235E0005941E9 /* RootView.swift in Sources */,
