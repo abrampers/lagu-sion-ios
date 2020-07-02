@@ -105,5 +105,4 @@ bazel-*
 !LaguSion/LaguSion/Bazel-Info.plist
 tulsi
 
-build-input/data/*
-!build-input/data/BUILD.bazel
+build-input
