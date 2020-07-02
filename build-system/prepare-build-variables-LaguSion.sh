@@ -3,20 +3,6 @@
 set -e
 
 prepare_build_variables () {
-	BUILD_TYPE="$1"
-	case "$BUILD_TYPE" in
-		development)
-	    	APS_ENVIRONMENT="development"
-			;;
-		distribution)
-		    APS_ENVIRONMENT="production"
-		    ;;
-		*)
-		    echo "Unknown build provisioning type: $BUILD_TYPE"
-		    exit 1
-		    ;;
-	esac
-
 	local BAZEL="$(which bazel)"
 	if [ "$BAZEL" = "" ]; then
 		echo "bazel not found in PATH"
