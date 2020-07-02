@@ -46,8 +46,7 @@ prepare_build_variables () {
 	local VARIABLES_PATH="$VARIABLES_DIRECTORY/variables.bzl"
 	rm -f "$VARIABLES_PATH"
 
-	echo "lagu_sion_build_number = \"$BUNDLE_VERSION\"" >> "$VARIABLES_PATH"
+	echo "lagu_sion_bundle_version = \"$BUNDLE_VERSION\"" >> "$VARIABLES_PATH"
 	echo "lagu_sion_version = \"$APP_VERSION\"" >> "$VARIABLES_PATH"
 	echo "lagu_sion_bundle_id = \"$BUNDLE_ID\"" >> "$VARIABLES_PATH"	
-	echo "lagu_sion_aps_environment = \"$APS_ENVIRONMENT\"" >> "$VARIABLES_PATH"
 }

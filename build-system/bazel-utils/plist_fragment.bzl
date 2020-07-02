@@ -19,7 +19,7 @@ def _plist_fragment(ctx):
         value = ctx.var.get(key, None)
         if value == None:
             fail("Expected value for --define={} was not found".format(key))
-        resoled_values[key] = value
+        resolved_values[key] = value
 
     plist_string = """
     <?xml version="1.0" encoding="UTF-8"?>

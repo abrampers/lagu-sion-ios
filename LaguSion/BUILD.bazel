@@ -1,5 +1,12 @@
 load("@build_bazel_rules_apple//apple:ios.bzl", "ios_application")
 load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+load("//build-system/bazel-utils:plist_fragment.bzl", "plist_fragment")
+load(
+    "//build-input/data:variables.bzl",
+    "lagu_sion_bundle_version",
+    "lagu_sion_version",
+    "lagu_sion_bundle_id",
+)
 
 filegroup(
     name = "Assets.xcassets",
@@ -45,6 +52,82 @@ config_setting(
     },
 )
 
+plist_fragment(
+    name = "LaguSionInfoPlist",
+    extension = "plist",
+    template = 
+    """
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleExecutable</key>
+    <string>LaguSion</string>
+    <key>CFBundleIdentifier</key>
+    <string>{lagu_sion_bundle_id}</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>LaguSion</string>
+    <key>CFBundleShortVersionString</key>
+    <string>{lagu_sion_version}</string>
+    <key>CFBundleVersion</key>
+    <string>{lagu_sion_bundle_version}</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+    <key>UIApplicationSceneManifest</key>
+    <dict>
+      <key>UIApplicationSupportsMultipleScenes</key>
+      <false/>
+      <key>UISceneConfigurations</key>
+      <dict>
+        <key>UIWindowSceneSessionRoleApplication</key>
+        <array>
+          <dict>
+            <key>UISceneConfigurationName</key>
+            <string>Default Configuration</string>
+            <key>UISceneDelegateClassName</key>
+            <string>LaguSion.SceneDelegate</string>
+          </dict>
+        </array>
+      </dict>
+    </dict>
+    <key>UILaunchStoryboardName</key>
+    <string>LaunchScreen</string>
+    <key>UIRequiredDeviceCapabilities</key>
+    <array>
+      <string>arm64</string>
+    </array>
+    <key>UIStatusBarTintParameters</key>
+    <dict>
+      <key>UINavigationBar</key>
+      <dict>
+        <key>Style</key>
+        <string>UIBarStyleDefault</string>
+        <key>Translucent</key>
+        <false/>
+      </dict>
+    </dict>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+      <string>UIInterfaceOrientationPortraitUpsideDown</string>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    """.format(
+        lagu_sion_bundle_id = lagu_sion_bundle_id,
+        lagu_sion_version = lagu_sion_version,
+        lagu_sion_bundle_version = lagu_sion_bundle_version,
+    )
+)
+
 ios_application(
     name = "LaguSion",
     bundle_id = "id.abram.ios.LaguSion",
@@ -54,7 +137,7 @@ ios_application(
     ],
     minimum_os_version = "13.0",
     launch_storyboard = "Base.lproj/LaunchScreen.storyboard",
-    infoplists = ["Info-Bazel.plist"],
+    infoplists = [":LaguSionInfoPlist"],
     frameworks = [
         "//Main",
         "//Favorites",

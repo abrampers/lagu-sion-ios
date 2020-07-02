@@ -38,7 +38,7 @@ touch "$DATA_DIRECTORY/BUILD"
 source "$PREPARE_BUILD_VARIABLES_SCRIPT"
 
 echo "Preparing provisioning profiles..."
-bundle exec fastlane match adhoc --readonly --output_path=./LaguSion/provision/
+bundle exec fastlane match adhoc --readonly --output_path=./LaguSion/provision/ 
 #--keychain_name=fastlane_tmp_keychain
 
 echo "Preparing build variables..."
