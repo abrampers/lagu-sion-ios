@@ -32,11 +32,6 @@ jobs:
       uses: webfactory/ssh-agent@v0.2.0
       with:
         ssh-private-key: ${{ secrets.DEPLOY_KEY }}
-    - name: Setup CI Environment
-      run:
-        bundle exec fastlane run setup_ci
-      env:
-        MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
     - name: Cache Tests
       uses: actions/cache@v1
       env:
@@ -46,11 +41,14 @@ jobs:
         key: ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
         restore-keys: |
           ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
-    - name: Match Development Provisioning Profile
+    - name: Prepare Variables
       run: |
-        bundle exec fastlane match development --readonly --output_path=./LaguSion/provision/ --keychain_name=fastlane_tmp_keychain
+        ./build-system/prepare-build.sh
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        BUNDLE_VERSION: $GITHUB_RUN_NUMBER
+        APP_VERSION: 0.1
+        BUNDLE_ID: id.abram.ios.LaguSion
     - name: Run SongTests
       run: bazel test //SongTests
     - name: Run FavoritesTests
@@ -83,11 +81,6 @@ jobs:
       uses: webfactory/ssh-agent@v0.2.0
       with:
         ssh-private-key: ${{ secrets.DEPLOY_KEY }}
-    - name: Setup CI Environment
-      run:
-        bundle exec fastlane run setup_ci
-      env:
-        MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
     - name: Cache Build
       uses: actions/cache@v1
       env:
@@ -97,11 +90,14 @@ jobs:
         key: ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
         restore-keys: |
           ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
-    - name: Match Ad Hoc Provisioning Profile
+    - name: Prepare Variables
       run: |
-        bundle exec fastlane match adhoc --readonly --output_path=./LaguSion/provision/ --keychain_name=fastlane_tmp_keychain
+        ./build-system/prepare-build.sh
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        BUNDLE_VERSION: $GITHUB_RUN_NUMBER
+        APP_VERSION: 0.1
+        BUNDLE_ID: id.abram.ios.LaguSion
     - name: Build iOS Application
       run: |
         bazel build //LaguSion --config=device_adhoc

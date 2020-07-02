@@ -37,9 +37,17 @@ touch "$DATA_DIRECTORY/BUILD"
 
 source "$PREPARE_BUILD_VARIABLES_SCRIPT"
 
+if [ $CI == "true" ]; then
+  echo "Preparing keychain..."
+  bundle exec fastlane run setup_ci
+fi
+
 echo "Preparing provisioning profiles..."
-bundle exec fastlane match adhoc --readonly --output_path=./LaguSion/provision/ 
-#--keychain_name=fastlane_tmp_keychain
+if [ $CI == "true" ]; then
+  bundle exec fastlane match adhoc --readonly --output_path=./LaguSion/provision/ --keychain_name=fastlane_tmp_keychain
+else
+  bundle exec fastlane match adhoc --readonly --output_path=./LaguSion/provision/
+fi
 
 echo "Preparing build variables..."
 prepare_build_variables "$BUILD_TYPE"
