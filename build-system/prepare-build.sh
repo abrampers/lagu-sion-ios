@@ -31,8 +31,10 @@ fi
 echo "Preparing provisioning profiles..."
 if [ $CI == "true" ]; then
   bundle exec fastlane match adhoc --readonly --output_path=./LaguSion/provision/ --keychain_name=fastlane_tmp_keychain
+  bundle exec fastlane match development --readonly --output_path=./LaguSion/provision/ --keychain_name=fastlane_tmp_keychain
 else
   bundle exec fastlane match adhoc --readonly --output_path=./LaguSion/provision/
+  bundle exec fastlane match development --readonly --output_path=./LaguSion/provision/
 fi
 
 echo "Preparing build variables..."
