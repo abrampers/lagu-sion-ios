@@ -23,6 +23,8 @@ platform :ios do
 
   def build_appcenter_release_url(id)
     return "https://install.appcenter.ms/user/#{ENV['APPCENTER_OWNER_NAME']}/apps/#{ENV['APPCENTER_APP_NAME']}/releases/#{id}"
+    return
+    "https://install.appcenter.ms/users/#{ENV['APPCENTER_OWNER_NAME']}/apps/#{ENV['APPCENTER_APP_NAME']}/distribution_groups/lagu%20sion%20testers/releases/#{id}"
   end
 
   def slack_team(message)
@@ -41,7 +43,6 @@ platform :ios do
       project: ENV['APP_XCODEPROJ'],
       scheme: "LaguSion",
       configuration: "Debug",
-      devices: ['iPhone X'],
       derived_data_path: "DerivedDataUnitTest",
       clean: false,
       slack_url: ENV['SLACK_URL'],
@@ -99,7 +100,6 @@ platform :ios do
       app_name: ENV["APPCENTER_APP_NAME"]
     )
 
-    slack_team("Workflow #{ENV['GITHUB_WORKFLOW']} successful.
-    #{build_appcenter_release_url(version["id"])}")
+    slack_team("Workflow #{ENV['GITHUB_WORKFLOW']} successful. #{build_appcenter_release_url(version["id"])}")
   end
 end
