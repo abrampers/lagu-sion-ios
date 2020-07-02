@@ -89,7 +89,8 @@ platform :ios do
       app_os: "iOS",
       destination: "*",
       file: (ENV['IPA_OUTPUT_PATH'] || ENV['BAZEL_BUILD_OUTPUT']),
-      release_notes: changelogs
+      release_notes: changelogs,
+      notify_testers: true
     )
 
     version = appcenter_fetch_version_number(
