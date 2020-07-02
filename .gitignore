@@ -102,7 +102,6 @@ iOSInjectionProject/
 *~
 bazel-*
 !build-system/bazel-utils
-!LaguSion/LaguSion/Bazel-Info.plist
 tulsi
 
 build-input
