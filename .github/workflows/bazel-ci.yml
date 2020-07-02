@@ -43,10 +43,10 @@ jobs:
           ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
     - name: Prepare Variables
       run: |
+        export BUNDLE_VERSION=$GITHUB_RUN_NUMBER
         ./build-system/prepare-build.sh LaguSion
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-        BUNDLE_VERSION: $GITHUB_RUN_NUMBER
         APP_VERSION: 0.1
         BUNDLE_ID: id.abram.ios.LaguSion
     - name: Run SongTests
