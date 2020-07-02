@@ -88,7 +88,7 @@ platform :ios do
       owner_type: "user",
       app_name: ENV['APPCENTER_APP_NAME'],
       app_os: "iOS",
-      destination: "*",
+      destinations: "*",
       file: (ENV['IPA_OUTPUT_PATH'] || ENV['BAZEL_BUILD_OUTPUT']),
       release_notes: changelogs,
       notify_testers: true
