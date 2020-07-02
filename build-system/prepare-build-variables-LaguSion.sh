@@ -27,7 +27,6 @@ prepare_build_variables () {
 		BUNDLE_VERSION \
 		APP_VERSION \
 		BUNDLE_ID \
-		DEVELOPMENT_TEAM \
 	)
 
 	local MISSING_VARIABLES="0"
@@ -50,6 +49,5 @@ prepare_build_variables () {
 	echo "lagu_sion_build_number = \"$BUNDLE_VERSION\"" >> "$VARIABLES_PATH"
 	echo "lagu_sion_version = \"$APP_VERSION\"" >> "$VARIABLES_PATH"
 	echo "lagu_sion_bundle_id = \"$BUNDLE_ID\"" >> "$VARIABLES_PATH"	
-	echo "lagu_sion_team_id = \"$DEVELOPMENT_TEAM\"" >> "$VARIABLES_PATH"
 	echo "lagu_sion_aps_environment = \"$APS_ENVIRONMENT\"" >> "$VARIABLES_PATH"
 }
