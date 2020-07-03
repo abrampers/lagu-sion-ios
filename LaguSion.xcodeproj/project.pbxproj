@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		212864E224ADE3C800E79296 /* lagu_sion.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864E124ADE3C800E79296 /* lagu_sion.grpc.swift */; };
 		212864E424ADE3FC00E79296 /* lagu_sion.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864E324ADE3FC00E79296 /* lagu_sion.pb.swift */; };
+		212864EC24AEBE7900E79296 /* LaguSionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864EB24AEBE7900E79296 /* LaguSionUITests.swift */; };
+		212864F624AEBF5400E79296 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864F524AEBF5400E79296 /* SnapshotHelper.swift */; };
 		21305C06247A803200F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
 		21305C0D247A803200F2D76A /* SongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305C0C247A803200F2D76A /* SongTests.swift */; };
 		21305C0F247A803200F2D76A /* Song.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305BFF247A803200F2D76A /* Song.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,6 +55,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		212864EE24AEBE7900E79296 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 216AF37C2472358C00B7C55B;
+			remoteInfo = LaguSion;
+		};
 		21305C07247A803200F2D76A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
@@ -172,6 +181,10 @@
 /* Begin PBXFileReference section */
 		212864E124ADE3C800E79296 /* lagu_sion.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.grpc.swift; sourceTree = "<group>"; };
 		212864E324ADE3FC00E79296 /* lagu_sion.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.pb.swift; sourceTree = "<group>"; };
+		212864E924AEBE7900E79296 /* LaguSionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaguSionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		212864EB24AEBE7900E79296 /* LaguSionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionUITests.swift; sourceTree = "<group>"; };
+		212864ED24AEBE7900E79296 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		212864F524AEBF5400E79296 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		21305BFD247A803200F2D76A /* Song.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Song.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21305BFF247A803200F2D76A /* Song.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
 		21305C00247A803200F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -222,6 +235,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		212864E624AEBE7900E79296 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21305BFA247A803200F2D76A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -306,6 +326,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		212864EA24AEBE7900E79296 /* LaguSionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				212864F524AEBF5400E79296 /* SnapshotHelper.swift */,
+				212864EB24AEBE7900E79296 /* LaguSionUITests.swift */,
+				212864ED24AEBE7900E79296 /* Info.plist */,
+			);
+			path = LaguSionUITests;
+			sourceTree = "<group>";
+		};
 		21305BFE247A803200F2D76A /* Song */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +437,7 @@
 				21305C82247A885600F2D76A /* MainTests */,
 				21305C98247A895C00F2D76A /* Favorites */,
 				21305CA5247A895C00F2D76A /* FavoritesTests */,
+				212864EA24AEBE7900E79296 /* LaguSionUITests */,
 				216AF37E2472358C00B7C55B /* Products */,
 				21305C1D247A80F000F2D76A /* Frameworks */,
 			);
@@ -425,6 +456,7 @@
 				21305C7C247A885600F2D76A /* MainTests.xctest */,
 				21305C97247A895C00F2D76A /* Favorites.framework */,
 				21305C9F247A895C00F2D76A /* FavoritesTests.xctest */,
+				212864E924AEBE7900E79296 /* LaguSionUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -527,6 +559,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		212864E824AEBE7900E79296 /* LaguSionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 212864F024AEBE7900E79296 /* Build configuration list for PBXNativeTarget "LaguSionUITests" */;
+			buildPhases = (
+				212864E524AEBE7900E79296 /* Sources */,
+				212864E624AEBE7900E79296 /* Frameworks */,
+				212864E724AEBE7900E79296 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				212864EF24AEBE7900E79296 /* PBXTargetDependency */,
+			);
+			name = LaguSionUITests;
+			productName = LaguSionUITests;
+			productReference = 212864E924AEBE7900E79296 /* LaguSionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		21305BFC247A803200F2D76A /* Song */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21305C19247A803200F2D76A /* Build configuration list for PBXNativeTarget "Song" */;
@@ -734,6 +784,10 @@
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Abram Situmorang";
 				TargetAttributes = {
+					212864E824AEBE7900E79296 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 216AF37C2472358C00B7C55B;
+					};
 					21305BFC247A803200F2D76A = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -798,11 +852,19 @@
 				21305C7B247A885600F2D76A /* MainTests */,
 				21305C96247A895C00F2D76A /* Favorites */,
 				21305C9E247A895C00F2D76A /* FavoritesTests */,
+				212864E824AEBE7900E79296 /* LaguSionUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		212864E724AEBE7900E79296 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21305BFB247A803200F2D76A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -879,6 +941,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		212864E524AEBE7900E79296 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				212864EC24AEBE7900E79296 /* LaguSionUITests.swift in Sources */,
+				212864F624AEBF5400E79296 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21305BF9247A803200F2D76A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -974,6 +1045,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		212864EF24AEBE7900E79296 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 216AF37C2472358C00B7C55B /* LaguSion */;
+			targetProxy = 212864EE24AEBE7900E79296 /* PBXContainerItemProxy */;
+		};
 		21305C08247A803200F2D76A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 21305BFC247A803200F2D76A /* Song */;
@@ -1058,6 +1134,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		212864F124AEBE7900E79296 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				INFOPLIST_FILE = LaguSionUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion.LaguSionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LaguSion;
+			};
+			name = Debug;
+		};
+		212864F224AEBE7900E79296 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8S6N7BJTQ;
+				INFOPLIST_FILE = LaguSionUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion.LaguSionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LaguSion;
+			};
+			name = Release;
+		};
 		21305C15247A803200F2D76A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1688,6 +1804,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		212864F024AEBE7900E79296 /* Build configuration list for PBXNativeTarget "LaguSionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				212864F124AEBE7900E79296 /* Debug */,
+				212864F224AEBE7900E79296 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		21305C19247A803200F2D76A /* Build configuration list for PBXNativeTarget "Song" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
