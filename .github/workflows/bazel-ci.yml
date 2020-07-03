@@ -51,11 +51,13 @@ jobs:
         BUNDLE_ID: id.abram.ios.LaguSion
     - name: Run SongTests
       run: bazel test //SongTests
+    - name: Run NetworkingTests
+      run: bazel test //NetworkingTests
     - name: Run FavoritesTests
       run: bazel test //FavoritesTests
     - name: Run MainTests
       run: bazel test //MainTests
-    - name: Run iOS Application Tests
+    - name: Run LaguSionTests
       run: bazel test //LaguSionTests
   build:
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
