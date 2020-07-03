@@ -101,7 +101,7 @@ platform :ios do
   end
 
   desc "Capture screenshots"
-  lane :screenshots do
+  lane :screenshot do
     capture_screenshots
     frame_screenshots
   end
