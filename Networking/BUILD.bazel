@@ -1,6 +1,7 @@
 load("@build_bazel_rules_apple//apple:ios.bzl", "ios_framework")
 load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 load("//build-system/bazel-utils:plist_fragment.bzl", "plist_fragment")
+load("//build-input/data:variables.bzl", "lagu_sion_bundle_version")
 
 swift_library(
     name = "NetworkingSources",
@@ -34,8 +35,10 @@ plist_fragment(
     <key>CFBundleShortVersionString</key>
     <string>1.0</string>
     <key>CFBundleVersion</key>
-    <string>1.0</string>
-    """,
+    <string>{lagu_sion_bundle_version}</string>
+    """.format(
+        lagu_sion_bundle_version = lagu_sion_bundle_version
+    ),
 )
 
 ios_framework(
