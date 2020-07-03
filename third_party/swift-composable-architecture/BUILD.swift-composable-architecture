@@ -5,7 +5,10 @@ swift_library(
     srcs = glob([
         "Sources/ComposableArchitecture/**/*.swift",
     ]),
-    deps = ["@com_github_pointfreeco_swift_case_paths//:CasePaths"],
+    deps = [
+      "@com_github_pointfreeco_swift_case_paths//:CasePaths",
+      "@com_github_pointfreeco_combine_schedulers//:CombineSchedulers",
+    ],
     visibility = ["//visibility:public"],
 )
 
@@ -13,6 +16,15 @@ swift_library(
     name = "ComposableCoreLocation",
     srcs = glob([
         "Sources/ComposableCoreLocation/**/*.swift",
+    ]),
+    deps = [":ComposableArchitecture"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "ComposableCoreMotion",
+    srcs = glob([
+        "Sources/ComposableCoreMotion/**/*.swift",
     ]),
     deps = [":ComposableArchitecture"],
     visibility = ["//visibility:public"],

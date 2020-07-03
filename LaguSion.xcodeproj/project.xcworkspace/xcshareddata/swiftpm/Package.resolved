@@ -2,12 +2,21 @@
   "object": {
     "pins": [
       {
+        "package": "combine-schedulers",
+        "repositoryURL": "https://github.com/pointfreeco/combine-schedulers",
+        "state": {
+          "branch": null,
+          "revision": "afc84b6a3639198b7b8b6d79f04eb3c2ee590d29",
+          "version": "0.1.1"
+        }
+      },
+      {
         "package": "grpc-swift",
         "repositoryURL": "https://github.com/grpc/grpc-swift.git",
         "state": {
           "branch": null,
-          "revision": "b83ee1ee2caa0660eb02444977b9b6e353c2adbf",
-          "version": "1.0.0-alpha.12"
+          "revision": "399cfe1cfec19d8dc37dcd945a389e6eaae3ea43",
+          "version": "1.0.0-alpha.14"
         }
       },
       {
@@ -15,8 +24,8 @@
         "repositoryURL": "https://github.com/vyshane/grpc-swift-combine.git",
         "state": {
           "branch": null,
-          "revision": "b795fc65df548d86b1caf9be77c7ff04543df761",
-          "version": "0.11.0"
+          "revision": "186d27cd0c33b83ee2b6422bf551dfc7c8d9914f",
+          "version": "0.13.0"
         }
       },
       {
@@ -33,8 +42,8 @@
         "repositoryURL": "https://github.com/pointfreeco/swift-composable-architecture.git",
         "state": {
           "branch": null,
-          "revision": "1005bbd39347f5cc6e993d25a1c0ffe52b8f42d4",
-          "version": "0.3.0"
+          "revision": "b8c67d5d4f27ad3b2f772cf50f91c581fc94611c",
+          "version": "0.6.0"
         }
       },
       {
@@ -51,8 +60,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "c5fa0b456524cd73dc3ddbb263d4f46c20b86ca3",
-          "version": "2.17.0"
+          "revision": "8a865bd15e69526cbdfcfd7c47698eb20b2ba951",
+          "version": "2.19.0"
         }
       },
       {
@@ -60,8 +69,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-http2.git",
         "state": {
           "branch": null,
-          "revision": "b66a08e4bc53ab7c39fb03ab3678132e6ba5d12d",
-          "version": "1.12.0"
+          "revision": "c5d10f4165128c3d0cc0e3c0f0a8ef55947a73a6",
+          "version": "1.12.2"
         }
       },
       {
@@ -69,8 +78,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-ssl.git",
         "state": {
           "branch": null,
-          "revision": "10e0e17dd47b594c3d864a063f343d716e33e5c1",
-          "version": "2.7.3"
+          "revision": "d381bc53edd9de88a75480a2b969bfc26d61ee76",
+          "version": "2.8.0"
         }
       },
       {
@@ -78,8 +87,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-transport-services.git",
         "state": {
           "branch": null,
-          "revision": "85a67aea7caf5396ed599543dd23cffeb6dbbf96",
-          "version": "1.5.1"
+          "revision": "f9a95e9bbb4ed70dd6e1e25d65c46e37187f7730",
+          "version": "1.7.0"
         }
       },
       {
@@ -87,8 +96,8 @@
         "repositoryURL": "https://github.com/apple/swift-protobuf.git",
         "state": {
           "branch": null,
-          "revision": "7f36441e3372665b1b414f8ac93b5905cc42a405",
-          "version": "1.9.0"
+          "revision": "05cb9347bb095d9a28234a593d45cb9fcdc9d196",
+          "version": "1.10.0"
         }
       }
     ]

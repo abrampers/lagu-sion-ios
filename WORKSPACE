@@ -63,9 +63,17 @@ protobuf_deps()
 new_git_repository(
     name = "com_github_pointfreeco_swift_composable_architecture",
     remote = "https://github.com/pointfreeco/swift-composable-architecture.git",
-    commit = "1005bbd39347f5cc6e993d25a1c0ffe52b8f42d4", # tag = "0.3.0",
-    shallow_since = "1590600130 -0700",
+    commit = "b8c67d5d4f27ad3b2f772cf50f91c581fc94611c", # tag = "0.6.0",
+    shallow_since = "1593528579 +0000",
     build_file = "@//:third_party/swift-composable-architecture/BUILD.swift-composable-architecture",
+)
+
+new_git_repository(
+    name = "com_github_pointfreeco_combine_schedulers",
+    remote = "https://github.com/pointfreeco/combine-schedulers",
+    commit = "afc84b6a3639198b7b8b6d79f04eb3c2ee590d29", # tag = "0.1.1",
+    shallow_since = "1592312675 +0000",
+    build_file = "@//:third_party/combine-schedulers/BUILD.combine-schedulers",
 )
 
 new_git_repository(
@@ -80,16 +88,16 @@ new_git_repository(
 new_git_repository(
     name = "com_github_vyshane_grpc_swift_combine",
     remote = "https://github.com/vyshane/grpc-swift-combine.git",
-    commit = "b795fc65df548d86b1caf9be77c7ff04543df761", # tag = "0.11.0",
-    shallow_since = "1589377112 +0800",
+    commit = "186d27cd0c33b83ee2b6422bf551dfc7c8d9914f", # tag = "0.13.0",
+    shallow_since = "1591883999 +0800",
     build_file = "@//:third_party/CombineGRPC/BUILD.combine-grpc",
 )
 
 new_git_repository(
     name = "com_github_grpc_grpc_swift_local",
     remote = "https://github.com/grpc/grpc-swift.git",
-    commit = "b83ee1ee2caa0660eb02444977b9b6e353c2adbf", # tag = "1.0.0-alpha.12",
-    shallow_since = "1589371975 +0200",
+    commit = "399cfe1cfec19d8dc37dcd945a389e6eaae3ea43", # tag = "1.0.0-alpha.14",
+    shallow_since = "1591812517 +0100",
     build_file = "@//:third_party/grpc-swift/BUILD.grpc-swift",
 )
 
