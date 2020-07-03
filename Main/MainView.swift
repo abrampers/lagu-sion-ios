@@ -72,13 +72,13 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
                 state.favoriteSongs.append(addedSong)
             }
             return .none
+        
+        case .song(index: _, action: .removeFromFavorites(let removedSong)):
+            state.favoriteSongs.removeAll { $0 == removedSong }
+            return .none
             
         case .songBookPicked(let songBook):
             state.selectedBook = songBook
-            return .none
-            
-        case .song(index: _, action: .removeFromFavorites(let removedSong)):
-            state.favoriteSongs.removeAll { $0 == removedSong }
             return .none
             
         case .song(index: _, action: _):
