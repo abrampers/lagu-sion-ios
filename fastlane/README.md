@@ -31,9 +31,9 @@ Build iOS App
 fastlane ios appcenter
 ```
 Upload to AppCenter
-### ios screenshots
+### ios screenshot
 ```
-fastlane ios screenshots
+fastlane ios screenshot
 ```
 Capture screenshots
 
