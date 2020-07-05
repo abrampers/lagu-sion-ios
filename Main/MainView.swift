@@ -136,6 +136,7 @@ public struct MainView: View {
                             }
                         }
                     }
+                    .listRowBackground(Color(.systemBackground))
                 }
                 .listStyle(GroupedListStyle())
                 .modifier(DismissingKeyboardOnSwipe())
