@@ -8,34 +8,55 @@
 
 import SwiftUI
 
+extension UIApplication {
+    fileprivate func endEditing(_ force: Bool) {
+        self.windows
+            .filter{$0.isKeyWindow}
+            .first?
+            .endEditing(force)
+    }
+}
+
 struct SearchField: View {
+    @State private var showCancelButton: Bool = false
     @Binding var searchText: String
     var placeholder: LocalizedStringKey = "Search..."
 
     var body: some View {
         HStack {
-            Image(systemName: "magnifyingglass")
-                .imageScale(.large)
-            TextField(placeholder, text: $searchText)
-                .autocapitalization(.none)
-                .disableAutocorrection(true)
-                .textContentType(.name)
-                .foregroundColor(Color(.label))
-            if !searchText.isEmpty {
-                Button(action: {
+            HStack {
+                        Image(systemName: "magnifyingglass")
+                            .imageScale(.large)
+                TextField(placeholder, text: $searchText, onEditingChanged: { self.showCancelButton = $0 })
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                            .textContentType(.name)
+                    .foregroundColor(.primary)
+                        if !searchText.isEmpty {
+                            Button(action: {
+                                self.searchText = ""
+                            }) {
+                                Image(systemName: "xmark.circle.fill")
+                            }.buttonStyle(BorderlessButtonStyle())
+                        }
+                    }
+                    .padding(8)
+                    .foregroundColor(.secondary)
+                    .background(Color(.tertiarySystemFill))
+                    .cornerRadius(8)
+            
+            if showCancelButton  {
+                // Cancel button
+                Button("Cancel") {
+                    UIApplication.shared.endEditing(true) // this must be placed before the other commands here
                     self.searchText = ""
-                }) {
-                    Image(systemName: "xmark.circle")
-                        .font(.headline)
-                        .foregroundColor(.red)
-                        .imageScale(.large)
-                }.buttonStyle(BorderlessButtonStyle())
+                    self.showCancelButton = false
+                }
+                .foregroundColor(Color(.systemBlue))
             }
         }
-        .padding(8)
-        .background(Color(.systemGray5))
-        .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
-        .padding(2)
+        .navigationBarHidden(showCancelButton)
+            .animation(.spring())
     }
 }
 

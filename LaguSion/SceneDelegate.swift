@@ -127,7 +127,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func setupAppearance() {
         // TODO: Move that to SwiftUI once implemented
-        UITableView.appearance().backgroundColor = .systemGray6
+        UITableView.appearance().backgroundColor = .systemBackground
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

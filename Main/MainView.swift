@@ -137,9 +137,10 @@ public struct MainView: View {
                         }
                     }
                 }
-            .listStyle(GroupedListStyle())
+                .listStyle(GroupedListStyle())
                 .modifier(DismissingKeyboardOnSwipe())
                 .navigationBarTitle("Lagu Sion")
+                .animation(.default)
             }
         }
     }
