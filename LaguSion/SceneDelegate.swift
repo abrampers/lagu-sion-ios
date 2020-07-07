@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             initialState: AppState(
                 songs: [
                     Song(
-                        id: UUID(),
+                        id: 1,
                         number: 1,
                         title: "Di Hadapan Hadirat-Mu",
                         verses: [
@@ -52,7 +52,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         ], songBook: .laguSion
                     ),
                     Song(
-                        id: UUID(),
+                        id: 2,
                         number: 2,
                         title: "Hai Seg'nap Ciptaan Tuhan",
                         verses: [
@@ -90,23 +90,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                             "Haleluya, haleluya, haleluya"
                         ]),
                         songBook: .laguSion),
-                    Song(id: UUID(), number: 3, title: "No 3", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 4, title: "No 4", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 5, title: "No 5", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 6, title: "No 6", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 7, title: "No 7", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 8, title: "No 8", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: UUID(), number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion)
+                    Song(id: 3, number: 3, title: "No 3", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                    Song(id: 4, number: 4, title: "No 4", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                    Song(id: 5, number: 5, title: "No 5", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                    Song(id: 6, number: 6, title: "No 6", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                    Song(id: 7, number: 7, title: "No 7", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                    Song(id: 8, number: 8, title: "No 8", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                    Song(id: 9, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion)
                 ]
             ),
             reducer: appReducer,

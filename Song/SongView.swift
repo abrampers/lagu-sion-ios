@@ -37,7 +37,7 @@ public struct Song: Equatable, Identifiable {
         return lhs.id == rhs.id
     }
     
-    public var id: UUID
+    public var id: UInt32
     public var isFavorite: Bool
     var number: Int
     var title: String
@@ -45,7 +45,7 @@ public struct Song: Equatable, Identifiable {
     var reff: Verse?
     var songBook: SongBook
     
-    public init(id: UUID, number: Int, title: String, verses: [Verse], reff: Verse? = nil, songBook: SongBook) {
+    public init(id: UInt32, number: Int, title: String, verses: [Verse], reff: Verse? = nil, songBook: SongBook) {
         self.id = id
         self.isFavorite = false
         self.number = number
@@ -182,7 +182,7 @@ internal struct SongView_Previews: PreviewProvider {
         SongView(
             store: Store(
                 initialState: Song(
-                    id: UUID(),
+                    id: 1,
                     number: 1,
                     title: "Di Hadapan Hadirat-Mu",
                     verses: [
