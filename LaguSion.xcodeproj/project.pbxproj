@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		212864E224ADE3C800E79296 /* lagu_sion.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864E124ADE3C800E79296 /* lagu_sion.grpc.swift */; };
 		212864E424ADE3FC00E79296 /* lagu_sion.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864E324ADE3FC00E79296 /* lagu_sion.pb.swift */; };
-		212864EC24AEBE7900E79296 /* LaguSionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864EB24AEBE7900E79296 /* LaguSionUITests.swift */; };
-		212864F624AEBF5400E79296 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864F524AEBF5400E79296 /* SnapshotHelper.swift */; };
+		212FE3A924B446AC00985DEA /* SnapshotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212FE3A824B446AC00985DEA /* SnapshotUITests.swift */; };
+		212FE3B024B446B900985DEA /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864F524AEBF5400E79296 /* SnapshotHelper.swift */; };
 		21305C06247A803200F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
 		21305C0D247A803200F2D76A /* SongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305C0C247A803200F2D76A /* SongTests.swift */; };
 		21305C0F247A803200F2D76A /* Song.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305BFF247A803200F2D76A /* Song.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,7 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		212864EE24AEBE7900E79296 /* PBXContainerItemProxy */ = {
+		212FE3AB24B446AC00985DEA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
 			proxyType = 1;
@@ -181,10 +181,10 @@
 /* Begin PBXFileReference section */
 		212864E124ADE3C800E79296 /* lagu_sion.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.grpc.swift; sourceTree = "<group>"; };
 		212864E324ADE3FC00E79296 /* lagu_sion.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.pb.swift; sourceTree = "<group>"; };
-		212864E924AEBE7900E79296 /* LaguSionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaguSionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		212864EB24AEBE7900E79296 /* LaguSionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionUITests.swift; sourceTree = "<group>"; };
-		212864ED24AEBE7900E79296 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		212864F524AEBF5400E79296 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		212FE3A624B446AC00985DEA /* SnapshotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		212FE3A824B446AC00985DEA /* SnapshotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotUITests.swift; sourceTree = "<group>"; };
+		212FE3AA24B446AC00985DEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21305BFD247A803200F2D76A /* Song.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Song.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21305BFF247A803200F2D76A /* Song.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
 		21305C00247A803200F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		212864E624AEBE7900E79296 /* Frameworks */ = {
+		212FE3A324B446AC00985DEA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -326,14 +326,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		212864EA24AEBE7900E79296 /* LaguSionUITests */ = {
+		212FE3A724B446AC00985DEA /* SnapshotUITests */ = {
 			isa = PBXGroup;
 			children = (
 				212864F524AEBF5400E79296 /* SnapshotHelper.swift */,
-				212864EB24AEBE7900E79296 /* LaguSionUITests.swift */,
-				212864ED24AEBE7900E79296 /* Info.plist */,
+				212FE3A824B446AC00985DEA /* SnapshotUITests.swift */,
+				212FE3AA24B446AC00985DEA /* Info.plist */,
 			);
-			path = LaguSionUITests;
+			path = SnapshotUITests;
 			sourceTree = "<group>";
 		};
 		21305BFE247A803200F2D76A /* Song */ = {
@@ -437,7 +437,7 @@
 				21305C82247A885600F2D76A /* MainTests */,
 				21305C98247A895C00F2D76A /* Favorites */,
 				21305CA5247A895C00F2D76A /* FavoritesTests */,
-				212864EA24AEBE7900E79296 /* LaguSionUITests */,
+				212FE3A724B446AC00985DEA /* SnapshotUITests */,
 				216AF37E2472358C00B7C55B /* Products */,
 				21305C1D247A80F000F2D76A /* Frameworks */,
 			);
@@ -456,7 +456,7 @@
 				21305C7C247A885600F2D76A /* MainTests.xctest */,
 				21305C97247A895C00F2D76A /* Favorites.framework */,
 				21305C9F247A895C00F2D76A /* FavoritesTests.xctest */,
-				212864E924AEBE7900E79296 /* LaguSionUITests.xctest */,
+				212FE3A624B446AC00985DEA /* SnapshotUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -559,22 +559,22 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		212864E824AEBE7900E79296 /* LaguSionUITests */ = {
+		212FE3A524B446AC00985DEA /* SnapshotUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 212864F024AEBE7900E79296 /* Build configuration list for PBXNativeTarget "LaguSionUITests" */;
+			buildConfigurationList = 212FE3AF24B446AC00985DEA /* Build configuration list for PBXNativeTarget "SnapshotUITests" */;
 			buildPhases = (
-				212864E524AEBE7900E79296 /* Sources */,
-				212864E624AEBE7900E79296 /* Frameworks */,
-				212864E724AEBE7900E79296 /* Resources */,
+				212FE3A224B446AC00985DEA /* Sources */,
+				212FE3A324B446AC00985DEA /* Frameworks */,
+				212FE3A424B446AC00985DEA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				212864EF24AEBE7900E79296 /* PBXTargetDependency */,
+				212FE3AC24B446AC00985DEA /* PBXTargetDependency */,
 			);
-			name = LaguSionUITests;
-			productName = LaguSionUITests;
-			productReference = 212864E924AEBE7900E79296 /* LaguSionUITests.xctest */;
+			name = SnapshotUITests;
+			productName = SnapshotUITests;
+			productReference = 212FE3A624B446AC00985DEA /* SnapshotUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		21305BFC247A803200F2D76A /* Song */ = {
@@ -784,7 +784,7 @@
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Abram Situmorang";
 				TargetAttributes = {
-					212864E824AEBE7900E79296 = {
+					212FE3A524B446AC00985DEA = {
 						CreatedOnToolsVersion = 11.5;
 						TestTargetID = 216AF37C2472358C00B7C55B;
 					};
@@ -852,13 +852,13 @@
 				21305C7B247A885600F2D76A /* MainTests */,
 				21305C96247A895C00F2D76A /* Favorites */,
 				21305C9E247A895C00F2D76A /* FavoritesTests */,
-				212864E824AEBE7900E79296 /* LaguSionUITests */,
+				212FE3A524B446AC00985DEA /* SnapshotUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		212864E724AEBE7900E79296 /* Resources */ = {
+		212FE3A424B446AC00985DEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -941,12 +941,12 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		212864E524AEBE7900E79296 /* Sources */ = {
+		212FE3A224B446AC00985DEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				212864EC24AEBE7900E79296 /* LaguSionUITests.swift in Sources */,
-				212864F624AEBF5400E79296 /* SnapshotHelper.swift in Sources */,
+				212FE3A924B446AC00985DEA /* SnapshotUITests.swift in Sources */,
+				212FE3B024B446B900985DEA /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1045,10 +1045,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		212864EF24AEBE7900E79296 /* PBXTargetDependency */ = {
+		212FE3AC24B446AC00985DEA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 216AF37C2472358C00B7C55B /* LaguSion */;
-			targetProxy = 212864EE24AEBE7900E79296 /* PBXContainerItemProxy */;
+			targetProxy = 212FE3AB24B446AC00985DEA /* PBXContainerItemProxy */;
 		};
 		21305C08247A803200F2D76A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1134,19 +1134,19 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		212864F124AEBE7900E79296 /* Debug */ = {
+		212FE3AD24B446AC00985DEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H8S6N7BJTQ;
-				INFOPLIST_FILE = LaguSionUITests/Info.plist;
+				INFOPLIST_FILE = SnapshotUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion.LaguSionUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion.SnapshotUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1154,19 +1154,19 @@
 			};
 			name = Debug;
 		};
-		212864F224AEBE7900E79296 /* Release */ = {
+		212FE3AE24B446AC00985DEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H8S6N7BJTQ;
-				INFOPLIST_FILE = LaguSionUITests/Info.plist;
+				INFOPLIST_FILE = SnapshotUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion.LaguSionUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = id.abram.ios.LaguSion.SnapshotUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1804,11 +1804,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		212864F024AEBE7900E79296 /* Build configuration list for PBXNativeTarget "LaguSionUITests" */ = {
+		212FE3AF24B446AC00985DEA /* Build configuration list for PBXNativeTarget "SnapshotUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				212864F124AEBE7900E79296 /* Debug */,
-				212864F224AEBE7900E79296 /* Release */,
+				212FE3AD24B446AC00985DEA /* Debug */,
+				212FE3AE24B446AC00985DEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
