@@ -28,21 +28,21 @@ import SwiftProtobuf
 
 
 /// Usage: instantiate Lagusion_LaguSionServiceClient, then call methods of this protocol to make API calls.
-internal protocol Lagusion_LaguSionServiceClientProtocol {
+public protocol Lagusion_LaguSionServiceClientProtocol {
   func listAllSongs(_ request: SwiftProtobuf.Google_Protobuf_Empty, callOptions: CallOptions?) -> UnaryCall<SwiftProtobuf.Google_Protobuf_Empty, Lagusion_ListSongResponse>
   func listSongs(_ request: Lagusion_ListSongsRequest, callOptions: CallOptions?) -> UnaryCall<Lagusion_ListSongsRequest, Lagusion_ListSongResponse>
 }
 
-internal final class Lagusion_LaguSionServiceClient: GRPCClient, Lagusion_LaguSionServiceClientProtocol {
-  internal let channel: GRPCChannel
-  internal var defaultCallOptions: CallOptions
+public final class Lagusion_LaguSionServiceClient: GRPCClient, Lagusion_LaguSionServiceClientProtocol {
+  public let channel: GRPCChannel
+  public var defaultCallOptions: CallOptions
 
   /// Creates a client for the lagusion.LaguSionService service.
   ///
   /// - Parameters:
   ///   - channel: `GRPCChannel` to the service host.
   ///   - defaultCallOptions: Options to use for each service call if the user doesn't provide them.
-  internal init(channel: GRPCChannel, defaultCallOptions: CallOptions = CallOptions()) {
+  public init(channel: GRPCChannel, defaultCallOptions: CallOptions = CallOptions()) {
     self.channel = channel
     self.defaultCallOptions = defaultCallOptions
   }
@@ -53,7 +53,7 @@ internal final class Lagusion_LaguSionServiceClient: GRPCClient, Lagusion_LaguSi
   ///   - request: Request to send to ListAllSongs.
   ///   - callOptions: Call options; `self.defaultCallOptions` is used if `nil`.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func listAllSongs(_ request: SwiftProtobuf.Google_Protobuf_Empty, callOptions: CallOptions? = nil) -> UnaryCall<SwiftProtobuf.Google_Protobuf_Empty, Lagusion_ListSongResponse> {
+  public func listAllSongs(_ request: SwiftProtobuf.Google_Protobuf_Empty, callOptions: CallOptions? = nil) -> UnaryCall<SwiftProtobuf.Google_Protobuf_Empty, Lagusion_ListSongResponse> {
     return self.makeUnaryCall(path: "/lagusion.LaguSionService/ListAllSongs",
                               request: request,
                               callOptions: callOptions ?? self.defaultCallOptions)
@@ -65,44 +65,12 @@ internal final class Lagusion_LaguSionServiceClient: GRPCClient, Lagusion_LaguSi
   ///   - request: Request to send to ListSongs.
   ///   - callOptions: Call options; `self.defaultCallOptions` is used if `nil`.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func listSongs(_ request: Lagusion_ListSongsRequest, callOptions: CallOptions? = nil) -> UnaryCall<Lagusion_ListSongsRequest, Lagusion_ListSongResponse> {
+  public func listSongs(_ request: Lagusion_ListSongsRequest, callOptions: CallOptions? = nil) -> UnaryCall<Lagusion_ListSongsRequest, Lagusion_ListSongResponse> {
     return self.makeUnaryCall(path: "/lagusion.LaguSionService/ListSongs",
                               request: request,
                               callOptions: callOptions ?? self.defaultCallOptions)
   }
 
-}
-
-/// To build a server, implement a class that conforms to this protocol.
-internal protocol Lagusion_LaguSionServiceProvider: CallHandlerProvider {
-  func listAllSongs(request: SwiftProtobuf.Google_Protobuf_Empty, context: StatusOnlyCallContext) -> EventLoopFuture<Lagusion_ListSongResponse>
-  func listSongs(request: Lagusion_ListSongsRequest, context: StatusOnlyCallContext) -> EventLoopFuture<Lagusion_ListSongResponse>
-}
-
-extension Lagusion_LaguSionServiceProvider {
-  internal var serviceName: String { return "lagusion.LaguSionService" }
-
-  /// Determines, calls and returns the appropriate request handler, depending on the request's method.
-  /// Returns nil for methods not handled by this service.
-  internal func handleMethod(_ methodName: String, callHandlerContext: CallHandlerContext) -> GRPCCallHandler? {
-    switch methodName {
-    case "ListAllSongs":
-      return UnaryCallHandler(callHandlerContext: callHandlerContext) { context in
-        return { request in
-          self.listAllSongs(request: request, context: context)
-        }
-      }
-
-    case "ListSongs":
-      return UnaryCallHandler(callHandlerContext: callHandlerContext) { context in
-        return { request in
-          self.listSongs(request: request, context: context)
-        }
-      }
-
-    default: return nil
-    }
-  }
 }
 
 

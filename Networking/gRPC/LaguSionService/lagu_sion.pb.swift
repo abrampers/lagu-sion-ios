@@ -19,18 +19,18 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum Lagusion_SongBook: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Lagusion_SongBook: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case all // = 0
   case laguSion // = 1
   case laguSionEdisiLengkap // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .all
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .all
     case 1: self = .laguSion
@@ -39,7 +39,7 @@ enum Lagusion_SongBook: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .all: return 0
     case .laguSion: return 1
@@ -54,7 +54,7 @@ enum Lagusion_SongBook: SwiftProtobuf.Enum {
 
 extension Lagusion_SongBook: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Lagusion_SongBook] = [
+  public static var allCases: [Lagusion_SongBook] = [
     .all,
     .laguSion,
     .laguSionEdisiLengkap,
@@ -63,100 +63,71 @@ extension Lagusion_SongBook: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct Lagusion_UUID {
+public struct Lagusion_Verse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var value: Data = SwiftProtobuf.Internal.emptyData
+  public var contents: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Lagusion_Verse {
+public struct Lagusion_Song {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var contents: [String] = []
+  public var id: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var number: Int32 = 0
 
-  init() {}
-}
+  public var title: String = String()
 
-struct Lagusion_Song {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+  public var verses: [Lagusion_Verse] = []
 
-  var id: Lagusion_UUID {
-    get {return _id ?? Lagusion_UUID()}
-    set {_id = newValue}
-  }
-  /// Returns true if `id` has been explicitly set.
-  var hasID: Bool {return self._id != nil}
-  /// Clears the value of `id`. Subsequent reads from it will return its default value.
-  mutating func clearID() {self._id = nil}
-
-  var number: Int32 = 0
-
-  var title: String = String()
-
-  var verses: [Lagusion_Verse] = []
-
-  var reff: Lagusion_Verse {
+  public var reff: Lagusion_Verse {
     get {return _reff ?? Lagusion_Verse()}
     set {_reff = newValue}
   }
   /// Returns true if `reff` has been explicitly set.
-  var hasReff: Bool {return self._reff != nil}
+  public var hasReff: Bool {return self._reff != nil}
   /// Clears the value of `reff`. Subsequent reads from it will return its default value.
-  mutating func clearReff() {self._reff = nil}
+  public mutating func clearReff() {self._reff = nil}
 
-  var songBook: String = String()
+  public var songBook: Lagusion_SongBook = .all
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
-  fileprivate var _id: Lagusion_UUID? = nil
   fileprivate var _reff: Lagusion_Verse? = nil
 }
 
-struct Lagusion_ListSongsRequest {
+public struct Lagusion_ListSongsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var songBook: Lagusion_SongBook = .all
+  public var songBook: Lagusion_SongBook = .all
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Lagusion_ListSongResponse {
+public struct Lagusion_ListSongResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var songs: Lagusion_Song {
-    get {return _songs ?? Lagusion_Song()}
-    set {_songs = newValue}
-  }
-  /// Returns true if `songs` has been explicitly set.
-  var hasSongs: Bool {return self._songs != nil}
-  /// Clears the value of `songs`. Subsequent reads from it will return its default value.
-  mutating func clearSongs() {self._songs = nil}
+  public var songs: [Lagusion_Song] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
-
-  fileprivate var _songs: Lagusion_Song? = nil
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -164,49 +135,20 @@ struct Lagusion_ListSongResponse {
 fileprivate let _protobuf_package = "lagusion"
 
 extension Lagusion_SongBook: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ALL"),
     1: .same(proto: "LAGU_SION"),
     2: .same(proto: "LAGU_SION_EDISI_LENGKAP"),
   ]
 }
 
-extension Lagusion_UUID: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UUID"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "value"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularBytesField(value: &self.value)
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.value.isEmpty {
-      try visitor.visitSingularBytesField(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: Lagusion_UUID, rhs: Lagusion_UUID) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension Lagusion_Verse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Verse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Verse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "contents"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeRepeatedStringField(value: &self.contents)
@@ -215,14 +157,14 @@ extension Lagusion_Verse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.contents.isEmpty {
       try visitor.visitRepeatedStringField(value: self.contents, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Lagusion_Verse, rhs: Lagusion_Verse) -> Bool {
+  public static func ==(lhs: Lagusion_Verse, rhs: Lagusion_Verse) -> Bool {
     if lhs.contents != rhs.contents {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -230,8 +172,8 @@ extension Lagusion_Verse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
 }
 
 extension Lagusion_Song: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Song"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Song"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "number"),
     3: .same(proto: "title"),
@@ -240,23 +182,23 @@ extension Lagusion_Song: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     6: .standard(proto: "song_book"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularMessageField(value: &self._id)
+      case 1: try decoder.decodeSingularUInt32Field(value: &self.id)
       case 2: try decoder.decodeSingularInt32Field(value: &self.number)
       case 3: try decoder.decodeSingularStringField(value: &self.title)
       case 4: try decoder.decodeRepeatedMessageField(value: &self.verses)
       case 5: try decoder.decodeSingularMessageField(value: &self._reff)
-      case 6: try decoder.decodeSingularStringField(value: &self.songBook)
+      case 6: try decoder.decodeSingularEnumField(value: &self.songBook)
       default: break
       }
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._id {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.id != 0 {
+      try visitor.visitSingularUInt32Field(value: self.id, fieldNumber: 1)
     }
     if self.number != 0 {
       try visitor.visitSingularInt32Field(value: self.number, fieldNumber: 2)
@@ -270,14 +212,14 @@ extension Lagusion_Song: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     if let v = self._reff {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
     }
-    if !self.songBook.isEmpty {
-      try visitor.visitSingularStringField(value: self.songBook, fieldNumber: 6)
+    if self.songBook != .all {
+      try visitor.visitSingularEnumField(value: self.songBook, fieldNumber: 6)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Lagusion_Song, rhs: Lagusion_Song) -> Bool {
-    if lhs._id != rhs._id {return false}
+  public static func ==(lhs: Lagusion_Song, rhs: Lagusion_Song) -> Bool {
+    if lhs.id != rhs.id {return false}
     if lhs.number != rhs.number {return false}
     if lhs.title != rhs.title {return false}
     if lhs.verses != rhs.verses {return false}
@@ -289,12 +231,12 @@ extension Lagusion_Song: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
 }
 
 extension Lagusion_ListSongsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ListSongsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ListSongsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "song_book"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularEnumField(value: &self.songBook)
@@ -303,14 +245,14 @@ extension Lagusion_ListSongsRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.songBook != .all {
       try visitor.visitSingularEnumField(value: self.songBook, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Lagusion_ListSongsRequest, rhs: Lagusion_ListSongsRequest) -> Bool {
+  public static func ==(lhs: Lagusion_ListSongsRequest, rhs: Lagusion_ListSongsRequest) -> Bool {
     if lhs.songBook != rhs.songBook {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -318,29 +260,29 @@ extension Lagusion_ListSongsRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
 }
 
 extension Lagusion_ListSongResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ListSongResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ListSongResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "songs"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularMessageField(value: &self._songs)
+      case 1: try decoder.decodeRepeatedMessageField(value: &self.songs)
       default: break
       }
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._songs {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.songs.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.songs, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Lagusion_ListSongResponse, rhs: Lagusion_ListSongResponse) -> Bool {
-    if lhs._songs != rhs._songs {return false}
+  public static func ==(lhs: Lagusion_ListSongResponse, rhs: Lagusion_ListSongResponse) -> Bool {
+    if lhs.songs != rhs.songs {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

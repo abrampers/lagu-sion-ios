@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package lagusion;
+
+import "google/protobuf/empty.proto";
+
+message Verse {
+  repeated string contents = 1;
+}
+
+enum SongBook {
+  ALL = 0;
+  LAGU_SION = 1;
+  LAGU_SION_EDISI_LENGKAP = 2;
+}
+
+message Song {
+  uint32 id = 1;
+  int32 number = 2;
+  string title = 3;
+  repeated Verse verses = 4;
+  Verse reff = 5;
+  SongBook song_book = 6;
+}
+
+message ListSongsRequest {
+  SongBook song_book = 1;
+}
+
+message ListSongResponse {
+  repeated Song songs = 1;
+}
+
+service LaguSionService {
+  rpc ListAllSongs(google.protobuf.Empty) returns (ListSongResponse) {}
+  rpc ListSongs(ListSongsRequest) returns (ListSongResponse) {}
+}
+
