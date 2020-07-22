@@ -10,6 +10,7 @@ swift_library(
         "**/*.swift",
     ]),
     deps = [
+        "//Networking:NetworkingSources",
         "@com_github_pointfreeco_swift_composable_architecture//:ComposableArchitecture",
     ],
     visibility = ["//visibility:public"],
