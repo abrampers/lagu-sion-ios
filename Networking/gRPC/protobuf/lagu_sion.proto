@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package lagusion;
 
-import "google/protobuf/empty.proto";
-
 message Verse {
   repeated string contents = 1;
 }
@@ -12,6 +10,11 @@ enum SongBook {
   ALL = 0;
   LAGU_SION = 1;
   LAGU_SION_EDISI_LENGKAP = 2;
+}
+
+enum SortOptions {
+  NUMBER = 0;
+  ALPHABET = 1;
 }
 
 message Song {
@@ -23,8 +26,9 @@ message Song {
   SongBook song_book = 6;
 }
 
-message ListSongsRequest {
+message ListSongRequest {
   SongBook song_book = 1;
+  SortOptions sort_options = 2;
 }
 
 message ListSongResponse {
@@ -32,7 +36,5 @@ message ListSongResponse {
 }
 
 service LaguSionService {
-  rpc ListAllSongs(google.protobuf.Empty) returns (ListSongResponse) {}
-  rpc ListSongs(ListSongsRequest) returns (ListSongResponse) {}
+  rpc ListSongs(ListSongRequest) returns (ListSongResponse) {}
 }
-

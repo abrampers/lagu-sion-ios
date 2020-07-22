@@ -104,7 +104,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             return .none
             
         case .appear:
-            let request = Lagusion_ListSongsRequest.with {
+            let request = Lagusion_ListSongRequest.with {
                 $0.songBook = state.selectedBook.proto
             }
             return environment.grpc.call(environment.laguSionClient.listSongs)(request)
