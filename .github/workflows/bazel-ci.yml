@@ -50,13 +50,13 @@ jobs:
         APP_VERSION: 0.1
         BUNDLE_ID: id.abram.ios.LaguSion
     - name: Run SongTests
-      run: bazel test //SongTests
+      run: bazelisk test //SongTests
     - name: Run FavoritesTests
-      run: bazel test //FavoritesTests
+      run: bazelisk test //FavoritesTests
     - name: Run MainTests
-      run: bazel test //MainTests
+      run: bazelisk test //MainTests
     - name: Run LaguSionTests
-      run: bazel test //LaguSionTests
+      run: bazelisk test //LaguSionTests
   build:
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
     needs: test
@@ -100,7 +100,7 @@ jobs:
         BUNDLE_ID: id.abram.ios.LaguSion
     - name: Build iOS Application
       run: |
-        bazel build //LaguSion --config=device_adhoc
+        bazelisk build //LaguSion --config=device_adhoc
     - name: Upload artifacts to AppCenter
       run: |
         bundle exec fastlane appcenter
