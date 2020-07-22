@@ -7,6 +7,10 @@
 //
 
 import ComposableArchitecture
+import CombineGRPC
+import GRPC
+import Networking
+import NIO
 import Song
 
 import SwiftUI
@@ -17,6 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        let eventLoopGroup: EventLoopGroup = PlatformSupport.makeEventLoopGroup(loopCount: 1)
+        let channel: ClientConnection = ClientConnection
+            .insecure(group: eventLoopGroup)
+            .connect(host: Constants.laguSionHost, port: Constants.laguSionPort)
         let contentView = RootView(store: Store(
             initialState: AppState(
                 songs: [
@@ -100,7 +108,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 ]
             ),
             reducer: appReducer,
-            environment: AppEnvironment(mainQueue: DispatchQueue.main.eraseToAnyScheduler())
+            environment: AppEnvironment(
+                    mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
+                    grpc: GRPCExecutor(),
+                    laguSionClient: Lagusion_LaguSionServiceClient(channel: channel)
+                )
             )
         )
             .onAppear(perform: setupAppearance)

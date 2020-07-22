@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		212864E224ADE3C800E79296 /* lagu_sion.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864E124ADE3C800E79296 /* lagu_sion.grpc.swift */; };
-		212864E424ADE3FC00E79296 /* lagu_sion.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864E324ADE3FC00E79296 /* lagu_sion.pb.swift */; };
 		212FE3A924B446AC00985DEA /* SnapshotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212FE3A824B446AC00985DEA /* SnapshotUITests.swift */; };
 		212FE3B024B446B900985DEA /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864F524AEBF5400E79296 /* SnapshotHelper.swift */; };
 		21305C06247A803200F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
@@ -20,12 +18,8 @@
 		21305C30247A863F00F2D76A /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; };
 		21305C37247A863F00F2D76A /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305C36247A863F00F2D76A /* NetworkingTests.swift */; };
 		21305C39247A863F00F2D76A /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305C29247A863F00F2D76A /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21305C45247A864C00F2D76A /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 21305C44247A864C00F2D76A /* CombineGRPC */; };
 		21305C46247A866900F2D76A /* TestCombineGRPCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */; };
 		21305C47247A868400F2D76A /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E0247235DF005941E9 /* Publisher+Extension.swift */; };
-		21305C48247A86EE00F2D76A /* GRPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E3247235DF005941E9 /* GRPCServiceManager.swift */; };
-		21305C49247A86F300F2D76A /* echo_service.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E5247235DF005941E9 /* echo_service.pb.swift */; };
-		21305C4A247A86FA00F2D76A /* echo_service.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E6247235DF005941E9 /* echo_service.grpc.swift */; };
 		21305C7D247A885600F2D76A /* Main.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; };
 		21305C84247A885600F2D76A /* MainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305C83247A885600F2D76A /* MainTests.swift */; };
 		21305C86247A885600F2D76A /* Main.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305C76247A885500F2D76A /* Main.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,6 +38,7 @@
 		21305CC0247A8B8F00F2D76A /* Song.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		215C185624A9D7EB0041435A /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215C185524A9D7EB0041435A /* SearchField.swift */; };
 		215C185824A9E8200041435A /* DismissingKeyboardOnSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215C185724A9E8200041435A /* DismissingKeyboardOnSwipe.swift */; };
+		2165AEA824C6F10500AA3665 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2634324C6E05B00C37AB5 /* Constants.swift */; };
 		216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3802472358C00B7C55B /* AppDelegate.swift */; };
 		216AF3832472358C00B7C55B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3822472358C00B7C55B /* SceneDelegate.swift */; };
 		216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3842472358C00B7C55B /* LaguSion.xcdatamodeld */; };
@@ -52,6 +47,13 @@
 		216AF3902472358E00B7C55B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 216AF38E2472358E00B7C55B /* LaunchScreen.storyboard */; };
 		216AF39B2472358E00B7C55B /* LaguSionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF39A2472358E00B7C55B /* LaguSionTests.swift */; };
 		21B130F3247235E0005941E9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E9247235DF005941E9 /* RootView.swift */; };
+		21BBA97324C8189700CE3F2E /* lagu_sion.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA96F24C8189700CE3F2E /* lagu_sion.grpc.swift */; };
+		21BBA97424C8189700CE3F2E /* lagu_sion.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA97024C8189700CE3F2E /* lagu_sion.pb.swift */; };
+		21BBA97524C8189700CE3F2E /* echo_service.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA97124C8189700CE3F2E /* echo_service.grpc.swift */; };
+		21BBA97624C8189700CE3F2E /* echo_service.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA97224C8189700CE3F2E /* echo_service.pb.swift */; };
+		21BBA97924C81A0D00CE3F2E /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 21BBA97824C81A0D00CE3F2E /* CombineGRPC */; };
+		21E2634524C6E56500C37AB5 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; };
+		21E2634624C6E56500C37AB5 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +162,13 @@
 			remoteGlobalIDString = 216AF37C2472358C00B7C55B;
 			remoteInfo = LaguSion;
 		};
+		21E2634724C6E56500C37AB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216AF3752472358C00B7C55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21305C26247A863F00F2D76A;
+			remoteInfo = Networking;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -176,11 +185,20 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21E2634924C6E56500C37AB5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				21E2634624C6E56500C37AB5 /* Networking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		212864E124ADE3C800E79296 /* lagu_sion.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.grpc.swift; sourceTree = "<group>"; };
-		212864E324ADE3FC00E79296 /* lagu_sion.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.pb.swift; sourceTree = "<group>"; };
 		212864F524AEBF5400E79296 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		212FE3A624B446AC00985DEA /* SnapshotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		212FE3A824B446AC00985DEA /* SnapshotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotUITests.swift; sourceTree = "<group>"; };
@@ -223,15 +241,17 @@
 		216AF39A2472358E00B7C55B /* LaguSionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionTests.swift; sourceTree = "<group>"; };
 		216AF39C2472358E00B7C55B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21B130E0247235DF005941E9 /* Publisher+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
-		21B130E3247235DF005941E9 /* GRPCServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRPCServiceManager.swift; sourceTree = "<group>"; };
-		21B130E5247235DF005941E9 /* echo_service.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.pb.swift; sourceTree = "<group>"; };
-		21B130E6247235DF005941E9 /* echo_service.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.grpc.swift; sourceTree = "<group>"; };
 		21B130E9247235DF005941E9 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCombineGRPCView.swift; sourceTree = "<group>"; };
 		21B130ED247235DF005941E9 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		21BBA96F24C8189700CE3F2E /* lagu_sion.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.grpc.swift; sourceTree = "<group>"; };
+		21BBA97024C8189700CE3F2E /* lagu_sion.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.pb.swift; sourceTree = "<group>"; };
+		21BBA97124C8189700CE3F2E /* echo_service.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.grpc.swift; sourceTree = "<group>"; };
+		21BBA97224C8189700CE3F2E /* echo_service.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.pb.swift; sourceTree = "<group>"; };
 		21C88D21247681D5001E376A /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
 		21C88D2324768A08001E376A /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		21D82AC7247A72FF00F6B69F /* Unwrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unwrap.swift; sourceTree = "<group>"; };
+		21E2634324C6E05B00C37AB5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,7 +282,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21305C45247A864C00F2D76A /* CombineGRPC in Frameworks */,
+				21BBA97924C81A0D00CE3F2E /* CombineGRPC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +298,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E2634524C6E56500C37AB5 /* Networking.framework in Frameworks */,
 				21305CBA247A8B3D00F2D76A /* Song.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +485,7 @@
 		216AF37F2472358C00B7C55B /* LaguSion */ = {
 			isa = PBXGroup;
 			children = (
+				21E2634324C6E05B00C37AB5 /* Constants.swift */,
 				21B130E9247235DF005941E9 /* RootView.swift */,
 				216AF3802472358C00B7C55B /* AppDelegate.swift */,
 				216AF3822472358C00B7C55B /* SceneDelegate.swift */,
@@ -496,29 +518,20 @@
 		21B130E2247235DF005941E9 /* gRPC */ = {
 			isa = PBXGroup;
 			children = (
-				21B6585824ADE283006104D5 /* LaguSionService */,
-				21B130E3247235DF005941E9 /* GRPCServiceManager.swift */,
-				21B130E4247235DF005941E9 /* EchoService */,
+				21BBA96E24C8172300CE3F2E /* Generated */,
 			);
 			path = gRPC;
 			sourceTree = "<group>";
 		};
-		21B130E4247235DF005941E9 /* EchoService */ = {
+		21BBA96E24C8172300CE3F2E /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				21B130E5247235DF005941E9 /* echo_service.pb.swift */,
-				21B130E6247235DF005941E9 /* echo_service.grpc.swift */,
+				21BBA97124C8189700CE3F2E /* echo_service.grpc.swift */,
+				21BBA97224C8189700CE3F2E /* echo_service.pb.swift */,
+				21BBA96F24C8189700CE3F2E /* lagu_sion.grpc.swift */,
+				21BBA97024C8189700CE3F2E /* lagu_sion.pb.swift */,
 			);
-			path = EchoService;
-			sourceTree = "<group>";
-		};
-		21B6585824ADE283006104D5 /* LaguSionService */ = {
-			isa = PBXGroup;
-			children = (
-				212864E324ADE3FC00E79296 /* lagu_sion.pb.swift */,
-				212864E124ADE3C800E79296 /* lagu_sion.grpc.swift */,
-			);
-			path = LaguSionService;
+			path = Generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -632,7 +645,7 @@
 			);
 			name = Networking;
 			packageProductDependencies = (
-				21305C44247A864C00F2D76A /* CombineGRPC */,
+				21BBA97824C81A0D00CE3F2E /* CombineGRPC */,
 			);
 			productName = Networking;
 			productReference = 21305C27247A863F00F2D76A /* Networking.framework */;
@@ -665,11 +678,13 @@
 				21305C70247A885500F2D76A /* Sources */,
 				21305C71247A885500F2D76A /* Frameworks */,
 				21305C72247A885500F2D76A /* Resources */,
+				21E2634924C6E56500C37AB5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				21305CBD247A8B3D00F2D76A /* PBXTargetDependency */,
+				21E2634824C6E56500C37AB5 /* PBXTargetDependency */,
 			);
 			name = Main;
 			productName = Main;
@@ -835,8 +850,8 @@
 			);
 			mainGroup = 216AF3742472358C00B7C55B;
 			packageReferences = (
-				21B130F624723654005941E9 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */,
 				21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				21BBA97724C81A0D00CE3F2E /* XCRemoteSwiftPackageReference "grpc-swift-combine" */,
 			);
 			productRefGroup = 216AF37E2472358C00B7C55B /* Products */;
 			projectDirPath = "";
@@ -972,12 +987,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				21305C47247A868400F2D76A /* Publisher+Extension.swift in Sources */,
+				21BBA97624C8189700CE3F2E /* echo_service.pb.swift in Sources */,
+				21BBA97324C8189700CE3F2E /* lagu_sion.grpc.swift in Sources */,
+				21BBA97524C8189700CE3F2E /* echo_service.grpc.swift in Sources */,
+				21BBA97424C8189700CE3F2E /* lagu_sion.pb.swift in Sources */,
 				21305C46247A866900F2D76A /* TestCombineGRPCView.swift in Sources */,
-				21305C4A247A86FA00F2D76A /* echo_service.grpc.swift in Sources */,
-				21305C48247A86EE00F2D76A /* GRPCServiceManager.swift in Sources */,
-				212864E424ADE3FC00E79296 /* lagu_sion.pb.swift in Sources */,
-				212864E224ADE3C800E79296 /* lagu_sion.grpc.swift in Sources */,
-				21305C49247A86F300F2D76A /* echo_service.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1027,6 +1041,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2165AEA824C6F10500AA3665 /* Constants.swift in Sources */,
 				216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */,
 				216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */,
 				21B130F3247235E0005941E9 /* RootView.swift in Sources */,
@@ -1119,6 +1134,11 @@
 			isa = PBXTargetDependency;
 			target = 216AF37C2472358C00B7C55B /* LaguSion */;
 			targetProxy = 216AF3972472358E00B7C55B /* PBXContainerItemProxy */;
+		};
+		21E2634824C6E56500C37AB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21305C26247A863F00F2D76A /* Networking */;
+			targetProxy = 21E2634724C6E56500C37AB5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1915,20 +1935,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		21B130F624723654005941E9 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/vyshane/grpc-swift-combine.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.11.0;
-			};
-		};
 		21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.4;
+				kind = exactVersion;
+				version = 0.6.0;
+			};
+		};
+		21BBA97724C81A0D00CE3F2E /* XCRemoteSwiftPackageReference "grpc-swift-combine" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:abrampers/grpc-swift-combine.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.14.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1939,9 +1959,9 @@
 			package = 21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
-		21305C44247A864C00F2D76A /* CombineGRPC */ = {
+		21BBA97824C81A0D00CE3F2E /* CombineGRPC */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 21B130F624723654005941E9 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */;
+			package = 21BBA97724C81A0D00CE3F2E /* XCRemoteSwiftPackageReference "grpc-swift-combine" */;
 			productName = CombineGRPC;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -7,8 +7,11 @@
 //
 
 import ComposableArchitecture
+import CombineGRPC
+import GRPC
 import Favorites
 import Main
+import Networking
 import Song
 
 import SwiftUI
@@ -27,6 +30,8 @@ enum AppAction {
 
 struct AppEnvironment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
+    var grpc: GRPCExecutor
+    var laguSionClient: Lagusion_LaguSionServiceClientProtocol
 }
 
 extension AppState {
@@ -121,7 +126,11 @@ struct RootView_Previews: PreviewProvider {
                     ]
                 ),
                 reducer: appReducer,
-                environment: AppEnvironment(mainQueue: DispatchQueue.main.eraseToAnyScheduler())
+                environment: AppEnvironment(
+                    mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
+                    grpc: GRPCExecutor(),
+                    laguSionClient: Lagusion_LaguSionServiceTestClient()
+                )
             )
         )
     }
