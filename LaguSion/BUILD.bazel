@@ -27,6 +27,7 @@ swift_library(
     deps = [
         "//Main:MainSources",
         "//Favorites:FavoritesSources",
+        "//Networking:NetworkingSources",
     ],
     visibility = ["//visibility:public"],
 )

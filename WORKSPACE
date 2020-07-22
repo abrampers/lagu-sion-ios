@@ -86,65 +86,65 @@ new_git_repository(
 
 ## CombineGRPC
 new_git_repository(
-    name = "com_github_vyshane_grpc_swift_combine",
-    remote = "https://github.com/vyshane/grpc-swift-combine.git",
-    commit = "186d27cd0c33b83ee2b6422bf551dfc7c8d9914f", # tag = "0.13.0",
-    shallow_since = "1591883999 +0800",
+    name = "com_github_abrampers_grpc_swift_combine",
+    remote = "https://github.com/abrampers/grpc-swift-combine.git",
+    commit = "b50a12eff4e98679ea6b85516705704412e90bc3", # tag = "0.14.0",
+    shallow_since = "1595401763 +0700",
     build_file = "@//:third_party/CombineGRPC/BUILD.combine-grpc",
 )
 
 new_git_repository(
     name = "com_github_grpc_grpc_swift_local",
     remote = "https://github.com/grpc/grpc-swift.git",
-    commit = "399cfe1cfec19d8dc37dcd945a389e6eaae3ea43", # tag = "1.0.0-alpha.14",
-    shallow_since = "1591812517 +0100",
+    commit = "e461a8487b5bd0d8eef0ebf56f7d41401d9ff5ae", # tag = "1.0.0-alpha.16",
+    shallow_since = "1594137828 +0100",
     build_file = "@//:third_party/grpc-swift/BUILD.grpc-swift",
 )
 
 new_git_repository(
     name = "com_github_apple_swift_protobuf_local",
     remote = "https://github.com/apple/swift-protobuf.git",
-    commit = "7790acf0a81d08429cb20375bf42a8c7d279c5fe", # tag = "1.8.0",
-    shallow_since = "1580243347 -0500",
+    commit = "7f36441e3372665b1b414f8ac93b5905cc42a405", # tag = "1.9.0",
+    shallow_since = "1589825556 -0400",
     build_file = "@//:third_party/SwiftProtobuf/BUILD.swift-protobuf",
 )
 
 new_git_repository(
     name = "com_github_apple_swift_log",
     remote = "https://github.com/apple/swift-log.git",
-    commit = "74d7b91ceebc85daf387ebb206003f78813f71aa", # tag = "1.2.0",
-    shallow_since = "1570831114 -0700",
+    commit = "173f567a2dfec11d74588eea82cecea555bdc0bc", # tag = "1.4.0",
+    shallow_since = "1594181143 +0900",
     build_file = "@//:third_party/swift-log/BUILD.swift-log",
 )
 
 new_git_repository(
     name = "com_github_apple_swift_nio",
     remote = "https://github.com/apple/swift-nio.git",
-    commit = "c5fa0b456524cd73dc3ddbb263d4f46c20b86ca3", # tag = "2.17.0",
-    shallow_since = "1589271116 +0100",
+    commit = "120acb15c39aa3217e9888e515de160378fbcc1e", # tag = "2.18.0",
+    shallow_since = "1591609580 +0100",
     build_file = "@//:third_party/swift-nio/BUILD.swift-nio",
 )
 
 new_git_repository(
     name = "com_github_apple_swift_nio_http2",
     remote = "https://github.com/apple/swift-nio-http2.git",
-    commit = "b66a08e4bc53ab7c39fb03ab3678132e6ba5d12d", # tag = "1.12.0",
-    shallow_since = "1589200136 +0100",
+    commit = "c5d10f4165128c3d0cc0e3c0f0a8ef55947a73a6", # tag = "1.12.2",
+    shallow_since = "1591798709 +0100",
     build_file = "@//:third_party/swift-nio-http2/BUILD.swift-nio-http2",
 )
 
 new_git_repository(
     name = "com_github_apple_swift_nio_ssl",
     remote = "https://github.com/apple/swift-nio-ssl.git",
-    commit = "67303bd6d8c8b2bb69c44626156cfe802d6cff28", # tag = "2.7.2",
-    shallow_since = "1588664993 +0100",
+    commit = "d381bc53edd9de88a75480a2b969bfc26d61ee76", # tag = "2.8.0",
+    shallow_since = "1593526561 +0100",
     build_file = "@//:third_party/swift-nio-ssl/BUILD.swift-nio-ssl",
 )
 
 new_git_repository(
     name = "com_github_apple_swift_nio_transport_services",
     remote = "https://github.com/apple/swift-nio-transport-services.git",
-    commit = "85a67aea7caf5396ed599543dd23cffeb6dbbf96", # tag = "1.5.1",
-    shallow_since = "1585934605 +0100",
+    commit = "2ac8fde712c1b1a147ecb7065824a40d2c09d0cb", # tag = "1.6.0",
+    shallow_since = "1591635028 +0100",
     build_file = "@//:third_party/swift-nio-transport-service/BUILD.swift-nio-transport-service",
 )
