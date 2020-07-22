@@ -59,11 +59,12 @@ public struct MainState: Equatable {
 
 public enum MainAction {
     case appear
-    case listAllRequestCompleted([Song])
+    case getSongs
     case error(GRPCStatus)
+    case listAllRequestCompleted([Song])
+    case searchQueryChanged(String)
     case song(index: Int, action: SongAction)
     case songBookPicked(BookSelection)
-    case searchQueryChanged(String)
 }
 
 public struct MainEnvironment {
@@ -86,28 +87,21 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
     ),
     Reducer { (state, action, environment) in
         switch action {
-        case .song(index: _, action: .addToFavorites(let addedSong)):
-            if !state.favoriteSongs.contains(addedSong) {
-                state.favoriteSongs.append(addedSong)
-            }
-            return .none
-        
-        case .song(index: _, action: .removeFromFavorites(let removedSong)):
-            state.favoriteSongs.removeAll { $0 == removedSong }
-            return .none
-            
-        case .songBookPicked(let songBook):
-            state.selectedBook = songBook
-            return .none
-            
-        case .song(index: _, action: _):
-            return .none
-            
         case .appear:
+            return Effect(value: MainAction.getSongs)
+        
+        // MARK: TODO add alert to display error
+        case .error(_):
+            return .none
+            
+        case .getSongs:
+            struct ListSongRequestCancelId: Hashable {}
             let request = Lagusion_ListSongRequest.with {
                 $0.songBook = state.selectedBook.proto
+                $0.sortOptions = .number
             }
-            return environment.grpc.call(environment.laguSionClient.listSongs)(request)
+            return Effect(environment.grpc.call(environment.laguSionClient.listSongs)(request))
+                .debounce(id: ListSongRequestCancelId(), for: 0.2, scheduler: environment.mainQueue)
                 .map { (response) -> [Song] in
                     return response.songs.map { Song(pbSong: $0) }
                 }
@@ -123,17 +117,30 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
                 .receive(on: environment.mainQueue)
                 .eraseToEffect()
             
-        case .searchQueryChanged(let query):
-            state.searchQuery = query
-            return .none
-            
         case .listAllRequestCompleted(let songs):
             state.songs = songs
             return .none
             
-        case .error(_):
-            // MARK: TODO add alert to display error
+        case .searchQueryChanged(let query):
+            state.searchQuery = query
             return .none
+            
+        case .song(index: _, action: .addToFavorites(let addedSong)):
+            if !state.favoriteSongs.contains(addedSong) {
+                state.favoriteSongs.append(addedSong)
+            }
+            return .none
+        
+        case .song(index: _, action: .removeFromFavorites(let removedSong)):
+            state.favoriteSongs.removeAll { $0 == removedSong }
+            return .none
+        
+        case .song(index: _, action: _):
+            return .none
+            
+        case .songBookPicked(let songBook):
+            state.selectedBook = songBook
+            return Effect(value: MainAction.getSongs)
         }
     }
 )
