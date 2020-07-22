@@ -35,7 +35,7 @@ public let favoritesReducer: Reducer<FavoritesState, FavoritesAction, FavoritesE
         state: \FavoritesState.favoriteSongs,
         action: /FavoritesAction.song(index:action:),
         environment: { _ in SongEnvironment() }
-    ).debug(),
+    ),
     Reducer { state, action, environment in
         switch action {
         case .song(index: _, action: _):
@@ -56,7 +56,7 @@ public let favoritesReducer: Reducer<FavoritesState, FavoritesAction, FavoritesE
             }
             return .none
         }
-    }.debug()
+    }
 )
 
 public struct FavoritesView: View {

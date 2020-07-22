@@ -27,85 +27,86 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .connect(host: Constants.laguSionHost, port: Constants.laguSionPort)
         let contentView = RootView(store: Store(
             initialState: AppState(
-                songs: [
-                    Song(
-                        id: 1,
-                        number: 1,
-                        title: "Di Hadapan Hadirat-Mu",
-                        verses: [
-                            Verse(contents: [
-                                "Di hadapan hadirat-Mu",
-                                "Kami umat-Mu menyembah",
-                                "Mengakui Engkau Tuhan",
-                                "Allah kekal, Maha kuasa"
-                            ]),
-                            Verse(contents: [
-                                "Dari debu dan tanahlah",
-                                "kita dijadikan Tuhan",
-                                "Dan bila tersesat kita",
-                                "Tuhan tak akan tinggalkan",
-                            ]),
-                            Verse(contents: [
-                                "Kuasa serta kasih Allah",
-                                "Memenuhi seg’nap dunia",
-                                "Tetap teguhlah firman-Nya",
-                                "Hingga penuh hadirat-Nya",
-                            ]),
-                            Verse(contents: [
-                                "Di pintu Surga yang suci",
-                                "menyanyi beribu lidah",
-                                "Pada Tuhan kita puji",
-                                "Sekarang dan selamanya",
-                            ])
-                        ], songBook: .laguSion
-                    ),
-                    Song(
-                        id: 2,
-                        number: 2,
-                        title: "Hai Seg'nap Ciptaan Tuhan",
-                        verses: [
-                            Verse(contents: [
-                                "Hai seg’nap ciptaan Tuhan",
-                                "Nyanyikan lagu pujian",
-                                "Puji Tuhan, Haleluya",
-                                "Pancaran sinar mentari",
-                                "Cahaya bulan berseri"
-                            ]),
-                            Verse(contents: [
-                                "Desiran angin menghembus",
-                                "Awan bergulung menembus",
-                                "Puji Tuhan, Haleluya",
-                                "Di kala fajar merekah",
-                                "Dan waktu senja nyanyilah"
-                            ]),
-                            Verse(contents: [
-                                "Aliran air yang jernih",
-                                "Menyanyikan lagu kasih",
-                                "Puji Tuhan, Haleluya",
-                                "Bagai api yang membara",
-                                "Dan menghangatkan udara"
-                            ]),
-                            Verse(contents: [
-                                "Sembah sujudlah pada-Nya",
-                                "Datang dan t’rima berkat-Nya",
-                                "Puji Tuhan, Haleluya",
-                                "Puji Bapa dan Putra-Nya",
-                                "Puji Roh Kudus, serta-Nya"
-                            ]),
-                        ],
-                        reff: Verse(contents: [
-                            "Puji Tuhan, Puji Tuhan",
-                            "Haleluya, haleluya, haleluya"
-                        ]),
-                        songBook: .laguSion),
-                    Song(id: 3, number: 3, title: "No 3", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: 4, number: 4, title: "No 4", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: 5, number: 5, title: "No 5", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: 6, number: 6, title: "No 6", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: 7, number: 7, title: "No 7", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: 8, number: 8, title: "No 8", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: 9, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion)
-                ]
+                songs: []
+//                songs: [
+//                    Song(
+//                        id: 1,
+//                        number: 1,
+//                        title: "Di Hadapan Hadirat-Mu",
+//                        verses: [
+//                            Verse(contents: [
+//                                "Di hadapan hadirat-Mu",
+//                                "Kami umat-Mu menyembah",
+//                                "Mengakui Engkau Tuhan",
+//                                "Allah kekal, Maha kuasa"
+//                            ]),
+//                            Verse(contents: [
+//                                "Dari debu dan tanahlah",
+//                                "kita dijadikan Tuhan",
+//                                "Dan bila tersesat kita",
+//                                "Tuhan tak akan tinggalkan",
+//                            ]),
+//                            Verse(contents: [
+//                                "Kuasa serta kasih Allah",
+//                                "Memenuhi seg’nap dunia",
+//                                "Tetap teguhlah firman-Nya",
+//                                "Hingga penuh hadirat-Nya",
+//                            ]),
+//                            Verse(contents: [
+//                                "Di pintu Surga yang suci",
+//                                "menyanyi beribu lidah",
+//                                "Pada Tuhan kita puji",
+//                                "Sekarang dan selamanya",
+//                            ])
+//                        ], songBook: .laguSion
+//                    ),
+//                    Song(
+//                        id: 2,
+//                        number: 2,
+//                        title: "Hai Seg'nap Ciptaan Tuhan",
+//                        verses: [
+//                            Verse(contents: [
+//                                "Hai seg’nap ciptaan Tuhan",
+//                                "Nyanyikan lagu pujian",
+//                                "Puji Tuhan, Haleluya",
+//                                "Pancaran sinar mentari",
+//                                "Cahaya bulan berseri"
+//                            ]),
+//                            Verse(contents: [
+//                                "Desiran angin menghembus",
+//                                "Awan bergulung menembus",
+//                                "Puji Tuhan, Haleluya",
+//                                "Di kala fajar merekah",
+//                                "Dan waktu senja nyanyilah"
+//                            ]),
+//                            Verse(contents: [
+//                                "Aliran air yang jernih",
+//                                "Menyanyikan lagu kasih",
+//                                "Puji Tuhan, Haleluya",
+//                                "Bagai api yang membara",
+//                                "Dan menghangatkan udara"
+//                            ]),
+//                            Verse(contents: [
+//                                "Sembah sujudlah pada-Nya",
+//                                "Datang dan t’rima berkat-Nya",
+//                                "Puji Tuhan, Haleluya",
+//                                "Puji Bapa dan Putra-Nya",
+//                                "Puji Roh Kudus, serta-Nya"
+//                            ]),
+//                        ],
+//                        reff: Verse(contents: [
+//                            "Puji Tuhan, Puji Tuhan",
+//                            "Haleluya, haleluya, haleluya"
+//                        ]),
+//                        songBook: .laguSion),
+//                    Song(id: 3, number: 3, title: "No 3", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+//                    Song(id: 4, number: 4, title: "No 4", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+//                    Song(id: 5, number: 5, title: "No 5", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+//                    Song(id: 6, number: 6, title: "No 6", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+//                    Song(id: 7, number: 7, title: "No 7", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+//                    Song(id: 8, number: 8, title: "No 8", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+//                    Song(id: 9, number: 9, title: "No 9", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion)
+//                ]
             ),
             reducer: appReducer,
             environment: AppEnvironment(

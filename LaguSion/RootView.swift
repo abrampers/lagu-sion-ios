@@ -62,7 +62,13 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
     mainReducer.pullback(
         state: \AppState.mainView,
         action: /AppAction.main,
-        environment: { env in MainEnvironment(mainQueue: env.mainQueue) }
+        environment: { env in
+            MainEnvironment(
+                mainQueue: env.mainQueue,
+                grpc: env.grpc,
+                laguSionClient: env.laguSionClient
+            )
+        }
     ),
     favoritesReducer.pullback(
         state: \AppState.favoritesView,

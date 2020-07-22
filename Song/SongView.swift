@@ -7,6 +7,7 @@
 //
 
 import ComposableArchitecture
+import Networking
 import SwiftUI
 
 public enum SongBook: CaseIterable, Hashable {
@@ -19,12 +20,33 @@ public enum SongBook: CaseIterable, Hashable {
         }
     }
     
+    public var proto: Lagusion_SongBook {
+        switch self {
+        case .laguSion:
+            return .laguSion
+        case .laguSionEdisiLengkap:
+            return .laguSionEdisiLengkap
+        }
+    }
+    
     public var localizedSongPrefix: LocalizedStringKey {
         switch self {
         case .laguSion:
             return "LS"
         case .laguSionEdisiLengkap:
             return "LSEL"
+        }
+    }
+    
+    public static func proto(pbSongBook: Lagusion_SongBook) -> SongBook {
+        switch pbSongBook {
+        case .laguSion:
+            return .laguSion
+        case .laguSionEdisiLengkap:
+            return .laguSionEdisiLengkap
+        default:
+            // MARK: TODO do some workaround if there's unexpected songbook
+            return .laguSion
         }
     }
     
@@ -54,6 +76,18 @@ public struct Song: Equatable, Identifiable {
         self.reff = reff
         self.songBook = songBook
     }
+    
+    public init(pbSong: Lagusion_Song) {
+        self.id = pbSong.id
+        self.number = Int(pbSong.number)
+        self.title = pbSong.title
+        self.verses = pbSong.verses.map { Verse(pbVerse: $0) }
+        self.reff = Verse(pbVerse: pbSong.reff)
+        self.songBook = SongBook.proto(pbSongBook: pbSong.songBook)
+        
+        // MARK: TODO get isFavorite data locally
+        self.isFavorite = false
+    }
 }
 
 public struct Verse {
@@ -61,6 +95,10 @@ public struct Verse {
     
     public init(contents: [String]) {
         self.contents = contents
+    }
+    
+    public init(pbVerse: Lagusion_Verse) {
+        self.contents = pbVerse.contents
     }
 }
 

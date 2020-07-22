@@ -7,6 +7,9 @@
 //
 
 import ComposableArchitecture
+import CombineGRPC
+import GRPC
+import Networking
 import Song
 
 import SwiftUI
@@ -18,6 +21,15 @@ public enum BookSelection: Hashable {
             return "All"
         case .songBook(let book):
             return book.localizedSongPrefix
+        }
+    }
+    
+    public var proto: Lagusion_SongBook {
+        switch self {
+        case .all:
+            return .all
+        case .songBook(let book):
+            return book.proto
         }
     }
     
@@ -46,6 +58,9 @@ public struct MainState: Equatable {
 }
 
 public enum MainAction {
+    case appear
+    case listAllRequestCompleted([Song])
+    case error(GRPCStatus)
     case song(index: Int, action: SongAction)
     case songBookPicked(BookSelection)
     case searchQueryChanged(String)
@@ -53,9 +68,13 @@ public enum MainAction {
 
 public struct MainEnvironment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
+    var grpc: GRPCExecutor
+    var laguSionClient: Lagusion_LaguSionServiceClientProtocol
     
-    public init(mainQueue: AnySchedulerOf<DispatchQueue>) {
+    public init(mainQueue: AnySchedulerOf<DispatchQueue>, grpc: GRPCExecutor, laguSionClient: Lagusion_LaguSionServiceClientProtocol) {
         self.mainQueue = mainQueue
+        self.grpc = grpc
+        self.laguSionClient = laguSionClient
     }
 }
 
@@ -64,7 +83,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
         state: \MainState.songs,
         action: /MainAction.song(index:action:),
         environment: { _ in SongEnvironment() }
-    ).debug(),
+    ),
     Reducer { (state, action, environment) in
         switch action {
         case .song(index: _, action: .addToFavorites(let addedSong)):
@@ -84,11 +103,39 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
         case .song(index: _, action: _):
             return .none
             
+        case .appear:
+            let request = Lagusion_ListSongsRequest.with {
+                $0.songBook = state.selectedBook.proto
+            }
+            return environment.grpc.call(environment.laguSionClient.listSongs)(request)
+                .map { (response) -> [Song] in
+                    return response.songs.map { Song(pbSong: $0) }
+                }
+                .map { (song) -> MainAction in
+                    return MainAction.listAllRequestCompleted(song)
+                }
+                .catch { (grpcStatus) -> Effect<MainAction, Never> in
+                    return Effect(value: MainAction.error(grpcStatus))
+                }
+                .flatMap { (action) -> Effect<MainAction, Never> in
+                    return Effect(value: action)
+                }
+                .receive(on: environment.mainQueue)
+                .eraseToEffect()
+            
         case .searchQueryChanged(let query):
             state.searchQuery = query
             return .none
+            
+        case .listAllRequestCompleted(let songs):
+            state.songs = songs
+            return .none
+            
+        case .error(_):
+            // MARK: TODO add alert to display error
+            return .none
         }
-    }.debug()
+    }
 )
 
 internal struct HeaderView: View {
@@ -143,6 +190,7 @@ public struct MainView: View {
                 .navigationBarTitle("Lagu Sion")
                 .animation(.default)
             }
+            .onAppear(perform: { viewStore.send(.appear) })
         }
     }
 }
@@ -164,7 +212,9 @@ struct MainView_Previews: PreviewProvider {
                 ], favoriteSongs: [], selectedBook: .all, searchQuery: ""
             ),
             reducer: mainReducer,
-            environment: MainEnvironment(mainQueue: DispatchQueue.main.eraseToAnyScheduler()))
+            environment: MainEnvironment(mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
+                                         grpc: GRPCExecutor(),
+                                         laguSionClient: Lagusion_LaguSionServiceTestClient()))
         )
     }
 }
