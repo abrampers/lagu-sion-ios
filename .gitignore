@@ -106,3 +106,6 @@ bazel-*
 tulsi
 
 build-input
+
+# Generated Protobuf Files
+Networking/gRPC/Generated/*.swift
