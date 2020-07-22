@@ -34,6 +34,7 @@
 		21305CBA247A8B3D00F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
 		21305CBF247A8B8F00F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
 		21305CC0247A8B8F00F2D76A /* Song.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		214EF69B24C82785008677C1 /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 214EF69A24C82785008677C1 /* CombineGRPC */; };
 		215C185624A9D7EB0041435A /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215C185524A9D7EB0041435A /* SearchField.swift */; };
 		215C185824A9E8200041435A /* DismissingKeyboardOnSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215C185724A9E8200041435A /* DismissingKeyboardOnSwipe.swift */; };
 		2165AEA824C6F10500AA3665 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2634324C6E05B00C37AB5 /* Constants.swift */; };
@@ -49,7 +50,6 @@
 		21BBA97424C8189700CE3F2E /* lagu_sion.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA97024C8189700CE3F2E /* lagu_sion.pb.swift */; };
 		21BBA97524C8189700CE3F2E /* echo_service.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA97124C8189700CE3F2E /* echo_service.grpc.swift */; };
 		21BBA97624C8189700CE3F2E /* echo_service.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA97224C8189700CE3F2E /* echo_service.pb.swift */; };
-		21BBA97924C81A0D00CE3F2E /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 21BBA97824C81A0D00CE3F2E /* CombineGRPC */; };
 		21E2634524C6E56500C37AB5 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; };
 		21E2634624C6E56500C37AB5 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -263,7 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21BBA97924C81A0D00CE3F2E /* CombineGRPC in Frameworks */,
+				214EF69B24C82785008677C1 /* CombineGRPC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,7 +607,7 @@
 			);
 			name = Networking;
 			packageProductDependencies = (
-				21BBA97824C81A0D00CE3F2E /* CombineGRPC */,
+				214EF69A24C82785008677C1 /* CombineGRPC */,
 			);
 			productName = Networking;
 			productReference = 21305C27247A863F00F2D76A /* Networking.framework */;
@@ -790,7 +790,7 @@
 			mainGroup = 216AF3742472358C00B7C55B;
 			packageReferences = (
 				21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-				21BBA97724C81A0D00CE3F2E /* XCRemoteSwiftPackageReference "grpc-swift-combine" */,
+				214EF69924C82785008677C1 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */,
 			);
 			productRefGroup = 216AF37E2472358C00B7C55B /* Products */;
 			projectDirPath = "";
@@ -1797,20 +1797,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		214EF69924C82785008677C1 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/abrampers/grpc-swift-combine.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.14.0;
+			};
+		};
 		21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
 				kind = exactVersion;
 				version = 0.6.0;
-			};
-		};
-		21BBA97724C81A0D00CE3F2E /* XCRemoteSwiftPackageReference "grpc-swift-combine" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:abrampers/grpc-swift-combine.git";
-			requirement = {
-				kind = exactVersion;
-				version = 0.14.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1821,9 +1821,9 @@
 			package = 21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
-		21BBA97824C81A0D00CE3F2E /* CombineGRPC */ = {
+		214EF69A24C82785008677C1 /* CombineGRPC */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 21BBA97724C81A0D00CE3F2E /* XCRemoteSwiftPackageReference "grpc-swift-combine" */;
+			package = 214EF69924C82785008677C1 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */;
 			productName = CombineGRPC;
 		};
 /* End XCSwiftPackageProductDependency section */

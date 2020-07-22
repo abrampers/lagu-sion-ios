@@ -21,7 +21,7 @@
       },
       {
         "package": "CombineGRPC",
-        "repositoryURL": "git@github.com:abrampers/grpc-swift-combine.git",
+        "repositoryURL": "https://github.com/abrampers/grpc-swift-combine.git",
         "state": {
           "branch": null,
           "revision": "b50a12eff4e98679ea6b85516705704412e90bc3",
