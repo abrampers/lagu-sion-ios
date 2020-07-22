@@ -13,13 +13,3 @@ protobuf:
 	${PROTOC_PATH} ${PROTO_DIR}/*.proto \
 		--plugin=${PROTOC_GRPC_SWIFT_PLUGIN_PATH} \
 		--grpc-swift_out=Visibility=Public,Client=true,Server=false,TestClient=true,FileNaming=DropPath:${PROTO_GEN_DIR}
-# ./third_party/protoc/bin/protoc -I Networking/gRPC/LaguSionService/ \
-#   --plugin=third_party/bin/protoc-gen-grpc-swift \
-#   --grpc-swift_out=Networking/gRPC/LaguSionService/ \
-#   --grpc-swift_opt=Visibility=Public,Client=true,Server=false \
-#   lagu_sion.proto
-# ./third_party/protoc/bin/protoc -I Networking/gRPC/LaguSionService/ \
-#   --plugin=third_party/bin/protoc-gen-swift \
-#   --swift_out=Networking/gRPC/LaguSionService/ \
-#   --swift_opt=Visibility=Public \
-#   lagu_sion.proto

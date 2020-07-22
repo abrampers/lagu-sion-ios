@@ -32,15 +32,9 @@ jobs:
       uses: webfactory/ssh-agent@v0.2.0
       with:
         ssh-private-key: ${{ secrets.DEPLOY_KEY }}
-    # - name: Cache Build
-    #   uses: actions/cache@v1
-    #   env:
-    #     cache-name: cache-fastlane-build
-    #   with:
-    #     path: ./DerivedData
-    #     key: ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
-    #     restore-keys: |
-    #       ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
+    - name: Compile protobuf
+      run: |
+        make protobuf
     - name: Build iOS App
       run: |
         bundle exec fastlane build

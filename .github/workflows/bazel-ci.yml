@@ -41,6 +41,9 @@ jobs:
         key: ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
         restore-keys: |
           ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
+    - name: Compile protobuf
+      run: |
+        make protobuf
     - name: Prepare Variables
       run: |
         export BUNDLE_VERSION=$GITHUB_RUN_NUMBER
@@ -90,6 +93,9 @@ jobs:
         key: ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
         restore-keys: |
           ${{ runner.os }}-lagu-sion-ios-${{ env.cache-name }}
+    - name: Compile protobuf
+      run: |
+        make protobuf
     - name: Prepare Variables
       run: |
         export BUNDLE_VERSION=$GITHUB_RUN_NUMBER
