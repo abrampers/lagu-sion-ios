@@ -20,6 +20,7 @@ struct AppState: Equatable {
     var songs: [Song] = []
     var favoriteSongs: [Song] = []
     var selectedBook: BookSelection = .all
+    var selectedSortOptions: SortOptions = .number
     var searchQuery: String = ""
 }
 
@@ -37,13 +38,14 @@ struct AppEnvironment {
 extension AppState {
     var mainView: MainState {
         get {
-            MainState(songs: self.songs, favoriteSongs: self.favoriteSongs, selectedBook: self.selectedBook, searchQuery: self.searchQuery)
+            MainState(songs: self.songs, favoriteSongs: self.favoriteSongs, selectedBook: self.selectedBook, searchQuery: self.searchQuery, selectedSortOptions: self.selectedSortOptions)
         }
         set {
             self.songs = newValue.songs
             self.favoriteSongs = newValue.favoriteSongs
             self.selectedBook = newValue.selectedBook
             self.searchQuery = newValue.searchQuery
+            self.selectedSortOptions = newValue.selectedSortOption
         }
     }
     

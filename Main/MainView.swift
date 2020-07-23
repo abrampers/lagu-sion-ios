@@ -43,17 +43,51 @@ extension BookSelection: CaseIterable {
     }
 }
 
+public enum SortOptions: Hashable, CaseIterable {
+    public var localizedString: LocalizedStringKey {
+        switch self {
+        case .number:
+            return "Song Number"
+        case .alphabet:
+            return "Song Title"
+        }
+    }
+    
+    public var proto: Lagusion_SortOptions {
+        switch self {
+        case .number:
+            return .number
+        case .alphabet:
+            return .alphabet
+        }
+    }
+    
+    public var image: Image {
+        switch self {
+        case .number:
+            return Image(systemName: "number.square")
+        case .alphabet:
+            return Image(systemName: "a.square")
+        }
+    }
+    
+    case number
+    case alphabet
+}
+
 public struct MainState: Equatable {
     public var songs: [Song] = []
     public var favoriteSongs: [Song] = []
     public var selectedBook: BookSelection = .all
     public var searchQuery: String = ""
+    public var selectedSortOption: SortOptions = .number
     
-    public init(songs: [Song], favoriteSongs: [Song], selectedBook: BookSelection, searchQuery: String) {
+    public init(songs: [Song], favoriteSongs: [Song], selectedBook: BookSelection, searchQuery: String, selectedSortOptions: SortOptions) {
         self.songs = songs
         self.favoriteSongs = favoriteSongs
         self.selectedBook = selectedBook
         self.searchQuery = searchQuery
+        self.selectedSortOption = selectedSortOptions
     }
 }
 
@@ -65,6 +99,7 @@ public enum MainAction {
     case searchQueryChanged(String)
     case song(index: Int, action: SongAction)
     case songBookPicked(BookSelection)
+    case sortOptionTapped
 }
 
 public struct MainEnvironment {
@@ -98,7 +133,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             struct ListSongRequestCancelId: Hashable {}
             let request = Lagusion_ListSongRequest.with {
                 $0.songBook = state.selectedBook.proto
-                $0.sortOptions = .number
+                $0.sortOptions = state.selectedSortOption.proto
             }
             return Effect(environment.grpc.call(environment.laguSionClient.listSongs)(request))
                 .debounce(id: ListSongRequestCancelId(), for: 0.2, scheduler: environment.mainQueue)
@@ -140,6 +175,15 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             
         case .songBookPicked(let songBook):
             state.selectedBook = songBook
+            return Effect(value: MainAction.getSongs)
+            
+        case .sortOptionTapped:
+            switch state.selectedSortOption {
+            case .number:
+                state.selectedSortOption = .alphabet
+            case .alphabet:
+                state.selectedSortOption = .number
+            }
             return Effect(value: MainAction.getSongs)
         }
     }
@@ -196,6 +240,13 @@ public struct MainView: View {
                 .modifier(DismissingKeyboardOnSwipe())
                 .navigationBarTitle("Lagu Sion")
                 .animation(.default)
+                .navigationBarItems(trailing:
+                    Button(action: {
+                        viewStore.send(.sortOptionTapped)
+                    }) {
+                        viewStore.selectedSortOption.image
+                    }
+                )
             }
             .onAppear(perform: { viewStore.send(.appear) })
         }
@@ -216,7 +267,7 @@ struct MainView_Previews: PreviewProvider {
                     Song(id: 7, number: 7, title: "No 7", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
                     Song(id: 8, number: 8, title: "No 8", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
                     Song(id: 9, number: 9, title: "No 9 HAHAHAHAHAHAHAHAHHAAHHAHHAHAHAHAHAHAHAHAHAH", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion)
-                ], favoriteSongs: [], selectedBook: .all, searchQuery: ""
+                ], favoriteSongs: [], selectedBook: .all, searchQuery: "", selectedSortOptions: .number
             ),
             reducer: mainReducer,
             environment: MainEnvironment(mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
