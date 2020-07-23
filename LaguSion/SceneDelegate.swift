@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let eventLoopGroup: EventLoopGroup = PlatformSupport.makeEventLoopGroup(loopCount: 1)
+        let eventLoopGroup: EventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
         let channel: ClientConnection = ClientConnection
             .insecure(group: eventLoopGroup)
             .connect(host: Constants.laguSionHost, port: Constants.laguSionPort)
