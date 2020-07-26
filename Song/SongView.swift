@@ -102,7 +102,7 @@ public struct Verse {
     }
 }
 
-public enum SongAction {
+public enum SongAction: Equatable {
     case heartTapped
     case removeFromFavorites(Song)
     case addToFavorites(Song)

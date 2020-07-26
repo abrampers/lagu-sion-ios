@@ -7,56 +7,61 @@
 //
 
 import SwiftUI
+import UIKit
 
-extension UIApplication {
-    fileprivate func endEditing(_ force: Bool) {
-        self.windows
-            .filter{$0.isKeyWindow}
-            .first?
-            .endEditing(force)
+struct SearchField: UIViewRepresentable {
+    
+    @Binding var text: String
+    var placeholder: String = "Search"
+    
+    func makeCoordinator() -> SearchField.Coordinator {
+        return Coordinator(text: $text)
+    }
+    
+    func makeUIView(context: UIViewRepresentableContext<SearchField>) -> UISearchBar {
+        let searchBar = UISearchBar()
+        searchBar.delegate = context.coordinator
+        searchBar.backgroundImage = UIImage()
+        searchBar.placeholder = placeholder
+        searchBar.returnKeyType = .search
+        return searchBar
+    }
+    
+    func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchField>) {
     }
 }
 
-struct SearchField: View {
-    @State private var showCancelButton: Bool = false
-    @Binding var searchText: String
-    var placeholder: LocalizedStringKey = "Search..."
+extension SearchField {
+    
+    class Coordinator: NSObject, UISearchBarDelegate {
 
-    var body: some View {
-        HStack {
-            HStack {
-                        Image(systemName: "magnifyingglass")
-                            .imageScale(.large)
-                TextField(placeholder, text: $searchText, onEditingChanged: { self.showCancelButton = $0 })
-                            .autocapitalization(.none)
-                            .disableAutocorrection(true)
-                            .textContentType(.name)
-                    .foregroundColor(.primary)
-                        if !searchText.isEmpty {
-                            Button(action: {
-                                self.searchText = ""
-                            }) {
-                                Image(systemName: "xmark.circle.fill")
-                            }.buttonStyle(BorderlessButtonStyle())
-                        }
-                    }
-                    .padding(8)
-                    .foregroundColor(.secondary)
-                    .background(Color(.tertiarySystemFill))
-                    .cornerRadius(8)
-            
-            if showCancelButton  {
-                // Cancel button
-                Button("Cancel") {
-                    UIApplication.shared.endEditing(true) // this must be placed before the other commands here
-                    self.searchText = ""
-                    self.showCancelButton = false
-                }
-                .foregroundColor(Color(.systemBlue))
-            }
+        @Binding var text: String
+
+        init(text: Binding<String>) {
+            _text = text
         }
-        .navigationBarHidden(showCancelButton)
-            .animation(.spring())
+        
+        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            text = searchText
+        }
+        
+        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+            searchBar.setShowsCancelButton(true, animated: true)
+        }
+        
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            guard let searchBarText = searchBar.text else { return }
+            text = searchBarText
+            searchBar.resignFirstResponder()
+        }
+        
+        func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+            searchBar.setShowsCancelButton(false, animated: true)
+        }
+        
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            searchBar.resignFirstResponder()
+        }
     }
 }
 
@@ -65,17 +70,17 @@ struct SearchField_Previews: PreviewProvider {
         NavigationView {
             List {
                 Section(header:
-                    SearchField(searchText: .constant("Editing"),
+                    SearchField(text: .constant("Editing"),
                                 placeholder: "test"))
                 {
-                    SearchField(searchText: .constant(""),
+                    SearchField(text: .constant(""),
                                 placeholder: "Placeholder")
-                    SearchField(searchText: .constant("Editing"),
+                    SearchField(text: .constant("Editing"),
                                 placeholder: "test")
                     Text("An item")
-                    
+
                 }
-                
+
             }
         }
     }

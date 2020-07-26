@@ -8,5 +8,5 @@
 
 internal class Constants {
     internal static let laguSionHost = "2.tcp.ngrok.io"
-    internal static let laguSionPort = 16368
+    internal static let laguSionPort = 17372
 }

@@ -22,6 +22,7 @@ struct AppState: Equatable {
     var selectedBook: BookSelection = .all
     var selectedSortOptions: SortOptions = .number
     var searchQuery: String = ""
+    var mainActionSheet: ActionSheetState<MainAction>?
 }
 
 enum AppAction {
@@ -38,7 +39,13 @@ struct AppEnvironment {
 extension AppState {
     var mainView: MainState {
         get {
-            MainState(songs: self.songs, favoriteSongs: self.favoriteSongs, selectedBook: self.selectedBook, searchQuery: self.searchQuery, selectedSortOptions: self.selectedSortOptions)
+            MainState(
+                songs: self.songs,
+                favoriteSongs: self.favoriteSongs,
+                selectedBook: self.selectedBook,
+                searchQuery: self.searchQuery,
+                selectedSortOptions: self.selectedSortOptions
+            )
         }
         set {
             self.songs = newValue.songs
@@ -46,6 +53,7 @@ extension AppState {
             self.selectedBook = newValue.selectedBook
             self.searchQuery = newValue.searchQuery
             self.selectedSortOptions = newValue.selectedSortOption
+            self.mainActionSheet = newValue.actionSheet
         }
     }
     

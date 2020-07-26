@@ -14,7 +14,7 @@ import Song
 
 import SwiftUI
 
-public enum BookSelection: Hashable {
+public enum BookSelection: Hashable, Equatable {
     public var bookIdentifier: LocalizedStringKey {
         switch self {
         case .all:
@@ -43,7 +43,7 @@ extension BookSelection: CaseIterable {
     }
 }
 
-public enum SortOptions: Hashable, CaseIterable {
+public enum SortOptions: Hashable, CaseIterable, Equatable {
     public var localizedString: LocalizedStringKey {
         switch self {
         case .number:
@@ -81,6 +81,7 @@ public struct MainState: Equatable {
     public var selectedBook: BookSelection = .all
     public var searchQuery: String = ""
     public var selectedSortOption: SortOptions = .number
+    public var actionSheet: ActionSheetState<MainAction>?
     
     public init(songs: [Song], favoriteSongs: [Song], selectedBook: BookSelection, searchQuery: String, selectedSortOptions: SortOptions) {
         self.songs = songs
@@ -88,10 +89,12 @@ public struct MainState: Equatable {
         self.selectedBook = selectedBook
         self.searchQuery = searchQuery
         self.selectedSortOption = selectedSortOptions
+        self.actionSheet = nil
     }
 }
 
-public enum MainAction {
+public enum MainAction: Equatable {
+    case actionSheetDismissed
     case appear
     case getSongs
     case error(GRPCStatus)
@@ -99,6 +102,7 @@ public enum MainAction {
     case searchQueryChanged(String)
     case song(index: Int, action: SongAction)
     case songBookPicked(BookSelection)
+    case sortOptionChanged(SortOptions)
     case sortOptionTapped
 }
 
@@ -122,6 +126,10 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
     ),
     Reducer { (state, action, environment) in
         switch action {
+        case .actionSheetDismissed:
+            state.actionSheet = nil
+            return .none
+            
         case .appear:
             return Effect(value: MainAction.getSongs)
         
@@ -177,20 +185,28 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             state.selectedBook = songBook
             return Effect(value: MainAction.getSongs)
             
-        case .sortOptionTapped:
-            switch state.selectedSortOption {
-            case .number:
-                state.selectedSortOption = .alphabet
-            case .alphabet:
-                state.selectedSortOption = .number
-            }
+        case .sortOptionChanged(let sortOption):
+            state.selectedSortOption = sortOption
+            state.actionSheet = nil
             return Effect(value: MainAction.getSongs)
+            
+        case .sortOptionTapped:
+            state.actionSheet = ActionSheetState(
+                title: "Change sorting option",
+                buttons: [
+                    .default("Number", send: .sortOptionChanged(.number)),
+                    .default("Title", send: .sortOptionChanged(.alphabet)),
+                    .cancel()
+                ]
+            )
+            return .none
         }
     }
 )
 
 internal struct HeaderView: View {
     internal let store: Store<MainState, MainAction>
+    @State private var hideNavBar: Bool = false
     
     internal var body: some View {
         WithViewStore(self.store) { viewStore in
@@ -206,7 +222,7 @@ internal struct HeaderView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }
-                SearchField(searchText: viewStore.binding(
+                SearchField(text: viewStore.binding(
                     get: { $0.searchQuery }, send: MainAction.searchQueryChanged
                 ))
             }
@@ -215,6 +231,7 @@ internal struct HeaderView: View {
 }
 
 public struct MainView: View {
+//    @State private var presentActionSheet: Bool = false
     private let store: Store<MainState, MainAction>
     
     public init(store: Store<MainState, MainAction>) {
@@ -241,11 +258,26 @@ public struct MainView: View {
                 .navigationBarTitle("Lagu Sion")
                 .animation(.default)
                 .navigationBarItems(trailing:
-                    Button(action: {
-                        viewStore.send(.sortOptionTapped)
-                    }) {
-                        viewStore.selectedSortOption.image
-                    }
+                    Button(action: { viewStore.send(.sortOptionTapped) }) { viewStore.selectedSortOption.image }
+                        .actionSheet(self.store.scope(state: { $0.actionSheet }), dismiss: .actionSheetDismissed)
+//                    Button(action: { self.presentActionSheet = true }) { viewStore.selectedSortOption.image }
+//                        .actionSheet(isPresented: self.$presentActionSheet) {
+//                            ActionSheet(
+//                                title: Text("haha"),
+//                                message: Text("hihii"),
+//                                buttons: [
+//                                    .default(Text("HAHA")) {
+//                                        self.presentActionSheet = false
+//                                    },
+//                                    .default(Text("HIHI")) {
+//                                        self.presentActionSheet = false
+//                                    },
+//                                    .cancel {
+//                                        self.presentActionSheet = false
+//                                    }
+//                                ]
+//                            )
+//                    }
                 )
             }
             .onAppear(perform: { viewStore.send(.appear) })
