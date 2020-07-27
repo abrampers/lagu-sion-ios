@@ -82,23 +82,35 @@ public struct MainState: Equatable {
     public var searchQuery: String = ""
     public var selectedSortOption: SortOptions = .number
     public var actionSheet: ActionSheetState<MainAction>?
+    public var alert: AlertState<MainAction>?
     
-    public init(songs: [Song], favoriteSongs: [Song], selectedBook: BookSelection, searchQuery: String, selectedSortOptions: SortOptions) {
+    public init(
+        songs: [Song],
+        favoriteSongs: [Song],
+        selectedBook: BookSelection,
+        searchQuery: String,
+        selectedSortOptions: SortOptions,
+        actionSheet: ActionSheetState<MainAction>? = nil,
+        alert: AlertState<MainAction>? = nil
+    ) {
         self.songs = songs
         self.favoriteSongs = favoriteSongs
         self.selectedBook = selectedBook
         self.searchQuery = searchQuery
         self.selectedSortOption = selectedSortOptions
-        self.actionSheet = nil
+        self.actionSheet = actionSheet
+        self.alert = alert
     }
 }
 
 public enum MainAction: Equatable {
     case actionSheetDismissed
+    case alertDismissed
     case appear
     case getSongs
-    case error(GRPCStatus)
+    case grpcError(GRPCStatus)
     case listAllRequestCompleted([Song])
+    case saveSearchQuery(String)
     case searchQueryChanged(String)
     case song(index: Int, action: SongAction)
     case songBookPicked(BookSelection)
@@ -130,12 +142,12 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             state.actionSheet = nil
             return .none
             
+        case .alertDismissed:
+            state.alert = nil
+            return .none
+            
         case .appear:
             return Effect(value: MainAction.getSongs)
-        
-        // MARK: TODO add alert to display error
-        case .error(_):
-            return .none
             
         case .getSongs:
             struct ListSongRequestCancelId: Hashable {}
@@ -152,7 +164,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
                     return MainAction.listAllRequestCompleted(song)
                 }
                 .catch { (grpcStatus) -> Effect<MainAction, Never> in
-                    return Effect(value: MainAction.error(grpcStatus))
+                    return Effect(value: MainAction.grpcError(grpcStatus))
                 }
                 .flatMap { (action) -> Effect<MainAction, Never> in
                     return Effect(value: action)
@@ -160,13 +172,27 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
                 .receive(on: environment.mainQueue)
                 .eraseToEffect()
             
+        // MARK: TODO add alert to display error
+        case .grpcError(let grpcStatus):
+            state.alert = AlertState(
+                title: "GRPC Error Code: \(grpcStatus.code)",
+                message: "description: \(grpcStatus.description)\n message: \(String(describing: grpcStatus.message))",
+                dismissButton: .default("OK", send: .alertDismissed)
+            )
+            return .none
+            
         case .listAllRequestCompleted(let songs):
             state.songs = songs
             return .none
             
-        case .searchQueryChanged(let query):
+        case .saveSearchQuery(let query):
             state.searchQuery = query
             return .none
+            
+        case .searchQueryChanged(let query):
+            struct SearchQueryChangedCancelId: Hashable {}
+            return Effect(value: MainAction.saveSearchQuery(query))
+                .debounce(id: SearchQueryChangedCancelId(), for: 0.2, scheduler: environment.mainQueue)
             
         case .song(index: _, action: .addToFavorites(let addedSong)):
             if !state.favoriteSongs.contains(addedSong) {
@@ -196,7 +222,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
                 buttons: [
                     .default("Number", send: .sortOptionChanged(.number)),
                     .default("Title", send: .sortOptionChanged(.alphabet)),
-                    .cancel()
+                    .cancel(send: .actionSheetDismissed)
                 ]
             )
             return .none
@@ -256,8 +282,21 @@ public struct MainView: View {
                 .navigationBarTitle("Lagu Sion")
                 .animation(.default)
                 .navigationBarItems(trailing:
-                    Button(action: { viewStore.send(.sortOptionTapped) }) { viewStore.selectedSortOption.image }
-                        .actionSheet(self.store.scope(state: { $0.actionSheet }), dismiss: .actionSheetDismissed)
+                    Button(action: { viewStore.send(MainAction.sortOptionTapped) }) { viewStore.selectedSortOption.image }
+//                        .actionSheet(isPresented: viewStore.binding(get: { $0.actionSheet != nil }, send: MainAction.actionSheetDismissed)) { () -> ActionSheet in
+//                            return ActionSheet(
+//                                title: Text("Test: Change sorting option"),
+//                                message: nil,
+//                                buttons: [
+//                                    .default(Text("Number"), action: { viewStore.send(MainAction.sortOptionChanged(.number)) }),
+//                                    .default(Text("Title"), action: { viewStore.send(MainAction.sortOptionChanged(.alphabet)) }),
+//                                    .cancel({ viewStore.send(MainAction.actionSheetDismissed) })
+//                                ]
+//                            )
+//                        }
+                    
+                                        .actionSheet(self.store.scope(state: \.actionSheet), dismiss: .actionSheetDismissed)
+                                        .alert(self.store.scope(state: \.alert), dismiss: .alertDismissed)
                 )
             }
             .onAppear(perform: { viewStore.send(.appear) })
