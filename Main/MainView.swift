@@ -174,7 +174,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
         case .grpcError(let grpcStatus):
             state.alert = AlertState(
                 title: "GRPC Error Code: \(grpcStatus.code)",
-                message: "description: \(grpcStatus.description)\n message: \(String(describing: grpcStatus.message))",
+                message: "description: \(grpcStatus.description)",
                 dismissButton: .default("OK", send: .alertDismissed)
             )
             return .none
@@ -281,20 +281,8 @@ public struct MainView: View {
                 .animation(.default)
                 .navigationBarItems(trailing:
                     Button(action: { viewStore.send(MainAction.sortOptionTapped) }) { viewStore.selectedSortOption.image }
-//                        .actionSheet(isPresented: viewStore.binding(get: { $0.actionSheet != nil }, send: MainAction.actionSheetDismissed)) { () -> ActionSheet in
-//                            return ActionSheet(
-//                                title: Text("Test: Change sorting option"),
-//                                message: nil,
-//                                buttons: [
-//                                    .default(Text("Number"), action: { viewStore.send(MainAction.sortOptionChanged(.number)) }),
-//                                    .default(Text("Title"), action: { viewStore.send(MainAction.sortOptionChanged(.alphabet)) }),
-//                                    .cancel({ viewStore.send(MainAction.actionSheetDismissed) })
-//                                ]
-//                            )
-//                        }
-                    
-                                        .actionSheet(self.store.scope(state: \.actionSheet), dismiss: .actionSheetDismissed)
-                                        .alert(self.store.scope(state: \.alert), dismiss: .alertDismissed)
+                        .actionSheet(self.store.scope(state: \.actionSheet), dismiss: .actionSheetDismissed)
+                        .alert(self.store.scope(state: \.alert), dismiss: .alertDismissed)
                 )
             }
             .onAppear(perform: { viewStore.send(.appear) })
