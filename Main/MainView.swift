@@ -206,7 +206,6 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
 
 internal struct HeaderView: View {
     internal let store: Store<MainState, MainAction>
-    @State private var hideNavBar: Bool = false
     
     internal var body: some View {
         WithViewStore(self.store) { viewStore in
@@ -231,7 +230,6 @@ internal struct HeaderView: View {
 }
 
 public struct MainView: View {
-//    @State private var presentActionSheet: Bool = false
     private let store: Store<MainState, MainAction>
     
     public init(store: Store<MainState, MainAction>) {
@@ -260,24 +258,6 @@ public struct MainView: View {
                 .navigationBarItems(trailing:
                     Button(action: { viewStore.send(.sortOptionTapped) }) { viewStore.selectedSortOption.image }
                         .actionSheet(self.store.scope(state: { $0.actionSheet }), dismiss: .actionSheetDismissed)
-//                    Button(action: { self.presentActionSheet = true }) { viewStore.selectedSortOption.image }
-//                        .actionSheet(isPresented: self.$presentActionSheet) {
-//                            ActionSheet(
-//                                title: Text("haha"),
-//                                message: Text("hihii"),
-//                                buttons: [
-//                                    .default(Text("HAHA")) {
-//                                        self.presentActionSheet = false
-//                                    },
-//                                    .default(Text("HIHI")) {
-//                                        self.presentActionSheet = false
-//                                    },
-//                                    .cancel {
-//                                        self.presentActionSheet = false
-//                                    }
-//                                ]
-//                            )
-//                    }
                 )
             }
             .onAppear(perform: { viewStore.send(.appear) })
