@@ -34,8 +34,7 @@ enum AppAction {
 
 struct AppEnvironment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
-    var grpc: GRPCExecutor
-    var laguSionClient: Lagusion_LaguSionServiceClientProtocol
+    var laguSionClient: LaguSionClient
 }
 
 extension AppState {
@@ -80,8 +79,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         environment: { env in
             MainEnvironment(
                 mainQueue: env.mainQueue,
-                grpc: env.grpc,
-                laguSionClient: env.laguSionClient
+                laguSionClient: .liveLaguSionClient
             )
         }
     ),
@@ -149,8 +147,7 @@ struct RootView_Previews: PreviewProvider {
                 reducer: appReducer,
                 environment: AppEnvironment(
                     mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
-                    grpc: GRPCExecutor(),
-                    laguSionClient: Lagusion_LaguSionServiceTestClient()
+                    laguSionClient: .mock
                 )
             )
         )

@@ -14,12 +14,11 @@
 		21305C0F247A803200F2D76A /* Song.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305BFF247A803200F2D76A /* Song.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21305C1B247A806900F2D76A /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D21247681D5001E376A /* SongView.swift */; };
 		21305C1C247A809600F2D76A /* Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D82AC7247A72FF00F6B69F /* Unwrap.swift */; };
-		21305C21247A812800F2D76A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 21305C20247A812800F2D76A /* ComposableArchitecture */; };
 		21305C39247A863F00F2D76A /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305C29247A863F00F2D76A /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21305C46247A866900F2D76A /* TestCombineGRPCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */; };
 		21305C47247A868400F2D76A /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E0247235DF005941E9 /* Publisher+Extension.swift */; };
 		21305C7D247A885600F2D76A /* Main.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; };
-		21305C84247A885600F2D76A /* MainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305C83247A885600F2D76A /* MainTests.swift */; };
+		21305C84247A885600F2D76A /* ActionSheetAndAlertTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305C83247A885600F2D76A /* ActionSheetAndAlertTest.swift */; };
 		21305C86247A885600F2D76A /* Main.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305C76247A885500F2D76A /* Main.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21305C89247A885600F2D76A /* Main.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; };
 		21305C8A247A885600F2D76A /* Main.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -54,6 +53,9 @@
 		21BBA97524C8189700CE3F2E /* echo_service.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA97124C8189700CE3F2E /* echo_service.grpc.swift */; };
 		21BBA97624C8189700CE3F2E /* echo_service.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA97224C8189700CE3F2E /* echo_service.pb.swift */; };
 		21D6FA8F24CE643400B56C42 /* DismissingKeyboardOnSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6FA8E24CE643400B56C42 /* DismissingKeyboardOnSwipe.swift */; };
+		21D6FA9124CEAA3000B56C42 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6FA9024CEAA3000B56C42 /* Core.swift */; };
+		21D6FA9324CEAC1000B56C42 /* LaguSionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6FA9224CEAC1000B56C42 /* LaguSionClient.swift */; };
+		21D6FA9524CEACDE00B56C42 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 21D6FA9424CEACDE00B56C42 /* ComposableArchitecture */; };
 		21E2634524C6E56500C37AB5 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; };
 		21E2634624C6E56500C37AB5 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -230,7 +232,7 @@
 		21305C76247A885500F2D76A /* Main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Main.h; sourceTree = "<group>"; };
 		21305C77247A885500F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21305C7C247A885600F2D76A /* MainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		21305C83247A885600F2D76A /* MainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTests.swift; sourceTree = "<group>"; };
+		21305C83247A885600F2D76A /* ActionSheetAndAlertTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetAndAlertTest.swift; sourceTree = "<group>"; };
 		21305C85247A885600F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21305C97247A895C00F2D76A /* Favorites.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Favorites.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21305C99247A895C00F2D76A /* Favorites.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Favorites.h; sourceTree = "<group>"; };
@@ -261,6 +263,8 @@
 		21C88D21247681D5001E376A /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
 		21C88D2324768A08001E376A /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		21D6FA8E24CE643400B56C42 /* DismissingKeyboardOnSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboardOnSwipe.swift; sourceTree = "<group>"; };
+		21D6FA9024CEAA3000B56C42 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		21D6FA9224CEAC1000B56C42 /* LaguSionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionClient.swift; sourceTree = "<group>"; };
 		21D82AC7247A72FF00F6B69F /* Unwrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unwrap.swift; sourceTree = "<group>"; };
 		21E2634324C6E05B00C37AB5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -278,7 +282,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				214EF71A24C84743008677C1 /* Networking.framework in Frameworks */,
-				21305C21247A812800F2D76A /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +297,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D6FA9524CEACDE00B56C42 /* ComposableArchitecture in Frameworks */,
 				214EF69B24C82785008677C1 /* CombineGRPC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +401,7 @@
 				21B130E2247235DF005941E9 /* gRPC */,
 				21305C29247A863F00F2D76A /* Networking.h */,
 				21305C2A247A863F00F2D76A /* Info.plist */,
+				21D6FA9224CEAC1000B56C42 /* LaguSionClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -416,7 +421,7 @@
 		21305C82247A885600F2D76A /* MainTests */ = {
 			isa = PBXGroup;
 			children = (
-				21305C83247A885600F2D76A /* MainTests.swift */,
+				21305C83247A885600F2D76A /* ActionSheetAndAlertTest.swift */,
 				21305C85247A885600F2D76A /* Info.plist */,
 			);
 			path = MainTests;
@@ -488,6 +493,7 @@
 				216AF3912472358E00B7C55B /* Info.plist */,
 				216AF3842472358C00B7C55B /* LaguSion.xcdatamodeld */,
 				216AF38B2472358E00B7C55B /* Preview Content */,
+				21D6FA9024CEAA3000B56C42 /* Core.swift */,
 			);
 			path = LaguSion;
 			sourceTree = "<group>";
@@ -601,7 +607,6 @@
 			);
 			name = Song;
 			packageProductDependencies = (
-				21305C20247A812800F2D76A /* ComposableArchitecture */,
 			);
 			productName = Song;
 			productReference = 21305BFD247A803200F2D76A /* Song.framework */;
@@ -642,6 +647,7 @@
 			name = Networking;
 			packageProductDependencies = (
 				214EF69A24C82785008677C1 /* CombineGRPC */,
+				21D6FA9424CEACDE00B56C42 /* ComposableArchitecture */,
 			);
 			productName = Networking;
 			productReference = 21305C27247A863F00F2D76A /* Networking.framework */;
@@ -956,6 +962,7 @@
 				21BBA97624C8189700CE3F2E /* echo_service.pb.swift in Sources */,
 				21BBA97324C8189700CE3F2E /* lagu_sion.grpc.swift in Sources */,
 				21BBA97524C8189700CE3F2E /* echo_service.grpc.swift in Sources */,
+				21D6FA9324CEAC1000B56C42 /* LaguSionClient.swift in Sources */,
 				21BBA97424C8189700CE3F2E /* lagu_sion.pb.swift in Sources */,
 				21305C46247A866900F2D76A /* TestCombineGRPCView.swift in Sources */,
 			);
@@ -975,7 +982,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21305C84247A885600F2D76A /* MainTests.swift in Sources */,
+				21305C84247A885600F2D76A /* ActionSheetAndAlertTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -999,6 +1006,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D6FA9124CEAA3000B56C42 /* Core.swift in Sources */,
 				2165AEA824C6F10500AA3665 /* Constants.swift in Sources */,
 				216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */,
 				216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */,
@@ -1861,15 +1869,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		21305C20247A812800F2D76A /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
 		214EF69A24C82785008677C1 /* CombineGRPC */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 214EF69924C82785008677C1 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */;
 			productName = CombineGRPC;
+		};
+		21D6FA9424CEACDE00B56C42 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -7,6 +7,7 @@
 //
 
 import ComposableArchitecture
+import Combine
 import CombineGRPC
 import GRPC
 import Networking
@@ -76,8 +77,8 @@ public enum SortOptions: Hashable, CaseIterable, Equatable {
 }
 
 public struct MainState: Equatable {
-    public var songs: [Song] = []
-    public var favoriteSongs: [Song] = []
+    public var songs: [Song]
+    public var favoriteSongs: [Song]
     public var selectedBook: BookSelection = .all
     public var searchQuery: String = ""
     public var selectedSortOption: SortOptions = .number
@@ -85,11 +86,11 @@ public struct MainState: Equatable {
     public var alert: AlertState<MainAction>?
     
     public init(
-        songs: [Song],
-        favoriteSongs: [Song],
-        selectedBook: BookSelection,
-        searchQuery: String,
-        selectedSortOptions: SortOptions,
+        songs: [Song] = [],
+        favoriteSongs: [Song] = [],
+        selectedBook: BookSelection = .all,
+        searchQuery: String = "",
+        selectedSortOptions: SortOptions = .number,
         actionSheet: ActionSheetState<MainAction>? = nil,
         alert: AlertState<MainAction>? = nil
     ) {
@@ -120,12 +121,10 @@ public enum MainAction: Equatable {
 
 public struct MainEnvironment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
-    var grpc: GRPCExecutor
-    var laguSionClient: Lagusion_LaguSionServiceClientProtocol
+    var laguSionClient: LaguSionClient
     
-    public init(mainQueue: AnySchedulerOf<DispatchQueue>, grpc: GRPCExecutor, laguSionClient: Lagusion_LaguSionServiceClientProtocol) {
+    public init(mainQueue: AnySchedulerOf<DispatchQueue>, laguSionClient: LaguSionClient) {
         self.mainQueue = mainQueue
-        self.grpc = grpc
         self.laguSionClient = laguSionClient
     }
 }
@@ -155,7 +154,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
                 $0.songBook = state.selectedBook.proto
                 $0.sortOptions = state.selectedSortOption.proto
             }
-            return Effect(environment.grpc.call(environment.laguSionClient.listSongs)(request))
+            return environment.laguSionClient.listSongs(request)
                 .debounce(id: ListSongRequestCancelId(), for: 0.2, scheduler: environment.mainQueue)
                 .map { (response) -> [Song] in
                     return response.songs.map { Song(pbSong: $0) }
@@ -172,7 +171,6 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
                 .receive(on: environment.mainQueue)
                 .eraseToEffect()
             
-        // MARK: TODO add alert to display error
         case .grpcError(let grpcStatus):
             state.alert = AlertState(
                 title: "GRPC Error Code: \(grpcStatus.code)",
@@ -306,9 +304,10 @@ public struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(store: Store(
-            initialState: MainState(
-                songs: [
+        MainView(
+            store: Store(
+                initialState: MainState(
+                    songs: [
                     Song(id: 1, number: 1, title: "No 1", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
                     Song(id: 2, number: 2, title: "No 2", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
                     Song(id: 3, number: 3, title: "No 3", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
@@ -318,12 +317,14 @@ struct MainView_Previews: PreviewProvider {
                     Song(id: 7, number: 7, title: "No 7", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
                     Song(id: 8, number: 8, title: "No 8", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
                     Song(id: 9, number: 9, title: "No 9 HAHAHAHAHAHAHAHAHHAAHHAHHAHAHAHAHAHAHAHAHAH", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion)
-                ], favoriteSongs: [], selectedBook: .all, searchQuery: "", selectedSortOptions: .number
-            ),
-            reducer: mainReducer,
-            environment: MainEnvironment(mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
-                                         grpc: GRPCExecutor(),
-                                         laguSionClient: Lagusion_LaguSionServiceTestClient()))
+                    ], favoriteSongs: [], selectedBook: .all, searchQuery: "", selectedSortOptions: .number
+                ),
+                reducer: mainReducer,
+                environment: MainEnvironment(
+                    mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
+                    laguSionClient: .mock
+                )
+            )
         )
     }
 }
