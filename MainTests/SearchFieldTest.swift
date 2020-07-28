@@ -9,6 +9,8 @@
 import Combine
 import ComposableArchitecture
 import GRPC
+import Networking
+
 import SwiftUI
 import XCTest
 
@@ -23,7 +25,7 @@ class SearchFieldTest: XCTestCase {
             reducer: mainReducer,
             environment: MainEnvironment(
                 mainQueue: self.scheduler.eraseToAnyScheduler(),
-                laguSionClient: .mock
+                laguSionClient: LaguSionClient.mock
             )
         )
         
@@ -42,7 +44,7 @@ class SearchFieldTest: XCTestCase {
             reducer: mainReducer,
             environment: MainEnvironment(
                 mainQueue: self.scheduler.eraseToAnyScheduler(),
-                laguSionClient: .mock
+                laguSionClient: LaguSionClient.mock
             )
         )
         

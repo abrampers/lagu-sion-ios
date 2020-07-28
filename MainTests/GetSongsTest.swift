@@ -26,7 +26,7 @@ class GetSongsTest: XCTestCase {
             reducer: mainReducer,
             environment: MainEnvironment(
                 mainQueue: self.scheduler.eraseToAnyScheduler(),
-                laguSionClient: .mock
+                laguSionClient: LaguSionClient.mock
             )
         )
         
@@ -149,7 +149,7 @@ class GetSongsTest: XCTestCase {
             reducer: mainReducer,
             environment: MainEnvironment(
                 mainQueue: self.scheduler.eraseToAnyScheduler(),
-                laguSionClient: .mock
+                laguSionClient: LaguSionClient.mock
             )
         )
         

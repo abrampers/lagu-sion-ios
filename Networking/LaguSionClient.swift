@@ -11,7 +11,11 @@ import CombineGRPC
 import ComposableArchitecture
 import GRPC
 
-public struct LaguSionClient {
+public protocol LaguSionClientProtocol {
+    var listSongs: (Lagusion_ListSongRequest) -> Effect<Lagusion_ListSongResponse, GRPCStatus> { get }
+}
+
+public struct LaguSionClient: LaguSionClientProtocol {
     public var listSongs: (Lagusion_ListSongRequest) -> Effect<Lagusion_ListSongResponse, GRPCStatus>
     
     public init(listSongs: @escaping (Lagusion_ListSongRequest) -> Effect<Lagusion_ListSongResponse, GRPCStatus>) {

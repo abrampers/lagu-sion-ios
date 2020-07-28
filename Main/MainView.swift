@@ -130,9 +130,9 @@ public enum MainAction: Equatable {
 
 public struct MainEnvironment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
-    var laguSionClient: LaguSionClient
+    var laguSionClient: LaguSionClientProtocol
     
-    public init(mainQueue: AnySchedulerOf<DispatchQueue>, laguSionClient: LaguSionClient) {
+    public init(mainQueue: AnySchedulerOf<DispatchQueue>, laguSionClient: LaguSionClientProtocol) {
         self.mainQueue = mainQueue
         self.laguSionClient = laguSionClient
     }
@@ -319,7 +319,7 @@ struct MainView_Previews: PreviewProvider {
                 reducer: mainReducer,
                 environment: MainEnvironment(
                     mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
-                    laguSionClient: .mock
+                    laguSionClient: LaguSionClient.mock
                 )
             )
         )

@@ -34,7 +34,7 @@ enum AppAction {
 
 struct AppEnvironment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
-    var laguSionClient: LaguSionClient
+    var laguSionClient: LaguSionClientProtocol
 }
 
 extension AppState {
@@ -79,7 +79,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         environment: { env in
             MainEnvironment(
                 mainQueue: env.mainQueue,
-                laguSionClient: .liveLaguSionClient
+                laguSionClient: env.laguSionClient
             )
         }
     ),
@@ -147,7 +147,7 @@ struct RootView_Previews: PreviewProvider {
                 reducer: appReducer,
                 environment: AppEnvironment(
                     mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
-                    laguSionClient: .mock
+                    laguSionClient: LaguSionClient.mock
                 )
             )
         )

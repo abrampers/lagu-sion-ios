@@ -7,7 +7,7 @@
 //
 
 import ComposableArchitecture
-
+import Networking
 
 import SwiftUI
 
@@ -102,7 +102,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             reducer: appReducer,
             environment: AppEnvironment(
                     mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
-                    laguSionClient: .liveLaguSionClient
+                    laguSionClient: LaguSionClient.liveLaguSionClient
                 )
             )
         )
