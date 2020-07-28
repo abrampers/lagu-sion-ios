@@ -18,7 +18,6 @@
 		21305C46247A866900F2D76A /* TestCombineGRPCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */; };
 		21305C47247A868400F2D76A /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E0247235DF005941E9 /* Publisher+Extension.swift */; };
 		21305C7D247A885600F2D76A /* Main.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; };
-		21305C84247A885600F2D76A /* ActionSheetAndAlertTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305C83247A885600F2D76A /* ActionSheetAndAlertTest.swift */; };
 		21305C86247A885600F2D76A /* Main.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305C76247A885500F2D76A /* Main.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21305C89247A885600F2D76A /* Main.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; };
 		21305C8A247A885600F2D76A /* Main.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -47,6 +46,10 @@
 		216AF38D2472358E00B7C55B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 216AF38C2472358E00B7C55B /* Preview Assets.xcassets */; };
 		216AF3902472358E00B7C55B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 216AF38E2472358E00B7C55B /* LaunchScreen.storyboard */; };
 		216AF39B2472358E00B7C55B /* LaguSionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF39A2472358E00B7C55B /* LaguSionTests.swift */; };
+		21A4A09624CFCB0B002C574D /* SearchFieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4A09524CFCB0B002C574D /* SearchFieldTest.swift */; };
+		21A4A09824CFCBED002C574D /* GetSongsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4A09724CFCBED002C574D /* GetSongsTest.swift */; };
+		21A4A09A24CFCC1D002C574D /* SongBookSelectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4A09924CFCC1D002C574D /* SongBookSelectionTest.swift */; };
+		21A4A09E24CFCC5C002C574D /* SortOptionSelectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4A09D24CFCC5C002C574D /* SortOptionSelectionTest.swift */; };
 		21B130F3247235E0005941E9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E9247235DF005941E9 /* RootView.swift */; };
 		21BBA97324C8189700CE3F2E /* lagu_sion.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA96F24C8189700CE3F2E /* lagu_sion.grpc.swift */; };
 		21BBA97424C8189700CE3F2E /* lagu_sion.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA97024C8189700CE3F2E /* lagu_sion.pb.swift */; };
@@ -232,7 +235,6 @@
 		21305C76247A885500F2D76A /* Main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Main.h; sourceTree = "<group>"; };
 		21305C77247A885500F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21305C7C247A885600F2D76A /* MainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		21305C83247A885600F2D76A /* ActionSheetAndAlertTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetAndAlertTest.swift; sourceTree = "<group>"; };
 		21305C85247A885600F2D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21305C97247A895C00F2D76A /* Favorites.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Favorites.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21305C99247A895C00F2D76A /* Favorites.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Favorites.h; sourceTree = "<group>"; };
@@ -252,6 +254,10 @@
 		216AF3962472358E00B7C55B /* LaguSionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaguSionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		216AF39A2472358E00B7C55B /* LaguSionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionTests.swift; sourceTree = "<group>"; };
 		216AF39C2472358E00B7C55B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21A4A09524CFCB0B002C574D /* SearchFieldTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFieldTest.swift; sourceTree = "<group>"; };
+		21A4A09724CFCBED002C574D /* GetSongsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSongsTest.swift; sourceTree = "<group>"; };
+		21A4A09924CFCC1D002C574D /* SongBookSelectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBookSelectionTest.swift; sourceTree = "<group>"; };
+		21A4A09D24CFCC5C002C574D /* SortOptionSelectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOptionSelectionTest.swift; sourceTree = "<group>"; };
 		21B130E0247235DF005941E9 /* Publisher+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
 		21B130E9247235DF005941E9 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		21B130EB247235DF005941E9 /* TestCombineGRPCView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCombineGRPCView.swift; sourceTree = "<group>"; };
@@ -421,8 +427,11 @@
 		21305C82247A885600F2D76A /* MainTests */ = {
 			isa = PBXGroup;
 			children = (
-				21305C83247A885600F2D76A /* ActionSheetAndAlertTest.swift */,
 				21305C85247A885600F2D76A /* Info.plist */,
+				21A4A09524CFCB0B002C574D /* SearchFieldTest.swift */,
+				21A4A09724CFCBED002C574D /* GetSongsTest.swift */,
+				21A4A09924CFCC1D002C574D /* SongBookSelectionTest.swift */,
+				21A4A09D24CFCC5C002C574D /* SortOptionSelectionTest.swift */,
 			);
 			path = MainTests;
 			sourceTree = "<group>";
@@ -982,7 +991,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21305C84247A885600F2D76A /* ActionSheetAndAlertTest.swift in Sources */,
+				21A4A09824CFCBED002C574D /* GetSongsTest.swift in Sources */,
+				21A4A09A24CFCC1D002C574D /* SongBookSelectionTest.swift in Sources */,
+				21A4A09624CFCB0B002C574D /* SearchFieldTest.swift in Sources */,
+				21A4A09E24CFCC5C002C574D /* SortOptionSelectionTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

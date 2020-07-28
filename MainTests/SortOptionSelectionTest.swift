@@ -1,8 +1,8 @@
 //
-//  ActionSheetAndAlertTest.swift
-//  ActionSheetAndAlertTest
+//  SortOptionSelectionTest.swift
+//  MainTests
 //
-//  Created by Abram Situmorang on 24/05/20.
+//  Created by Abram Situmorang on 28/07/20.
 //  Copyright © 2020 Abram Situmorang. All rights reserved.
 //
 
@@ -14,33 +14,8 @@ import XCTest
 
 @testable import Main
 
-class ActionSheetAndAlertTest: XCTestCase {
+class SortOptionSelectionTest: XCTestCase {
     let scheduler = DispatchQueue.testScheduler
-    
-    func testAlert() {
-        let store = TestStore(
-            initialState: MainState(),
-            reducer: mainReducer,
-            environment: MainEnvironment(
-                mainQueue: self.scheduler.eraseToAnyScheduler(),
-                laguSionClient: .mock
-            )
-        )
-        
-        let status = GRPCStatus(code: .cancelled, message: nil)
-        store.assert(
-            .send(.grpcError(status)) {
-                $0.alert = AlertState(
-                    title: "GRPC Error Code: \(status.code)",
-                    message: "description: \(status.code) (\(status.code.rawValue))",
-                    dismissButton: .default("OK", send: .alertDismissed)
-                )
-            },
-            .send(.alertDismissed) {
-                $0.alert = nil
-            }
-        )
-    }
     
     func testActionSheetDismissed() {
         let store = TestStore(
@@ -57,8 +32,8 @@ class ActionSheetAndAlertTest: XCTestCase {
                 $0.actionSheet = ActionSheetState(
                     title: "Change sorting option",
                     buttons: [
-                        .default("Number", send: .sortOptionChanged(.number)),
-                        .default("Title", send: .sortOptionChanged(.alphabet)),
+                        .default("Song Number", send: .sortOptionChanged(.number)),
+                        .default("Song Title", send: .sortOptionChanged(.alphabet)),
                         .cancel(send: .actionSheetDismissed)
                     ]
                 )
@@ -84,8 +59,8 @@ class ActionSheetAndAlertTest: XCTestCase {
                 $0.actionSheet = ActionSheetState(
                     title: "Change sorting option",
                     buttons: [
-                        .default("Number", send: .sortOptionChanged(.number)),
-                        .default("Title", send: .sortOptionChanged(.alphabet)),
+                        .default("Song Number", send: .sortOptionChanged(.number)),
+                        .default("Song Title", send: .sortOptionChanged(.alphabet)),
                         .cancel(send: .actionSheetDismissed)
                     ]
                 )
@@ -96,7 +71,7 @@ class ActionSheetAndAlertTest: XCTestCase {
             },
             .receive(.getSongs),
             .do { self.scheduler.advance(by: 0.21) },
-            .receive(.listAllRequestCompleted([])) {
+            .receive(.getSongsCompleted([])) {
                 $0.songs = []
             }
         )
@@ -117,8 +92,8 @@ class ActionSheetAndAlertTest: XCTestCase {
                 $0.actionSheet = ActionSheetState(
                     title: "Change sorting option",
                     buttons: [
-                        .default("Number", send: .sortOptionChanged(.number)),
-                        .default("Title", send: .sortOptionChanged(.alphabet)),
+                        .default("Song Number", send: .sortOptionChanged(.number)),
+                        .default("Song Title", send: .sortOptionChanged(.alphabet)),
                         .cancel(send: .actionSheetDismissed)
                     ]
                 )
@@ -129,7 +104,7 @@ class ActionSheetAndAlertTest: XCTestCase {
             },
             .receive(.getSongs),
             .do { self.scheduler.advance(by: 0.21) },
-            .receive(.listAllRequestCompleted([])) {
+            .receive(.getSongsCompleted([])) {
                 $0.songs = []
             }
         )

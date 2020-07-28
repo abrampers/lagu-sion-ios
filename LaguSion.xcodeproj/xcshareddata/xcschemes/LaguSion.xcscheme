@@ -26,7 +26,46 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "21305C96247A895C00F2D76A"
+            BuildableName = "Favorites.framework"
+            BlueprintName = "Favorites"
+            ReferencedContainer = "container:LaguSion.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "216AF37C2472358C00B7C55B"
+            BuildableName = "LaguSion.app"
+            BlueprintName = "LaguSion"
+            ReferencedContainer = "container:LaguSion.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "21305C73247A885500F2D76A"
+            BuildableName = "Main.framework"
+            BlueprintName = "Main"
+            ReferencedContainer = "container:LaguSion.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "21305C26247A863F00F2D76A"
+            BuildableName = "Networking.framework"
+            BlueprintName = "Networking"
+            ReferencedContainer = "container:LaguSion.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "21305BFC247A803200F2D76A"
+            BuildableName = "Song.framework"
+            BlueprintName = "Song"
+            ReferencedContainer = "container:LaguSion.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">

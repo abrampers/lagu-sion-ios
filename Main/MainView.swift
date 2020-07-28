@@ -54,6 +54,15 @@ public enum SortOptions: Hashable, CaseIterable, Equatable {
         }
     }
     
+    public var string: String {
+        switch self {
+        case .number:
+            return "Song Number"
+        case .alphabet:
+            return "Song Title"
+        }
+    }
+    
     public var proto: Lagusion_SortOptions {
         switch self {
         case .number:
@@ -109,8 +118,8 @@ public enum MainAction: Equatable {
     case alertDismissed
     case appear
     case getSongs
+    case getSongsCompleted([Song])
     case grpcError(GRPCStatus)
-    case listAllRequestCompleted([Song])
     case saveSearchQuery(String)
     case searchQueryChanged(String)
     case song(index: Int, action: SongAction)
@@ -160,7 +169,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
                     return response.songs.map { Song(pbSong: $0) }
                 }
                 .map { (song) -> MainAction in
-                    return MainAction.listAllRequestCompleted(song)
+                    return MainAction.getSongsCompleted(song)
                 }
                 .catch { (grpcStatus) -> Effect<MainAction, Never> in
                     return Effect(value: MainAction.grpcError(grpcStatus))
@@ -171,16 +180,16 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
                 .receive(on: environment.mainQueue)
                 .eraseToEffect()
             
+        case .getSongsCompleted(let songs):
+            state.songs = songs
+            return .none
+            
         case .grpcError(let grpcStatus):
             state.alert = AlertState(
                 title: "GRPC Error Code: \(grpcStatus.code)",
                 message: "description: \(grpcStatus.description)",
                 dismissButton: .default("OK", send: .alertDismissed)
             )
-            return .none
-            
-        case .listAllRequestCompleted(let songs):
-            state.songs = songs
             return .none
             
         case .saveSearchQuery(let query):
@@ -215,13 +224,13 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             return Effect(value: MainAction.getSongs)
             
         case .sortOptionTapped:
+            var buttons = SortOptions.allCases.map { (sortOption) -> ActionSheetState<MainAction>.Button in
+                .default(sortOption.string, send: .sortOptionChanged(sortOption))
+            }
+            buttons.append(.cancel(send: .actionSheetDismissed))
             state.actionSheet = ActionSheetState(
                 title: "Change sorting option",
-                buttons: [
-                    .default("Number", send: .sortOptionChanged(.number)),
-                    .default("Title", send: .sortOptionChanged(.alphabet)),
-                    .cancel(send: .actionSheetDismissed)
-                ]
+                buttons: buttons
             )
             return .none
         }
