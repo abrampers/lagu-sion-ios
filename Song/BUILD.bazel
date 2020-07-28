@@ -52,6 +52,7 @@ ios_framework(
     minimum_os_version = "13.0",
     infoplists = [":SongInfoPlist"],
     frameworks = [
+        "//Networking",
         "//LaguSionKit",
     ],
     deps = [
