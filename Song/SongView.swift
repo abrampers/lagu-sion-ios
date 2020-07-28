@@ -25,7 +25,7 @@ public enum SongBook: CaseIterable, Hashable {
         case .laguSion:
             return "Lagu Sion"
         case .laguSionEdisiLengkap:
-            return "LSEL"
+            return "Lagu Sion Edisi Lengkap"
         }
     }
     

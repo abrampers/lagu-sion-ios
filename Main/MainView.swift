@@ -17,13 +17,17 @@ import Song
 import SwiftUI
 
 public enum BookSelection: Hashable, Equatable {
-    public var bookIdentifier: LocalizedStringKey {
+    public var identifier: String {
         switch self {
         case .all:
             return "All"
         case .songBook(let book):
-            return book.localizedPrefix
+            return book.prefix
         }
+    }
+    
+    public var localizedIdentifier: LocalizedStringKey {
+        LocalizedStringKey(self.identifier)
     }
     
     public var proto: Lagusion_SongBook {
@@ -245,7 +249,7 @@ internal struct HeaderView: View {
                         "Selected Book", selection: selectedBookViewStore.binding(send: { $0 })
                     ) {
                         ForEach(BookSelection.allCases, id: \.self) { bookSelection in
-                            Text(bookSelection.bookIdentifier).tag(bookSelection)
+                            Text(bookSelection.localizedIdentifier).tag(bookSelection)
                         }
                     }
                     .pickerStyle(SegmentedPickerStyle())
@@ -269,13 +273,12 @@ public struct MainView: View {
         WithViewStore(self.store) { viewStore in
             NavigationView {
                 List {
-//                    Section(header: HeaderView(store: self.store)) {
                     Section {
                         HeaderView(store: self.store)
                     }
                     if viewStore.selectedBook == .all {
                         ForEach(SongBook.allCases, id: \.self) { bookSelection in
-                            Section(header: Text(bookSelection.localizedPrefix)) {
+                            Section(header: Text(bookSelection.name.localized)) {
                                 ForEachStore(
                                     self.store.scope(state: { $0.songs.filter { $0.songBook == bookSelection } }, action: MainAction.song(index:action:))
                                 ) { songViewStore in
@@ -286,7 +289,7 @@ public struct MainView: View {
                             }
                         }
                     } else {
-                        Section {
+                        Section(header: Text(viewStore.selectedBook.localizedIdentifier)) {
                             ForEachStore(
                                 self.store.scope(state: {
                                     $0.songs.filter {
@@ -304,16 +307,6 @@ public struct MainView: View {
                             }
                         }
                     }
-//                    Section {
-//                        ForEachStore(
-//                            self.store.scope(state: \.songs, action: MainAction.song(index:action:))
-//                        ) { songViewStore in
-//                            NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
-//                                SongRowView(store: songViewStore)
-//                            }
-//                        }
-//                    }
-//                    .listRowBackground(Color(.systemBackground))
                 }
                 .listStyle(GroupedListStyle())
                 .environment(\.horizontalSizeClass, .regular)
