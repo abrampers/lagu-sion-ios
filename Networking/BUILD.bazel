@@ -10,8 +10,7 @@ swift_library(
         "**/*.swift",
     ]),
     deps = [
-        "@com_github_abrampers_grpc_swift_combine//:CombineGRPC",
-        "@com_github_pointfreeco_swift_composable_architecture//:ComposableArchitecture",
+        "//LaguSionKit:LaguSionKitSources",
     ],
     visibility = ["//visibility:public"],
 )
@@ -51,6 +50,9 @@ ios_framework(
     ],
     minimum_os_version = "13.0",
     infoplists = [":NetworkingInfoPlist"],
+    frameworks = [
+        "//LaguSionKit",
+    ],
     deps = [
         ":NetworkingSources",
     ],

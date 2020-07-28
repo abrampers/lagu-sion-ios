@@ -4,20 +4,20 @@ load("//build-system/bazel-utils:plist_fragment.bzl", "plist_fragment")
 load("//build-input/data:variables.bzl", "lagu_sion_bundle_version")
 
 swift_library(
-    name = "MainSources",
-    module_name = "Main",
+    name = "LaguSionKitSources",
+    module_name = "LaguSionKit",
     srcs = glob([
         "**/*.swift",
     ]),
     deps = [
-        "//Song:SongSources",
-        "//LaguSionKit:LaguSionKitSources",
+        "@com_github_abrampers_grpc_swift_combine//:CombineGRPC",
+        "@com_github_pointfreeco_swift_composable_architecture//:ComposableArchitecture",
     ],
     visibility = ["//visibility:public"],
 )
 
 plist_fragment(
-    name = "MainInfoPlist",
+    name = "LaguSionKitPlist",
     extension = "plist",
     template = 
     """
@@ -38,25 +38,21 @@ plist_fragment(
     <key>CFBundleVersion</key>
     <string>{lagu_sion_bundle_version}</string>
     """.format(
-        lagu_sion_bundle_version = lagu_sion_bundle_version,
+        lagu_sion_bundle_version = lagu_sion_bundle_version
     ),
 )
 
 ios_framework(
-    name = "Main",
-    bundle_id = "id.abram.ios.LaguSion.Main",
+    name = "LaguSionKit",
+    bundle_id = "id.abram.ios.LaguSion.LaguSionKit",
     families = [
         "iphone",
         "ipad",
     ],
     minimum_os_version = "13.0",
-    infoplists = [":MainInfoPlist"],
-    frameworks = [
-        "//Song",
-        "//LaguSionKit",
-    ],
+    infoplists = [":LaguSionKitPlist"],
     deps = [
-        ":MainSources",
+        ":LaguSionKitSources",
     ],
     visibility = ["//visibility:public"],
 )

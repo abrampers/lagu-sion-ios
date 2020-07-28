@@ -11,13 +11,30 @@ import Networking
 import SwiftUI
 
 public enum SongBook: CaseIterable, Hashable {
-    public var songPrefix: String {
+    public var prefix: String {
         switch self {
         case .laguSion:
             return "LS"
         case .laguSionEdisiLengkap:
             return "LSEL"
         }
+    }
+    
+    public var name: String {
+        switch self {
+        case .laguSion:
+            return "Lagu Sion"
+        case .laguSionEdisiLengkap:
+            return "LSEL"
+        }
+    }
+    
+    public var localizedPrefix: LocalizedStringKey {
+        LocalizedStringKey(self.prefix)
+    }
+    
+    public var localizedName: LocalizedStringKey {
+        LocalizedStringKey(self.name)
     }
     
     public var proto: Lagusion_SongBook {
@@ -26,15 +43,6 @@ public enum SongBook: CaseIterable, Hashable {
             return .laguSion
         case .laguSionEdisiLengkap:
             return .laguSionEdisiLengkap
-        }
-    }
-    
-    public var localizedSongPrefix: LocalizedStringKey {
-        switch self {
-        case .laguSion:
-            return "LS"
-        case .laguSionEdisiLengkap:
-            return "LSEL"
         }
     }
     
@@ -65,7 +73,7 @@ public struct Song: Equatable, Identifiable {
     var title: String
     var verses: [Verse]
     var reff: Verse?
-    var songBook: SongBook
+    public var songBook: SongBook
     
     public init(id: UInt32, number: Int, title: String, verses: [Verse], reff: Verse? = nil, songBook: SongBook) {
         self.id = id
@@ -181,7 +189,7 @@ public struct SongView: View {
                     Spacer()
                 }
             }
-            .navigationBarTitle("\(viewStore.songBook.songPrefix) no. \(viewStore.number)")
+            .navigationBarTitle("\(viewStore.songBook.prefix) no. \(viewStore.number)")
             .navigationBarItems(
                 trailing: Button(action: { viewStore.send(.heartTapped) }) {
                     Image(systemName: viewStore.isFavorite ? "heart.fill" : "heart")

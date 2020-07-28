@@ -9,16 +9,21 @@
 import SwiftUI
 import UIKit
 
-struct SearchField: UIViewRepresentable {
+public struct SearchField: UIViewRepresentable {
     
     @Binding var text: String
     var placeholder: String = "Search"
     
-    func makeCoordinator() -> SearchField.Coordinator {
+    public init(text: Binding<String>, placeholder: String = "Search") {
+        self._text = text
+        self.placeholder = placeholder
+    }
+    
+    public func makeCoordinator() -> SearchField.Coordinator {
         return Coordinator(text: $text)
     }
     
-    func makeUIView(context: UIViewRepresentableContext<SearchField>) -> UISearchBar {
+    public func makeUIView(context: UIViewRepresentableContext<SearchField>) -> UISearchBar {
         let searchBar = UISearchBar()
         searchBar.delegate = context.coordinator
         searchBar.backgroundImage = UIImage()
@@ -27,13 +32,13 @@ struct SearchField: UIViewRepresentable {
         return searchBar
     }
     
-    func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchField>) {
+    public func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchField>) {
     }
 }
 
 extension SearchField {
     
-    class Coordinator: NSObject, UISearchBarDelegate {
+    public class Coordinator: NSObject, UISearchBarDelegate {
 
         @Binding var text: String
 
@@ -41,25 +46,25 @@ extension SearchField {
             _text = text
         }
         
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             text = searchText
         }
         
-        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
             searchBar.setShowsCancelButton(true, animated: true)
         }
         
-        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
             guard let searchBarText = searchBar.text else { return }
             text = searchBarText
             searchBar.resignFirstResponder()
         }
         
-        func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
             searchBar.setShowsCancelButton(false, animated: true)
         }
         
-        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
             searchBar.resignFirstResponder()
         }
     }

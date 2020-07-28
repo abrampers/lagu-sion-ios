@@ -8,8 +8,10 @@
 import SwiftUI
 
 // See https://stackoverflow.com/questions/56491386/how-to-hide-keyboard-when-using-swiftui
-struct DismissingKeyboardOnSwipe: ViewModifier {
-    func body(content: Content) -> some View {
+public struct DismissingKeyboardOnSwipe: ViewModifier {
+    public init() {}
+    
+    public func body(content: Content) -> some View {
         #if os(macOS)
         return content
         #else

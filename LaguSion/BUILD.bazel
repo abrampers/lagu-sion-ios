@@ -28,6 +28,7 @@ swift_library(
         "//Main:MainSources",
         "//Favorites:FavoritesSources",
         "//Networking:NetworkingSources",
+        "//LaguSionKit:LaguSionKitSources",
     ],
     visibility = ["//visibility:public"],
 )
@@ -142,6 +143,7 @@ ios_application(
     frameworks = [
         "//Main",
         "//Favorites",
+        "//LaguSionKit",
     ],
     deps = [
         ":LaguSionSources",

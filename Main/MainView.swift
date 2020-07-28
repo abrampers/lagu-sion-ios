@@ -10,6 +10,7 @@ import ComposableArchitecture
 import Combine
 import CombineGRPC
 import GRPC
+import LaguSionKit
 import Networking
 import Song
 
@@ -21,7 +22,7 @@ public enum BookSelection: Hashable, Equatable {
         case .all:
             return "All"
         case .songBook(let book):
-            return book.localizedSongPrefix
+            return book.localizedPrefix
         }
     }
     
@@ -46,12 +47,7 @@ extension BookSelection: CaseIterable {
 
 public enum SortOptions: Hashable, CaseIterable, Equatable {
     public var localizedString: LocalizedStringKey {
-        switch self {
-        case .number:
-            return "Song Number"
-        case .alphabet:
-            return "Song Title"
-        }
+        LocalizedStringKey(self.string)
     }
     
     public var string: String {
@@ -273,21 +269,57 @@ public struct MainView: View {
         WithViewStore(self.store) { viewStore in
             NavigationView {
                 List {
-                    Section(header: HeaderView(store: self.store)) {
-                        ForEachStore(
-                            self.store.scope(state: \.songs, action: MainAction.song(index:action:))
-                        ) { songViewStore in
-                            NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
-                                SongRowView(store: songViewStore)
+//                    Section(header: HeaderView(store: self.store)) {
+                    Section {
+                        HeaderView(store: self.store)
+                    }
+                    if viewStore.selectedBook == .all {
+                        ForEach(SongBook.allCases, id: \.self) { bookSelection in
+                            Section(header: Text(bookSelection.localizedPrefix)) {
+                                ForEachStore(
+                                    self.store.scope(state: { $0.songs.filter { $0.songBook == bookSelection } }, action: MainAction.song(index:action:))
+                                ) { songViewStore in
+                                    NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
+                                        SongRowView(store: songViewStore)
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        Section {
+                            ForEachStore(
+                                self.store.scope(state: {
+                                    $0.songs.filter {
+                                        if case BookSelection.songBook(let songBook) = viewStore.selectedBook {
+                                            return $0.songBook == songBook
+                                        } else {
+                                            return false
+                                        }
+                                    }
+                                }, action: MainAction.song(index:action:))
+                            ) { songViewStore in
+                                NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
+                                    SongRowView(store: songViewStore)
+                                }
                             }
                         }
                     }
-                    .listRowBackground(Color(.systemBackground))
+//                    Section {
+//                        ForEachStore(
+//                            self.store.scope(state: \.songs, action: MainAction.song(index:action:))
+//                        ) { songViewStore in
+//                            NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
+//                                SongRowView(store: songViewStore)
+//                            }
+//                        }
+//                    }
+//                    .listRowBackground(Color(.systemBackground))
                 }
                 .listStyle(GroupedListStyle())
+                .environment(\.horizontalSizeClass, .regular)
                 .modifier(DismissingKeyboardOnSwipe())
                 .navigationBarTitle("Lagu Sion")
-                .animation(.default)
+                .animation(.spring())
                 .navigationBarItems(trailing:
                     Button(action: { viewStore.send(MainAction.sortOptionTapped) }) { viewStore.selectedSortOption.image }
                         .actionSheet(self.store.scope(state: \.actionSheet), dismiss: .actionSheetDismissed)

@@ -81,6 +81,8 @@ public struct FavoritesView: View {
                         viewStore.send(.deleteFavoriteSongs(indexSet))
                     }
                 }
+                .listStyle(GroupedListStyle())
+                .environment(\.horizontalSizeClass, .regular)
                 .navigationBarTitle("Favorites")
             }
         }
