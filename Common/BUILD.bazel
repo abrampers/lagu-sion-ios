@@ -4,8 +4,8 @@ load("//build-system/bazel-utils:plist_fragment.bzl", "plist_fragment")
 load("//build-input/data:variables.bzl", "lagu_sion_bundle_version")
 
 swift_library(
-    name = "LaguSionKitSources",
-    module_name = "LaguSionKit",
+    name = "CommonSources",
+    module_name = "Common",
     srcs = glob([
         "**/*.swift",
     ]),
@@ -17,7 +17,7 @@ swift_library(
 )
 
 plist_fragment(
-    name = "LaguSionKitPlist",
+    name = "CommonPlist",
     extension = "plist",
     template = 
     """
@@ -43,16 +43,16 @@ plist_fragment(
 )
 
 ios_framework(
-    name = "LaguSionKit",
-    bundle_id = "id.abram.ios.LaguSion.LaguSionKit",
+    name = "Common",
+    bundle_id = "id.abram.ios.LaguSion.Common",
     families = [
         "iphone",
         "ipad",
     ],
     minimum_os_version = "13.0",
-    infoplists = [":LaguSionKitPlist"],
+    infoplists = [":CommonPlist"],
     deps = [
-        ":LaguSionKitSources",
+        ":CommonSources",
     ],
     visibility = ["//visibility:public"],
 )

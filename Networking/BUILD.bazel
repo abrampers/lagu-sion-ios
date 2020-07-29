@@ -10,7 +10,7 @@ swift_library(
         "**/*.swift",
     ]),
     deps = [
-        "//LaguSionKit:LaguSionKitSources",
+        "//Common:CommonSources",
     ],
     visibility = ["//visibility:public"],
 )
@@ -51,7 +51,7 @@ ios_framework(
     minimum_os_version = "13.0",
     infoplists = [":NetworkingInfoPlist"],
     frameworks = [
-        "//LaguSionKit",
+        "//Common",
     ],
     deps = [
         ":NetworkingSources",

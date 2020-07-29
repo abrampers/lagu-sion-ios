@@ -11,7 +11,7 @@ swift_library(
     ]),
     deps = [
         "//Networking:NetworkingSources",
-        "//LaguSionKit:LaguSionKitSources",
+        "//Common:CommonSources",
     ],
     visibility = ["//visibility:public"],
 )
@@ -53,7 +53,6 @@ ios_framework(
     infoplists = [":SongInfoPlist"],
     frameworks = [
         "//Networking",
-        "//LaguSionKit",
     ],
     deps = [
         ":SongSources",
