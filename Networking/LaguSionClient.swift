@@ -23,7 +23,7 @@ public struct LaguSionClient: LaguSionClientProtocol {
     }
     
     public static var mock: LaguSionClient {
-        LaguSionClient(
+        return LaguSionClient(
             listSongs: { (_) -> Effect<Lagusion_ListSongResponse, GRPCStatus> in
                 return Effect(Just(Lagusion_ListSongResponse()).setFailureType(to: GRPCStatus.self))
             }

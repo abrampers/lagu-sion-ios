@@ -88,26 +88,6 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "21305C2E247A863F00F2D76A"
-               BuildableName = "NetworkingTests.xctest"
-               BlueprintName = "NetworkingTests"
-               ReferencedContainer = "container:LaguSion.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "21305C57247A87CB00F2D76A"
-               BuildableName = "LaguSionMainTests.xctest"
-               BlueprintName = "LaguSionMainTests"
-               ReferencedContainer = "container:LaguSion.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
@@ -124,16 +104,6 @@
                BlueprintIdentifier = "21305C9E247A895C00F2D76A"
                BuildableName = "FavoritesTests.xctest"
                BlueprintName = "FavoritesTests"
-               ReferencedContainer = "container:LaguSion.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "212864E824AEBE7900E79296"
-               BuildableName = "LaguSionUITests.xctest"
-               BlueprintName = "LaguSionUITests"
                ReferencedContainer = "container:LaguSion.xcodeproj">
             </BuildableReference>
          </TestableReference>
