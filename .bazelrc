@@ -4,6 +4,6 @@ build --apple_platform_type=ios
 build:device_debug --ios_multi_cpus=armv7,arm64
 build:device_debug --compilation_mode=dbg
 build:device_adhoc --ios_multi_cpus=armv7,arm64
-build:device_adhoc --compilation_mode=fastbuild
+build:device_adhoc --compilation_mode=opt
 
 test --verbose_failures
