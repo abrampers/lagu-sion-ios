@@ -113,6 +113,24 @@ public struct MainState: Equatable {
     }
 }
 
+extension MainState {
+    var currentSongs: [Song] {
+        return songs.filter { song in
+            if case BookSelection.songBook(let songBook) = self.selectedBook {
+                return song.songBook == songBook
+            } else {
+                return false
+            }
+        }
+    }
+    
+    func songs(for songBook: SongBook) -> [Song] {
+        return songs.filter { song in
+            song.songBook == songBook
+        }
+    }
+}
+
 public enum MainAction: Equatable {
     case actionSheetDismissed
     case alertDismissed
@@ -281,7 +299,7 @@ public struct MainView: View {
                             ForEach(SongBook.allCases, id: \.self) { bookSelection in
                                 Section(header: Text(bookSelection.name.localized)) {
                                     ForEachStore(
-                                        self.store.scope(state: { $0.songs.filter { $0.songBook == bookSelection } }, action: MainAction.song(index:action:))
+                                        self.store.scope(state: { $0.songs(for: bookSelection) }, action: MainAction.song(index:action:))
                                     ) { songViewStore in
                                         NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
                                             SongRowView(store: songViewStore)
@@ -292,15 +310,7 @@ public struct MainView: View {
                         } else {
                             Section(header: Text(viewStore.selectedBook.localizedIdentifier)) {
                                 ForEachStore(
-                                    self.store.scope(state: {
-                                        $0.songs.filter {
-                                            if case BookSelection.songBook(let songBook) = viewStore.selectedBook {
-                                                return $0.songBook == songBook
-                                            } else {
-                                                return false
-                                            }
-                                        }
-                                    }, action: MainAction.song(index:action:))
+                                    self.store.scope(state: \.currentSongs, action: MainAction.song(index:action:))
                                 ) { songViewStore in
                                     NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
                                         SongRowView(store: songViewStore)
@@ -310,13 +320,13 @@ public struct MainView: View {
                         }
                     }
                     .listStyle(GroupedListStyle())
-                        .modifier(DismissingKeyboardOnSwipe())
-                        .navigationBarTitle("Lagu Sion")
-                        .animation(.spring())
-                        .navigationBarItems(trailing:
-                            Button(action: { viewStore.send(MainAction.sortOptionTapped) }) { viewStore.selectedSortOption.image }
-                                .actionSheet(self.store.scope(state: \.actionSheet), dismiss: .actionSheetDismissed)
-                                .alert(self.store.scope(state: \.alert), dismiss: .alertDismissed)
+                    .modifier(DismissingKeyboardOnSwipe())
+                    .navigationBarTitle("Lagu Sion")
+                    .animation(.spring())
+                    .navigationBarItems(trailing:
+                        Button(action: { viewStore.send(MainAction.sortOptionTapped) }) { viewStore.selectedSortOption.image }
+                            .actionSheet(self.store.scope(state: \.actionSheet), dismiss: .actionSheetDismissed)
+                            .alert(self.store.scope(state: \.alert), dismiss: .alertDismissed)
                     )
                 }
             }
