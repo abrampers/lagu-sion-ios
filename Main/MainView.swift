@@ -9,8 +9,8 @@
 import ComposableArchitecture
 import Combine
 import CombineGRPC
+import Common
 import GRPC
-import LaguSionKit
 import Networking
 import Song
 
@@ -253,6 +253,7 @@ internal struct HeaderView: View {
                         }
                     }
                     .pickerStyle(SegmentedPickerStyle())
+                    .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
                 }
                 SearchField(text: viewStore.binding(
                     get: { $0.searchQuery }, send: MainAction.searchQueryChanged
@@ -272,15 +273,34 @@ public struct MainView: View {
     public var body: some View {
         WithViewStore(self.store) { viewStore in
             NavigationView {
-                List {
-                    Section {
-                        HeaderView(store: self.store)
-                    }
-                    if viewStore.selectedBook == .all {
-                        ForEach(SongBook.allCases, id: \.self) { bookSelection in
-                            Section(header: Text(bookSelection.name.localized)) {
+                VStack {
+                    HeaderView(store: self.store)
+                        .padding(EdgeInsets(top: 4, leading: 8, bottom: 0, trailing: 8))
+                    List {
+                        if viewStore.selectedBook == .all {
+                            ForEach(SongBook.allCases, id: \.self) { bookSelection in
+                                Section(header: Text(bookSelection.name.localized)) {
+                                    ForEachStore(
+                                        self.store.scope(state: { $0.songs.filter { $0.songBook == bookSelection } }, action: MainAction.song(index:action:))
+                                    ) { songViewStore in
+                                        NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
+                                            SongRowView(store: songViewStore)
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            Section(header: Text(viewStore.selectedBook.localizedIdentifier)) {
                                 ForEachStore(
-                                    self.store.scope(state: { $0.songs.filter { $0.songBook == bookSelection } }, action: MainAction.song(index:action:))
+                                    self.store.scope(state: {
+                                        $0.songs.filter {
+                                            if case BookSelection.songBook(let songBook) = viewStore.selectedBook {
+                                                return $0.songBook == songBook
+                                            } else {
+                                                return false
+                                            }
+                                        }
+                                    }, action: MainAction.song(index:action:))
                                 ) { songViewStore in
                                     NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
                                         SongRowView(store: songViewStore)
@@ -288,36 +308,17 @@ public struct MainView: View {
                                 }
                             }
                         }
-                    } else {
-                        Section(header: Text(viewStore.selectedBook.localizedIdentifier)) {
-                            ForEachStore(
-                                self.store.scope(state: {
-                                    $0.songs.filter {
-                                        if case BookSelection.songBook(let songBook) = viewStore.selectedBook {
-                                            return $0.songBook == songBook
-                                        } else {
-                                            return false
-                                        }
-                                    }
-                                }, action: MainAction.song(index:action:))
-                            ) { songViewStore in
-                                NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
-                                    SongRowView(store: songViewStore)
-                                }
-                            }
-                        }
                     }
+                    .listStyle(GroupedListStyle())
+                        .modifier(DismissingKeyboardOnSwipe())
+                        .navigationBarTitle("Lagu Sion")
+                        .animation(.spring())
+                        .navigationBarItems(trailing:
+                            Button(action: { viewStore.send(MainAction.sortOptionTapped) }) { viewStore.selectedSortOption.image }
+                                .actionSheet(self.store.scope(state: \.actionSheet), dismiss: .actionSheetDismissed)
+                                .alert(self.store.scope(state: \.alert), dismiss: .alertDismissed)
+                    )
                 }
-                .listStyle(GroupedListStyle())
-                .environment(\.horizontalSizeClass, .regular)
-                .modifier(DismissingKeyboardOnSwipe())
-                .navigationBarTitle("Lagu Sion")
-                .animation(.spring())
-                .navigationBarItems(trailing:
-                    Button(action: { viewStore.send(MainAction.sortOptionTapped) }) { viewStore.selectedSortOption.image }
-                        .actionSheet(self.store.scope(state: \.actionSheet), dismiss: .actionSheetDismissed)
-                        .alert(self.store.scope(state: \.alert), dismiss: .alertDismissed)
-                )
             }
             .onAppear(perform: { viewStore.send(.appear) })
         }
@@ -330,15 +331,15 @@ struct MainView_Previews: PreviewProvider {
             store: Store(
                 initialState: MainState(
                     songs: [
-                    Song(id: 1, number: 1, title: "No 1", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: 2, number: 2, title: "No 2", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: 3, number: 3, title: "No 3", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: 4, number: 4, title: "No 4", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: 5, number: 5, title: "No 5", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: 6, number: 6, title: "No 6", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: 7, number: 7, title: "No 7", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: 8, number: 8, title: "No 8", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
-                    Song(id: 9, number: 9, title: "No 9 HAHAHAHAHAHAHAHAHHAAHHAHHAHAHAHAHAHAHAHAHAH", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion)
+                        Song(id: 1, number: 1, title: "No 1", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                        Song(id: 2, number: 2, title: "No 2", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                        Song(id: 3, number: 3, title: "No 3", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                        Song(id: 4, number: 4, title: "No 4", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                        Song(id: 5, number: 5, title: "No 5", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                        Song(id: 6, number: 6, title: "No 6", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                        Song(id: 7, number: 7, title: "No 7", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                        Song(id: 8, number: 8, title: "No 8", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion),
+                        Song(id: 9, number: 9, title: "No 9 HAHAHAHAHAHAHAHAHHAAHHAHHAHAHAHAHAHAHAHAHAH", verses: [Verse(contents: ["HAHA"])], songBook: .laguSion)
                     ], favoriteSongs: [], selectedBook: .all, searchQuery: "", selectedSortOptions: .number
                 ),
                 reducer: mainReducer,
