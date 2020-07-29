@@ -9,6 +9,8 @@ platform :ios do
 
     if ENV['CI']
       setup_ci
+    else
+      ENV['GITHUB_REF'] = "Local"
     end
   end
 
@@ -56,8 +58,6 @@ platform :ios do
 
   desc "Build iOS App"
   lane :build do
-    unittest
-
     increment_build_number_in_plist(
       build_number: current_version + "-" + ENV['GITHUB_REF'] + "-" + (ENV['GITHUB_WORKFLOW'] || "Local") + "-" + (ENV['GITHUB_RUN_NUMBER'] || "0"),
       xcodeproj: ENV['APP_XCODEPROJ'],
@@ -74,7 +74,7 @@ platform :ios do
     build_app(
       scheme: "LaguSion",
       export_method: "ad-hoc",
-      derived_data_path: "./DerivedData/"
+      derived_data_path: "./DerivedData/",
     )
     ENV['IPA_OUTPUT_PATH'] = lane_context[SharedValues::IPA_OUTPUT_PATH]
     appcenter
