@@ -332,8 +332,6 @@
 		21BBA97224C8189700CE3F2E /* echo_service.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.pb.swift; sourceTree = "<group>"; };
 		21C88D21247681D5001E376A /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
 		21C88D2324768A08001E376A /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		21D4B9C524CFF82F0089C34E /* LaguSionKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaguSionKit.h; sourceTree = "<group>"; };
-		21D4B9C624CFF82F0089C34E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21D6FA8E24CE643400B56C42 /* DismissingKeyboardOnSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboardOnSwipe.swift; sourceTree = "<group>"; };
 		21D6FA9024CEAA3000B56C42 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		21D6FA9224CEAC1000B56C42 /* LaguSionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionClient.swift; sourceTree = "<group>"; };
@@ -551,7 +549,6 @@
 				21305C98247A895C00F2D76A /* Favorites */,
 				21305CA5247A895C00F2D76A /* FavoritesTests */,
 				212FE3A724B446AC00985DEA /* SnapshotUITests */,
-				21D4B9C424CFF82F0089C34E /* LaguSionKit */,
 				2157B23924D15CA300136EFB /* Common */,
 				216AF37E2472358C00B7C55B /* Products */,
 				21305C1D247A80F000F2D76A /* Frameworks */,
@@ -627,15 +624,6 @@
 				21BBA97024C8189700CE3F2E /* lagu_sion.pb.swift */,
 			);
 			path = Generated;
-			sourceTree = "<group>";
-		};
-		21D4B9C424CFF82F0089C34E /* LaguSionKit */ = {
-			isa = PBXGroup;
-			children = (
-				21D4B9C524CFF82F0089C34E /* LaguSionKit.h */,
-				21D4B9C624CFF82F0089C34E /* Info.plist */,
-			);
-			path = LaguSionKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
