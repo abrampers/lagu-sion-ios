@@ -21,6 +21,12 @@ rm -rf "$DATA_DIRECTORY"
 mkdir -p "$DATA_DIRECTORY"
 touch "$DATA_DIRECTORY/BUILD"
 
+PROVISION_DIRECTORY="build-input/provision"
+rm -rf "$PROVISION_DIRECTORY"
+mkdir -p "$PROVISION_DIRECTORY"
+touch "$PROVISION_DIRECTORY/BUILD"
+echo "exports_files(glob([\"*.mobileprovision\"]))" >> $PROVISION_DIRECTORY/BUILD
+
 source "$PREPARE_BUILD_VARIABLES_SCRIPT"
 
 if [ $CI == "true" ]; then
@@ -30,11 +36,21 @@ fi
 
 echo "Preparing provisioning profiles..."
 if [ $CI == "true" ]; then
-  bundle exec fastlane match adhoc --readonly --output_path=./LaguSion/provision/ --keychain_name=fastlane_tmp_keychain
-  bundle exec fastlane match development --readonly --output_path=./LaguSion/provision/ --keychain_name=fastlane_tmp_keychain
+  bundle exec fastlane match adhoc \
+    --readonly \
+    --output_path=$PROVISION_DIRECTORY \
+    --keychain_name=fastlane_tmp_keychain
+  bundle exec fastlane match development \
+    --readonly \
+    --output_path=$PROVISION_DIRECTORY \
+    --keychain_name=fastlane_tmp_keychain
 else
-  bundle exec fastlane match adhoc --readonly --output_path=./LaguSion/provision/
-  bundle exec fastlane match development --readonly --output_path=./LaguSion/provision/
+  bundle exec fastlane match adhoc \
+    --readonly \
+    --output_path=$PROVISION_DIRECTORY
+  bundle exec fastlane match development \
+    --readonly \
+    --output_path=$PROVISION_DIRECTORY
 fi
 
 echo "Preparing build variables..."

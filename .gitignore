@@ -90,7 +90,6 @@ fastlane/devices.txt
 # Outputs
 
 d/
-provision/
 
 # Code Injection
 #

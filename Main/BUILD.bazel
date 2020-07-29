@@ -58,5 +58,6 @@ ios_framework(
     deps = [
         ":MainSources",
     ],
+    provisioning_profile = "//build-input/provision:AdHoc_id.abram.ios.LaguSion.*.mobileprovision",
     visibility = ["//visibility:public"],
 )

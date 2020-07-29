@@ -56,5 +56,6 @@ ios_framework(
     deps = [
         ":NetworkingSources",
     ],
+    provisioning_profile = "//build-input/provision:AdHoc_id.abram.ios.LaguSion.*.mobileprovision",
     visibility = ["//visibility:public"],
 )
