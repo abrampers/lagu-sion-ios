@@ -42,6 +42,27 @@ plist_fragment(
     ),
 )
 
+config_setting(
+    name = "debug_build",
+    values = {
+        "compilation_mode": "dbg",
+    },
+)
+
+config_setting(
+    name = "opt_build",
+    values = {
+        "compilation_mode": "opt",
+    },
+)
+
+config_setting(
+    name = "fastbuild_build",
+    values = {
+        "compilation_mode": "fastbuild",
+    },
+)
+
 ios_framework(
     name = "Song",
     bundle_id = "id.abram.ios.LaguSion.Song",
@@ -57,6 +78,10 @@ ios_framework(
     deps = [
         ":SongSources",
     ],
-    provisioning_profile = "//build-input/provision:AdHoc_id.abram.ios.LaguSion.*.mobileprovision",
+    provisioning_profile = select({
+        ":debug_build": "//build-input/provision:Development_id.abram.ios.LaguSion.mobileprovision",
+        ":opt_build": "//build-input/provision:AdHoc_id.abram.ios.LaguSion.mobileprovision",
+        ":fastbuild_build": "//build-input/provision:Development_id.abram.ios.LaguSion.mobileprovision",
+    }, no_match_error = "Please specify compilation mode."),
     visibility = ["//visibility:public"],
 )
