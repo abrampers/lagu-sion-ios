@@ -25,7 +25,7 @@ struct RootView: View {
                 .tabItem {
                     VStack {
                         Image(systemName: "globe")
-                        Text("Main")
+                        Text("Lagu Sion")
                     }
             }
             FavoritesView(store: self.store.scope(

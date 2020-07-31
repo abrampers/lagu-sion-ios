@@ -8,7 +8,6 @@
 
 import ComposableArchitecture
 import Song
-
 import SwiftUI
 
 public struct FavoritesState: Equatable {

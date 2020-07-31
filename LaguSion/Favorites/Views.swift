@@ -34,7 +34,7 @@ public struct FavoritesView: View {
                 }
                 .listStyle(GroupedListStyle())
                 .environment(\.horizontalSizeClass, .regular)
-                .navigationBarTitle("Favorites")
+                .navigationBarTitle(Text("Favorites"))
             }
         }
     }

@@ -65,7 +65,7 @@ public struct SongView: View {
                     Spacer()
                 }
             }
-            .navigationBarTitle("\(viewStore.songBook.prefix) no. \(viewStore.number)")
+            .navigationBarTitle(Text("\(viewStore.songBook.prefix) no. \(viewStore.number)"))
             .navigationBarItems(
                 trailing: Button(action: { viewStore.send(.heartTapped) }) {
                     Image(systemName: viewStore.isFavorite ? "heart.fill" : "heart")

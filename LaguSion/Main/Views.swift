@@ -78,7 +78,7 @@ public struct MainView: View {
                     }
                     .listStyle(GroupedListStyle())
                     .modifier(DismissingKeyboardOnSwipe())
-                    .navigationBarTitle("Lagu Sion")
+                    .navigationBarTitle(Text("Lagu Sion"))
                     .animation(.spring())
                     .navigationBarItems(trailing:
                         Button(action: { viewStore.send(MainAction.sortOptionTapped) }) { viewStore.selectedSortOption.image }
