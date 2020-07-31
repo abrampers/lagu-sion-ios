@@ -32,8 +32,7 @@ public struct SearchField: UIViewRepresentable {
         return searchBar
     }
     
-    public func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchField>) {
-    }
+    public func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchField>) {}
 }
 
 extension SearchField {
