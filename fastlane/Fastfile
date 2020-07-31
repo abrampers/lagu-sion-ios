@@ -44,7 +44,13 @@ platform :ios do
       scheme: "LaguSion",
       configuration: "Debug",
       derived_data_path: "DerivedDataUnitTest",
-      only_testing: ["LaguSionTests", "SongTests", "MainTests", "FavoritesTests"],
+      only_testing: [
+        "LaguSionTests",
+        "SongTests",
+        "MainTests",
+        "FavoritesTests",
+        "SettingsTests"
+      ],
       clean: false,
       slack_url: ENV['SLACK_URL'],
       slack_channel: ENV['SLACK_CHANNEL'],

@@ -54,6 +54,8 @@ jobs:
         BUNDLE_ID: id.abram.ios.LaguSion
     - name: Run SongTests
       run: bazelisk test //LaguSion/SongTests
+    - name: Run SettingsTests
+      run: bazelisk test //LaguSion/SettingsTests
     - name: Run FavoritesTests
       run: bazelisk test //LaguSion/FavoritesTests
     - name: Run MainTests
