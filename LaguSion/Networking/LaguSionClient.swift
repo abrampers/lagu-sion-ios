@@ -8,24 +8,23 @@
 
 import Combine
 import CombineGRPC
-import ComposableArchitecture
 import GRPC
 
 public protocol LaguSionClientProtocol {
-    var listSongs: (Lagusion_ListSongRequest) -> Effect<Lagusion_ListSongResponse, GRPCStatus> { get }
+    var listSongs: (Lagusion_ListSongRequest) -> AnyPublisher<Lagusion_ListSongResponse, GRPCStatus> { get }
 }
 
 public struct LaguSionClient: LaguSionClientProtocol {
-    public var listSongs: (Lagusion_ListSongRequest) -> Effect<Lagusion_ListSongResponse, GRPCStatus>
+    public var listSongs: (Lagusion_ListSongRequest) -> AnyPublisher<Lagusion_ListSongResponse, GRPCStatus>
     
-    public init(listSongs: @escaping (Lagusion_ListSongRequest) -> Effect<Lagusion_ListSongResponse, GRPCStatus>) {
+    public init(listSongs: @escaping (Lagusion_ListSongRequest) -> AnyPublisher<Lagusion_ListSongResponse, GRPCStatus>) {
         self.listSongs = listSongs
     }
     
     public static var mock: LaguSionClient {
         return LaguSionClient(
-            listSongs: { (_) -> Effect<Lagusion_ListSongResponse, GRPCStatus> in
-                return Effect(Just(Lagusion_ListSongResponse()).setFailureType(to: GRPCStatus.self))
+            listSongs: { (_) -> AnyPublisher<Lagusion_ListSongResponse, GRPCStatus> in
+                return AnyPublisher(Just(Lagusion_ListSongResponse()).setFailureType(to: GRPCStatus.self))
             }
         )
     }

@@ -6,8 +6,8 @@
 //  Copyright © 2020 Abram Situmorang. All rights reserved.
 //
 
+import Combine
 import CombineGRPC
-import ComposableArchitecture
 import GRPC
 import Networking
 import NIO
@@ -19,8 +19,8 @@ let channel: ClientConnection = ClientConnection
     .connect(host: Constants.laguSionHost, port: Constants.laguSionPort)
 let client = Lagusion_LaguSionServiceClient(channel: channel)
 
-fileprivate func liveListSong(request: Lagusion_ListSongRequest) -> Effect<Lagusion_ListSongResponse, GRPCStatus> {
-    return Effect(grpc.call(client.listSongs)(request))
+fileprivate func liveListSong(request: Lagusion_ListSongRequest) -> AnyPublisher<Lagusion_ListSongResponse, GRPCStatus> {
+    return AnyPublisher(grpc.call(client.listSongs)(request))
 }
 
 extension LaguSionClient {

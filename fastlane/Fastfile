@@ -72,6 +72,7 @@ platform :ios do
     )
 
     build_app(
+      project: ENV['APP_XCODEPROJ'],
       scheme: "LaguSion",
       export_method: "ad-hoc",
       derived_data_path: "./DerivedData/",

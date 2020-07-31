@@ -91,8 +91,8 @@ class GetSongsTest: XCTestCase {
             reducer: mainReducer,
             environment: MainEnvironment(
                 mainQueue: self.scheduler.eraseToAnyScheduler(),
-                laguSionClient: LaguSionClient.init { _ in
-                    return Effect(
+                laguSionClient: LaguSionClient { _ in
+                    return AnyPublisher(
                         Just(response)
                             .setFailureType(to: GRPCStatus.self)
                     )
@@ -171,9 +171,9 @@ class GetSongsTest: XCTestCase {
             reducer: mainReducer,
             environment: MainEnvironment(
                 mainQueue: self.scheduler.eraseToAnyScheduler(),
-                laguSionClient: LaguSionClient.init { _ in
-                    return Effect(
-                        Fail(outputType: Lagusion_ListSongResponse.self, failure: status
+                laguSionClient: LaguSionClient { _ in
+                    return AnyPublisher(
+                            Fail(outputType: Lagusion_ListSongResponse.self, failure: status
                         )
                     )
                 }

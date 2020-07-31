@@ -12,20 +12,19 @@
 		21305C06247A803200F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
 		21305C0D247A803200F2D76A /* SongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305C0C247A803200F2D76A /* SongTests.swift */; };
 		21305C0F247A803200F2D76A /* Song.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305BFF247A803200F2D76A /* Song.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21305C1B247A806900F2D76A /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D21247681D5001E376A /* SongView.swift */; };
-		21305C1C247A809600F2D76A /* Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D82AC7247A72FF00F6B69F /* Unwrap.swift */; };
+		21305C1B247A806900F2D76A /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D21247681D5001E376A /* Logic.swift */; };
 		21305C39247A863F00F2D76A /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305C29247A863F00F2D76A /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21305C7D247A885600F2D76A /* Main.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; };
 		21305C86247A885600F2D76A /* Main.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305C76247A885500F2D76A /* Main.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21305C89247A885600F2D76A /* Main.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; };
 		21305C8A247A885600F2D76A /* Main.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C74247A885500F2D76A /* Main.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21305C91247A885C00F2D76A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130ED247235DF005941E9 /* MainView.swift */; };
+		21305C91247A885C00F2D76A /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130ED247235DF005941E9 /* Logic.swift */; };
 		21305CA0247A895C00F2D76A /* Favorites.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C97247A895C00F2D76A /* Favorites.framework */; };
 		21305CA7247A895C00F2D76A /* FavoritesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21305CA6247A895C00F2D76A /* FavoritesTests.swift */; };
 		21305CA9247A895C00F2D76A /* Favorites.h in Headers */ = {isa = PBXBuildFile; fileRef = 21305C99247A895C00F2D76A /* Favorites.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21305CAC247A895C00F2D76A /* Favorites.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C97247A895C00F2D76A /* Favorites.framework */; };
 		21305CAD247A895C00F2D76A /* Favorites.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C97247A895C00F2D76A /* Favorites.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21305CB4247A898C00F2D76A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D2324768A08001E376A /* FavoritesView.swift */; };
+		21305CB4247A898C00F2D76A /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C88D2324768A08001E376A /* Logic.swift */; };
 		214EF71A24C84743008677C1 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; };
 		214EF71B24C84743008677C1 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2157B21024D12A3700136EFB /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -69,6 +68,11 @@
 		21D4B97F24CFF71D0089C34E /* Song.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21D6FA9124CEAA3000B56C42 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6FA9024CEAA3000B56C42 /* Core.swift */; };
 		21D6FA9324CEAC1000B56C42 /* LaguSionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6FA9224CEAC1000B56C42 /* LaguSionClient.swift */; };
+		21D8BDEB24D3E39B00549D29 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D8BDEA24D3E39B00549D29 /* Views.swift */; };
+		21D8BDEC24D3E47D00549D29 /* Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D82AC7247A72FF00F6B69F /* Unwrap.swift */; };
+		21D8BDEE24D3E4DA00549D29 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D8BDED24D3E4DA00549D29 /* Views.swift */; };
+		21D8BDF024D3E53A00549D29 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D8BDEF24D3E53A00549D29 /* Views.swift */; };
+		21D8BDF224D3E5B200549D29 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D8BDF124D3E5B200549D29 /* Views.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -325,17 +329,21 @@
 		21A4A09D24CFCC5C002C574D /* SortOptionSelectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOptionSelectionTest.swift; sourceTree = "<group>"; };
 		21B130E0247235DF005941E9 /* Publisher+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
 		21B130E9247235DF005941E9 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		21B130ED247235DF005941E9 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		21B130ED247235DF005941E9 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 		21BBA96F24C8189700CE3F2E /* lagu_sion.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.grpc.swift; sourceTree = "<group>"; };
 		21BBA97024C8189700CE3F2E /* lagu_sion.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.pb.swift; sourceTree = "<group>"; };
 		21BBA97124C8189700CE3F2E /* echo_service.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.grpc.swift; sourceTree = "<group>"; };
 		21BBA97224C8189700CE3F2E /* echo_service.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.pb.swift; sourceTree = "<group>"; };
-		21C88D21247681D5001E376A /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
-		21C88D2324768A08001E376A /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		21C88D21247681D5001E376A /* Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
+		21C88D2324768A08001E376A /* Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 		21D6FA8E24CE643400B56C42 /* DismissingKeyboardOnSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboardOnSwipe.swift; sourceTree = "<group>"; };
 		21D6FA9024CEAA3000B56C42 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		21D6FA9224CEAC1000B56C42 /* LaguSionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionClient.swift; sourceTree = "<group>"; };
 		21D82AC7247A72FF00F6B69F /* Unwrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unwrap.swift; sourceTree = "<group>"; };
+		21D8BDEA24D3E39B00549D29 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		21D8BDED24D3E4DA00549D29 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		21D8BDEF24D3E53A00549D29 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		21D8BDF124D3E5B200549D29 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 		21E2634324C6E05B00C37AB5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -449,9 +457,9 @@
 			isa = PBXGroup;
 			children = (
 				21305BFF247A803200F2D76A /* Song.h */,
-				21D82AC7247A72FF00F6B69F /* Unwrap.swift */,
-				21C88D21247681D5001E376A /* SongView.swift */,
+				21C88D21247681D5001E376A /* Logic.swift */,
 				21305C00247A803200F2D76A /* Info.plist */,
+				21D8BDED24D3E4DA00549D29 /* Views.swift */,
 			);
 			path = Song;
 			sourceTree = "<group>";
@@ -486,9 +494,10 @@
 		21305C75247A885500F2D76A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				21B130ED247235DF005941E9 /* MainView.swift */,
+				21B130ED247235DF005941E9 /* Logic.swift */,
 				21305C76247A885500F2D76A /* Main.h */,
 				21305C77247A885500F2D76A /* Info.plist */,
+				21D8BDEA24D3E39B00549D29 /* Views.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -508,9 +517,10 @@
 		21305C98247A895C00F2D76A /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				21C88D2324768A08001E376A /* FavoritesView.swift */,
+				21C88D2324768A08001E376A /* Logic.swift */,
 				21305C99247A895C00F2D76A /* Favorites.h */,
 				21305C9A247A895C00F2D76A /* Info.plist */,
+				21D8BDEF24D3E53A00549D29 /* Views.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -530,6 +540,7 @@
 				21D6FA8E24CE643400B56C42 /* DismissingKeyboardOnSwipe.swift */,
 				215C185524A9D7EB0041435A /* SearchField.swift */,
 				21B130E0247235DF005941E9 /* Publisher+Extension.swift */,
+				21D82AC7247A72FF00F6B69F /* Unwrap.swift */,
 				2157B23A24D15CA300136EFB /* Common.h */,
 				2157B23B24D15CA300136EFB /* Info.plist */,
 			);
@@ -586,6 +597,7 @@
 				216AF3842472358C00B7C55B /* LaguSion.xcdatamodeld */,
 				216AF38B2472358E00B7C55B /* Preview Content */,
 				21D6FA9024CEAA3000B56C42 /* Core.swift */,
+				21D8BDF124D3E5B200549D29 /* Views.swift */,
 			);
 			path = LaguSion;
 			sourceTree = "<group>";
@@ -1083,8 +1095,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21305C1C247A809600F2D76A /* Unwrap.swift in Sources */,
-				21305C1B247A806900F2D76A /* SongView.swift in Sources */,
+				21D8BDEE24D3E4DA00549D29 /* Views.swift in Sources */,
+				21305C1B247A806900F2D76A /* Logic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1112,7 +1124,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21305C91247A885C00F2D76A /* MainView.swift in Sources */,
+				21D8BDEB24D3E39B00549D29 /* Views.swift in Sources */,
+				21305C91247A885C00F2D76A /* Logic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1131,7 +1144,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21305CB4247A898C00F2D76A /* FavoritesView.swift in Sources */,
+				21D8BDF024D3E53A00549D29 /* Views.swift in Sources */,
+				21305CB4247A898C00F2D76A /* Logic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1147,6 +1161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D8BDEC24D3E47D00549D29 /* Unwrap.swift in Sources */,
 				2157B24924D15CC000136EFB /* Publisher+Extension.swift in Sources */,
 				2157B24824D15CC000136EFB /* SearchField.swift in Sources */,
 				2157B24A24D15CC000136EFB /* DismissingKeyboardOnSwipe.swift in Sources */,
@@ -1160,6 +1175,7 @@
 				21D6FA9124CEAA3000B56C42 /* Core.swift in Sources */,
 				2165AEA824C6F10500AA3665 /* Constants.swift in Sources */,
 				216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */,
+				21D8BDF224D3E5B200549D29 /* Views.swift in Sources */,
 				216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */,
 				21B130F3247235E0005941E9 /* RootView.swift in Sources */,
 				216AF3832472358C00B7C55B /* SceneDelegate.swift in Sources */,
