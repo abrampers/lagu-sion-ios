@@ -10,8 +10,8 @@ import ComposableArchitecture
 import Favorites
 import Main
 import Networking
+import Settings
 import Song
-
 import SwiftUI
 
 struct AppState: Equatable {
@@ -22,12 +22,12 @@ struct AppState: Equatable {
     var searchQuery: String = ""
     var mainActionSheet: ActionSheetState<MainAction>? = nil
     var mainAlert: AlertState<MainAction>? = nil
-    var mainIsPresentingActionSheet: Bool = false
 }
 
 enum AppAction {
     case main(MainAction)
     case favorites(FavoritesAction)
+    case settings(SettingsAction)
 }
 
 struct AppEnvironment {
@@ -36,7 +36,7 @@ struct AppEnvironment {
 }
 
 extension AppState {
-    var mainView: MainState {
+    var main: MainState {
         get {
             MainState(
                 songs: self.songs,
@@ -59,7 +59,7 @@ extension AppState {
         }
     }
     
-    var favoritesView: FavoritesState {
+    var favorites: FavoritesState {
         get {
             FavoritesState(songs: self.songs, favoriteSongs: self.favoriteSongs)
         }
@@ -68,11 +68,19 @@ extension AppState {
             self.favoriteSongs = newValue.favoriteSongs
         }
     }
+    
+    var settings: SettingsState {
+        get {
+            SettingsState()
+        }
+        set {
+        }
+    }
 }
 
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
     mainReducer.pullback(
-        state: \AppState.mainView,
+        state: \AppState.main,
         action: /AppAction.main,
         environment: { env in
             MainEnvironment(
@@ -82,8 +90,13 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         }
     ),
     favoritesReducer.pullback(
-        state: \AppState.favoritesView,
+        state: \AppState.favorites,
         action: /AppAction.favorites,
         environment: { _ in FavoritesEnvironment() }
+    ),
+    settingsReducer.pullback(
+        state: \AppState.settings,
+        action: /AppAction.settings,
+        environment: { _ in SettingsEnvironment() }
     )
 )

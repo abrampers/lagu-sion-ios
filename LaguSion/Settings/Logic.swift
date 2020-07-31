@@ -9,12 +9,14 @@
 import ComposableArchitecture
 
 public struct SettingsState: Equatable {
+    public init() {}
 }
 
 public enum SettingsAction {
 }
 
 public struct SettingsEnvironment {
+    public init() {}
 }
 
 public let settingsReducer: Reducer<SettingsState, SettingsAction, SettingsEnvironment> = .combine(

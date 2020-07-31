@@ -9,12 +9,16 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct SettingsView: View {
+public struct SettingsView: View {
     let store: Store<SettingsState, SettingsAction>
     
-    var body: some View {
+    public init(store: Store<SettingsState, SettingsAction>) {
+        self.store = store
+    }
+    
+    public var body: some View {
         NavigationView {
-            EmptyView()
+            Text("HAHA")
             .navigationBarTitle(Text("Settings"))
         }
     }

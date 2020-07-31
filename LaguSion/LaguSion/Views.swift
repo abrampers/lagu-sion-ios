@@ -10,6 +10,7 @@ import ComposableArchitecture
 import Favorites
 import Main
 import Networking
+import Settings
 import Song
 import SwiftUI
 
@@ -18,9 +19,8 @@ struct RootView: View {
     
     var body: some View {
         TabView {
-            MainView(store: self.store.scope(
-                state: \.mainView,
-                action: AppAction.main)
+            MainView(store:
+                self.store.scope(state: \.main, action: AppAction.main)
             )
                 .tabItem {
                     VStack {
@@ -29,8 +29,7 @@ struct RootView: View {
                     }
             }
             FavoritesView(store: self.store.scope(
-                state: \.favoritesView,
-                action: AppAction.favorites)
+                state: \.favorites, action: AppAction.favorites)
             )
                 .tabItem {
                     VStack {
@@ -38,8 +37,9 @@ struct RootView: View {
                         Text("Favorites")
                     }
             }
-            Text("Settings")
-                .font(.title)
+            SettingsView(store:
+                self.store.scope(state: \.settings, action: AppAction.settings)
+            )
                 .tabItem {
                     VStack {
                         Image(systemName: "gear")

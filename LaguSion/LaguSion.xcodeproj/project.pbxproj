@@ -57,7 +57,7 @@
 		21A4A09824CFCBED002C574D /* GetSongsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4A09724CFCBED002C574D /* GetSongsTest.swift */; };
 		21A4A09A24CFCC1D002C574D /* SongBookSelectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4A09924CFCC1D002C574D /* SongBookSelectionTest.swift */; };
 		21A4A09E24CFCC5C002C574D /* SortOptionSelectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4A09D24CFCC5C002C574D /* SortOptionSelectionTest.swift */; };
-		21B130F3247235E0005941E9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E9247235DF005941E9 /* RootView.swift */; };
+		21B130F3247235E0005941E9 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E9247235DF005941E9 /* Logic.swift */; };
 		21BBA97324C8189700CE3F2E /* lagu_sion.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA96F24C8189700CE3F2E /* lagu_sion.grpc.swift */; };
 		21BBA97424C8189700CE3F2E /* lagu_sion.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA97024C8189700CE3F2E /* lagu_sion.pb.swift */; };
 		21BBA97524C8189700CE3F2E /* echo_service.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA97124C8189700CE3F2E /* echo_service.grpc.swift */; };
@@ -377,7 +377,7 @@
 		21A4A09924CFCC1D002C574D /* SongBookSelectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBookSelectionTest.swift; sourceTree = "<group>"; };
 		21A4A09D24CFCC5C002C574D /* SortOptionSelectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOptionSelectionTest.swift; sourceTree = "<group>"; };
 		21B130E0247235DF005941E9 /* Publisher+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
-		21B130E9247235DF005941E9 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		21B130E9247235DF005941E9 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 		21B130ED247235DF005941E9 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 		21BBA96F24C8189700CE3F2E /* lagu_sion.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.grpc.swift; sourceTree = "<group>"; };
 		21BBA97024C8189700CE3F2E /* lagu_sion.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.pb.swift; sourceTree = "<group>"; };
@@ -666,7 +666,7 @@
 			isa = PBXGroup;
 			children = (
 				21E2634324C6E05B00C37AB5 /* Constants.swift */,
-				21B130E9247235DF005941E9 /* RootView.swift */,
+				21B130E9247235DF005941E9 /* Logic.swift */,
 				216AF3802472358C00B7C55B /* AppDelegate.swift */,
 				216AF3822472358C00B7C55B /* SceneDelegate.swift */,
 				216AF3892472358E00B7C55B /* Assets.xcassets */,
@@ -1347,7 +1347,7 @@
 				216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */,
 				21D8BDF224D3E5B200549D29 /* Views.swift in Sources */,
 				216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */,
-				21B130F3247235E0005941E9 /* RootView.swift in Sources */,
+				21B130F3247235E0005941E9 /* Logic.swift in Sources */,
 				216AF3832472358C00B7C55B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2220,7 +2220,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Settings/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2251,7 +2251,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Settings/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
