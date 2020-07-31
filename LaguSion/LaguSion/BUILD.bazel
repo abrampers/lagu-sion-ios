@@ -25,8 +25,8 @@ swift_library(
         ":Assets.xcassets",
     ] + glob(["LaguSion.xcdatamodeld/**"]),
     deps = [
-        "//Main:MainSources",
-        "//Favorites:FavoritesSources",
+        "//LaguSion/Main:MainSources",
+        "//LaguSion/Favorites:FavoritesSources",
     ],
     visibility = ["//visibility:public"],
 )
@@ -139,9 +139,9 @@ ios_application(
     launch_storyboard = "Base.lproj/LaunchScreen.storyboard",
     infoplists = [":LaguSionInfoPlist"],
     frameworks = [
-        "//Main",
-        "//Favorites",
-        "//Common",
+        "//LaguSion/Main",
+        "//LaguSion/Favorites",
+        "//LaguSion/Common",
     ],
     deps = [
         ":LaguSionSources",

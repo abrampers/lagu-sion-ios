@@ -10,9 +10,9 @@ swift_library(
         "**/*.swift",
     ]),
     deps = [
-        "//Song:SongSources",
-        "//Networking:NetworkingSources",
-        "//Common:CommonSources",
+        "//LaguSion/Song:SongSources",
+        "//LaguSion/Networking:NetworkingSources",
+        "//LaguSion/Common:CommonSources",
     ],
     visibility = ["//visibility:public"],
 )
@@ -74,7 +74,7 @@ ios_framework(
     minimum_os_version = "13.0",
     infoplists = [":MainInfoPlist"],
     frameworks = [
-        "//Song",
+        "//LaguSion/Song",
     ],
     deps = [
         ":MainSources",

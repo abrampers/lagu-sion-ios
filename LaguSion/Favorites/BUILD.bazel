@@ -10,8 +10,8 @@ swift_library(
         "**/*.swift",
     ]),
     deps = [
-        "//Song:SongSources",
-        "//Common:CommonSources",
+        "//LaguSion/Song:SongSources",
+        "//LaguSion/Common:CommonSources",
     ],
     visibility = ["//visibility:public"],
 )
@@ -73,7 +73,7 @@ ios_framework(
     minimum_os_version = "13.0",
     infoplists = [":FavoritesInfoPlist"],
     frameworks = [
-        "//Song",
+        "//LaguSion/Song",
     ],
     deps = [
         ":FavoritesSources",
