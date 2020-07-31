@@ -53,16 +53,16 @@ jobs:
         APP_VERSION: 0.1
         BUNDLE_ID: id.abram.ios.LaguSion
     - name: Run SongTests
-      run: bazelisk test //SongTests
+      run: bazelisk test //LaguSion/SongTests
     - name: Run FavoritesTests
-      run: bazelisk test //FavoritesTests
+      run: bazelisk test //LaguSion/FavoritesTests
     - name: Run MainTests
-      run: bazelisk test //MainTests
+      run: bazelisk test //LaguSion/MainTests
     - name: Run LaguSionTests
-      run: bazelisk test //LaguSionTests
+      run: bazelisk test //LaguSion/LaguSionTests
     - name: Build iOS Application
       run: |
-        bazelisk build //LaguSion --config=device_adhoc
+        bazelisk build //LaguSion/LaguSion --config=device_debug
     - name: Upload artifacts to AppCenter
       run: |
         bundle exec fastlane appcenter

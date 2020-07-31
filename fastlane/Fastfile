@@ -3,7 +3,7 @@ default_platform(:ios)
 platform :ios do
   before_all do |lane|
     ENV['SLACK_CHANNEL'] = "#ios-build"
-    ENV['APP_XCODEPROJ'] = "./LaguSion.xcodeproj"
+    ENV['APP_XCODEPROJ'] = "./LaguSion/LaguSion.xcodeproj"
     ENV['APP_TARGET'] = "LaguSion"
     ENV['BAZEL_BUILD_OUTPUT'] = "bazel-bin/LaguSion/LaguSion.ipa"
 
