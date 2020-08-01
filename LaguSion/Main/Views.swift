@@ -18,10 +18,9 @@ internal struct HeaderView: View {
     internal var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack {
-                WithViewStore(self.store.scope(state: { $0.selectedBook }, action: MainAction.songBookPicked)) {
-                    selectedBookViewStore in
                     Picker(
-                        "Selected Book", selection: selectedBookViewStore.binding(send: { $0 })
+                        "Selected Book",
+                        selection: viewStore.binding(get: { $0.selectedBook }, send: { MainAction.songBookPicked($0) })
                     ) {
                         ForEach(BookSelection.allCases, id: \.self) { bookSelection in
                             Text(bookSelection.localizedIdentifier).tag(bookSelection)
@@ -33,7 +32,6 @@ internal struct HeaderView: View {
                 SearchField(text: viewStore.binding(
                     get: { $0.searchQuery }, send: MainAction.searchQueryChanged
                 ))
-            }
         }
     }
 }
