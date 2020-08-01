@@ -11,10 +11,13 @@ import Song
 import SwiftUI
 
 public struct FavoritesState: Equatable {
-    public var songs: [Song] = []
-    public var favoriteSongs: [Song] = []
+    public var songs: [Song]
+    public var favoriteSongs: [Song]
     
-    public init(songs: [Song], favoriteSongs: [Song]) {
+    public init(
+        songs: [Song] = [],
+        favoriteSongs: [Song] = []
+    ) {
         self.songs = songs
         self.favoriteSongs = favoriteSongs
     }

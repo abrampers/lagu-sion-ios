@@ -85,9 +85,9 @@ public enum SortOptions: Hashable, CaseIterable, Equatable {
 public struct MainState: Equatable {
     public var songs: [Song]
     public var favoriteSongs: [Song]
-    public var selectedBook: BookSelection = .all
-    public var searchQuery: String = ""
-    public var selectedSortOption: SortOptions = .number
+    public var selectedBook: BookSelection
+    public var searchQuery: String
+    public var selectedSortOption: SortOptions
     public var actionSheet: ActionSheetState<MainAction>?
     public var alert: AlertState<MainAction>?
     
