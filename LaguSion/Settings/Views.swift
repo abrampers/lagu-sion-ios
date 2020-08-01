@@ -40,9 +40,12 @@ public struct SettingsView: View {
                         }
                         
                         // MARK: Check @Environment(\.sizeCategory) or @Environment(\.displayScale)
-                        Picker(selection: self.$previewIndex, label: Text("Font Size")) {
-                            ForEach(0 ..< self.previewOptions.count) {
-                                Text(self.previewOptions[$0])
+                        Picker(
+                            selection: viewStore.binding(get: { $0.contentSizeSelection }, send: { SettingsAction.contentSizeSelectionChanged($0) }),
+                            label: Text("Font Size")
+                        ) {
+                            ForEach(ContentSizeSelection.allCases, id: \.self) { selection in
+                                Text(selection.rawValue)
                             }
                         }
                     }

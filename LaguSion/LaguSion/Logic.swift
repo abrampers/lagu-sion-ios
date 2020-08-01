@@ -25,6 +25,7 @@ struct AppState: Equatable {
     var mainAlert: AlertState<MainAction>? = nil
     var isAvailableOffline: Bool = false
     var fontSelection: FontSelection = .normal
+    var contentSizeSelection: ContentSizeSelection = .normal
 }
 
 enum AppAction {
@@ -74,11 +75,16 @@ extension AppState {
     
     var settings: SettingsState {
         get {
-            SettingsState(isAvailableOffline: self.isAvailableOffline, fontSelection: self.fontSelection)
+            SettingsState(
+                isAvailableOffline: self.isAvailableOffline,
+                fontSelection: self.fontSelection,
+                contentSizeSelection: self.contentSizeSelection
+            )
         }
         set {
             self.isAvailableOffline = newValue.isAvailableOffline
             self.fontSelection = newValue.fontSelection
+            self.contentSizeSelection = newValue.contentSizeSelection
         }
     }
 }

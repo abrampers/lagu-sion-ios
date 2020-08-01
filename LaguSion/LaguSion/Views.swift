@@ -58,6 +58,7 @@ struct RootView: View {
                 }
             }
             .environment(\.font, viewStore.fontSelection.font)
+            .environment(\.sizeCategory, viewStore.contentSizeSelection.contentSize)
         }
     }
 }
