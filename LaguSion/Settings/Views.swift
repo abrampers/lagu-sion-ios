@@ -6,76 +6,63 @@
 //  Copyright © 2020 Abram Situmorang. All rights reserved.
 //
 
+import Common
 import ComposableArchitecture
 import SwiftUI
 
 public struct SettingsView: View {
     let store: Store<SettingsState, SettingsAction>
+    @State private var previewIndex = 0
+    @State private var isOn = false
+    var previewOptions = ["Always", "When Unlocked", "Never"]
     
     public init(store: Store<SettingsState, SettingsAction>) {
         self.store = store
     }
     
     public var body: some View {
-        NavigationView {
-            List {
-                Section {
-                    NavigationLink(destination: Text("Detail View")) {
-                        HStack {
-                            ZStack {
-                                Image(systemName: "airplane").font(.callout).foregroundColor(.white)
-                            }.frame(width: 28, height: 28).background(Color.orange).cornerRadius(6)
-                            Text("Airplane Mode")
+        WithViewStore(self.store) { viewStore in
+            NavigationView {
+                Form {
+                    Section {
+                        Toggle(isOn: self.$isOn) {
+                            Text("Available Offline")
+                        }
+                        
+                        Picker(
+                            selection: viewStore.binding(get: { $0.fontSelection }, send: { SettingsAction.fontSelectionChanged($0) }),
+                            label: Text("Font")
+                        ) {
+                            ForEach(FontSelection.allCases, id: \.self) { fontSelection in
+                                Text(fontSelection.rawValue)
+                                    .font(fontSelection.font)
+                            }
+                        }
+                        
+                        // MARK: Check @Environment(\.sizeCategory) or @Environment(\.displayScale)
+                        Picker(selection: self.$previewIndex, label: Text("Font Size")) {
+                            ForEach(0 ..< self.previewOptions.count) {
+                                Text(self.previewOptions[$0])
+                            }
                         }
                     }
-                    NavigationLink(destination: Text("Detail View")) {
-                        HStack {
-                            ZStack {
-                                Image(systemName: "wifi").font(.callout).foregroundColor(.white)
-                            }.frame(width: 28, height: 28).background(Color.blue).cornerRadius(6)
-                            Text("Wi-Fi")
+                    
+                    Section {
+                        NavigationLink(destination: Text("Detail View")) {
+                            Text("About")
                         }
-                    }
-                    NavigationLink(destination: Text("Detail View")) {
+                        
                         HStack {
-                            ZStack {
-                                Image(systemName: "wifi").font(.callout).foregroundColor(.white)
-                            }.frame(width: 28, height: 28).background(Color.blue).cornerRadius(6)
-                            Text("Bluetooth")
-                        }
-                    }
-                    NavigationLink(destination: Text("Detail View")) {
-                        HStack {
-                            ZStack {
-                                Image(systemName: "phone.fill").font(.callout).foregroundColor(.white)
-                            }.frame(width: 28, height: 28).background(Color.green).cornerRadius(6)
-                            Text("Cellular")
-                        }
-                    }
-                }
-                
-                Section {
-                    NavigationLink(destination: Text("Detail View")) {
-                        HStack {
-                            ZStack {
-                                Image(systemName: "app.badge").font(.callout).foregroundColor(.white)
-                            }.frame(width: 28, height: 28).background(Color.red).cornerRadius(6)
-                            Text("Notifications")
-                        }
-                    }
-                    NavigationLink(destination: Text("Detail View")) {
-                        HStack {
-                            ZStack {
-                                Image(systemName: "gear").font(.callout).foregroundColor(.white)
-                            }.frame(width: 28, height: 28).background(Color.gray).cornerRadius(6)
-                            Text("General")
+                            Text("Version")
+                            Spacer()
+                            Text("0.1.0")
                         }
                     }
                 }
+                .accentColor(.white)
+                .navigationBarTitle(Text("Settings"))
+                .listStyle(GroupedListStyle())
             }
-            .accentColor(.white)
-            .navigationBarTitle(Text("Settings"))
-            .listStyle(GroupedListStyle())
         }
     }
 }

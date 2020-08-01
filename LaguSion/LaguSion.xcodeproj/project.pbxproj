@@ -58,6 +58,7 @@
 		21A4A09A24CFCC1D002C574D /* SongBookSelectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4A09924CFCC1D002C574D /* SongBookSelectionTest.swift */; };
 		21A4A09E24CFCC5C002C574D /* SortOptionSelectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4A09D24CFCC5C002C574D /* SortOptionSelectionTest.swift */; };
 		21B130F3247235E0005941E9 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E9247235DF005941E9 /* Logic.swift */; };
+		21B6BA6424D5DAE90090E2AC /* FontSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6BA6324D5DAE90090E2AC /* FontSelection.swift */; };
 		21BBA97324C8189700CE3F2E /* lagu_sion.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA96F24C8189700CE3F2E /* lagu_sion.grpc.swift */; };
 		21BBA97424C8189700CE3F2E /* lagu_sion.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA97024C8189700CE3F2E /* lagu_sion.pb.swift */; };
 		21BBA97524C8189700CE3F2E /* echo_service.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BBA97124C8189700CE3F2E /* echo_service.grpc.swift */; };
@@ -379,6 +380,7 @@
 		21B130E0247235DF005941E9 /* Publisher+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
 		21B130E9247235DF005941E9 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 		21B130ED247235DF005941E9 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
+		21B6BA6324D5DAE90090E2AC /* FontSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSelection.swift; sourceTree = "<group>"; };
 		21BBA96F24C8189700CE3F2E /* lagu_sion.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.grpc.swift; sourceTree = "<group>"; };
 		21BBA97024C8189700CE3F2E /* lagu_sion.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lagu_sion.pb.swift; sourceTree = "<group>"; };
 		21BBA97124C8189700CE3F2E /* echo_service.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = echo_service.grpc.swift; sourceTree = "<group>"; };
@@ -617,6 +619,7 @@
 				21D82AC7247A72FF00F6B69F /* Unwrap.swift */,
 				2157B23A24D15CA300136EFB /* Common.h */,
 				2157B23B24D15CA300136EFB /* Info.plist */,
+				21B6BA6324D5DAE90090E2AC /* FontSelection.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1331,6 +1334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21B6BA6424D5DAE90090E2AC /* FontSelection.swift in Sources */,
 				21D8BDEC24D3E47D00549D29 /* Unwrap.swift in Sources */,
 				2157B24924D15CC000136EFB /* Publisher+Extension.swift in Sources */,
 				2157B24824D15CC000136EFB /* SearchField.swift in Sources */,

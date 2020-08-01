@@ -6,6 +6,7 @@
 //  Copyright © 2020 Abram Situmorang. All rights reserved.
 //
 
+import Common
 import ComposableArchitecture
 import Favorites
 import Main
@@ -22,6 +23,8 @@ struct AppState: Equatable {
     var searchQuery: String = ""
     var mainActionSheet: ActionSheetState<MainAction>? = nil
     var mainAlert: AlertState<MainAction>? = nil
+    var isAvailableOffline: Bool = false
+    var fontSelection: FontSelection = .normal
 }
 
 enum AppAction {
@@ -71,9 +74,11 @@ extension AppState {
     
     var settings: SettingsState {
         get {
-            SettingsState()
+            SettingsState(isAvailableOffline: self.isAvailableOffline, fontSelection: self.fontSelection)
         }
         set {
+            self.isAvailableOffline = newValue.isAvailableOffline
+            self.fontSelection = newValue.fontSelection
         }
     }
 }

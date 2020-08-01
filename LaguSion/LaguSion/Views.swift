@@ -14,38 +14,50 @@ import Settings
 import Song
 import SwiftUI
 
+struct FontModifier: ViewModifier {
+    var font: Font?
+    
+    func body(content: Content) -> some View {
+        content
+            .font(font)
+    }
+}
+
 struct RootView: View {
     let store: Store<AppState, AppAction>
     
     var body: some View {
-        TabView {
-            MainView(store:
-                self.store.scope(state: \.main, action: AppAction.main)
-            )
-                .tabItem {
-                    VStack {
-                        Image(systemName: "globe")
-                        Text("Lagu Sion")
-                    }
+        WithViewStore(self.store) { viewStore in
+            TabView {
+                MainView(store:
+                    self.store.scope(state: \.main, action: AppAction.main)
+                )
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "globe")
+                            Text("Lagu Sion")
+                        }
+                }
+                FavoritesView(store: self.store.scope(
+                    state: \.favorites, action: AppAction.favorites)
+                )
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "star.fill")
+                            Text("Favorites")
+                        }
+                }
+                SettingsView(store:
+                    self.store.scope(state: \.settings, action: AppAction.settings)
+                )
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "gear")
+                            Text("Settings")
+                        }
+                }
             }
-            FavoritesView(store: self.store.scope(
-                state: \.favorites, action: AppAction.favorites)
-            )
-                .tabItem {
-                    VStack {
-                        Image(systemName: "star.fill")
-                        Text("Favorites")
-                    }
-            }
-            SettingsView(store:
-                self.store.scope(state: \.settings, action: AppAction.settings)
-            )
-                .tabItem {
-                    VStack {
-                        Image(systemName: "gear")
-                        Text("Settings")
-                    }
-            }
+            .environment(\.font, viewStore.fontSelection.font)
         }
     }
 }
