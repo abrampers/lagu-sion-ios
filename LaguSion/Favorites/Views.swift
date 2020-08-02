@@ -32,7 +32,6 @@ public struct FavoritesView: View {
                         viewStore.send(.deleteFavoriteSongs(indexSet))
                     }
                 }
-                .listStyle(GroupedListStyle())
                 .navigationBarTitle(Text("Favorites"))
             }
         }
