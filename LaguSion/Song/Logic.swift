@@ -112,8 +112,8 @@ public struct Verse {
 
 public enum SongAction: Equatable {
     case heartTapped
-    case removeFromFavorites(Song)
-    case addToFavorites(Song)
+    case removeFromFavorites
+    case addToFavorites
 }
 
 public struct SongEnvironment {
@@ -125,11 +125,11 @@ public let songReducer = Reducer<Song, SongAction, SongEnvironment> { state, act
     case .heartTapped:
         state.isFavorite.toggle()
         if state.isFavorite {
-            return Effect(value: SongAction.addToFavorites(state))
+            return Effect(value: SongAction.addToFavorites)
         } else {
-            return Effect(value: SongAction.removeFromFavorites(state))
+            return Effect(value: SongAction.removeFromFavorites)
         }
-    case .addToFavorites(_), .removeFromFavorites(_):
+    case .addToFavorites, .removeFromFavorites:
         return .none
     }
 }

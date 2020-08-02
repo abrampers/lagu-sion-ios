@@ -51,19 +51,17 @@ public struct MainView: View {
                         .padding(EdgeInsets(top: 4, leading: 8, bottom: 0, trailing: 8))
                     List {
                         if viewStore.selectedBook == .all {
-                            ForEach(SongBook.allCases, id: \.self) { bookSelection in
-                                Section(header: Text(bookSelection.name.localized)) {
-                                    ForEachStore(
-                                        self.store.scope(state: { $0.songs(for: bookSelection) }, action: MainAction.song(index:action:))
-                                    ) { songViewStore in
-                                        NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
-                                            SongRowView(store: songViewStore)
-                                        }
+                            Section {
+                                ForEachStore(
+                                    self.store.scope(state: \.songs, action: MainAction.song(index:action:))
+                                ) { songViewStore in
+                                    NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
+                                        SongRowView(store: songViewStore)
                                     }
                                 }
                             }
                         } else {
-                            Section(header: Text(viewStore.selectedBook.localizedIdentifier)) {
+                            Section {
                                 ForEachStore(
                                     self.store.scope(state: \.currentSongs, action: MainAction.song(index:action:))
                                 ) { songViewStore in
@@ -74,7 +72,6 @@ public struct MainView: View {
                             }
                         }
                     }
-                    .listStyle(GroupedListStyle())
                     .modifier(DismissingKeyboardOnSwipe())
                     .navigationBarTitle(Text("Lagu Sion"))
                     .animation(.spring())

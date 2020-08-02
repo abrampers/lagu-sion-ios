@@ -112,11 +112,12 @@ public struct MainState: Equatable {
 
 extension MainState {
     var currentSongs: [Song] {
-        return songs.filter { song in
-            if case BookSelection.songBook(let songBook) = self.selectedBook {
+        switch selectedBook {
+        case .all:
+            return songs
+        case .songBook(let songBook):
+            return songs.filter { song in
                 return song.songBook == songBook
-            } else {
-                return false
             }
         }
     }
@@ -216,13 +217,15 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             return Effect(value: MainAction.saveSearchQuery(query))
                 .debounce(id: SearchQueryChangedCancelId(), for: 0.2, scheduler: environment.mainQueue)
             
-        case .song(index: _, action: .addToFavorites(let addedSong)):
+        case .song(index: let idx, action: .addToFavorites):
+            let addedSong = state.currentSongs[idx]
             if !state.favoriteSongs.contains(addedSong) {
                 state.favoriteSongs.append(addedSong)
             }
             return .none
         
-        case .song(index: _, action: .removeFromFavorites(let removedSong)):
+        case .song(index: let idx, action: .removeFromFavorites):
+            let removedSong = state.currentSongs[idx]
             state.favoriteSongs.removeAll { $0 == removedSong }
             return .none
         
