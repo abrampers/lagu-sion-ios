@@ -114,7 +114,9 @@ public final class Lagusion_LaguSionServiceTestClient: Lagusion_LaguSionServiceC
 
 
 // Provides conformance to `GRPCPayload`
+extension Lagusion_UUID: GRPCProtobufPayload {}
 extension Lagusion_Verse: GRPCProtobufPayload {}
+extension Lagusion_Book: GRPCProtobufPayload {}
 extension Lagusion_Song: GRPCProtobufPayload {}
 extension Lagusion_ListSongRequest: GRPCProtobufPayload {}
 extension Lagusion_ListSongResponse: GRPCProtobufPayload {}
