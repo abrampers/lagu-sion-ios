@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Book" representedClassName="Book" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="songs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Song" inverseName="book" inverseEntity="Song"/>
+    </entity>
+    <entity name="Favorite" representedClassName="Favorite" syncable="YES" codeGenerationType="class">
+        <relationship name="song" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Song"/>
+    </entity>
+    <entity name="Song" representedClassName="Song" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="songs" inverseEntity="Book"/>
+        <relationship name="reff" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Verse"/>
+        <relationship name="verses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Verse"/>
+    </entity>
+    <entity name="Verse" representedClassName="Verse" syncable="YES" codeGenerationType="class">
+        <attribute name="contents" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    </entity>
+    <elements>
+        <element name="Favorite" positionX="-58.64453125" positionY="-270.09375" width="128" height="58"/>
+        <element name="Song" positionX="-644.21484375" positionY="-180.6484375" width="128" height="133"/>
+        <element name="Book" positionX="-41.4140625" positionY="-149.3125" width="128" height="73"/>
+        <element name="Verse" positionX="-24.16796875" positionY="131.7265625" width="128" height="73"/>
+    </elements>
 </model>
