@@ -14,7 +14,7 @@ import Song
 import SwiftUI
 
 public enum BookSelection: Hashable, Equatable {
-    public var identifier: String {
+    public var string: String {
         switch self {
         case .all:
             return "All"
@@ -23,17 +23,17 @@ public enum BookSelection: Hashable, Equatable {
         }
     }
     
-    public var localizedIdentifier: LocalizedStringKey {
-        LocalizedStringKey(self.identifier)
-    }
-    
-    public var proto: Lagusion_SongBook {
+    public var protoID: UInt32 {
         switch self {
         case .all:
-            return .all
+            return 0
         case .songBook(let book):
-            return book.proto
+            return book.protoID
         }
+    }
+    
+    public var localizedIdentifier: LocalizedStringKey {
+        LocalizedStringKey(self.string)
     }
     
     case all
@@ -176,7 +176,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
         case .getSongs:
             struct ListSongRequestCancelId: Hashable {}
             let request = Lagusion_ListSongRequest.with {
-                $0.songBook = state.selectedBook.proto
+                $0.bookID = state.selectedBook.protoID
                 $0.sortOptions = state.selectedSortOption.proto
             }
             return environment.laguSionClient.listSongs(request).eraseToEffect()

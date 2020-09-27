@@ -12,7 +12,7 @@ message Verse {
 }
 
 message Book {
-	UUID id = 1;
+	uint32 id = 1;
 	string short_name = 2;
 	string long_name = 3;
 }
@@ -32,7 +32,7 @@ message Song {
 }
 
 message ListSongRequest {
-  UUID book_id = 1;
+  uint32 book_id = 1;
   SortOptions sort_options = 2;
 }
 

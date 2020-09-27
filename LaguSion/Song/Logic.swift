@@ -29,6 +29,15 @@ public enum SongBook: CaseIterable, Hashable {
         }
     }
     
+    public var protoID: UInt32 {
+        switch self {
+        case .laguSion:
+            return 1
+        case .laguSionEdisiLengkap:
+            return 2
+        }
+    }
+    
     public var localizedPrefix: LocalizedStringKey {
         LocalizedStringKey(self.prefix)
     }
@@ -37,23 +46,13 @@ public enum SongBook: CaseIterable, Hashable {
         LocalizedStringKey(self.name)
     }
     
-    public var proto: Lagusion_SongBook {
-        switch self {
-        case .laguSion:
+    public static func proto(pbSongBook: Lagusion_Book) -> SongBook {
+        switch pbSongBook.shortName {
+        case "LS":
             return .laguSion
-        case .laguSionEdisiLengkap:
-            return .laguSionEdisiLengkap
-        }
-    }
-    
-    public static func proto(pbSongBook: Lagusion_SongBook) -> SongBook {
-        switch pbSongBook {
-        case .laguSion:
-            return .laguSion
-        case .laguSionEdisiLengkap:
+        case "LSEL":
             return .laguSionEdisiLengkap
         default:
-            // MARK: TODO do some workaround if there's unexpected songbook
             return .laguSion
         }
     }
@@ -67,7 +66,7 @@ public struct Song: Equatable, Identifiable {
         return lhs.id == rhs.id
     }
     
-    public var id: UInt32
+    public var id: UUID
     public var isFavorite: Bool
     var number: Int
     var title: String
@@ -75,7 +74,7 @@ public struct Song: Equatable, Identifiable {
     var reff: Verse?
     public var songBook: SongBook
     
-    public init(id: UInt32, number: Int, title: String, verses: [Verse], reff: Verse? = nil, songBook: SongBook) {
+    public init(id: UUID, number: Int, title: String, verses: [Verse], reff: Verse? = nil, songBook: SongBook) {
         self.id = id
         self.isFavorite = false
         self.number = number
@@ -86,12 +85,12 @@ public struct Song: Equatable, Identifiable {
     }
     
     public init(pbSong: Lagusion_Song) {
-        self.id = pbSong.id
+        self.id = UUID(uuidString: pbSong.id.value)!
         self.number = Int(pbSong.number)
         self.title = pbSong.title
         self.verses = pbSong.verses.map { Verse(pbVerse: $0) }
         self.reff = Verse(pbVerse: pbSong.reff)
-        self.songBook = SongBook.proto(pbSongBook: pbSong.songBook)
+        self.songBook = SongBook.proto(pbSongBook: pbSong.book)
         
         // MARK: TODO get isFavorite data locally
         self.isFavorite = false
@@ -106,7 +105,7 @@ public struct Verse {
     }
     
     public init(pbVerse: Lagusion_Verse) {
-        self.contents = pbVerse.contents
+        self.contents = pbVerse.contents.components(separatedBy: "\n")
     }
 }
 

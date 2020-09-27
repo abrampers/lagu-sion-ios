@@ -104,7 +104,7 @@ internal struct SongView_Previews: PreviewProvider {
         SongView(
             store: Store(
                 initialState: Song(
-                    id: 1,
+                    id: UUID(),
                     number: 1,
                     title: "Di Hadapan Hadirat-Mu",
                     verses: [

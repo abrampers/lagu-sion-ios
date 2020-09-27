@@ -48,7 +48,6 @@
 		2165AEA824C6F10500AA3665 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2634324C6E05B00C37AB5 /* Constants.swift */; };
 		216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3802472358C00B7C55B /* AppDelegate.swift */; };
 		216AF3832472358C00B7C55B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3822472358C00B7C55B /* SceneDelegate.swift */; };
-		216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 216AF3842472358C00B7C55B /* LaguSion.xcdatamodeld */; };
 		216AF38A2472358E00B7C55B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 216AF3892472358E00B7C55B /* Assets.xcassets */; };
 		216AF38D2472358E00B7C55B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 216AF38C2472358E00B7C55B /* Preview Assets.xcassets */; };
 		216AF3902472358E00B7C55B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 216AF38E2472358E00B7C55B /* LaunchScreen.storyboard */; };
@@ -365,7 +364,6 @@
 		216AF37D2472358C00B7C55B /* LaguSion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaguSion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		216AF3802472358C00B7C55B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		216AF3822472358C00B7C55B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		216AF3852472358C00B7C55B /* LaguSion.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LaguSion.xcdatamodel; sourceTree = "<group>"; };
 		216AF3892472358E00B7C55B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		216AF38C2472358E00B7C55B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		216AF38F2472358E00B7C55B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -675,7 +673,6 @@
 				216AF3892472358E00B7C55B /* Assets.xcassets */,
 				216AF38E2472358E00B7C55B /* LaunchScreen.storyboard */,
 				216AF3912472358E00B7C55B /* Info.plist */,
-				216AF3842472358C00B7C55B /* LaguSion.xcdatamodeld */,
 				216AF38B2472358E00B7C55B /* Preview Content */,
 				21D6FA9024CEAA3000B56C42 /* Core.swift */,
 				21D8BDF124D3E5B200549D29 /* Views.swift */,
@@ -1348,7 +1345,6 @@
 			files = (
 				21D6FA9124CEAA3000B56C42 /* Core.swift in Sources */,
 				2165AEA824C6F10500AA3665 /* Constants.swift in Sources */,
-				216AF3862472358C00B7C55B /* LaguSion.xcdatamodeld in Sources */,
 				21D8BDF224D3E5B200549D29 /* Views.swift in Sources */,
 				216AF3812472358C00B7C55B /* AppDelegate.swift in Sources */,
 				21B130F3247235E0005941E9 /* Logic.swift in Sources */,
@@ -2475,19 +2471,6 @@
 			productName = CombineGRPC;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		216AF3842472358C00B7C55B /* LaguSion.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				216AF3852472358C00B7C55B /* LaguSion.xcdatamodel */,
-			);
-			currentVersion = 216AF3852472358C00B7C55B /* LaguSion.xcdatamodel */;
-			path = LaguSion.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 216AF3752472358C00B7C55B /* Project object */;
 }

@@ -100,14 +100,7 @@ public struct Lagusion_Book {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: Lagusion_UUID {
-    get {return _id ?? Lagusion_UUID()}
-    set {_id = newValue}
-  }
-  /// Returns true if `id` has been explicitly set.
-  public var hasID: Bool {return self._id != nil}
-  /// Clears the value of `id`. Subsequent reads from it will return its default value.
-  public mutating func clearID() {self._id = nil}
+  public var id: UInt32 = 0
 
   public var shortName: String = String()
 
@@ -116,8 +109,6 @@ public struct Lagusion_Book {
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
-
-  fileprivate var _id: Lagusion_UUID? = nil
 }
 
 public struct Lagusion_Song {
@@ -172,22 +163,13 @@ public struct Lagusion_ListSongRequest {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var bookID: Lagusion_UUID {
-    get {return _bookID ?? Lagusion_UUID()}
-    set {_bookID = newValue}
-  }
-  /// Returns true if `bookID` has been explicitly set.
-  public var hasBookID: Bool {return self._bookID != nil}
-  /// Clears the value of `bookID`. Subsequent reads from it will return its default value.
-  public mutating func clearBookID() {self._bookID = nil}
+  public var bookID: UInt32 = 0
 
   public var sortOptions: Lagusion_SortOptions = .number
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
-
-  fileprivate var _bookID: Lagusion_UUID? = nil
 }
 
 public struct Lagusion_ListSongResponse {
@@ -288,7 +270,7 @@ extension Lagusion_Book: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularMessageField(value: &self._id)
+      case 1: try decoder.decodeSingularUInt32Field(value: &self.id)
       case 2: try decoder.decodeSingularStringField(value: &self.shortName)
       case 3: try decoder.decodeSingularStringField(value: &self.longName)
       default: break
@@ -297,8 +279,8 @@ extension Lagusion_Book: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._id {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    if self.id != 0 {
+      try visitor.visitSingularUInt32Field(value: self.id, fieldNumber: 1)
     }
     if !self.shortName.isEmpty {
       try visitor.visitSingularStringField(value: self.shortName, fieldNumber: 2)
@@ -310,7 +292,7 @@ extension Lagusion_Book: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
   }
 
   public static func ==(lhs: Lagusion_Book, rhs: Lagusion_Book) -> Bool {
-    if lhs._id != rhs._id {return false}
+    if lhs.id != rhs.id {return false}
     if lhs.shortName != rhs.shortName {return false}
     if lhs.longName != rhs.longName {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -387,7 +369,7 @@ extension Lagusion_ListSongRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularMessageField(value: &self._bookID)
+      case 1: try decoder.decodeSingularUInt32Field(value: &self.bookID)
       case 2: try decoder.decodeSingularEnumField(value: &self.sortOptions)
       default: break
       }
@@ -395,8 +377,8 @@ extension Lagusion_ListSongRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._bookID {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    if self.bookID != 0 {
+      try visitor.visitSingularUInt32Field(value: self.bookID, fieldNumber: 1)
     }
     if self.sortOptions != .number {
       try visitor.visitSingularEnumField(value: self.sortOptions, fieldNumber: 2)
@@ -405,7 +387,7 @@ extension Lagusion_ListSongRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 
   public static func ==(lhs: Lagusion_ListSongRequest, rhs: Lagusion_ListSongRequest) -> Bool {
-    if lhs._bookID != rhs._bookID {return false}
+    if lhs.bookID != rhs.bookID {return false}
     if lhs.sortOptions != rhs.sortOptions {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
