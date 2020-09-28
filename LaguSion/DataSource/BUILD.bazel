@@ -4,20 +4,19 @@ load("//build-system/bazel-utils:plist_fragment.bzl", "plist_fragment")
 load("//build-input/data:variables.bzl", "lagu_sion_bundle_version")
 
 swift_library(
-    name = "SongSources",
-    module_name = "Song",
+    name = "DataSourceSources",
+    module_name = "DataSource",
     srcs = glob([
         "**/*.swift",
     ]),
     deps = [
-        "//LaguSion/DataSource:DataSourceSources",
-        "//LaguSion/Common:CommonSources",
+        "//LaguSion/Networking:NetworkingSources",
     ],
     visibility = ["//visibility:public"],
 )
 
 plist_fragment(
-    name = "SongInfoPlist",
+    name = "CoreDataInfoPlist",
     extension = "plist",
     template = 
     """
@@ -64,19 +63,19 @@ config_setting(
 )
 
 ios_framework(
-    name = "Song",
-    bundle_id = "id.abram.ios.LaguSion.Song",
+    name = "DataSource",
+    bundle_id = "id.abram.ios.LaguSion.DataSource",
     families = [
         "iphone",
         "ipad",
     ],
     minimum_os_version = "13.0",
-    infoplists = [":SongInfoPlist"],
+    infoplists = [":CoreDataInfoPlist"],
     frameworks = [
-        "//LaguSion/DataSource",
+        "//LaguSion/Networking",
     ],
     deps = [
-        ":SongSources",
+        ":DataSourceSources",
     ],
     provisioning_profile = select({
         ":debug_build": "//build-input/provision:Development_id.abram.ios.LaguSion.mobileprovision",

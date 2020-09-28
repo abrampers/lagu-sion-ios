@@ -52,6 +52,8 @@ jobs:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         APP_VERSION: 0.1
         BUNDLE_ID: id.abram.ios.LaguSion
+    - name: Run DataSourceTests
+      run: bazelisk test //LaguSion/DataSourceTests
     - name: Run SongTests
       run: bazelisk test //LaguSion/SongTests
     - name: Run SettingsTests

@@ -23,7 +23,7 @@ swift_library(
     ]),
     data = [
         ":Assets.xcassets",
-    ] + glob(["LaguSion.xcdatamodeld/**"]),
+    ],# + glob(["LaguSion.xcdatamodeld/**"]),
     deps = [
         "//LaguSion/Main:MainSources",
         "//LaguSion/Favorites:FavoritesSources",

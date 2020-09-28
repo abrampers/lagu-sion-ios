@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Datasource
+@testable import DataSource
 
 class DatasourceTests: XCTestCase {
 

@@ -6,6 +6,7 @@
 //  Copyright © 2020 Abram Situmorang. All rights reserved.
 //
 
+import Foundation
 import Networking
 
 public struct Song: Equatable, Identifiable {
