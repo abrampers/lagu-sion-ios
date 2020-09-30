@@ -18,9 +18,10 @@ import XCTest
 
 class SortOptionSelectionTest: XCTestCase {
     let scheduler = DispatchQueue.testScheduler
+    var store: TestStore<MainState, MainState, MainAction, MainAction, MainEnvironment>!
     
-    func testActionSheetDismissed() {
-        let store = TestStore(
+    override func setUp() {
+        self.store = TestStore(
             initialState: MainState(),
             reducer: mainReducer,
             environment: MainEnvironment(
@@ -28,8 +29,10 @@ class SortOptionSelectionTest: XCTestCase {
                 laguSionDataSource: MockLaguSionDataSource()
             )
         )
-        
-        store.assert(
+    }
+    
+    func testActionSheetDismissed() {
+        self.store.assert(
             .send(.sortOptionTapped) {
                 $0.actionSheet = ActionSheetState(
                     title: "Change sorting option",
@@ -47,16 +50,7 @@ class SortOptionSelectionTest: XCTestCase {
     }
     
     func testActionSheetNumber() {
-        let store = TestStore(
-            initialState: MainState(),
-            reducer: mainReducer,
-            environment: MainEnvironment(
-                mainQueue: self.scheduler.eraseToAnyScheduler(),
-                laguSionDataSource: MockLaguSionDataSource()
-            )
-        )
-
-        store.assert(
+        self.store.assert(
             .send(.sortOptionTapped) {
                 $0.actionSheet = ActionSheetState(
                     title: "Change sorting option",
@@ -80,16 +74,7 @@ class SortOptionSelectionTest: XCTestCase {
     }
     
     func testActionSheetAlphabet() {
-        let store = TestStore(
-            initialState: MainState(),
-            reducer: mainReducer,
-            environment: MainEnvironment(
-                mainQueue: self.scheduler.eraseToAnyScheduler(),
-                laguSionDataSource: MockLaguSionDataSource()
-            )
-        )
-        
-        store.assert(
+        self.store.assert(
             .send(.sortOptionTapped) {
                 $0.actionSheet = ActionSheetState(
                     title: "Change sorting option",
