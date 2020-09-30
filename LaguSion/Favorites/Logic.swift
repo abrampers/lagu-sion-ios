@@ -24,9 +24,10 @@ public struct FavoritesState: Equatable {
     }
 }
 
-public enum FavoritesAction {
+public enum FavoritesAction: Equatable {
     case song(index: Int, action: SongAction)
     case deleteFavoriteSongs(IndexSet)
+    case updateFavoriteSongs([Song])
 }
 
 public struct FavoritesEnvironment {
@@ -43,20 +44,26 @@ public let favoritesReducer: Reducer<FavoritesState, FavoritesAction, FavoritesE
         switch action {
         case .song(index: _, action: _):
             return .none
+
         case .deleteFavoriteSongs(let indexSet):
             var deletedFavoriteSongs: [Song] = []
+            var favoriteSongs = state.favoriteSongs
             for index in indexSet {
                 deletedFavoriteSongs.append(state.favoriteSongs[index])
-                state.favoriteSongs.remove(at: index)
+                favoriteSongs = favoriteSongs.filter { $0 != favoriteSongs[index] }
             }
             
             for deletedSong in deletedFavoriteSongs {
                 for (idx, song) in state.songs.enumerated() {
                     if deletedSong == song {
-                        state.songs[idx].isFavorite = false
+                        state.songs[idx].isFavorite.toggle()
                     }
                 }
             }
+            return Effect(value: FavoritesAction.updateFavoriteSongs(favoriteSongs))
+        
+        case .updateFavoriteSongs(let favoriteSongs):
+            state.favoriteSongs = favoriteSongs
             return .none
         }
     }
