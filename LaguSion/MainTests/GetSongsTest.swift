@@ -8,6 +8,7 @@
 
 import Combine
 import ComposableArchitecture
+import DataSource
 import GRPC
 import Networking
 import Song
@@ -18,6 +19,7 @@ import XCTest
 @testable import Main
 
 class GetSongsTest: XCTestCase {
+    let uuidString = "DEADBEEF-DEAD-BEEF-DEAD-DEADDEADBEEF"
     let scheduler = DispatchQueue.testScheduler
     
     func testGetSongsEmpty() {
@@ -43,45 +45,30 @@ class GetSongsTest: XCTestCase {
         let response = Lagusion_ListSongResponse.with {
             $0.songs = [
                 Lagusion_Song.with {
-                    $0.id = 0
+                    $0.id = Lagusion_UUID.with { $0.value = self.uuidString }
                     $0.number = 1
                     $0.title = "Di Hadapan Hadirat-Mu"
                     $0.verses = [
                         Lagusion_Verse.with {
-                            $0.contents = [
-                                "Di hadapan hadirat-Mu",
-                                "Kami umat-Mu menyembah",
-                                "Mengakui Engkau Tuhan",
-                                "Allah kekal, Maha kuasa"
-                            ]
+                            $0.contents = "Di hadapan hadirat-Mu\nKami umat-Mu menyembah\nMengakui Engkau Tuhan\nAllah kekal, Maha kuasa"
                         },
                         Lagusion_Verse.with {
-                            $0.contents = [
-                                "Dari debu dan tanahlah",
-                                "kita dijadikan Tuhan",
-                                "Dan bila tersesat kita",
-                                "Tuhan tak akan tinggalkan",
-                            ]
+                            $0.contents = "Dari debu dan tanahlah\nkita dijadikan Tuhan\nDan bila tersesat kita\nTuhan tak akan tinggalkan"
                         },
                         Lagusion_Verse.with {
-                            $0.contents = [
-                                "Kuasa serta kasih Allah",
-                                "Memenuhi seg’nap dunia",
-                                "Tetap teguhlah firman-Nya",
-                                "Hingga penuh hadirat-Nya",
-                            ]
+                            $0.contents =
+                                "Kuasa serta kasih Allah\nMemenuhi seg’nap dunia\nTetap teguhlah firman-Nya\nHingga penuh hadirat-Nya"
                         },
                         Lagusion_Verse.with {
-                            $0.contents = [
-                                "Di pintu Surga yang suci",
-                                "menyanyi beribu lidah",
-                                "Pada Tuhan kita puji",
-                                "Sekarang dan selamanya",
-                            ]
+                            $0.contents = "Di pintu Surga yang suci\nmenyanyi beribu lidah\nPada Tuhan kita puji\nSekarang dan selamanya"
                         }
                     ]
                     $0.reff = Lagusion_Verse()
-                    $0.songBook = Lagusion_SongBook.laguSion
+                    $0.book = Lagusion_Book.with {
+                        $0.id = 0
+                        $0.shortName = "LS"
+                        $0.longName = "Lagu Sion"
+                    }
                 }
             ]
         }
@@ -102,7 +89,7 @@ class GetSongsTest: XCTestCase {
         
         let songs = [
             Song(
-                id: 0,
+                id: UUID(uuidString: self.uuidString)!,
                 number: 1,
                 title: "Di Hadapan Hadirat-Mu",
                 verses: [
