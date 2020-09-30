@@ -3,8 +3,11 @@ load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 swift_library(
     name = "CombineGRPC",
     srcs = glob([
-        "Sources/*/*/*.swift",
+        "Sources/**/*.swift",
     ]),
-    deps = ["@com_github_grpc_grpc_swift_local//:GRPC"],
+    deps = [
+        "@com_github_grpc_grpc_swift_local//:GRPC",
+        "@com_github_combinecommunity_combineext//:CombineExt",
+    ],
     visibility = ["//visibility:public"],
 )

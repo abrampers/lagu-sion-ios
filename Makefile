@@ -2,7 +2,7 @@ LAGU_SION_DIR=LaguSion
 PROTO_DIR =${LAGU_SION_DIR}/Networking/gRPC/protobuf
 PROTO_GEN_DIR =${LAGU_SION_DIR}/Networking/gRPC/Generated
 PROTOC_PATH= third_party/protoc/bin/protoc
-PROTOC_PLUGIN_PATH= third_party/protoc/protoc-grpc-swift-plugins-1.0.0-alpha.16
+PROTOC_PLUGIN_PATH= third_party/protoc/protoc-grpc-swift-plugins-1.0.0-alpha.19
 PROTOC_SWIFT_PLUGIN_PATH= ${PROTOC_PLUGIN_PATH}/bin/protoc-gen-swift
 PROTOC_GRPC_SWIFT_PLUGIN_PATH= ${PROTOC_PLUGIN_PATH}/bin/protoc-gen-grpc-swift
 

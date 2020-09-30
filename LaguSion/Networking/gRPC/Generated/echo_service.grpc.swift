@@ -20,10 +20,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-import Foundation
 import GRPC
 import NIO
-import NIOHTTP1
 import SwiftProtobuf
 
 
@@ -162,7 +160,3 @@ public final class EchoServiceTestClient: EchoServiceClientProtocol {
   }
 }
 
-
-// Provides conformance to `GRPCPayload`
-extension EchoRequest: GRPCProtobufPayload {}
-extension EchoResponse: GRPCProtobufPayload {}

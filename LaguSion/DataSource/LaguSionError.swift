@@ -17,9 +17,9 @@ public final class LaguSionError: Error {
 }
 
 extension LaguSionError {
-    public enum Code {
-        case grpcError
-        case unknownError
+    public enum Code: Int {
+        case unknownError = 1
+        case grpcError = 2
     }
 }
 

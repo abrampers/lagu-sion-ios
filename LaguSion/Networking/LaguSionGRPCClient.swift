@@ -12,7 +12,7 @@ import GRPC
 import NIO
 
 public protocol LaguSionGRPCClientProtocol {
-    func listSongs(_ request: Lagusion_ListSongRequest) -> AnyPublisher<Lagusion_ListSongResponse, GRPCStatus>
+    func listSongs(_ request: Lagusion_ListSongRequest) -> AnyPublisher<Lagusion_ListSongResponse, RPCError>
 }
 
 public class DefaultLaguSionGRPCClient: LaguSionGRPCClientProtocol {
@@ -28,14 +28,14 @@ public class DefaultLaguSionGRPCClient: LaguSionGRPCClientProtocol {
         self.client = Lagusion_LaguSionServiceClient(channel: channel)
     }
     
-    public func listSongs(_ request: Lagusion_ListSongRequest) -> AnyPublisher<Lagusion_ListSongResponse, GRPCStatus> {
+    public func listSongs(_ request: Lagusion_ListSongRequest) -> AnyPublisher<Lagusion_ListSongResponse, RPCError> {
         return AnyPublisher(grpc.call(client.listSongs)(request))
     }
 }
 
 public class MockLaguSionGRPCClient: LaguSionGRPCClientProtocol {
-    var listSongsFunc: ((Lagusion_ListSongRequest) -> AnyPublisher<Lagusion_ListSongResponse, GRPCStatus>)?
-    public init(_ listSongsFunc: @escaping (Lagusion_ListSongRequest) -> AnyPublisher<Lagusion_ListSongResponse, GRPCStatus>) {
+    var listSongsFunc: ((Lagusion_ListSongRequest) -> AnyPublisher<Lagusion_ListSongResponse, RPCError>)?
+    public init(_ listSongsFunc: @escaping (Lagusion_ListSongRequest) -> AnyPublisher<Lagusion_ListSongResponse, RPCError>) {
         self.listSongsFunc = listSongsFunc
     }
     
@@ -43,10 +43,10 @@ public class MockLaguSionGRPCClient: LaguSionGRPCClientProtocol {
         self.listSongsFunc = nil
     }
     
-    public func listSongs(_ request: Lagusion_ListSongRequest) -> AnyPublisher<Lagusion_ListSongResponse, GRPCStatus> {
+    public func listSongs(_ request: Lagusion_ListSongRequest) -> AnyPublisher<Lagusion_ListSongResponse, RPCError> {
         if let listSongsFunc = self.listSongsFunc {
             return listSongsFunc(request)
         }
-        return AnyPublisher(Just(Lagusion_ListSongResponse()).setFailureType(to: GRPCStatus.self))
+        return AnyPublisher(Just(Lagusion_ListSongResponse()).setFailureType(to: RPCError.self))
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Combine
+import CombineGRPC
 import Foundation
 import GRPC
 import Networking
@@ -63,7 +64,7 @@ class DatasourceTests: XCTestCase {
         let client = MockLaguSionGRPCClient { _ in
             return AnyPublisher(
                 Just(response)
-                    .setFailureType(to: GRPCStatus.self)
+                    .setFailureType(to: RPCError.self)
             )
         }
         
@@ -109,7 +110,7 @@ class DatasourceTests: XCTestCase {
     }
     
     func testGRPCError() {
-        let status = GRPCStatus(code: .cancelled, message: nil)
+        let status = RPCError(status: GRPCStatus(code: .cancelled, message: nil))
         let client = MockLaguSionGRPCClient { _ in
             return AnyPublisher(
                     Fail(outputType: Lagusion_ListSongResponse.self, failure: status

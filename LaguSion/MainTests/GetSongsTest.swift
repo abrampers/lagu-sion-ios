@@ -137,7 +137,7 @@ class GetSongsTest: XCTestCase {
                 .do { self.scheduler.advance(by: 0.21) },
                 .receive(.error(error)) {
                     $0.alert = AlertState(
-                        title: "Error: \(error.code)",
+                        title: "Error: \(error.code.rawValue)",
                         message: "Message: nil",
                         dismissButton: .default("OK", send: .alertDismissed)
                     )

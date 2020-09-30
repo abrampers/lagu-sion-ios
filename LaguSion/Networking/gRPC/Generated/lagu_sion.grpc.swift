@@ -20,10 +20,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-import Foundation
 import GRPC
 import NIO
-import NIOHTTP1
 import SwiftProtobuf
 
 
@@ -112,11 +110,3 @@ public final class Lagusion_LaguSionServiceTestClient: Lagusion_LaguSionServiceC
   }
 }
 
-
-// Provides conformance to `GRPCPayload`
-extension Lagusion_UUID: GRPCProtobufPayload {}
-extension Lagusion_Verse: GRPCProtobufPayload {}
-extension Lagusion_Book: GRPCProtobufPayload {}
-extension Lagusion_Song: GRPCProtobufPayload {}
-extension Lagusion_ListSongRequest: GRPCProtobufPayload {}
-extension Lagusion_ListSongResponse: GRPCProtobufPayload {}

@@ -128,7 +128,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             
         case .error(let error):
             state.alert = AlertState(
-                title: "Error: \(error.code)",
+                title: "Error: \(error.code.rawValue)",
                 message: "Message: \(String(describing: error.message))",
                 dismissButton: .default("OK", send: .alertDismissed)
             )
@@ -181,7 +181,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             
         case .sortOptionTapped:
             var buttons = SortOptions.allCases.map { (sortOption) -> ActionSheetState<MainAction>.Button in
-                .default(sortOption.string, send: .sortOptionChanged(sortOption))
+                .default(sortOption.localizedString, send: .sortOptionChanged(sortOption))
             }
             buttons.append(.cancel(send: .actionSheetDismissed))
             state.actionSheet = ActionSheetState(

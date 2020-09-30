@@ -14,13 +14,14 @@
 		1C9FCB88252465C9007A310D /* DataSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21BF58F12520DFB20057DA33 /* DataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1C9FCB93252465F8007A310D /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; };
 		1C9FCB94252465F8007A310D /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1C9FCBBA2524692E007A310D /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 1C9FCBB92524692E007A310D /* CombineGRPC */; };
 		1C9FCBC32524699B007A310D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2634324C6E05B00C37AB5 /* Constants.swift */; };
 		1C9FCBD52524829F007A310D /* LaguSionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCBD42524829F007A310D /* LaguSionError.swift */; };
 		1C9FCBDE25248B0A007A310D /* LaguSionGRPCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6FA9224CEAC1000B56C42 /* LaguSionGRPCClient.swift */; };
 		1C9FCBF725248C2C007A310D /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; };
 		1C9FCBF825248C2C007A310D /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21305C27247A863F00F2D76A /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1C9FCC1C252496A4007A310D /* SongTriggerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCC1B252496A4007A310D /* SongTriggerTest.swift */; };
+		1C9FCC532524D6E9007A310D /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 1C9FCC522524D6E9007A310D /* CombineGRPC */; };
+		1C9FCC652524D70E007A310D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1C9FCC642524D70E007A310D /* ComposableArchitecture */; };
 		212FE3A924B446AC00985DEA /* SnapshotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212FE3A824B446AC00985DEA /* SnapshotUITests.swift */; };
 		212FE3B024B446B900985DEA /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864F524AEBF5400E79296 /* SnapshotHelper.swift */; };
 		21305C06247A803200F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
@@ -43,7 +44,6 @@
 		2157B23C24D15CA300136EFB /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2157B23A24D15CA300136EFB /* Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2157B23F24D15CA300136EFB /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2157B23824D15CA300136EFB /* Common.framework */; };
 		2157B24024D15CA300136EFB /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2157B23824D15CA300136EFB /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2157B24524D15CB000136EFB /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2157B24424D15CB000136EFB /* ComposableArchitecture */; };
 		2157B24824D15CC000136EFB /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215C185524A9D7EB0041435A /* SearchField.swift */; };
 		2157B24924D15CC000136EFB /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B130E0247235DF005941E9 /* Publisher+Extension.swift */; };
 		2157B24A24D15CC000136EFB /* DismissingKeyboardOnSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6FA8E24CE643400B56C42 /* DismissingKeyboardOnSwipe.swift */; };
@@ -521,7 +521,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C9FCBBA2524692E007A310D /* CombineGRPC in Frameworks */,
+				1C9FCC532524D6E9007A310D /* CombineGRPC in Frameworks */,
 				2157B24B24D15CFA00136EFB /* Common.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,7 +566,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2157B24524D15CB000136EFB /* ComposableArchitecture in Frameworks */,
+				1C9FCC652524D70E007A310D /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1018,7 +1018,7 @@
 			);
 			name = Networking;
 			packageProductDependencies = (
-				1C9FCBB92524692E007A310D /* CombineGRPC */,
+				1C9FCC522524D6E9007A310D /* CombineGRPC */,
 			);
 			productName = Networking;
 			productReference = 21305C27247A863F00F2D76A /* Networking.framework */;
@@ -1121,7 +1121,7 @@
 			);
 			name = Common;
 			packageProductDependencies = (
-				2157B24424D15CB000136EFB /* ComposableArchitecture */,
+				1C9FCC642524D70E007A310D /* ComposableArchitecture */,
 			);
 			productName = Common;
 			productReference = 2157B23824D15CA300136EFB /* Common.framework */;
@@ -1148,6 +1148,8 @@
 				1C9FCBFA25248C2C007A310D /* PBXTargetDependency */,
 			);
 			name = LaguSion;
+			packageProductDependencies = (
+			);
 			productName = LaguSion;
 			productReference = 216AF37D2472358C00B7C55B /* LaguSion.app */;
 			productType = "com.apple.product-type.application";
@@ -1336,7 +1338,7 @@
 			mainGroup = 216AF3742472358C00B7C55B;
 			packageReferences = (
 				21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-				214EF69924C82785008677C1 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */,
+				1C9FCC2D2524D60E007A310D /* XCRemoteSwiftPackageReference "grpc-swift-combine" */,
 			);
 			productRefGroup = 216AF37E2472358C00B7C55B /* Products */;
 			projectDirPath = "";
@@ -2838,12 +2840,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		214EF69924C82785008677C1 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */ = {
+		1C9FCC2D2524D60E007A310D /* XCRemoteSwiftPackageReference "grpc-swift-combine" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/abrampers/grpc-swift-combine.git";
+			repositoryURL = "https://github.com/vyshane/grpc-swift-combine";
 			requirement = {
-				kind = exactVersion;
-				version = 0.14.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.18.0;
 			};
 		};
 		21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
@@ -2851,18 +2853,18 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
 				kind = exactVersion;
-				version = 0.6.0;
+				version = 0.8.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1C9FCBB92524692E007A310D /* CombineGRPC */ = {
+		1C9FCC522524D6E9007A310D /* CombineGRPC */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 214EF69924C82785008677C1 /* XCRemoteSwiftPackageReference "grpc-swift-combine" */;
+			package = 1C9FCC2D2524D60E007A310D /* XCRemoteSwiftPackageReference "grpc-swift-combine" */;
 			productName = CombineGRPC;
 		};
-		2157B24424D15CB000136EFB /* ComposableArchitecture */ = {
+		1C9FCC642524D70E007A310D /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 21B130F92472365F005941E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
