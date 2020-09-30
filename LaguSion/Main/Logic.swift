@@ -126,7 +126,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
         case .error(let error):
             state.alert = AlertState(
                 title: "Error: \(error.code)",
-                message: "Message: \(error.message)",
+                message: "Message: \(String(describing: error.message))",
                 dismissButton: .default("OK", send: .alertDismissed)
             )
             return .none

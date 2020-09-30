@@ -14,76 +14,42 @@ public struct Song: Equatable, Identifiable {
         return lhs.id == rhs.id
     }
     
-    private var _id: UUID
+    public let id: UUID
+    public let number: Int
+    public let title: String
+    public let verses: [Verse]
+    public let reff: Verse?
+    public let songBook: SongBook
+    
     private var _isFavorite: Bool
-    private var _number: Int
-    private var _title: String
-    private var _verses: [Verse]
-    private var _reff: Verse?
-    private var _songBook: SongBook
-    
-    public var id: UUID {
-        get {
-            return _id
-        }
-    }
-    
     public var isFavorite: Bool {
         get {
-            return _isFavorite
+            _isFavorite
         }
         set {
             _isFavorite = newValue
         }
     }
     
-    public var songBook: SongBook {
-        get {
-            return _songBook
-        }
-    }
-    
-    public var title: String {
-        get {
-            return _title
-        }
-    }
-    
-    public var verses: [Verse] {
-        get {
-            return _verses
-        }
-    }
-    
-    public var number: Int {
-        get {
-            return _number
-        }
-    }
-    
-    public var reff: Verse? {
-        get {
-            return _reff
-        }
-    }
-    
     public init(id: UUID, number: Int, title: String, verses: [Verse], reff: Verse? = nil, songBook: SongBook) {
-        self._id = id
+        self.id = id
+        self.number = number
+        self.title = title
+        self.verses = verses
+        self.reff = reff
+        self.songBook = songBook
+        
+        // MARK: TODO get isFavorite data locally
         self._isFavorite = false
-        self._number = number
-        self._title = title
-        self._verses = verses
-        self._reff = reff
-        self._songBook = songBook
     }
     
     public init(pbSong: Lagusion_Song) {
-        self._id = UUID(uuidString: pbSong.id.value)!
-        self._number = Int(pbSong.number)
-        self._title = pbSong.title
-        self._verses = pbSong.verses.map { Verse(pbVerse: $0) }
-        self._reff = Verse(pbVerse: pbSong.reff)
-        self._songBook = SongBook.proto(pbSongBook: pbSong.book)
+        self.id = UUID(uuidString: pbSong.id.value)!
+        self.number = Int(pbSong.number)
+        self.title = pbSong.title
+        self.verses = pbSong.verses.map { Verse(pbVerse: $0) }
+        self.reff = Verse(pbVerse: pbSong.reff)
+        self.songBook = SongBook.proto(pbSongBook: pbSong.book)
         
         // MARK: TODO get isFavorite data locally
         self._isFavorite = false
