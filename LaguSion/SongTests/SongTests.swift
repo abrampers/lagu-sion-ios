@@ -6,8 +6,25 @@
 //  Copyright © 2020 Abram Situmorang. All rights reserved.
 //
 
+import ComposableArchitecture
+import DataSource
+
 import XCTest
 @testable import Song
 
 class SongTests: XCTestCase {
+    func testHeartTapped() {
+        let store = TestStore(
+            initialState: Song(id: UUID(), number: 0, title: "", verses: [], songBook: .laguSion),
+            reducer: songReducer,
+            environment: SongEnvironment()
+        )
+        
+        store.assert(
+            .send(.heartTapped),
+            .receive(.addToFavorites),
+            .send(.heartTapped),
+            .receive(.removeFromFavorites)
+        )
+    }
 }

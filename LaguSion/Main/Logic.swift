@@ -72,6 +72,9 @@ public enum MainAction: Equatable {
     case songBookPicked(BookSelection)
     case sortOptionChanged(SortOptions)
     case sortOptionTapped
+    case updateFavoriteSongsComplete([Song])
+    
+    case noOp
 }
 
 public struct MainEnvironment {
@@ -142,14 +145,26 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             
         case .song(index: let idx, action: .addToFavorites):
             let addedSong = state.currentSongs[idx]
-            if !state.favoriteSongs.contains(addedSong) {
-                state.favoriteSongs.append(addedSong)
+            var newFavorites = state.favoriteSongs
+            if !newFavorites.contains(addedSong) {
+                newFavorites.append(addedSong)
+                return Effect(value: MainAction.updateFavoriteSongsComplete(newFavorites))
+            } else {
+                return Effect(value: MainAction.noOp)
             }
-            return .none
         
         case .song(index: let idx, action: .removeFromFavorites):
             let removedSong = state.currentSongs[idx]
-            state.favoriteSongs.removeAll { $0 == removedSong }
+            var newFavorites = state.favoriteSongs
+            if newFavorites.contains(removedSong) {
+                newFavorites = newFavorites.filter { $0 != removedSong }
+                return Effect(value: MainAction.updateFavoriteSongsComplete(newFavorites))
+            } else {
+                return Effect(value: MainAction.noOp)
+            }
+            
+        case .updateFavoriteSongsComplete(let songs):
+            state.favoriteSongs = songs
             return .none
         
         case .song(index: _, action: _):
@@ -173,6 +188,9 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
                 title: "Change sorting option",
                 buttons: buttons
             )
+            return .none
+            
+        case .noOp:
             return .none
         }
     }
