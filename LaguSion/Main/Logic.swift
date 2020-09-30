@@ -72,7 +72,7 @@ public enum MainAction: Equatable {
     case songBookPicked(BookSelection)
     case sortOptionChanged(SortOptions)
     case sortOptionTapped
-    case updateFavoriteSongsComplete([Song])
+    case updateFavoriteSongs([Song])
     
     case noOp
 }
@@ -148,7 +148,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             var newFavorites = state.favoriteSongs
             if !newFavorites.contains(addedSong) {
                 newFavorites.append(addedSong)
-                return Effect(value: MainAction.updateFavoriteSongsComplete(newFavorites))
+                return Effect(value: MainAction.updateFavoriteSongs(newFavorites))
             } else {
                 return Effect(value: MainAction.noOp)
             }
@@ -158,12 +158,12 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             var newFavorites = state.favoriteSongs
             if newFavorites.contains(removedSong) {
                 newFavorites = newFavorites.filter { $0 != removedSong }
-                return Effect(value: MainAction.updateFavoriteSongsComplete(newFavorites))
+                return Effect(value: MainAction.updateFavoriteSongs(newFavorites))
             } else {
                 return Effect(value: MainAction.noOp)
             }
             
-        case .updateFavoriteSongsComplete(let songs):
+        case .updateFavoriteSongs(let songs):
             state.favoriteSongs = songs
             return .none
         

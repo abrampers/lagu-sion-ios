@@ -47,7 +47,7 @@ class SongTriggerTest: XCTestCase {
         
         store.assert(
             .send(.song(index: 0, action: .addToFavorites)),
-            .receive(.updateFavoriteSongsComplete(newFavorites)) {
+            .receive(.updateFavoriteSongs(newFavorites)) {
                 $0.favoriteSongs = newFavorites
             }
         )
@@ -97,7 +97,7 @@ class SongTriggerTest: XCTestCase {
         
         store.assert(
             .send(.song(index: 0, action: .removeFromFavorites)),
-            .receive(.updateFavoriteSongsComplete([])) {
+            .receive(.updateFavoriteSongs([])) {
                 $0.favoriteSongs = []
             }
         )
@@ -173,7 +173,7 @@ class SongTriggerTest: XCTestCase {
         
         store.assert(
             .send(.song(index: 0, action: .addToFavorites)),
-            .receive(.updateFavoriteSongsComplete(newFavorites)) {
+            .receive(.updateFavoriteSongs(newFavorites)) {
                 $0.favoriteSongs = newFavorites
             }
         )
@@ -223,7 +223,7 @@ class SongTriggerTest: XCTestCase {
         
         store.assert(
             .send(.song(index: 0, action: .removeFromFavorites)),
-            .receive(.updateFavoriteSongsComplete([])) {
+            .receive(.updateFavoriteSongs([])) {
                 $0.favoriteSongs = []
             }
         )
@@ -275,7 +275,7 @@ class SongTriggerTest: XCTestCase {
         
         store.assert(
             .send(.song(index: 0, action: .addToFavorites)),
-            .receive(.updateFavoriteSongsComplete(newFavorites)) {
+            .receive(.updateFavoriteSongs(newFavorites)) {
                 $0.favoriteSongs = newFavorites
             }
         )
@@ -325,7 +325,7 @@ class SongTriggerTest: XCTestCase {
         
         store.assert(
             .send(.song(index: 0, action: .removeFromFavorites)),
-            .receive(.updateFavoriteSongsComplete([])) {
+            .receive(.updateFavoriteSongs([])) {
                 $0.favoriteSongs = []
             }
         )
