@@ -11,7 +11,6 @@ import ComposableArchitecture
 import DataSource
 import Favorites
 import Main
-import Networking
 import Settings
 import Song
 import SwiftUI
@@ -37,7 +36,7 @@ enum AppAction {
 
 struct AppEnvironment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
-    var laguSionClient: LaguSionClientProtocol
+    var laguSionDataSource: LaguSionDataSourceProtocol
 }
 
 extension AppState {
@@ -97,7 +96,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         environment: { env in
             MainEnvironment(
                 mainQueue: env.mainQueue,
-                laguSionClient: env.laguSionClient
+                laguSionDataSource: env.laguSionDataSource
             )
         }
     ),

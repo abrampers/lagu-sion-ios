@@ -9,7 +9,7 @@
 import Combine
 import ComposableArchitecture
 import GRPC
-import Networking
+import DataSource
 
 import SwiftUI
 import XCTest
@@ -25,7 +25,7 @@ class SongBookSelectionTest: XCTestCase {
             reducer: mainReducer,
             environment: MainEnvironment(
                 mainQueue: self.scheduler.eraseToAnyScheduler(),
-                laguSionClient: LaguSionClient.mock
+                laguSionDataSource: MockLaguSionDataSource()
             )
         )
         

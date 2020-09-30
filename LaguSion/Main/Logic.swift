@@ -9,79 +9,8 @@
 import ComposableArchitecture
 import DataSource
 import GRPC
-import Networking
 import Song
-
 import SwiftUI
-
-public enum BookSelection: Hashable, Equatable {
-    public var string: String {
-        switch self {
-        case .all:
-            return "All"
-        case .songBook(let book):
-            return book.prefix
-        }
-    }
-    
-    public var protoID: UInt32 {
-        switch self {
-        case .all:
-            return 0
-        case .songBook(let book):
-            return book.protoID
-        }
-    }
-    
-    public var localizedIdentifier: LocalizedStringKey {
-        LocalizedStringKey(self.string)
-    }
-    
-    case all
-    case songBook(SongBook)
-}
-
-extension BookSelection: CaseIterable {
-    public static var allCases: [BookSelection] {
-        [.all, .songBook(.laguSion), .songBook(.laguSionEdisiLengkap)]
-    }
-}
-
-public enum SortOptions: Hashable, CaseIterable, Equatable {
-    public var localizedString: LocalizedStringKey {
-        LocalizedStringKey(self.string)
-    }
-    
-    public var string: String {
-        switch self {
-        case .number:
-            return "Song Number"
-        case .alphabet:
-            return "Song Title"
-        }
-    }
-    
-    public var proto: Lagusion_SortOptions {
-        switch self {
-        case .number:
-            return .number
-        case .alphabet:
-            return .alphabet
-        }
-    }
-    
-    public var image: Image {
-        switch self {
-        case .number:
-            return Image(systemName: "number.square")
-        case .alphabet:
-            return Image(systemName: "a.square")
-        }
-    }
-    
-    case number
-    case alphabet
-}
 
 public struct MainState: Equatable {
     public var songs: [Song]
@@ -134,9 +63,9 @@ public enum MainAction: Equatable {
     case actionSheetDismissed
     case alertDismissed
     case appear
+    case error(LaguSionError)
     case getSongs
     case getSongsCompleted([Song])
-    case grpcError(GRPCStatus)
     case saveSearchQuery(String)
     case searchQueryChanged(String)
     case song(index: Int, action: SongAction)
@@ -147,11 +76,11 @@ public enum MainAction: Equatable {
 
 public struct MainEnvironment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
-    var laguSionClient: LaguSionClientProtocol
+    var laguSionDataSource: LaguSionDataSourceProtocol
     
-    public init(mainQueue: AnySchedulerOf<DispatchQueue>, laguSionClient: LaguSionClientProtocol) {
+    public init(mainQueue: AnySchedulerOf<DispatchQueue>, laguSionDataSource: LaguSionDataSourceProtocol) {
         self.mainQueue = mainQueue
-        self.laguSionClient = laguSionClient
+        self.laguSionDataSource = laguSionDataSource
     }
 }
 
@@ -176,20 +105,13 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             
         case .getSongs:
             struct ListSongRequestCancelId: Hashable {}
-            let request = Lagusion_ListSongRequest.with {
-                $0.bookID = state.selectedBook.protoID
-                $0.sortOptions = state.selectedSortOption.proto
-            }
-            return environment.laguSionClient.listSongs(request).eraseToEffect()
+            return environment.laguSionDataSource.listSongs(state.selectedBook, state.selectedSortOption).eraseToEffect()
                 .debounce(id: ListSongRequestCancelId(), for: 0.2, scheduler: environment.mainQueue)
-                .map { (response) -> [Song] in
-                    return response.songs.map { Song(pbSong: $0) }
-                }
                 .map { (song) -> MainAction in
                     return MainAction.getSongsCompleted(song)
                 }
-                .catch { (grpcStatus) -> Effect<MainAction, Never> in
-                    return Effect(value: MainAction.grpcError(grpcStatus))
+                .catch { (error) -> Effect<MainAction, Never> in
+                    return Effect(value: MainAction.error(error))
                 }
                 .flatMap { (action) -> Effect<MainAction, Never> in
                     return Effect(value: action)
@@ -201,10 +123,10 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             state.songs = songs
             return .none
             
-        case .grpcError(let grpcStatus):
+        case .error(let error):
             state.alert = AlertState(
-                title: "GRPC Error Code: \(grpcStatus.code)",
-                message: "description: \(grpcStatus.description)",
+                title: "Error: \(error.code)",
+                message: "Message: \(error.message)",
                 dismissButton: .default("OK", send: .alertDismissed)
             )
             return .none

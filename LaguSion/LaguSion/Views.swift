@@ -10,7 +10,6 @@ import ComposableArchitecture
 import DataSource
 import Favorites
 import Main
-import Networking
 import Settings
 import Song
 import SwiftUI
@@ -84,7 +83,7 @@ struct RootView_Previews: PreviewProvider {
                 reducer: appReducer,
                 environment: AppEnvironment(
                     mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
-                    laguSionClient: LaguSionClient.mock
+                    laguSionDataSource: MockLaguSionDataSource()
                 )
             )
         )

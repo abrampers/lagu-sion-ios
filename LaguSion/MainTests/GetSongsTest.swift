@@ -19,7 +19,6 @@ import XCTest
 @testable import Main
 
 class GetSongsTest: XCTestCase {
-    let uuidString = "DEADBEEF-DEAD-BEEF-DEAD-DEADDEADBEEF"
     let scheduler = DispatchQueue.testScheduler
     
     func testGetSongsEmpty() {
@@ -28,7 +27,7 @@ class GetSongsTest: XCTestCase {
             reducer: mainReducer,
             environment: MainEnvironment(
                 mainQueue: self.scheduler.eraseToAnyScheduler(),
-                laguSionClient: LaguSionClient.mock
+                laguSionDataSource: MockLaguSionDataSource()
             )
         )
         
@@ -42,54 +41,9 @@ class GetSongsTest: XCTestCase {
     }
     
     func testGetSongs() {
-        let response = Lagusion_ListSongResponse.with {
-            $0.songs = [
-                Lagusion_Song.with {
-                    $0.id = Lagusion_UUID.with { $0.value = self.uuidString }
-                    $0.number = 1
-                    $0.title = "Di Hadapan Hadirat-Mu"
-                    $0.verses = [
-                        Lagusion_Verse.with {
-                            $0.contents = "Di hadapan hadirat-Mu\nKami umat-Mu menyembah\nMengakui Engkau Tuhan\nAllah kekal, Maha kuasa"
-                        },
-                        Lagusion_Verse.with {
-                            $0.contents = "Dari debu dan tanahlah\nkita dijadikan Tuhan\nDan bila tersesat kita\nTuhan tak akan tinggalkan"
-                        },
-                        Lagusion_Verse.with {
-                            $0.contents =
-                                "Kuasa serta kasih Allah\nMemenuhi seg’nap dunia\nTetap teguhlah firman-Nya\nHingga penuh hadirat-Nya"
-                        },
-                        Lagusion_Verse.with {
-                            $0.contents = "Di pintu Surga yang suci\nmenyanyi beribu lidah\nPada Tuhan kita puji\nSekarang dan selamanya"
-                        }
-                    ]
-                    $0.reff = Lagusion_Verse()
-                    $0.book = Lagusion_Book.with {
-                        $0.id = 0
-                        $0.shortName = "LS"
-                        $0.longName = "Lagu Sion"
-                    }
-                }
-            ]
-        }
-        
-        let store = TestStore(
-            initialState: MainState(),
-            reducer: mainReducer,
-            environment: MainEnvironment(
-                mainQueue: self.scheduler.eraseToAnyScheduler(),
-                laguSionClient: LaguSionClient { _ in
-                    return AnyPublisher(
-                        Just(response)
-                            .setFailureType(to: GRPCStatus.self)
-                    )
-                }
-            )
-        )
-        
         let songs = [
             Song(
-                id: UUID(uuidString: self.uuidString)!,
+                id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-DEADDEADBEEF")!,
                 number: 1,
                 title: "Di Hadapan Hadirat-Mu",
                 verses: [
@@ -121,6 +75,19 @@ class GetSongsTest: XCTestCase {
             )
         ]
         
+        let store = TestStore(
+            initialState: MainState(),
+            reducer: mainReducer,
+            environment: MainEnvironment(
+                mainQueue: self.scheduler.eraseToAnyScheduler(),
+                laguSionDataSource: MockLaguSionDataSource { (_,_) -> AnyPublisher<[Song], LaguSionError>  in
+                    return Just(songs)
+                        .setFailureType(to: LaguSionError.self)
+                        .eraseToAnyPublisher()
+                }
+            )
+        )
+        
         store.assert(
             .send(.getSongs),
             .do { self.scheduler.advance(by: 0.21) },
@@ -136,7 +103,7 @@ class GetSongsTest: XCTestCase {
             reducer: mainReducer,
             environment: MainEnvironment(
                 mainQueue: self.scheduler.eraseToAnyScheduler(),
-                laguSionClient: LaguSionClient.mock
+                laguSionDataSource: MockLaguSionDataSource()
             )
         )
         
@@ -151,35 +118,33 @@ class GetSongsTest: XCTestCase {
         )
     }
     
-    func testGRPCError() {
-        let status = GRPCStatus(code: .cancelled, message: nil)
-        let store = TestStore(
-            initialState: MainState(),
-            reducer: mainReducer,
-            environment: MainEnvironment(
-                mainQueue: self.scheduler.eraseToAnyScheduler(),
-                laguSionClient: LaguSionClient { _ in
-                    return AnyPublisher(
-                            Fail(outputType: Lagusion_ListSongResponse.self, failure: status
-                        )
+    func testError() {
+            let error = LaguSionError(code: .unknownError, message: nil)
+            let store = TestStore(
+                initialState: MainState(),
+                reducer: mainReducer,
+                environment: MainEnvironment(
+                    mainQueue: self.scheduler.eraseToAnyScheduler(),
+                    laguSionDataSource: MockLaguSionDataSource { (_,_) -> AnyPublisher<[Song], LaguSionError> in
+                        return Fail(outputType: [Song].self, failure: error)
+                            .eraseToAnyPublisher()
+                    }
+                )
+            )
+        
+            store.assert(
+                .send(.getSongs),
+                .do { self.scheduler.advance(by: 0.21) },
+                .receive(.error(error)) {
+                    $0.alert = AlertState(
+                        title: "Error: \(error.code)",
+                        message: "Message: nil",
+                        dismissButton: .default("OK", send: .alertDismissed)
                     )
+                },
+                .send(.alertDismissed) {
+                    $0.alert = nil
                 }
             )
-        )
-    
-        store.assert(
-            .send(.getSongs),
-            .do { self.scheduler.advance(by: 0.21) },
-            .receive(.grpcError(status)) {
-                $0.alert = AlertState(
-                    title: "GRPC Error Code: \(status.code)",
-                    message: "description: \(status.code) (\(status.code.rawValue))",
-                    dismissButton: .default("OK", send: .alertDismissed)
-                )
-            },
-            .send(.alertDismissed) {
-                $0.alert = nil
-            }
-        )
-    }
+        }
 }
