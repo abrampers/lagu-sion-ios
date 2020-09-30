@@ -22,9 +22,17 @@ class SongTests: XCTestCase {
         
         store.assert(
             .send(.heartTapped),
-            .receive(.addToFavorites),
+            .receive(.addToFavorites) {
+                $0.isFavorite = true
+            },
             .send(.heartTapped),
-            .receive(.removeFromFavorites)
+            .receive(.removeFromFavorites) {
+                $0.isFavorite = false
+            },
+            .send(.heartTapped),
+            .receive(.addToFavorites) {
+                $0.isFavorite = true
+            }
         )
     }
 }
