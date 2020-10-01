@@ -26,10 +26,16 @@ class FavoritesTests: XCTestCase {
     ]
     
     func testRemoveFavorite() {
+        var songOne = self.songs[0]
+        var songTwo = self.songs[3]
+        
+        songOne.isFavorite = true
+        songTwo.isFavorite = true
+        
         let store = TestStore(
             initialState:FavoritesState(
                 songs: self.songs,
-                favoriteSongs: [self.songs[0], self.songs[3]]
+                favoriteSongs: [songOne, songTwo]
             ),
             reducer: favoritesReducer,
             environment: FavoritesEnvironment()
@@ -37,12 +43,14 @@ class FavoritesTests: XCTestCase {
         
         store.assert(
             .send(.deleteFavoriteSongs(IndexSet(integer: 0))),
-            .receive(.updateFavoriteSongs([self.songs[3]])) {
-                $0.favoriteSongs = [self.songs[3]]
+            .receive(.updateFavoriteSongs([songTwo])) {
+                $0.favoriteSongs = [songTwo]
+                $0.songs[0].isFavorite = false
             },
             .send(.deleteFavoriteSongs(IndexSet(integer: 0))),
             .receive(.updateFavoriteSongs([])) {
                 $0.favoriteSongs = []
+                $0.songs[3].isFavorite = false
             }
         )
     }

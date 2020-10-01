@@ -23,13 +23,18 @@ public struct SongEnvironment {
 public let songReducer = Reducer<Song, SongAction, SongEnvironment> { state, action, environment in
     switch action {
     case .heartTapped:
-        state.isFavorite.toggle()
-        if state.isFavorite {
+        if !state.isFavorite {
             return Effect(value: SongAction.addToFavorites)
         } else {
             return Effect(value: SongAction.removeFromFavorites)
         }
-    case .addToFavorites, .removeFromFavorites:
+        
+    case .addToFavorites:
+        state.isFavorite = true
+        return .none
+        
+    case .removeFromFavorites:
+        state.isFavorite = false
         return .none
     }
 }

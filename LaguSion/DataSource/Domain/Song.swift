@@ -10,10 +10,6 @@ import Foundation
 import Networking
 
 public struct Song: Equatable, Identifiable {
-    public static func == (lhs: Song, rhs: Song) -> Bool {
-        return lhs.id == rhs.id
-    }
-    
     public let id: UUID
     public let number: Int
     public let title: String
@@ -48,11 +44,17 @@ public struct Song: Equatable, Identifiable {
         self.number = Int(pbSong.number)
         self.title = pbSong.title
         self.verses = pbSong.verses.map { Verse(pbVerse: $0) }
-        self.reff = Verse(pbVerse: pbSong.reff)
+        self.reff = !pbSong.emptyReff ? Verse(pbVerse: pbSong.reff) : nil
         self.songBook = SongBook.proto(pbSongBook: pbSong.book)
         
         // MARK: TODO get isFavorite data locally
         self._isFavorite = false
+    }
+}
+
+extension Lagusion_Song {
+    var emptyReff: Bool {
+        return !self.hasReff || self.reff == Lagusion_Verse()
     }
 }
 

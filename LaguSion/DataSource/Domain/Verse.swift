@@ -8,7 +8,7 @@
 
 import Networking
 
-public struct Verse {
+public struct Verse: Equatable {
     private var _contents: [String]
     
     public var contents: [String] {

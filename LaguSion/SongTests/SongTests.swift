@@ -13,7 +13,7 @@ import XCTest
 @testable import Song
 
 class SongTests: XCTestCase {
-    func testHeartTapped() {
+    func testHeartTapped_WithIsFavorite_False() {
         let store = TestStore(
             initialState: Song(id: UUID(), number: 0, title: "", verses: [], songBook: .laguSion),
             reducer: songReducer,
@@ -24,14 +24,25 @@ class SongTests: XCTestCase {
             .send(.heartTapped),
             .receive(.addToFavorites) {
                 $0.isFavorite = true
-            },
+            }
+            
+        )
+    }
+    
+    func testHeartTapped_WithIsFavorite_True() {
+        var song = Song(id: UUID(), number: 0, title: "", verses: [], songBook: .laguSion)
+        song.isFavorite = true
+        
+        let store = TestStore(
+            initialState: song,
+            reducer: songReducer,
+            environment: SongEnvironment()
+        )
+        
+        store.assert(
             .send(.heartTapped),
             .receive(.removeFromFavorites) {
                 $0.isFavorite = false
-            },
-            .send(.heartTapped),
-            .receive(.addToFavorites) {
-                $0.isFavorite = true
             }
         )
     }

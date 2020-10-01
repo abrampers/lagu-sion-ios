@@ -42,13 +42,32 @@ public struct MainState: Equatable {
 
 extension MainState {
     var currentSongs: [Song] {
-        switch selectedBook {
-        case .all:
-            return songs
-        case .songBook(let songBook):
-            return songs.filter { song in
-                return song.songBook == songBook
+        get {
+            switch selectedBook {
+            case .all:
+                return songs
+            case .songBook(let songBook):
+                return songs(for: songBook)
             }
+        }
+        set(newSongs) {
+            let insertions = newSongs.filter { !songs.contains($0) }.map { newSongs.firstIndex(of: $0)! }
+            let updates = insertions
+                .map { idx -> Song in
+                    var curr = newSongs[idx]
+                    curr.isFavorite.toggle()
+                    return curr
+                }
+                .filter { songs.contains($0) }
+                .map { songs.firstIndex(of: $0)! }
+            
+            var updatedSongs = songs
+            updates
+                .forEach { (idx) in
+                    updatedSongs[idx].isFavorite.toggle()
+                }
+            
+            self.songs = updatedSongs
         }
     }
     
@@ -72,7 +91,7 @@ public enum MainAction: Equatable {
     case songBookPicked(BookSelection)
     case sortOptionChanged(SortOptions)
     case sortOptionTapped
-    case updateFavoriteSongs([Song])
+    case updateFavoriteSongs(newFavorites: [Song])
     
     case noOp
 }
@@ -89,7 +108,7 @@ public struct MainEnvironment {
 
 public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combine(
     songReducer.forEach(
-        state: \MainState.songs,
+        state: \MainState.currentSongs,
         action: /MainAction.song(index:action:),
         environment: { _ in SongEnvironment() }
     ),
@@ -146,25 +165,28 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
         case .song(index: let idx, action: .addToFavorites):
             let addedSong = state.currentSongs[idx]
             var newFavorites = state.favoriteSongs
+            
             if !newFavorites.contains(addedSong) {
                 newFavorites.append(addedSong)
-                return Effect(value: MainAction.updateFavoriteSongs(newFavorites))
+                return Effect(value: MainAction.updateFavoriteSongs(newFavorites: newFavorites))
             } else {
                 return Effect(value: MainAction.noOp)
             }
         
         case .song(index: let idx, action: .removeFromFavorites):
-            let removedSong = state.currentSongs[idx]
+            var removedSong = state.currentSongs[idx]
+            removedSong.isFavorite = true
             var newFavorites = state.favoriteSongs
+            
             if newFavorites.contains(removedSong) {
                 newFavorites = newFavorites.filter { $0 != removedSong }
-                return Effect(value: MainAction.updateFavoriteSongs(newFavorites))
+                return Effect(value: MainAction.updateFavoriteSongs(newFavorites: newFavorites))
             } else {
                 return Effect(value: MainAction.noOp)
             }
             
-        case .updateFavoriteSongs(let songs):
-            state.favoriteSongs = songs
+        case .updateFavoriteSongs(let newFavorites):
+            state.favoriteSongs = newFavorites
             return .none
         
         case .song(index: _, action: _):
@@ -193,5 +215,5 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
         case .noOp:
             return .none
         }
-    }
+    }.debug()
 )

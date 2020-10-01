@@ -75,11 +75,13 @@ public struct MainView: View {
                     .modifier(DismissingKeyboardOnSwipe())
                     .navigationBarTitle(Text("Lagu Sion"))
                     .animation(.spring())
+                    .listStyle(PlainListStyle())
                     .navigationBarItems(trailing:
                         Button(action: { viewStore.send(MainAction.sortOptionTapped) }) { viewStore.selectedSortOption.image }
                             .actionSheet(self.store.scope(state: \.actionSheet), dismiss: .actionSheetDismissed)
                             .alert(self.store.scope(state: \.alert), dismiss: .alertDismissed)
                     )
+                    
                 }
             }
             .onAppear(perform: { viewStore.send(.appear) })
