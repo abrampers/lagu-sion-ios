@@ -10,6 +10,20 @@ import ComposableArchitecture
 import DataSource
 import SwiftUI
 
+public struct SongViewState: Equatable, Identifiable {
+    public var id: UUID {
+        return song.id
+    }
+    
+    public var song: Song
+    public var isFavorite: Bool
+    
+    public init(song: Song, isFavorite: Bool) {
+        self.song = song
+        self.isFavorite = isFavorite
+    }
+}
+
 public enum SongAction: Equatable {
     case heartTapped
     case removeFromFavorites
@@ -20,7 +34,7 @@ public struct SongEnvironment {
     public init() {}
 }
 
-public let songReducer = Reducer<Song, SongAction, SongEnvironment> { state, action, environment in
+public let songReducer = Reducer<SongViewState, SongAction, SongEnvironment> { state, action, environment in
     switch action {
     case .heartTapped:
         if !state.isFavorite {
@@ -29,12 +43,7 @@ public let songReducer = Reducer<Song, SongAction, SongEnvironment> { state, act
             return Effect(value: SongAction.removeFromFavorites)
         }
         
-    case .addToFavorites:
-        state.isFavorite = true
-        return .none
-        
-    case .removeFromFavorites:
-        state.isFavorite = false
+    case .addToFavorites, .removeFromFavorites:
         return .none
     }
 }

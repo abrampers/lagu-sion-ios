@@ -24,6 +24,19 @@ public struct FavoritesState: Equatable {
     }
 }
 
+extension FavoritesState {
+    var favoriteSongsState: [SongViewState] {
+        get {
+            return favoriteSongs.map {
+                SongViewState(song: $0, isFavorite: favoriteSongs.contains($0))
+            }
+        }
+        set {
+            favoriteSongs = newValue.map { $0.song }
+        }
+    }
+}
+
 public enum FavoritesAction: Equatable {
     case song(index: Int, action: SongAction)
     case deleteFavoriteSongs(IndexSet)
@@ -36,7 +49,7 @@ public struct FavoritesEnvironment {
 
 public let favoritesReducer: Reducer<FavoritesState, FavoritesAction, FavoritesEnvironment> = .combine(
     songReducer.forEach(
-        state: \FavoritesState.favoriteSongs,
+        state: \FavoritesState.favoriteSongsState,
         action: /FavoritesAction.song(index:action:),
         environment: { _ in SongEnvironment() }
     ),
@@ -46,20 +59,11 @@ public let favoritesReducer: Reducer<FavoritesState, FavoritesAction, FavoritesE
             return .none
 
         case .deleteFavoriteSongs(let indexSet):
-            var deletedFavoriteSongs: [Song] = []
             var favoriteSongs = state.favoriteSongs
             for index in indexSet {
-                deletedFavoriteSongs.append(state.favoriteSongs[index])
                 favoriteSongs = favoriteSongs.filter { $0 != favoriteSongs[index] }
             }
             
-            for deletedSong in deletedFavoriteSongs {
-                for (idx, song) in state.songs.enumerated() {
-                    if deletedSong == song {
-                        state.songs[idx].isFavorite.toggle()
-                    }
-                }
-            }
             return Effect(value: FavoritesAction.updateFavoriteSongs(favoriteSongs))
         
         case .updateFavoriteSongs(let favoriteSongs):

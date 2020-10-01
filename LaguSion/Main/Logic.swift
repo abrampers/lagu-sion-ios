@@ -41,33 +41,21 @@ public struct MainState: Equatable {
 }
 
 extension MainState {
-    var currentSongs: [Song] {
+    var currentSongs: [SongViewState] {
         get {
+            var result: [Song] = []
             switch selectedBook {
             case .all:
-                return songs
+                result = songs
             case .songBook(let songBook):
-                return songs(for: songBook)
+                result = songs(for: songBook)
+            }
+            
+            return result.map { song -> SongViewState in
+                SongViewState(song: song, isFavorite: favoriteSongs.contains(song))
             }
         }
-        set(newSongs) {
-            let insertions = newSongs.filter { !songs.contains($0) }.map { newSongs.firstIndex(of: $0)! }
-            let updates = insertions
-                .map { idx -> Song in
-                    var curr = newSongs[idx]
-                    curr.isFavorite.toggle()
-                    return curr
-                }
-                .filter { songs.contains($0) }
-                .map { songs.firstIndex(of: $0)! }
-            
-            var updatedSongs = songs
-            updates
-                .forEach { (idx) in
-                    updatedSongs[idx].isFavorite.toggle()
-                }
-            
-            self.songs = updatedSongs
+        set {
         }
     }
     
@@ -163,7 +151,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
                 .debounce(id: SearchQueryChangedCancelId(), for: 0.2, scheduler: environment.mainQueue)
             
         case .song(index: let idx, action: .addToFavorites):
-            let addedSong = state.currentSongs[idx]
+            let addedSong = state.currentSongs[idx].song
             var newFavorites = state.favoriteSongs
             
             if !newFavorites.contains(addedSong) {
@@ -174,8 +162,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             }
         
         case .song(index: let idx, action: .removeFromFavorites):
-            var removedSong = state.currentSongs[idx]
-            removedSong.isFavorite = true
+            var removedSong = state.currentSongs[idx].song
             var newFavorites = state.favoriteSongs
             
             if newFavorites.contains(removedSong) {

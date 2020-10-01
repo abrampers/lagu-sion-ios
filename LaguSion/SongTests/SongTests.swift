@@ -15,35 +15,33 @@ import XCTest
 class SongTests: XCTestCase {
     func testHeartTapped_WithIsFavorite_False() {
         let store = TestStore(
-            initialState: Song(id: UUID(), number: 0, title: "", verses: [], songBook: .laguSion),
+            initialState: SongViewState(
+                song: Song(id: UUID(), number: 0, title: "", verses: [], songBook: .laguSion),
+                isFavorite: false
+            ),
             reducer: songReducer,
             environment: SongEnvironment()
         )
         
         store.assert(
             .send(.heartTapped),
-            .receive(.addToFavorites) {
-                $0.isFavorite = true
-            }
-            
+            .receive(.addToFavorites)
         )
     }
     
     func testHeartTapped_WithIsFavorite_True() {
-        var song = Song(id: UUID(), number: 0, title: "", verses: [], songBook: .laguSion)
-        song.isFavorite = true
-        
         let store = TestStore(
-            initialState: song,
+            initialState: SongViewState(
+                song: Song(id: UUID(), number: 0, title: "", verses: [], songBook: .laguSion),
+                isFavorite: true
+            ),
             reducer: songReducer,
             environment: SongEnvironment()
         )
         
         store.assert(
             .send(.heartTapped),
-            .receive(.removeFromFavorites) {
-                $0.isFavorite = false
-            }
+            .receive(.removeFromFavorites)
         )
     }
 }

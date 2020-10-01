@@ -23,7 +23,7 @@ public struct FavoritesView: View {
             WithViewStore(self.store) { viewStore in
                 List {
                     ForEachStore(
-                        self.store.scope(state: \.favoriteSongs, action: FavoritesAction.song(index:action:))
+                        self.store.scope(state: \.favoriteSongsState, action: FavoritesAction.song(index:action:))
                     ) { songViewStore in
                         NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: false)) {
                             SongRowView(store: songViewStore)

@@ -12,7 +12,7 @@ import DataSource
 import Song
 import SwiftUI
 
-internal struct HeaderView: View {
+internal struct SongHeader: View {
     internal let store: Store<MainState, MainAction>
     
     internal var body: some View {
@@ -36,6 +36,73 @@ internal struct HeaderView: View {
     }
 }
 
+//internal struct SongSection<Content: View>: View {
+//    let store: Store<MainState, MainAction>
+//    let content: Content
+//    let toLocalState: (MainState) -> [SongViewState]
+//
+//    init(_ selectedBook: BookSelection, store: Store<MainState, MainAction>, @ViewBuilder content: () -> Content) {
+//        self.store = store
+//        self.content = content()
+//
+//        switch selectedBook {
+//        case .all:
+//            toLocalState = { $0.songs }
+//        default:
+//            toLocalState = { $0.currentSongs }
+//        }
+//    }
+//
+//    var body: some View {
+//
+//    }
+//}
+
+internal struct SongList: View {
+    internal let store: Store<MainState, MainAction>
+    
+    internal init(store: Store<MainState, MainAction>) {
+        self.store = store
+    }
+    
+    internal var body: some View {
+        WithViewStore(self.store) { viewStore in
+            List {
+                Section {
+                    ForEachStore(
+                        self.store.scope(state: { $0.currentSongs }, action: MainAction.song(index:action:))
+                    ) { songViewStore in
+                        NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
+                            SongRowView(store: songViewStore)
+                        }
+                    }
+                }
+//                if viewStore.selectedBook == .all {
+//                    Section {
+//                        ForEachStore(
+//                            self.store.scope(state: { $0.songs }, action: MainAction.song(index:action:))
+//                        ) { songViewStore in
+//                            NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
+//                                SongRowView(store: songViewStore)
+//                            }
+//                        }
+//                    }
+//                } else {
+//                    Section {
+//                        ForEachStore(
+//                            self.store.scope(state: { $0.currentSongs }, action: MainAction.song(index:action:))
+//                        ) { songViewStore in
+//                            NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
+//                                SongRowView(store: songViewStore)
+//                            }
+//                        }
+//                    }
+//                }
+            }
+        }
+    }
+}
+
 public struct MainView: View {
     private let store: Store<MainState, MainAction>
     
@@ -47,31 +114,9 @@ public struct MainView: View {
         WithViewStore(self.store) { viewStore in
             NavigationView {
                 VStack {
-                    HeaderView(store: self.store)
+                    SongHeader(store: self.store)
                         .padding(EdgeInsets(top: 4, leading: 8, bottom: 0, trailing: 8))
-                    List {
-                        if viewStore.selectedBook == .all {
-                            Section {
-                                ForEachStore(
-                                    self.store.scope(state: \.songs, action: MainAction.song(index:action:))
-                                ) { songViewStore in
-                                    NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
-                                        SongRowView(store: songViewStore)
-                                    }
-                                }
-                            }
-                        } else {
-                            Section {
-                                ForEachStore(
-                                    self.store.scope(state: \.currentSongs, action: MainAction.song(index:action:))
-                                ) { songViewStore in
-                                    NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
-                                        SongRowView(store: songViewStore)
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    SongList(store: self.store)
                     .modifier(DismissingKeyboardOnSwipe())
                     .navigationBarTitle(Text("Lagu Sion"))
                     .animation(.spring())

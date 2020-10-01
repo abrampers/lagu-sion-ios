@@ -43,13 +43,10 @@ class SongTriggerTest: XCTestCase {
             )
         )
         
-        var firstSongFavorited = self.songs[0]
-        firstSongFavorited.isFavorite = true
+        let firstSongFavorited = self.songs[0]
         
         store.assert(
-            .send(.song(index: 0, action: .addToFavorites)) {
-                $0.songs[0].isFavorite = true
-            },
+            .send(.song(index: 0, action: .addToFavorites)),
             .receive(.updateFavoriteSongs(newFavorites: [firstSongFavorited])) {
                 $0.favoriteSongs = [firstSongFavorited]
             }
@@ -57,8 +54,7 @@ class SongTriggerTest: XCTestCase {
     }
     
     func testAddToFavorites_All_WhenExists() {
-        var song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSion)
-        song.isFavorite = true
+        let song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSion)
         
         let initialSongs = [song] + self.songs
         let store = TestStore(
@@ -85,8 +81,7 @@ class SongTriggerTest: XCTestCase {
     }
     
     func testRemoveFromFavorites_All_WhenExists() {
-        var song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSion)
-        song.isFavorite = true
+        let song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSion)
         
         let store = TestStore(
             initialState: MainState(
@@ -106,9 +101,7 @@ class SongTriggerTest: XCTestCase {
         )
         
         store.assert(
-            .send(.song(index: 0, action: .removeFromFavorites)) {
-                $0.songs[0].isFavorite = false
-            },
+            .send(.song(index: 0, action: .removeFromFavorites)),
             .receive(.updateFavoriteSongs(newFavorites: [])) {
                 $0.favoriteSongs = []
             }
@@ -116,8 +109,7 @@ class SongTriggerTest: XCTestCase {
     }
     
     func testRemoveFromFavorites_All_WhenEmpty() {
-        var song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSion)
-        song.isFavorite = true
+        let song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSion)
         
         let store = TestStore(
             initialState: MainState(
@@ -137,16 +129,13 @@ class SongTriggerTest: XCTestCase {
         )
         
         store.assert(
-            .send(.song(index: 0, action: .removeFromFavorites)) {
-                $0.songs[0].isFavorite = false
-            },
+            .send(.song(index: 0, action: .removeFromFavorites)),
             .receive(.noOp)
         )
     }
     
     func testRemoveFromFavorites_All_WhenOutOfRange() {
-        var song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSion)
-        song.isFavorite = true
+        let song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSion)
         
         let store = TestStore(
             initialState: MainState(
@@ -189,14 +178,10 @@ class SongTriggerTest: XCTestCase {
             )
         )
         
-        var firstSongFavorited = self.songs[0]
-        firstSongFavorited.isFavorite = true
-        let newFavorites = [firstSongFavorited]
+        let newFavorites = [self.songs[0]]
         
         store.assert(
-            .send(.song(index: 0, action: .addToFavorites)) {
-                $0.songs[0].isFavorite = true
-            },
+            .send(.song(index: 0, action: .addToFavorites)),
             .receive(.updateFavoriteSongs(newFavorites: newFavorites)) {
                 $0.favoriteSongs = newFavorites
             }
@@ -204,8 +189,7 @@ class SongTriggerTest: XCTestCase {
     }
     
     func testAddToFavorites_LS_WhenExists() {
-        var song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSion)
-        song.isFavorite = true
+        let song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSion)
         
         let store = TestStore(
             initialState: MainState(
@@ -231,8 +215,7 @@ class SongTriggerTest: XCTestCase {
     }
     
     func testRemoveFromFavorites_LS_WhenExists() {
-        var song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSion)
-        song.isFavorite = true
+        let song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSion)
         
         let store = TestStore(
             initialState: MainState(
@@ -252,9 +235,7 @@ class SongTriggerTest: XCTestCase {
         )
         
         store.assert(
-            .send(.song(index: 0, action: .removeFromFavorites)) {
-                $0.songs[0].isFavorite = false
-            },
+            .send(.song(index: 0, action: .removeFromFavorites)),
             .receive(.updateFavoriteSongs(newFavorites: [])) {
                 $0.favoriteSongs = []
             }
@@ -303,14 +284,10 @@ class SongTriggerTest: XCTestCase {
             )
         )
         
-        var firstSongFavorited = self.songs[5]
-        firstSongFavorited.isFavorite = true
-        let newFavorites = [firstSongFavorited]
+        let newFavorites = [self.songs[5]]
         
         store.assert(
-            .send(.song(index: 0, action: .addToFavorites)) {
-                $0.songs[5].isFavorite = true
-            },
+            .send(.song(index: 0, action: .addToFavorites)),
             .receive(.updateFavoriteSongs(newFavorites: newFavorites)) {
                 $0.favoriteSongs = newFavorites
             }
@@ -318,8 +295,7 @@ class SongTriggerTest: XCTestCase {
     }
     
     func testAddToFavorites_LSEL_WhenExists() {
-        var song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSionEdisiLengkap)
-        song.isFavorite = true
+        let song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSionEdisiLengkap)
         
         let initialSongs = [song] + self.songs
         let store = TestStore(
@@ -346,8 +322,7 @@ class SongTriggerTest: XCTestCase {
     }
     
     func testRemoveFromFavorites_LSEL_WhenExists() {
-        var song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSionEdisiLengkap)
-        song.isFavorite = true
+        let song = Song(id: UUID(), number: 100, title: "", verses: [], reff: nil, songBook: .laguSionEdisiLengkap)
         
         let store = TestStore(
             initialState: MainState(
@@ -367,9 +342,7 @@ class SongTriggerTest: XCTestCase {
         )
         
         store.assert(
-            .send(.song(index: 3, action: .removeFromFavorites)) {
-                $0.songs[8].isFavorite = false
-            },
+            .send(.song(index: 3, action: .removeFromFavorites)),
             .receive(.updateFavoriteSongs(newFavorites: [])) {
                 $0.favoriteSongs = []
             }

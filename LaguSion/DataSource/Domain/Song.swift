@@ -17,16 +17,6 @@ public struct Song: Equatable, Identifiable {
     public let reff: Verse?
     public let songBook: SongBook
     
-    private var _isFavorite: Bool
-    public var isFavorite: Bool {
-        get {
-            _isFavorite
-        }
-        set {
-            _isFavorite = newValue
-        }
-    }
-    
     public init(id: UUID, number: Int, title: String, verses: [Verse], reff: Verse? = nil, songBook: SongBook) {
         self.id = id
         self.number = number
@@ -34,9 +24,6 @@ public struct Song: Equatable, Identifiable {
         self.verses = verses
         self.reff = reff
         self.songBook = songBook
-        
-        // MARK: TODO get isFavorite data locally
-        self._isFavorite = false
     }
     
     public init(pbSong: Lagusion_Song) {
@@ -46,9 +33,6 @@ public struct Song: Equatable, Identifiable {
         self.verses = pbSong.verses.map { Verse(pbVerse: $0) }
         self.reff = !pbSong.emptyReff ? Verse(pbVerse: pbSong.reff) : nil
         self.songBook = SongBook.proto(pbSongBook: pbSong.book)
-        
-        // MARK: TODO get isFavorite data locally
-        self._isFavorite = false
     }
 }
 
