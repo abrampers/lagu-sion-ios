@@ -14,15 +14,6 @@ import Settings
 import Song
 import SwiftUI
 
-struct FontModifier: ViewModifier {
-    var font: Font?
-    
-    func body(content: Content) -> some View {
-        content
-            .font(font)
-    }
-}
-
 struct RootView: View {
     let store: Store<AppState, AppAction>
     

@@ -36,28 +36,6 @@ internal struct SongHeader: View {
     }
 }
 
-//internal struct SongSection<Content: View>: View {
-//    let store: Store<MainState, MainAction>
-//    let content: Content
-//    let toLocalState: (MainState) -> [SongViewState]
-//
-//    init(_ selectedBook: BookSelection, store: Store<MainState, MainAction>, @ViewBuilder content: () -> Content) {
-//        self.store = store
-//        self.content = content()
-//
-//        switch selectedBook {
-//        case .all:
-//            toLocalState = { $0.songs }
-//        default:
-//            toLocalState = { $0.currentSongs }
-//        }
-//    }
-//
-//    var body: some View {
-//
-//    }
-//}
-
 internal struct SongList: View {
     internal let store: Store<MainState, MainAction>
     
@@ -77,27 +55,6 @@ internal struct SongList: View {
                         }
                     }
                 }
-//                if viewStore.selectedBook == .all {
-//                    Section {
-//                        ForEachStore(
-//                            self.store.scope(state: { $0.songs }, action: MainAction.song(index:action:))
-//                        ) { songViewStore in
-//                            NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
-//                                SongRowView(store: songViewStore)
-//                            }
-//                        }
-//                    }
-//                } else {
-//                    Section {
-//                        ForEachStore(
-//                            self.store.scope(state: { $0.currentSongs }, action: MainAction.song(index:action:))
-//                        ) { songViewStore in
-//                            NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: true)) {
-//                                SongRowView(store: songViewStore)
-//                            }
-//                        }
-//                    }
-//                }
             }
         }
     }

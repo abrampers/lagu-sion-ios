@@ -21,10 +21,7 @@ public enum FontSelection: String, CaseIterable {
     case baskerville = "Baskerville"
     case americanTypeWriter = "American Typewriter"
     case futura = "Futura"
-//    case menlo = "Menlo"
-//    case courier = "Courier"
     case verdana = "Verdana"
-//    case rockwell = "Rockwell"
     case gillsans = "Gill Sans"
     
     public var font: Font? {
@@ -49,14 +46,8 @@ public enum FontSelection: String, CaseIterable {
             return Font.custom("AmericanTypewriter", size: fontSize)
         case .futura:
             return Font.custom("Futura-Medium", size: fontSize)
-//        case .menlo:
-//            return Font.custom("Menlo-Regular", size: fontSize)
-//        case .courier:
-//            return Font.custom("Courier", size: fontSize)
         case .verdana:
             return Font.custom("Verdana", size: fontSize)
-//        case .rockwell:
-//            return Font.custom("Rockwell", size: fontSize)
         case .gillsans:
             return Font.custom("GillSans", size: fontSize)
         }
