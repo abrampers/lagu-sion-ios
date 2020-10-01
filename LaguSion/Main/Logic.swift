@@ -125,6 +125,14 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
         case .appear:
             return Effect(value: MainAction.getSongs)
             
+        case .error(let error):
+            state.alert = AlertState(
+                title: "Error: \(error.code.rawValue)",
+                message: "Message: \(String(describing: error.message))",
+                dismissButton: .default("OK", send: .alertDismissed)
+            )
+            return .none
+            
         case .getSongs:
             struct ListSongRequestCancelId: Hashable {}
             return environment.laguSionDataSource.listSongs(state.selectedBook, state.selectedSortOption).eraseToEffect()
@@ -143,14 +151,6 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             
         case .getSongsCompleted(let songs):
             state.songs = songs
-            return .none
-            
-        case .error(let error):
-            state.alert = AlertState(
-                title: "Error: \(error.code.rawValue)",
-                message: "Message: \(String(describing: error.message))",
-                dismissButton: .default("OK", send: .alertDismissed)
-            )
             return .none
             
         case .saveSearchQuery(let query):
@@ -215,5 +215,5 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
         case .noOp:
             return .none
         }
-    }.debug()
+    }
 )

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1485F72525AAD5008F2903 /* AppearTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1485F62525AAD5008F2903 /* AppearTest.swift */; };
+		1C1486012525AB62008F2903 /* ErrorAlertTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1486002525AB62008F2903 /* ErrorAlertTest.swift */; };
 		1C9FCB3E25246297007A310D /* BookSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB3D25246297007A310D /* BookSelection.swift */; };
 		1C9FCB48252462C1007A310D /* SortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB47252462C1007A310D /* SortOptions.swift */; };
 		1C9FCB5B252464A5007A310D /* LaguSionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCB5A252464A5007A310D /* LaguSionDataSource.swift */; };
@@ -408,6 +410,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1C1485F62525AAD5008F2903 /* AppearTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearTest.swift; sourceTree = "<group>"; };
+		1C1486002525AB62008F2903 /* ErrorAlertTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertTest.swift; sourceTree = "<group>"; };
 		1C9FCB3D25246297007A310D /* BookSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSelection.swift; sourceTree = "<group>"; };
 		1C9FCB47252462C1007A310D /* SortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOptions.swift; sourceTree = "<group>"; };
 		1C9FCB5A252464A5007A310D /* LaguSionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionDataSource.swift; sourceTree = "<group>"; };
@@ -705,6 +709,8 @@
 				21A4A09924CFCC1D002C574D /* SongBookSelectionTest.swift */,
 				21A4A09D24CFCC5C002C574D /* SortOptionSelectionTest.swift */,
 				1C9FCC1B252496A4007A310D /* SongTriggerTest.swift */,
+				1C1485F62525AAD5008F2903 /* AppearTest.swift */,
+				1C1486002525AB62008F2903 /* ErrorAlertTest.swift */,
 			);
 			path = MainTests;
 			sourceTree = "<group>";
@@ -1526,9 +1532,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C1485F72525AAD5008F2903 /* AppearTest.swift in Sources */,
 				21A4A09824CFCBED002C574D /* GetSongsTest.swift in Sources */,
 				21A4A09A24CFCC1D002C574D /* SongBookSelectionTest.swift in Sources */,
 				1C9FCC1C252496A4007A310D /* SongTriggerTest.swift in Sources */,
+				1C1486012525AB62008F2903 /* ErrorAlertTest.swift in Sources */,
 				21A4A09624CFCB0B002C574D /* SearchFieldTest.swift in Sources */,
 				21A4A09E24CFCC5C002C574D /* SortOptionSelectionTest.swift in Sources */,
 			);
