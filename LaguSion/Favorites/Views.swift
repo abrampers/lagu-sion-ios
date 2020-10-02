@@ -21,20 +21,24 @@ public struct FavoritesView: View {
     public var body: some View {
         NavigationView {
             WithViewStore(self.store) { viewStore in
-                List {
-                    ForEachStore(
-                        self.store.scope(state: \.favoriteSongsState, action: FavoritesAction.song(index:action:))
-                    ) { songViewStore in
-                        NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: false)) {
-                            SongRowView(store: songViewStore)
+                if viewStore.favoriteSongsState.isEmpty {
+                    Text("You have no favorite songs")
+                } else {
+                    List {
+                        ForEachStore(
+                            self.store.scope(state: \.favoriteSongsState, action: FavoritesAction.song(index:action:))
+                        ) { songViewStore in
+                            NavigationLink(destination: SongView(store: songViewStore, enableFavoriteButton: false)) {
+                                SongRowView(store: songViewStore)
+                            }
+                        }
+                        .onDelete { indexSet in
+                            viewStore.send(.deleteFavoriteSongs(indexSet))
                         }
                     }
-                    .onDelete { indexSet in
-                        viewStore.send(.deleteFavoriteSongs(indexSet))
-                    }
                 }
-                .navigationBarTitle(Text("Favorites"))
             }
+            .navigationBarTitle(Text("Favorites"))
         }
     }
 }
