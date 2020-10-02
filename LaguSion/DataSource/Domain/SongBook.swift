@@ -56,6 +56,15 @@ public enum SongBook: CaseIterable, Hashable {
         }
     }
     
+    public var color: Color {
+        switch self {
+        case .laguSion:
+            return Color(.systemTeal)
+        case .laguSionEdisiLengkap:
+            return Color(.systemGreen)
+        }
+    }
+    
     case laguSion
     case laguSionEdisiLengkap
 }

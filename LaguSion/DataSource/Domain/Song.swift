@@ -8,6 +8,7 @@
 
 import Foundation
 import Networking
+import SwiftUI
 
 public struct Song: Equatable, Identifiable {
     public let id: UUID
@@ -35,9 +36,8 @@ public struct Song: Equatable, Identifiable {
         self.songBook = SongBook.proto(pbSongBook: pbSong.book)
     }
     
-    public var prefix: String {
-        songBook.prefix
-    }
+    public var prefix: String { songBook.prefix }
+    public var color: Color { songBook.color }
 }
 
 extension Lagusion_Song {

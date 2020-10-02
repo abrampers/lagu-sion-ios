@@ -25,25 +25,12 @@ public struct SongViewState: Equatable, Identifiable {
 }
 
 extension SongViewState {
-    var number: Int {
-        song.number
-    }
-    
-    var title: String {
-        song.title
-    }
-    
-    var verses: [Verse] {
-        song.verses
-    }
-    
-    var reff: Verse? {
-        song.reff
-    }
-    
-    var prefix: String {
-        song.prefix
-    }
+    var number: Int { song.number }
+    var title: String { song.title }
+    var verses: [Verse] { song.verses }
+    var reff: Verse? { song.reff }
+    var prefix: String { song.prefix }
+    var color: Color { song.color }
 }
 
 public enum SongAction: Equatable {
