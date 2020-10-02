@@ -72,7 +72,7 @@ public enum MainAction: Equatable {
     case appear
     case error(LaguSionError)
     case getSongs
-    case getSongsCompleted([Song])
+    case setSongs([Song])
     case saveSearchQuery(String)
     case searchQueryChanged(String)
     case song(index: Int, action: SongAction)
@@ -126,7 +126,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
             return environment.laguSionDataSource.listSongs(state.selectedBook, state.selectedSortOption).eraseToEffect()
                 .debounce(id: ListSongRequestCancelId(), for: 0.2, scheduler: environment.mainQueue)
                 .map { (song) -> MainAction in
-                    return MainAction.getSongsCompleted(song)
+                    return MainAction.setSongs(song)
                 }
                 .catch { (error) -> Effect<MainAction, Never> in
                     return Effect(value: MainAction.error(error))
@@ -137,7 +137,7 @@ public let mainReducer: Reducer<MainState, MainAction, MainEnvironment> = .combi
                 .receive(on: environment.mainQueue)
                 .eraseToEffect()
             
-        case .getSongsCompleted(let songs):
+        case .setSongs(let songs):
             state.songs = songs
             return .none
             

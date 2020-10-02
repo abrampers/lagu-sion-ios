@@ -51,13 +51,13 @@ public struct SongView: View {
             ScrollView(.vertical, showsIndicators: true) {
                 VStack(alignment: .center, spacing: 10) {
                     Spacer()
-                    TitleView(title: viewStore.song.title)
+                    TitleView(title: viewStore.title)
                     Spacer()
-                    ForEach(0..<viewStore.song.verses.count) { i in
+                    ForEach(0..<viewStore.verses.count) { i in
                         Text("\(i + 1)")
                             .font(.system(.headline))
-                        VerseView(verse: viewStore.song.verses[i])
-                        Unwrap(viewStore.song.reff) { reff in
+                        VerseView(verse: viewStore.verses[i])
+                        Unwrap(viewStore.reff) { reff in
                             Spacer()
                             VerseView(verse: reff)
                         }
@@ -66,7 +66,7 @@ public struct SongView: View {
                     Spacer()
                 }
             }
-            .navigationBarTitle(Text("\(viewStore.song.songBook.prefix) no. \(viewStore.song.number)"))
+            .navigationBarTitle(Text("\(viewStore.prefix) no. \(viewStore.number)"))
             .navigationBarItems(
                 trailing: Button(action: { viewStore.send(.heartTapped) }) {
                     Image(systemName: viewStore.isFavorite ? "heart.fill" : "heart")
@@ -87,12 +87,12 @@ public struct SongRowView: View {
     public var body: some View {
         WithViewStore(self.store) { viewStore in
             HStack {
-                Text("\(viewStore.song.number)")
+                Text("\(viewStore.number)")
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
                     .background(Color(.systemGray6))
                     .cornerRadius(8)
-                Text(viewStore.song.title)
+                Text(viewStore.title)
                     .lineLimit(1)
                     .truncationMode(.tail)
             }

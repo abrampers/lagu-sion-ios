@@ -67,7 +67,7 @@ class SortOptionSelectionTest: XCTestCase {
             },
             .receive(.getSongs),
             .do { self.scheduler.advance(by: 0.21) },
-            .receive(.getSongsCompleted([])) {
+            .receive(.setSongs([])) {
                 $0.songs = []
             }
         )
@@ -91,7 +91,7 @@ class SortOptionSelectionTest: XCTestCase {
             },
             .receive(.getSongs),
             .do { self.scheduler.advance(by: 0.21) },
-            .receive(.getSongsCompleted([])) {
+            .receive(.setSongs([])) {
                 $0.songs = []
             }
         )

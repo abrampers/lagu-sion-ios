@@ -34,10 +34,14 @@ public struct Song: Equatable, Identifiable {
         self.reff = !pbSong.emptyReff ? Verse(pbVerse: pbSong.reff) : nil
         self.songBook = SongBook.proto(pbSongBook: pbSong.book)
     }
+    
+    public var prefix: String {
+        songBook.prefix
+    }
 }
 
 extension Lagusion_Song {
-    var emptyReff: Bool {
+    fileprivate var emptyReff: Bool {
         return !self.hasReff || self.reff == Lagusion_Verse()
     }
 }

@@ -24,6 +24,7 @@
 		1C9FCC1C252496A4007A310D /* SongTriggerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FCC1B252496A4007A310D /* SongTriggerTest.swift */; };
 		1C9FCC532524D6E9007A310D /* CombineGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 1C9FCC522524D6E9007A310D /* CombineGRPC */; };
 		1C9FCC652524D70E007A310D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1C9FCC642524D70E007A310D /* ComposableArchitecture */; };
+		1CD8A7022525E024008696B7 /* ContentSizeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD8A7012525E024008696B7 /* ContentSizeSelection.swift */; };
 		212FE3A924B446AC00985DEA /* SnapshotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212FE3A824B446AC00985DEA /* SnapshotUITests.swift */; };
 		212FE3B024B446B900985DEA /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212864F524AEBF5400E79296 /* SnapshotHelper.swift */; };
 		21305C06247A803200F2D76A /* Song.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21305BFD247A803200F2D76A /* Song.framework */; };
@@ -417,6 +418,7 @@
 		1C9FCB5A252464A5007A310D /* LaguSionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionDataSource.swift; sourceTree = "<group>"; };
 		1C9FCBD42524829F007A310D /* LaguSionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaguSionError.swift; sourceTree = "<group>"; };
 		1C9FCC1B252496A4007A310D /* SongTriggerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTriggerTest.swift; sourceTree = "<group>"; };
+		1CD8A7012525E024008696B7 /* ContentSizeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizeSelection.swift; sourceTree = "<group>"; };
 		212864F524AEBF5400E79296 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		212FE3A624B446AC00985DEA /* SnapshotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		212FE3A824B446AC00985DEA /* SnapshotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotUITests.swift; sourceTree = "<group>"; };
@@ -745,6 +747,7 @@
 				2157B23A24D15CA300136EFB /* Common.h */,
 				2157B23B24D15CA300136EFB /* Info.plist */,
 				21B6BA6324D5DAE90090E2AC /* FontSelection.swift */,
+				1CD8A7012525E024008696B7 /* ContentSizeSelection.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1568,6 +1571,7 @@
 				2157B24924D15CC000136EFB /* Publisher+Extension.swift in Sources */,
 				2157B24824D15CC000136EFB /* SearchField.swift in Sources */,
 				2157B24A24D15CC000136EFB /* DismissingKeyboardOnSwipe.swift in Sources */,
+				1CD8A7022525E024008696B7 /* ContentSizeSelection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

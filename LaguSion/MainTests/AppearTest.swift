@@ -29,7 +29,7 @@ class AppearTest: XCTestCase {
             .send(.appear),
             .receive(.getSongs),
             .do { self.scheduler.advance(by: 0.21) },
-            .receive(.getSongsCompleted([])) {
+            .receive(.setSongs([])) {
                 $0.songs = []
             }
         )

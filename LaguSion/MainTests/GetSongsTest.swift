@@ -34,7 +34,7 @@ class GetSongsTest: XCTestCase {
         store.assert(
             .send(.getSongs),
             .do { self.scheduler.advance(by: 0.21) },
-            .receive(.getSongsCompleted([])) {
+            .receive(.setSongs([])) {
                 $0.songs = []
             }
         )
@@ -91,7 +91,7 @@ class GetSongsTest: XCTestCase {
         store.assert(
             .send(.getSongs),
             .do { self.scheduler.advance(by: 0.21) },
-            .receive(.getSongsCompleted(songs)) {
+            .receive(.setSongs(songs)) {
                 $0.songs = songs
             }
         )
@@ -112,7 +112,7 @@ class GetSongsTest: XCTestCase {
             .do { self.scheduler.advance(by: 0.11) },
             .send(.getSongs),
             .do { self.scheduler.advance(by: 0.21) },
-            .receive(.getSongsCompleted([])) {
+            .receive(.setSongs([])) {
                 $0.songs = []
             }
         )

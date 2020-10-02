@@ -10,29 +10,6 @@ import Common
 import ComposableArchitecture
 import SwiftUI
 
-public enum ContentSizeSelection: String, CaseIterable {
-    case small = "Small"
-    case normal = "Normal"
-    case large = "Large"
-    case extraLarge = "Extra Large"
-    case extraExtraLarge = "Extra Extra Large"
-    
-    public var contentSize: ContentSizeCategory {
-        switch self {
-        case .small:
-            return .medium
-        case .normal:
-            return .large
-        case .large:
-            return .extraLarge
-        case .extraLarge:
-            return .extraExtraLarge
-        case .extraExtraLarge:
-            return .extraExtraExtraLarge
-        }
-    }
-}
-
 public struct SettingsState: Equatable {
     public var isAvailableOffline: Bool
     public var fontSelection: FontSelection
@@ -49,7 +26,7 @@ public struct SettingsState: Equatable {
     }
 }
 
-public enum SettingsAction {
+public enum SettingsAction: Equatable {
     case fontSelectionChanged(FontSelection)
     case contentSizeSelectionChanged(ContentSizeSelection)
 }

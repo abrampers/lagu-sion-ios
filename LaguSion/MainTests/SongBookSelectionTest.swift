@@ -35,7 +35,7 @@ class SongBookSelectionTest: XCTestCase {
             },
             .receive(.getSongs),
             .do { self.scheduler.advance(by: 0.21) },
-            .receive(.getSongsCompleted([])) {
+            .receive(.setSongs([])) {
                 $0.songs = []
             },
             .send(.songBookPicked(.songBook(.laguSion))) {
@@ -43,7 +43,7 @@ class SongBookSelectionTest: XCTestCase {
             },
             .receive(.getSongs),
             .do { self.scheduler.advance(by: 0.21) },
-            .receive(.getSongsCompleted([])) {
+            .receive(.setSongs([])) {
                 $0.songs = []
             },
             .send(.songBookPicked(.songBook(.laguSionEdisiLengkap))) {
@@ -51,7 +51,7 @@ class SongBookSelectionTest: XCTestCase {
             },
             .receive(.getSongs),
             .do { self.scheduler.advance(by: 0.21) },
-            .receive(.getSongsCompleted([])) {
+            .receive(.setSongs([])) {
                 $0.songs = []
             }
         )
