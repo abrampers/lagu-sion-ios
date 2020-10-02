@@ -18,20 +18,20 @@ internal struct SongHeader: View {
     internal var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack {
-                    Picker(
-                        "Selected Book",
-                        selection: viewStore.binding(get: { $0.selectedBook }, send: { MainAction.songBookPicked($0) })
-                    ) {
-                        ForEach(BookSelection.allCases, id: \.self) { bookSelection in
-                            Text(bookSelection.localizedIdentifier).tag(bookSelection)
-                        }
+                Picker(
+                    "Selected Book",
+                    selection: viewStore.binding(get: { $0.selectedBook }, send: { MainAction.songBookPicked($0) })
+                ) {
+                    ForEach(BookSelection.allCases, id: \.self) { bookSelection in
+                        Text(bookSelection.localizedIdentifier).tag(bookSelection)
                     }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
                 }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
                 SearchField(text: viewStore.binding(
                     get: { $0.searchQuery }, send: MainAction.searchQueryChanged
                 ))
+            }
         }
     }
 }
@@ -46,6 +46,9 @@ internal struct SongList: View {
     internal var body: some View {
         WithViewStore(self.store) { viewStore in
             List {
+                Section {
+                    SongHeader(store: self.store)
+                }
                 Section {
                     ForEachStore(
                         self.store.scope(state: { $0.currentSongs }, action: MainAction.song(index:action:))
@@ -68,25 +71,20 @@ public struct MainView: View {
     }
     
     public var body: some View {
-        WithViewStore(self.store) { viewStore in
-            NavigationView {
-                VStack {
-                    SongHeader(store: self.store)
-                        .padding(EdgeInsets(top: 4, leading: 8, bottom: 0, trailing: 8))
-                    SongList(store: self.store)
-                    .modifier(DismissingKeyboardOnSwipe())
-                    .navigationBarTitle(Text("Lagu Sion"))
-                    .animation(.spring())
-                    .listStyle(PlainListStyle())
+        NavigationView {
+            WithViewStore(self.store) { viewStore in
+                SongList(store: self.store)
                     .navigationBarItems(trailing:
-                        Button(action: { viewStore.send(MainAction.sortOptionTapped) }) { viewStore.selectedSortOption.image }
-                            .actionSheet(self.store.scope(state: \.actionSheet), dismiss: .actionSheetDismissed)
-                            .alert(self.store.scope(state: \.alert), dismiss: .alertDismissed)
+                                            Button(action: { viewStore.send(MainAction.sortOptionTapped) }) { viewStore.selectedSortOption.image }
+                                            .actionSheet(self.store.scope(state: \.actionSheet), dismiss: .actionSheetDismissed)
+                                            .alert(self.store.scope(state: \.alert), dismiss: .alertDismissed)
                     )
-                    
-                }
+                    .onAppear(perform: { viewStore.send(.appear) })
             }
-            .onAppear(perform: { viewStore.send(.appear) })
+            .modifier(DismissingKeyboardOnSwipe())
+            .navigationBarTitle(Text("Lagu Sion"))
+            .animation(.spring())
+            .listStyle(PlainListStyle())
         }
     }
 }
