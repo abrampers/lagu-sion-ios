@@ -8,6 +8,7 @@
 
 import Combine
 import DataSource
+import Foundation
 
 internal class Constants {
     internal static let laguSionHost = "0.tcp.ngrok.io"
